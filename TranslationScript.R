@@ -1,4 +1,8 @@
 # Script that does the translation
+# db is the database name from where the names can be fetched
+# geneNames are the gene names in that specific domain
 source("http://bioconductor.org/biocLite.R")
-biocLite("hgu133plus2.db") # Should be generic
-library("hgu133plus2.db")
+biocLite(db) # Should be generic
+library(db, character.only = TRUE)
+dbOb <- get(db);
+result <- select(dbOb, geneNames, c("SYMBOL"))
