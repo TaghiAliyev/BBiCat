@@ -1,0 +1,107 @@
+package opsmextraction.bendor_reloaded;
+
+import opsmextraction.util.*;
+
+/**
+ * Bendor Reloaded Algorithm.
+ *
+ * @author Thomas Frech
+ * @version 2004-07-22
+ */
+public final class BendorReloadedAlgorithm
+{
+	/**
+	 * Run algorithm over full <tt>s</tt> range: <tt>s = 2...m</tt>
+	 *
+	 * @param dataset dataset
+	 * @param l algorithm parameter
+	 * @return result record
+	 */
+	public static ParetoModelRecord run(Dataset dataset, int l)
+	{
+		return run(dataset,l,2,dataset.m);
+	}
+
+	/**
+	 * Run algorithm for a specified range of <tt>s</tt>: <tt>s = s1...s2</tt>
+	 *
+	 * @param dataset dataset
+	 * @param l algorithm parameter
+	 * @param s1 start value for s
+	 * @param s2 end value for s
+	 * @return result record
+	 */
+	public static ParetoModelRecord run(Dataset dataset, int l, int s1, int s2)
+	{
+		int n = dataset.n;
+		int m = dataset.m;
+
+		ParetoModelRecord record = new ParetoModelRecord();
+
+		for (int s=s1; s<=s2; s++)
+		{
+			if (Option.printProgress)
+				System.out.println("s = "+s);
+
+			// run algorithm for one value of s
+			BendorReloadedModel model = run(dataset,s,l);
+			if (model==null || model.k<=1)
+				break;
+			record.add(model);
+		}
+
+		return record;
+	}
+
+	/**
+	 * Run algorithm for one value of <tt>s</tt>
+	 *
+	 * @param dataset dataset
+	 * @param l algorithm parameter
+	 * @param s value of s
+	 * @return result record
+	 */
+	public static BendorReloadedModel run(Dataset dataset, int s, int l)
+	{
+		int n = dataset.n;
+		int m = dataset.m;
+
+		// fill first record with best l model initializations
+		BendorReloadedModelRecord record = new BendorReloadedModelRecord(l);
+		for (int ta=0; ta<m; ta++)
+			for (int tb=0; tb<m; tb++)
+				if (ta!=tb)
+				{
+					BendorReloadedModelInitialization modelInitialization = new BendorReloadedModelInitialization(dataset,s,ta,tb);
+					record.put(modelInitialization);
+				}
+
+		// if s=2, realize and return best complete model of size 2
+		if (s==2)
+			return record.realizeBest();
+
+		// else iterate until models are complete
+		for (int iteration=0; iteration<s-2; iteration++)
+		{
+			// realize best l models
+			BendorReloadedModel[] parent = record.realizeAll();
+
+			if (parent.length==0)
+				return null;
+
+			// create new record
+			record = new BendorReloadedModelRecord(l);
+
+			// evaluate all possible extensions of all parent models
+			for (int i=0; i<parent.length; i++)
+			{
+				for (int t=0; t<m; t++)
+					if (!parent[i].isInT[t])
+						record.put(new BendorReloadedModelExtension(parent[i],t));
+			}
+		}
+
+		// realize and return best complete model of size s
+		return record.realizeBest();
+	}
+}

@@ -1,0 +1,19 @@
+[PropertyInfo]
+chart,org.jfree.chart.JFreeChart,false,false, , ,false,<default>
+chartPanel,org.jfree.chart.ChartPanel,false,false, , ,false,<default>
+chipList,java.util.Vector,false,false, , ,false,<default>
+colorWheel,java.awt.Color[],false,false, , ,false,<default>
+DEFAULT_X_TABLE,int,false,false, , ,false,<default>
+filledRect,java.awt.Rectangle,false,false, , ,false,<default>
+geneList,java.util.Vector,false,false, , ,false,<default>
+GProfiles,org.jfree.data.xy.DefaultTableXYDataset,false,false, , ,false,<default>
+graphDataList,java.util.Vector,false,false, , ,false,<default>
+owner,bicat.gui.BicatGui,false,false, , ,true,<default>
+pictureSize,java.awt.Dimension,false,false, , ,true,<default>
+XStep,int,false,false, , ,false,<default>
+YStep,int,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

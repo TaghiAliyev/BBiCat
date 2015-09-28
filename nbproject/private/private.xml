@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015. This file is part of BiCat.
+  ~
+  ~                                BiCat is a free software: you can redistribute it and/or modify
+  ~                                it under the terms of the GNU General Public License as published by
+  ~                                the Free Software Foundation, either version 3 of the License, or
+  ~                                (at your option) any later version.
+  ~
+  ~                                BiCat is distributed in the hope that it will be useful,
+  ~                                but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~                                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~                                GNU General Public License for more details.
+  ~
+  ~                                You should have received a copy of the GNU General Public License
+  ~                                along with BiCat.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  ~                                Copyright notice : Copyright (c) 2005 Swiss Federal Institute of Technology, Computer Engineering and Networks Laboratory. All rights reserved.
+  ~
+  ~                                IN NO EVENT SHALL THE SWISS FEDERAL INSTITUTE OF TECHNOLOGY, COMPUTER
+  ~                                 ENGINEERING AND NETWORKS LABORATORY BE LIABLE TO ANY PARTY FOR
+  ~                                 DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
+  ~                                 OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE
+  ~                                 SWISS FEDERAL INSTITUTE OF TECHNOLOGY, COMPUTER ENGINEERING AND
+  ~                                 NETWORKS LABORATORY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+  ~                                 DAMAGE.
+  ~
+  ~                                THE SWISS FEDERAL INSTITUTE OF TECHNOLOGY, COMPUTER ENGINEERING AND
+  ~                                NETWORKS LABORATORY, SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+  ~                                BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  ~                                FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE PROVIDED HEREUNDER IS
+  ~                                ON AN "AS IS" BASIS, AND THE SWISS FEDERAL INSTITUTE OF TECHNOLOGY,
+  ~                                COMPUTER ENGINEERING AND NETWORKS LABORATORY HAS NO OBLIGATION
+  ~                                TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR
+  ~                                MODIFICATIONS.
+  -->
+
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/tagi1_000/eclipseWorkspace/CERNProject/src/bicat/gui/BicatGui.java</file>
+        </group>
+    </open-files>
+</project-private>

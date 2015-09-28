@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/jfreechart-0.9.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/gnujaxp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/floyd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/jcommon-0.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/junit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
