@@ -2,9 +2,11 @@ package MetaFramework;
 
 import bicat.biclustering.Bicluster;
 import lombok.Data;
+import org.w3c.dom.NodeList;
 import rcaller.RCaller;
 import rcaller.RCode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -19,13 +21,14 @@ public class RConnection {
     private RCaller rcaller;
     private RCode code;
 
-    public RConnection() {
+    public RConnection(boolean streamOutput) {
         // Initializing the needed instances/classes
         this.rcaller = new RCaller();
         this.code = new RCode();
         // Setting the R executable that is used. Change this to your local one!
         rcaller.setRscriptExecutable("C:\\Program Files\\R\\R-3.1.2\\bin\\x64\\Rscript.exe");
-        rcaller.redirectROutputToStream(System.out);
+        if (streamOutput)
+            rcaller.redirectROutputToStream(System.out);
 //        rcaller.StopRCallerOnline();
     }
 
@@ -38,7 +41,6 @@ public class RConnection {
     public void addClusters(LinkedList<Bicluster> biclusters, Vector<String> geneNames) {
         // Adding clusters to the R environment.
         code.addRCode("whole_list <- list()");
-        String[] tmpNames = new String[]{"ADCY6", "ADCY3"};
         // So, let's do this: First cluster gets first, second second and third all 3
         int cnt = 0;
         for (Bicluster tmp : biclusters)
@@ -50,20 +52,6 @@ public class RConnection {
                 geneCluster[i] = geneNames.get(tmp.getGenes()[i]);
             }
 
-            if (cnt %3 == 0)
-            {
-                // Only first
-                geneCluster[0] = tmpNames[0];
-            }
-            else if (cnt % 3 == 1)
-            {
-                geneCluster[0] = tmpNames[1];
-            }
-            else
-            {
-                geneCluster[0] = tmpNames[0];
-                geneCluster[1] = tmpNames[1];
-            }
             // geneCluster now contains all the gene names needed
             // We should add it as a list
             code.addStringArray("geneList" + cnt, geneCluster);
@@ -107,17 +95,27 @@ public class RConnection {
      *
      *
      */
-    public void callRScript() {
+    public void callRScript(String returnVar) {
         // Calling the R script after adding the clusters to the environment
         try {
             // Here we should call the script
             code.addRCode("source(link[1])");
 
             rcaller.setRCode(code);
-            rcaller.runOnly();
+            if (returnVar == "")
+                rcaller.runOnly();
+            else
+                rcaller.runAndReturnResult(returnVar);
 //            rcaller.runAndReturnResult("counter");
 
-//            System.out.println(rcaller.getParser().getNames());
+//            rcaller.runOnly();
+//            rcaller.runAndReturnResult(returnVar);
+            System.out.println(rcaller.getParser().getNames());
+//            System.out.println(rcaller.getRCode().getCode());
+//            System.out.println(rcaller.getParser().getValueNodes("ENTREZID").item(1).getChildNodes().item(0).getNodeValue());
+
+            if (returnVar != "")
+                System.out.println(rcaller.getParser().getNames());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

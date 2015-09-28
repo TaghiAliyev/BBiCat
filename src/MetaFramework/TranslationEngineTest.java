@@ -64,40 +64,80 @@
 package MetaFramework;
 
 import bicat.biclustering.Bicluster;
+import org.w3c.dom.NodeList;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.Vector;
+import java.util.*;
 
 /**
- * Class that will try to run both Biclustering and then sent its results to R script for GO analysis
+ * This script tries to run Translation code written in R and test it to see how it works and how the results could be interpreted
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class BicatAndRTest {
+public class TranslationEngineTest {
 
-    public static void main(String[] args) throws Exception {
-        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+    public static void main(String[] args) throws Exception
+    {
+//        // Getting all the gene names
+//        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+//        PathwayAnalysis engine = new PathwayAnalysis(file);
+//
+//        Set<String> genes = engine.geneToPathways.keySet();
+//        String[] geneNames = new String[40];
+//        geneNames = genes.toArray(geneNames);
+//
+//        // Reading a sample dataset
+//        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+//
+//        // Creating BiCat engine that can run the algorithms on the dataset.
+//        // If you want to change the parameters, adopt the methods themselves
+//        BicatMethods bicatEngine = new BicatMethods(fileLocation);
+//
+//        // Let's run the algorithm now
+//        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
 
-        // Creating BiCat engine that can run the algorithms on the dataset.
-        // If you want to change the parameters, adopt the methods themselves
-        BicatMethods bicatEngine = new BicatMethods(fileLocation);
+        String rScript = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/TranslationScript.R";
+        RConnection connection = new RConnection(false);
+        connection.setUp(rScript);
+        connection.getCode().addRCode("db <- \"org.Hs.eg.db\"");
+        // Note: this ones do not have any ambiguity. They are 1 to 1 matches. Still looking for ambiguity
+        connection.getCode().addRCode("geneNames <- c(\"5982\",\"5975\",\"5890\",\"5210\")");
+        connection.callRScript("result");
 
-        // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
+        // Getting the symbol
+        NodeList symList = connection.getRcaller().getParser().getValueNodes("SYMBOL");
+        NodeList entrezList = connection.getRcaller().getParser().getValueNodes("ENTREZID");
+        HashMap<String, ArrayList<String>> entrezToSymbols = new HashMap<String, ArrayList<String>>();
 
-        // Once clusters are computed, we should send them to the R script
-        RConnection rConnection = new RConnection(true);
-        String root = new File(".").getAbsolutePath();
-        root = root.replace("\\", "\\\\");
-        root = root.substring(0, root.length() - 1);
-//        System.out.println(root);
-        rConnection.setUp(root + "GeneOntologyRetriever.R");
-        // Adding the biclusters to the R environment
-        Vector<String> geneNames = bicatEngine.getData().getGeneNames();
-        rConnection.addClusters(biclusters, geneNames);
-// Calling the script after adding the biclusters to the environment
-        rConnection.callRScript("");
-//        rConnection.getRcaller().StopRCallerOnline();
+        for (int i = 0; i < symList.getLength(); i++)
+        {
+            if (symList.item(i).getChildNodes() != null && symList.item(i).getChildNodes().getLength() > 0) {
+                String entrezID = entrezList.item(i).getChildNodes().item(0).getNodeValue();
+                String geneName = symList.item(i).getChildNodes().item(0).getNodeValue();
+                if (entrezToSymbols.get(entrezID) == null)
+                {
+                    ArrayList<String> syms = new ArrayList<String>();
+                    syms.add(geneName);
+                    entrezToSymbols.put(entrezID, syms);
+                }
+                else
+                {
+                    ArrayList<String> syms = entrezToSymbols.get(entrezID);
+                    syms.add(geneName);
+                    entrezToSymbols.put(entrezID, syms);
+                }
+            }
+        }
+
+        // Let's go through them
+        Set<String> allEntrez = entrezToSymbols.keySet();
+        for (String tmp : allEntrez)
+        {
+            for (String tmp2 : entrezToSymbols.get(tmp))
+                System.out.println(tmp2);
+            System.out.println();
+        }
+
     }
+
 }

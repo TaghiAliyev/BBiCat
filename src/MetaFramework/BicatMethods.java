@@ -82,6 +82,8 @@ public class BicatMethods {
     public LinkedList<Bicluster> callISA() {
         LinkedList<Bicluster> result = null;
 
+        // TODO: DO THIS!!!
+
         return result;
     }
 
@@ -90,6 +92,8 @@ public class BicatMethods {
      */
     public LinkedList<Bicluster> callKMeans() {
         LinkedList<Bicluster> result = null;
+
+        // TODO : DO THIS!!!
 
 
         return result;

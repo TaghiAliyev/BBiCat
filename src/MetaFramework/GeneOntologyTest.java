@@ -75,7 +75,7 @@ public class GeneOntologyTest {
         // Just a dummy data
 
 
-        RConnection rConnection = new RConnection();
+        RConnection rConnection = new RConnection(true);
         // Adding the biclusters to the R environment.
         // Calling the script after adding the biclusters to the environment
 //        rConnection.callRScript("C:/Users/tagi1_000/Desktop/CERN/GeneOntologyRetriever.R");
