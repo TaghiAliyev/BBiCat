@@ -65,6 +65,7 @@ package MetaFramework;
 
 import bicat.biclustering.Bicluster;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -80,17 +81,21 @@ public class BicatAndRTest {
 
         // Creating BiCat engine that can run the algorithms on the dataset.
         // If you want to change the parameters, adopt the methods themselves
-        BicatMethods bicatEngine = new BicatMethods(fileLocation);
+//        BicatMethods bicatEngine = new BicatMethods(fileLocation);
 
         // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
+//        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
 
         // Once clusters are computed, we should send them to the R script
         RConnection rConnection = new RConnection();
-        rConnection.setUp("C:/Users/tagi1_000/Desktop/CERN/GeneOntologyRetriever.R");
+        String root = new File(".").getAbsolutePath();
+        root = root.replace("\\", "\\\\");
+        root = root.substring(0, root.length() - 1);
+//        System.out.println(root);
+        rConnection.setUp(root + "GeneOntologyRetriever.R");
         // Adding the biclusters to the R environment
-        Vector<String> geneNames = bicatEngine.getData().getGeneNames();
-        rConnection.addClusters(biclusters, geneNames);
+//        Vector<String> geneNames = bicatEngine.getData().getGeneNames();
+//        rConnection.addClusters(biclusters, geneNames);
 // Calling the script after adding the biclusters to the environment
         rConnection.callRScript();
 //        rConnection.getRcaller().StopRCallerOnline();

@@ -29,6 +29,7 @@ for (i in 1:lengthOf)
 {
 	interestedGo = go_ids[i,1];
 	if (is.na(interestedGo) && length(interestedGo) > 0){
+	print(interestedGo)
 	# We should get all related genes to this GO term
 	geneList = getBM(attributes = "hgnc_symbol", filters = "go_id", values = interestedGo, mart = ensembl);
 	intersectionOfTwo = intersect(whole_list[[1]], geneList[,1]);
