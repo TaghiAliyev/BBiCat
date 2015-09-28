@@ -83,10 +83,10 @@ public class PathwayAnalysisTest {
         String[] geneNames = new String[40];
         geneNames = genes.toArray(geneNames);
 //
-//        for (String tmp : genes)
-//        {
-//            System.out.println("Gene name : " + tmp);
-//        }
+        for (String tmp : genes)
+        {
+            System.out.println("Gene name : " + tmp);
+        }
 //
 //        ArrayList<String> pathways = engine.geneToPathways.get("ADCY3");
 //

@@ -1,0 +1,8 @@
+*.class
+
+hs_err_pid*
+.mtj.tmp/
+
+*.so
+*.jnilib
+*.sh

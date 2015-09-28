@@ -7,6 +7,9 @@
       <root url="jar://$PROJECT_DIR$/src/lib/servlet.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/lib/jcommon-0.9.6.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/lib/floyd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/lombok.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/RCaller-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/combinatoricslib-2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
