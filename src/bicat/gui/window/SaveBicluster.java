@@ -1,25 +1,25 @@
 /*
- *                                BiCat is a toolbox that combines different Bi-Clustering and clustering techniques in it, which
- *                                can be applied on a given dataset. This software is the modified version of the original BiCat
- *                                Toolbox implemented at ETH Zurich by Simon Barkow, Eckart Zitzler, Stefan Bleuler, Amela
- *                                Prelic and Don Frick.
+ *                                BBiCat is a toolbox that combines different Biological Post-Analytic tools, Bi-Clustering and
+ *                                clustering techniques in it, which can be applied on a given dataset. This software is the
+ *                                modified version of the original BiCat Toolbox implemented at ETH Zurich by Simon
+ *                                Barkow, Eckart Zitzler, Stefan Bleuler, Amela Prelic and Don Frick.
  *
  *                                Copyright (c) 2015 Taghi Aliyev
  *
- *                                This file is part of BiCat.
+ *                                This file is part of BBiCat.
  *
- *                                BiCat is a free software: you can redistribute it and/or modify
+ *                                BBiCat is a free software: you can redistribute it and/or modify
  *                                it under the terms of the GNU General Public License as published by
  *                                the Free Software Foundation, either version 3 of the License, or
  *                                (at your option) any later version.
  *
- *                                BiCat is distributed in the hope that it will be useful,
+ *                                BBiCat is distributed in the hope that it will be useful,
  *                                but WITHOUT ANY WARRANTY; without even the implied warranty of
  *                                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *                                GNU General Public License for more details.
  *
  *                                You should have received a copy of the GNU General Public License
- *                                along with BiCat.  If not, see <http://www.gnu.org/licenses/>.
+ *                                along with BBiCat.  If not, see <http://www.gnu.org/licenses/>.
  *
  *                                You can contact the author at the following email address:
  *                                taghi.aliyev@cern.ch
