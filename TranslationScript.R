@@ -6,5 +6,4 @@ biocLite(db) # Should be generic
 library(db, character.only = TRUE)
 dbOb <<- get(db);
 result <<- select(dbOb, geneNames, c("SYMBOL"))
-assign("result2", select(dbOb, geneNames, c("SYMBOL")), envir = .GlobalEnv)
 print(result)

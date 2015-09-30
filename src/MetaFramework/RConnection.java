@@ -6,6 +6,7 @@ import org.w3c.dom.NodeList;
 import rcaller.RCaller;
 import rcaller.RCode;
 
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Vector;
@@ -117,7 +118,9 @@ public class RConnection {
             if (returnVar != "")
                 System.out.println(rcaller.getParser().getNames());
         } catch (Exception e) {
-            e.printStackTrace();
+            // Catch the exception here!
+            JOptionPane.showMessageDialog(null, "Seems like wrong database name was inputted. Please, consider changing the database name!");
+//            e.printStackTrace();
         } finally {
             rcaller.StopRCallerOnline();
             rcaller.stopStreamConsumers();

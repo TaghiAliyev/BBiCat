@@ -64,6 +64,7 @@
 package MetaFramework;
 
 import gnu.xml.dom.DomElement;
+import lombok.Data;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -80,11 +81,12 @@ import java.util.HashMap;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+@Data
 public class PathwayAnalysis {
 
     // Two hashmaps that will contain pathway to the genes relations and genes to pathway relations
-    HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
-    HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
+    private HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
+    private HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
 
     // Main Document File that will be used around
     Document mainDoc;

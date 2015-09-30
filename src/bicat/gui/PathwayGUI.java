@@ -61,97 +61,24 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package bicat.gui;
 
-import bicat.biclustering.Bicluster;
-import org.w3c.dom.NodeList;
-
-import java.io.File;
-import java.util.*;
+import javax.swing.*;
 
 /**
- * This script tries to run Translation code written in R and test it to see how it works and how the results could be interpreted
+ * Creates the GUI element that will be used in order to perform Pathway Analysis on the given bicluster list
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class TranslationEngineTest {
+public class PathwayGUI extends JPanel {
 
-    public static void main(String[] args) throws Exception {
-//        // Getting all the gene names
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
-        PathwayAnalysis engine = new PathwayAnalysis(file);
-
-        Set<String> genes = engine.getGeneToPathways().keySet();
-        System.out.println("Number of genes : " + genes.size());
-        String[] geneNames = new String[40];
-        geneNames = genes.toArray(geneNames);
-//
-//        // Reading a sample dataset
-//        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
-//
-//        // Creating BiCat engine that can run the algorithms on the dataset.
-//        // If you want to change the parameters, adopt the methods themselves
-//        BicatMethods bicatEngine = new BicatMethods(fileLocation);
-//
-//        // Let's run the algorithm now
-//        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
-
-        String rScript = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/TranslationScript.R";
-        RConnection connection = new RConnection(false);
-        connection.setUp(rScript);
-        // Entrez : org.Hs.eg.db
-        // Some random: hgu133plus2.db . Examples for it : "91617_at","78495_at","65585_at", "241834_at","209079_x_at"
-        //
-        connection.getCode().addRCode("db <- \"hgu133plus2.db\"");
-        // Note: this ones do not have any ambiguity. They are 1 to 1 matches. Still looking for ambiguity
-        // "91617_at","78495_at","65585_at", "241834_at",
-        connection.getCode().addRCode("geneNames <- c( \"209079_x_at\")");
-        connection.callRScript("result");
-        String entrOrProbe = connection.getRcaller().getParser().getNames().get(0);
-
-        // Getting the symbol
-        NodeList symList = connection.getRcaller().getParser().getValueNodes("SYMBOL");
-        NodeList entrezList = connection.getRcaller().getParser().getValueNodes(entrOrProbe);
-        HashMap<String, ArrayList<String>> entrezToSymbols = new HashMap<String, ArrayList<String>>();
-
-        for (int i = 0; i < symList.getLength(); i++) {
-            if (symList.item(i).getChildNodes() != null && symList.item(i).getChildNodes().getLength() > 0) {
-                String entrezID = entrezList.item(i).getChildNodes().item(0).getNodeValue();
-                String geneName = symList.item(i).getChildNodes().item(0).getNodeValue();
-                if (entrezToSymbols.get(entrezID) == null) {
-                    ArrayList<String> syms = new ArrayList<String>();
-                    syms.add(geneName);
-                    entrezToSymbols.put(entrezID, syms);
-                } else {
-                    ArrayList<String> syms = entrezToSymbols.get(entrezID);
-                    syms.add(geneName);
-                    entrezToSymbols.put(entrezID, syms);
-                }
-            }
-        }
-
-        // Here is the idea: Filter through the genes and only keep the ones we have
-        // Afterwards check if there is still more than two left
-        // Let's go through them
-        Set<String> allEntrez = entrezToSymbols.keySet();
-        for (String tmp : allEntrez) {
-            ArrayList<String> allGenes = entrezToSymbols.get(tmp);
-            ArrayList<String> actualThere = new ArrayList<String>();
-            for (String tmp2 : allGenes) {
-//                System.out.println(tmp2);
-                // Filter it here
-                if (engine.getGeneToPathways().get(tmp2) != null) {
-                    actualThere.add(tmp2);
-                    for (String pathway : engine.getGeneToPathways().get(tmp2))
-                        System.out.println(pathway);
-                }
-            }
-            System.out.println(actualThere.size());
-            if (actualThere.size() > 1)
-                System.out.println("DAAAAAAANGEEEEEER -> Here we will have the choosing option");
-            System.out.println();
-        }
+    public PathwayGUI()
+    {
 
     }
 
+    public void showWindow()
+    {
+
+    }
 }

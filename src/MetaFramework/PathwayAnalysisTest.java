@@ -79,7 +79,7 @@ public class PathwayAnalysisTest {
         String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
         PathwayAnalysis engine = new PathwayAnalysis(file);
 
-        Set<String> genes = engine.geneToPathways.keySet();
+        Set<String> genes = engine.getGeneToPathways().keySet();
         String[] geneNames = new String[40];
         geneNames = genes.toArray(geneNames);
 //
@@ -111,7 +111,7 @@ public class PathwayAnalysisTest {
             for (int i = 0; i < toFetch.length; i++) {
                 // This call will be updated. As in the sample data, gene names are just numbers, we do this
                 // However, TODO : Include the R Calling for parsing the gene names to HGNC Symbols
-                ArrayList<String> pathways = engine.geneToPathways.get(geneNames[toFetch[i]]);
+                ArrayList<String> pathways = engine.getGeneToPathways().get(geneNames[toFetch[i]]);
                 for (String tmp : pathways) {
                     System.out.println("Pathway named : " + tmp + " contains gene named " + geneNames[toFetch[i]]);
                 }

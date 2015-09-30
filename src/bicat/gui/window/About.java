@@ -122,18 +122,18 @@ public class About implements ActionListener {
         // pane with 2 tabs: Authors, Licensing...
         dialog = new JDialog(owner, "About BicAT");
 
-        // create top panel with general information on bicluster (SHOULD CORRECT THIS... nije idealno!.. 300404)
         JPanel topPanel = new JPanel(new FlowLayout());
 
         // here add some text.
         JPanel labelPanel = new JPanel(new GridLayout(0, 1));
-        labelPanel.add(new JLabel("Biclustering Analysis Toolbox V2.2\n\n"));
+        labelPanel.add(new JLabel("Biclustering Analysis Toolbox V3.0\n\n"));
         labelPanel.add(new JLabel("Copyright 2015: GNU PUBLIC LICENSE\n"));
-        labelPanel.add(new JLabel("Maintainer and Developer: Taghi Aliyev\nOriginal Developers: Simon Barkow, Amela Prelic, Stefan Bleuler\n"));
+        labelPanel.add(new JLabel("Maintainer and Developer: Taghi Aliyev.Original Developers: Simon Barkow, Amela Prelic, Stefan Bleuler\n"));
         labelPanel.add(new JLabel(
                 "Email: taghi.aliyev@cern.ch\n"));
         labelPanel.add(new JLabel(
                 "BiCat Website from ETH Zurich Group: http://www.tik.ee.ethz.ch/sop/bicat/\n"));
+        labelPanel.add(new JLabel("GitHub Repository for updated/refactored code : https://github.com/TaghiAliyev/BBiCat"));
         topPanel.add(labelPanel, BorderLayout.CENTER);
 
     /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */

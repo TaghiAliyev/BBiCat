@@ -61,51 +61,128 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package bicat.gui;
 
-import bicat.biclustering.Bicluster;
+import MetaFramework.RConnection;
+import bicat.Constants.MethodConstants;
+import bicat.Main.UtilFunctionalities;
+import bicat.biclustering.Dataset;
+import bicat.util.BicatUtil;
 import org.w3c.dom.NodeList;
 
-import java.io.File;
-import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Vector;
 
 /**
- * This script tries to run Translation code written in R and test it to see how it works and how the results could be interpreted
- *
+ * GUI element that will do translation and alter the loaded dataset
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class TranslationEngineTest {
+public class TranslationGUI implements ActionListener{
 
-    public static void main(String[] args) throws Exception {
-//        // Getting all the gene names
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
-        PathwayAnalysis engine = new PathwayAnalysis(file);
+    private BicatGui owner;
+    private UtilFunctionalities engine;
 
-        Set<String> genes = engine.getGeneToPathways().keySet();
-        System.out.println("Number of genes : " + genes.size());
-        String[] geneNames = new String[40];
-        geneNames = genes.toArray(geneNames);
-//
-//        // Reading a sample dataset
-//        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
-//
-//        // Creating BiCat engine that can run the algorithms on the dataset.
-//        // If you want to change the parameters, adopt the methods themselves
-//        BicatMethods bicatEngine = new BicatMethods(fileLocation);
-//
-//        // Let's run the algorithm now
-//        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
+    private JDialog dialog;
 
+    public TranslationGUI(BicatGui owner)
+    {
+        this.owner = owner;
+        this.engine = owner.getUtilEngine();
+    }
+
+    public TranslationGUI(UtilFunctionalities engine)
+    {
+        this.owner = null;
+        this.engine = engine;
+    }
+
+    public TranslationGUI()
+    {
+        this.owner = null;
+        this.engine = new UtilFunctionalities();
+    }
+
+    public void showYourself()
+    {
+
+        dialog = new JDialog(owner, "Transform/Translate your genes to different domain!");
+        // TODO: Implement the logic related to translation engine
+        // Need to be able to read database names as input
+        // Choose the dataset
+        // Do translation to HGNC for now and alter the dataset
+        JPanel top = new JPanel(new FlowLayout());
+        top.setBorder(BorderFactory.createTitledBorder(BorderFactory
+                .createLineBorder(Color.black), ""));
+
+        Vector names = engine.getListDatasets();
+
+        JComboBox cb = new JComboBox(names);
+        cb.setActionCommand(MethodConstants.FILTER_WINDOW_SELECT_BC_LIST);
+        cb.setSelectedIndex(0);
+        cb.setAlignmentX(JComboBox.CENTER_ALIGNMENT);
+        cb.addActionListener(this);
+        top.add(cb, BorderLayout.CENTER);
+
+        JPanel dataName = new JPanel(new GridLayout(1, 2));
+        dataName.setBorder(BorderFactory.createTitledBorder(BorderFactory
+                .createLineBorder(Color.black), "Enter database name"));
+
+        JLabel tmp = new JLabel("Enter the database name");
+        dataName.add(tmp);
+        JTextField dataField = new JTextField(20);
+        dataField.setText("ath1121501.db");
+        dataName.add(dataField);
+
+        JButton start = new JButton("Start the translation");
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Here the actual translation should occur
+                // TODO : LOOK AT THE IMPLEMENTATION IN THE TEST CASE AND DO IT!
+                // Note : In case no useful name is found, write in the first one (Useful -> Can be found in NCI Pathway
+                // database
+                // Why first or random? Better than leaving it alone
+                // If there are more than 1 possibilities: Take user input and let user choose the option
+                translate(dataField.getText());
+                System.out.println("Database chosen : " + dataField.getText());
+            }
+        });
+
+        JPanel contentPane = new JPanel(new GridLayout(0, 1));
+        contentPane.add(top);
+        contentPane.add(dataName);
+        contentPane.add(start);
+
+        dialog.setContentPane(contentPane);
+
+        // set size, location and make visible
+        dialog.pack();
+        dialog.setLocationRelativeTo(owner);
+        dialog.setVisible(true);
+    }
+
+    private void translate(String dbName)
+    {
+        // TODO : A Problem! If a given database is wrong, R will throw an exception and results will be empty
+        // So, we need to catch it and let the user know about it
+        Dataset dataset = (Dataset) engine.getDatasetList().get(which_data);
+        Vector<String> genes = dataset.getGeneNames();
         String rScript = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/TranslationScript.R";
         RConnection connection = new RConnection(false);
         connection.setUp(rScript);
         // Entrez : org.Hs.eg.db
         // Some random: hgu133plus2.db . Examples for it : "91617_at","78495_at","65585_at", "241834_at","209079_x_at"
         //
-        connection.getCode().addRCode("db <- \"hgu133plus2.db\"");
+        connection.getCode().addRCode("db <- \"" + dbName + "\"");
         // Note: this ones do not have any ambiguity. They are 1 to 1 matches. Still looking for ambiguity
         // "91617_at","78495_at","65585_at", "241834_at",
-        connection.getCode().addRCode("geneNames <- c( \"209079_x_at\")");
+        connection.getCode().addStringArray("geneNames", genes.toArray(new String[1]));
         connection.callRScript("result");
         String entrOrProbe = connection.getRcaller().getParser().getNames().get(0);
 
@@ -136,13 +213,14 @@ public class TranslationEngineTest {
         Set<String> allEntrez = entrezToSymbols.keySet();
         for (String tmp : allEntrez) {
             ArrayList<String> allGenes = entrezToSymbols.get(tmp);
+            System.out.println("Amount of Genes that will be filtered: " + allGenes.size());
             ArrayList<String> actualThere = new ArrayList<String>();
             for (String tmp2 : allGenes) {
 //                System.out.println(tmp2);
                 // Filter it here
-                if (engine.getGeneToPathways().get(tmp2) != null) {
+                if (owner.getEngine().getGeneToPathways().get(tmp2) != null) {
                     actualThere.add(tmp2);
-                    for (String pathway : engine.getGeneToPathways().get(tmp2))
+                    for (String pathway : owner.getEngine().getGeneToPathways().get(tmp2))
                         System.out.println(pathway);
                 }
             }
@@ -151,7 +229,15 @@ public class TranslationEngineTest {
                 System.out.println("DAAAAAAANGEEEEEER -> Here we will have the choosing option");
             System.out.println();
         }
-
     }
 
+
+    private int which_data;
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JComboBox box = (JComboBox) e.getSource();
+        String item = (String) box.getSelectedItem();
+        which_data = Integer.parseInt(item.split(" ")[1]);
+    }
 }

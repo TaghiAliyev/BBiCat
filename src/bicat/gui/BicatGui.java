@@ -63,6 +63,7 @@
 
 package bicat.gui;
 
+import MetaFramework.PathwayAnalysis;
 import bicat.Constants.MethodConstants;
 import bicat.Constants.UtilConstants;
 import bicat.Main.UtilFunctionalities;
@@ -83,6 +84,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Set;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
@@ -90,10 +92,12 @@ import java.util.regex.Pattern;
  * <code>BicatGui</code> is the central manager for the Graphical Interface,
  * datasets management, coordination of I/O operations.
  */
+
 /**
  * Main GUI Class. Run this class if you want to make use of the GUI element.
- *
+ * <p>
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @EqualsAndHashCode(of = {"serialVersionUID", "DEFAULT_TOLERABLE"})
@@ -104,6 +108,12 @@ public class BicatGui extends JFrame implements ActionListener,
     private final long serialVersionUID = 1L;
 
     private int DEFAULT_TOLERABLE = 1000;
+
+    private boolean parsedPathways = false;
+
+    private PathwayAnalysis engine;
+
+    private Set<String> genes;
 
     /* Matrix visualization: whether add contrast? */
     private boolean enlargeContrast = true;
@@ -554,9 +564,7 @@ public class BicatGui extends JFrame implements ActionListener,
 
             refreshAnalysisPanel(data, idx);
 
-        }
-
-        else if ("bicat.biclustering.Bicluster".equals(maybeBC.getClass()
+        } else if ("bicat.biclustering.Bicluster".equals(maybeBC.getClass()
                 .getName())) { // a bicluster node has been selected
 
             // get the correct dataset, and display it:
@@ -568,14 +576,14 @@ public class BicatGui extends JFrame implements ActionListener,
             updateColumnHeadersMenu();
 
             // display original data
-			/*
-			 * setData(currentDataset.getOrigData()); // get the data to
+            /*
+             * setData(currentDataset.getOrigData()); // get the data to
 			 * visualize on the PP pp.setData(rawData); readjustPictureSize();
 			 * pp.repaint();
 			 */
 
             // *** visualize the selected bicluster in the upper left corner
-			/*
+            /*
 			 * if(rawData[0].length != pre.getWorkingChipCount()) { // if the
 			 * user is viewing original data with control chips
 			 * setData(pre.getPreprocessedData()); pp.setData(rawData); }
@@ -701,12 +709,31 @@ public class BicatGui extends JFrame implements ActionListener,
      * For <code>ActionListener</code> interface, called when an action
      * command is performed (usually through the pull down menus)
      */
+
     public void actionPerformed(ActionEvent e) {
 
         try {
 
 			/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
-            if (UtilConstants.MAIN_QUIT.equals(e.getActionCommand()))
+            if ("Pathway_Analysis".equalsIgnoreCase(e.getActionCommand())) {
+                // Do pathway analysis here
+
+                // Here, check for the biclusters.
+                if (utilEngine.anyValidListAvailable()) {
+                    PathwayGUI pathwayGUI = new PathwayGUI();
+                    pathwayGUI.showWindow();
+                } else
+                    JOptionPane.showMessageDialog(this,
+                            "Perform biclustering before doing Pathway Analysis!");
+
+            } else if ("Translation".equalsIgnoreCase(e.getActionCommand())) {
+                // Do translation
+                if (parsedPathways && utilEngine.getDatasetList().size() > 0) {
+                    TranslationGUI transGUI = new TranslationGUI(this);
+                    transGUI.showYourself();
+                } else
+                    JOptionPane.showMessageDialog(this, "Load dataset first please!");
+            } else if (UtilConstants.MAIN_QUIT.equals(e.getActionCommand()))
                 System.exit(0);
 
 			/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
@@ -1585,7 +1612,7 @@ public class BicatGui extends JFrame implements ActionListener,
      * Default constructor, initializes many local values and creates most of
      * GUI
      */
-    public BicatGui() {
+    public BicatGui() throws Exception {
         // main window
         super("BicAT");
 
@@ -1686,6 +1713,11 @@ public class BicatGui extends JFrame implements ActionListener,
         getContentPane().add(splitPane);
 
         setJMenuBar(createMenuBar());
+        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        engine = new PathwayAnalysis(file);
+
+        genes = engine.getGeneToPathways().keySet();
+        parsedPathways = true;
 
     }
 
@@ -1963,6 +1995,19 @@ public class BicatGui extends JFrame implements ActionListener,
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
+
+        menu = new JMenu("Biological Post-Analysis");
+        menuBar.add(menu);
+
+        menuItem = new JMenuItem("Pathway Analysis");
+        menuItem.setActionCommand("Pathway_Analysis");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Translation of genes");
+        menuItem.setActionCommand("Translation");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
 		/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
         return menuBar;
@@ -2251,7 +2296,7 @@ public class BicatGui extends JFrame implements ActionListener,
      * @param args not used
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BicatGui frame = new BicatGui();
 
         Preprocessor pre = new Preprocessor(frame);
@@ -2277,8 +2322,7 @@ public class BicatGui extends JFrame implements ActionListener,
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "BICAT GUI!";
     }
 
