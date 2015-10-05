@@ -714,8 +714,27 @@ public class BicatGui extends JFrame implements ActionListener,
 
         try {
 
+            if ("Bayes_Simple".equalsIgnoreCase(e.getActionCommand()))
+            {
+                // Bayesian statistics here.
+                // We have to be sure that biclustering is already performed before we
+                // compute Bayesian statistics
+                if (utilEngine.anyValidListAvailable())
+                {
+                    // Make sure to add the user-choice on how the groups should be divided
+                    // Options: based on the column from a dataset
+                    // or, differentially expressed genes
+
+                    BayesianWindow bayes = new BayesianWindow(this);
+                    bayes.show();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Please perform bi-clustering before applying bayesian statistics");
+                }
+            }
 			/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
-            if ("Pathway_Analysis".equalsIgnoreCase(e.getActionCommand())) {
+            else if ("Pathway_Analysis".equalsIgnoreCase(e.getActionCommand())) {
                 // Do pathway analysis here
 
                 // Here, check for the biclusters.
@@ -1614,7 +1633,7 @@ public class BicatGui extends JFrame implements ActionListener,
      */
     public BicatGui() throws Exception {
         // main window
-        super("BicAT");
+        super("BBicAT");
 
         utilEngine = new UtilFunctionalities(this);
         top = new DefaultMutableTreeNode("Display");
@@ -1713,10 +1732,10 @@ public class BicatGui extends JFrame implements ActionListener,
         getContentPane().add(splitPane);
 
         setJMenuBar(createMenuBar());
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
-        engine = new PathwayAnalysis(file);
-
-        genes = engine.getGeneToPathways().keySet();
+//        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+//        engine = new PathwayAnalysis(file);
+//
+//        genes = engine.getGeneToPathways().keySet();
         parsedPathways = true;
 
     }
@@ -2010,11 +2029,13 @@ public class BicatGui extends JFrame implements ActionListener,
         menu.add(menuItem);
 
         //////////////////////////////////////////////////////////////////////
-        menu = new JMenu("");
+
+        // Adding the Bayesian statistic computing tab
+        menu = new JMenu("Bayesian");
         menuBar.add(menu);
 
-        menuItem = new JMenuItem("");
-        menuItem.setActionCommand("");
+        menuItem = new JMenuItem("Assess bi-clusters with Bayesian statistics");
+        menuItem.setActionCommand("Bayes_Simple");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 		/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */

@@ -61,113 +61,127 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package bicat.gui;
 
+import MetaFramework.Bayesian;
+import bicat.Main.UtilFunctionalities;
 import bicat.biclustering.Dataset;
-import lombok.Data;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
- * Class that will contain the bayesian statistics computations
- * Method at : http://www.biomedcentral.com/content/pdf/1471-2105-7-86.pdf
- *
- * Will be implemented next week (21.09 - 28.09, 2015)
+ * GUI element that will create and show the Bayesian analysis window
+ * Idea is to have bunch of radio buttons and let user define how genes are grouped
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class Bayesian {
+public class BayesianWindow {
 
+    private BicatGui owner;
+    private UtilFunctionalities engine;
+    private JDialog dialog;
 
-    public Bayesian()
-    {
-
+    public BayesianWindow(BicatGui owner) {
+        this.owner = owner;
+        this.engine = owner.getUtilEngine();
     }
 
-    public void compute(ArrayList<String> geneNames, ArrayList<String> termGenes, Dataset dataset, int colChoice)
-    {
-        // Idea is to compute Bayesian statistics for the given gene list/cluster and term
-        int intersect, geneExc, termExc;
-        if (colChoice == -1)
-        {
-            // Diff expression
-            System.out.println("Differentially expressed computations are starting noooow....");
+    public BayesianWindow(UtilFunctionalities engine) {
+        this.owner = null;
+        this.engine = engine;
+    }
+
+    public BayesianWindow() {
+        this.owner = null;
+        this.engine = new UtilFunctionalities();
+    }
+
+    public void show() {
+        dialog = new JDialog(owner, "Assess the biclusters");
+        ButtonGroup choices = new ButtonGroup();
+
+        // For each column we should add a radio button
+        JLabel label = new JLabel("Please choose the columns that will differentiate the genes into groups");
+//        dialog.add(label);
+
+        // Probably should add every column as a possibility
+        Dataset dataset = engine.getCurrentDataset();
+
+        JPanel contentPane = new JPanel(new GridLayout(0, 1));
+
+        contentPane.setBorder(BorderFactory.createTitledBorder(BorderFactory
+                .createLineBorder(Color.black), "Choose the column"));
+
+
+        contentPane.add(label);
+        Vector<String> genes = dataset.getChipNames();
+        for (String tmp : genes) {
+            JRadioButton columnButton = new JRadioButton(tmp);
+            columnButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("I am the chosen one!!! And my name is " + tmp);
+                }
+            });
+            choices.add(columnButton);
+            contentPane.add(columnButton);
         }
-        else
-        {
-            // Column based differentiation
-            // Make sure it is binary (0/1 or true/false)
-            // And 1 basically means differentiated
-            if (checkForBinary(dataset, colChoice))
-            {
-                System.out.println("All is fine, let's do this");
+
+        JRadioButton diffExpression = new JRadioButton("Differential Expression over all samples/columns");
+        choices.add(diffExpression);
+        contentPane.add(diffExpression);
+
+
+        JScrollPane scrollPane = new JScrollPane(contentPane);
+        Dimension d = new Dimension(contentPane.getComponent(0).getPreferredSize());
+        Dimension d2 = new Dimension(contentPane.getComponent(1).getPreferredSize());
+        d.width *= 1.5;
+        d2.height *= 10;
+        scrollPane.setPreferredSize(new Dimension(d.width, d2.height));
+        scrollPane.setViewportView(contentPane);
+
+        scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory
+                .createLineBorder(Color.black), "Choose the column"));
+
+        scrollPane.revalidate();
+
+        JPanel buttons = new JPanel(new FlowLayout());
+        JButton goButton = new JButton("Go!");
+        goButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Bayesian bayesian = new Bayesian();
+                int chosenIndex = -1;
+                int counter = 0;
+                for (Enumeration<AbstractButton> buttons = choices.getElements(); buttons.hasMoreElements();) {
+                    AbstractButton button = buttons.nextElement();
+
+                    if (button.isSelected()) {
+                        if (counter == choices.getButtonCount() - 1)
+                            chosenIndex = -1; // Diff Expression
+                        else
+                            chosenIndex = counter;
+                    }
+                    counter++;
+                }
+                bayesian.compute(null, null, dataset, chosenIndex);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Column values are not binary! More than 2 possible values");
-            }
-        }
+        });
+        buttons.add(goButton);
 
-//        intersect = intersection(geneNames, termGenes);
+        JPanel allTogether = new JPanel(new GridLayout(0, 1));
+        allTogether.add(scrollPane);
+        allTogether.add(buttons);
+
+        dialog.setContentPane(allTogether);
+        dialog.pack();
+        dialog.setLocation(150, 150);
+        dialog.setLocationRelativeTo(owner);
+        dialog.setVisible(true);
     }
-
-    public boolean checkForBinary(Dataset dataset, int choice)
-    {
-        Set<String> allValues = new HashSet<String>();
-
-        float[][] data = dataset.getData();
-        for (int i = 0; i < data.length; i++)
-        {
-            for (int j = 0; j < data[0].length; j++)
-            {
-                allValues.add(Float.toString(data[i][j]));
-            }
-        }
-
-        return allValues.size() < 2; // Means, we can easily distinguish if needed.
-        // And we make sure to use original data, not the processed one
-    }
-
-    public int intersection(ArrayList<String> geneNames, ArrayList<String> termGenes)
-    {
-        Set<String> gene = new HashSet<String>();
-        Set<String> term = new HashSet<String>();
-        for (String tmp : geneNames)
-            gene.add(tmp);
-        for (String tmp : termGenes)
-            term.add(tmp);
-
-        Set<String> intersect = new TreeSet(gene);
-        intersect.retainAll(term);
-
-        return intersect.size();
-    }
-
-    public int geneExclusive(ArrayList<String> geneNames, ArrayList<String> termGenes)
-    {
-        // TODO : Be careful here. Might need to look for differentially expressed genes
-        // ASK MARCO
-        return 0;
-    }
-
-    public int termExclusive(ArrayList<String> geneNames, ArrayList<String> termGenes)
-    {
-
-        // TODO : Be careful here. Might need to look for differentially expressed genes
-        // ASK MARCO
-        return 0;
-    }
-
-    public double GScore()
-    {
-        double result = 0.0;
-
-
-        return result;
-    }
-
 }

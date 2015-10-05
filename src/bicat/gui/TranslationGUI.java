@@ -139,25 +139,24 @@ public class TranslationGUI implements ActionListener{
         dataField.setText("ath1121501.db");
         dataName.add(dataField);
 
+        JPanel buttons = new JPanel(new FlowLayout());
+
         JButton start = new JButton("Start the translation");
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Here the actual translation should occur
-                // TODO : LOOK AT THE IMPLEMENTATION IN THE TEST CASE AND DO IT!
-                // Note : In case no useful name is found, write in the first one (Useful -> Can be found in NCI Pathway
-                // database
-                // Why first or random? Better than leaving it alone
                 // If there are more than 1 possibilities: Take user input and let user choose the option
                 translate(dataField.getText());
                 System.out.println("Database chosen : " + dataField.getText());
             }
         });
+        buttons.add(start);
 
         JPanel contentPane = new JPanel(new GridLayout(0, 1));
         contentPane.add(top);
         contentPane.add(dataName);
-        contentPane.add(start);
+        contentPane.add(buttons);
 
         dialog.setContentPane(contentPane);
 
