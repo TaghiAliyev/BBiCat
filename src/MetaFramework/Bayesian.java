@@ -64,6 +64,7 @@
 package MetaFramework;
 
 import bicat.biclustering.Dataset;
+import com.sun.security.cert.internal.x509.X509V1CertImpl;
 import lombok.Data;
 import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
@@ -129,6 +130,7 @@ public class Bayesian {
                 int x1Path = x1OnlyPathway + x1PathAnd;
 
                 if (!(genesInPathway.size() < nMin || x1Path < xMin || gHat <= 0)) {
+                    double[] gObs = new double[nSim];
                     // Do not skip the loop, still continue
                     if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
                         ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
@@ -137,14 +139,74 @@ public class Bayesian {
                         double[] X0andPath = constantMinusVector(nAnd, X1andPath);
                         ArrayList<Double> X1noPath = RPosterior(nSim, x1NoPathway, x1NoPathway + x0NoPathway, nNoPath);
                         double[] X0noPath = constantMinusVector(nNoPath, X1noPath);
-                        // Adjust
-                        double gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
-                        // TODO: Do simulation part here as well
-                    } else {
-                        // TODO: Other case. Do the simulation here as well
-                    }
-                }
+                        // gObs will be used for the comparison vs simulation results
+                        gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
 
+                    } else {
+                        double X1onlyPath = x1OnlyPathway;
+                        double X0onlyPath = nOnlyPath - X1onlyPath;
+                        double X1andPath = x1OnlyPathway;
+                        double X0andPath = nAnd - X1andPath;
+                        double X1noPath = x1NoPathway;
+                        double X0noPath = nNoPath - X1noPath;
+                        for (int k = 0; k < nSim; k++)
+                            gObs[k] = gHat;
+                    }
+                    double[] gRand = new double[nSim];
+                    for (int j = 0; j < nSim; j++) {
+                        // Simulation loop
+                        int n = Math.min(poisson(diffGenes.size()), diffGenes.size() + notDiffGenes.size());
+                        Set<String> diffRandom = new HashSet<String>();
+                        Random random = new Random();
+                        for (int i = 0; i < n; i++) {
+                            diffRandom.add(geneNames.get(random.nextInt(geneNames.size())));
+                        }
+                        Set<String> notDiffRandom = setDifference(geneNames, diffRandom);
+                        int x1OnlyPathR = intersection(genesOnlyPathway, diffRandom).size();
+                        int x0OnlyPathR = intersection(genesOnlyPathway, notDiffRandom).size();
+                        int nOnlyPathR = genesOnlyPathway.size();
+
+                        int x1AndPathR = intersection(genesInPathway, diffRandom).size() - x1OnlyPathR;
+                        int x0AndPathR = intersection(genesInPathway, notDiffRandom).size() - x0OnlyPathR;
+                        int nPathAndR = setDifference(genesInPathway, genesOnlyPathway).size();
+
+                        int x1NoPathR = intersection(genesNotPathway, diffRandom).size();
+                        int x0NoPathR = intersection(genesNotPathway, notDiffRandom).size();
+                        int nNoPathR = genesNotPathway.size();
+
+                        ArrayList<Double> X1onlyPathR = RPosterior(1, x1OnlyPathR, x1OnlyPathR + x0OnlyPathR, nOnlyPathR);
+                        double[] X0onlyPathR = new double[X1onlyPathR.size()];
+                        for (int k = 0; k < X0onlyPathR.length; k++) {
+                            X0onlyPathR[k] = nOnlyPathR - X1onlyPathR.get(k);
+                        }
+                        ArrayList<Double> X1andPathR = RPosterior(1, x1AndPathR, x1AndPathR + x0AndPathR, nPathAndR);
+                        double[] X0andPathR = new double[X1andPathR.size()];
+                        for (int k = 0; k < X0andPathR.length; k++) {
+                            X0andPathR[k] = nPathAndR - X1andPathR.get(k);
+                        }
+                        ArrayList<Double> X1noPathR = RPosterior(1, x1NoPathR, x1NoPathR + x0NoPathR, nNoPathR);
+                        double[] X0noPathR = new double[X1noPathR.size()];
+                        for (int k = 0; k < X1noPathR.size(); k++) {
+                            X0noPathR[k] = nNoPathR - X1noPathR.get(k);
+                        }
+                        gRand[j] = GScoreMatrix(X1onlyPathR, X1andPathR, X1noPathR, X0onlyPathR, X0andPathR, X0noPathR)[0];
+                    }
+                    // Simulations are done, so let's start comparing the results
+                    int cnt = 0;
+                    for (int j = 0; j < nSim; j++)
+                        if (gRand[j] > gObs[j])
+                            cnt++;
+                    double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
+                    System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
+
+                    // computing error bars
+                    double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
+                    double errorRight = Math.max(quantile(gObs, 0.95), gHat);
+                    System.out.println("G hat : " + gHat);
+                    System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
+                    // TODO : Write a test case for this method. Quantile works, but overall bayesian needs checking
+                }
+                System.out.println("-------------------------------");
             }
         } else {
             // Column based differentiation
@@ -179,6 +241,58 @@ public class Bayesian {
         intersect.retainAll(term);
 
         return intersect;
+    }
+
+    /**
+     * Implements the quantile function (type 7 from R implementation) where m = 1 - p
+     *
+     * @param data
+     * @param p
+     * @return
+     */
+    public static double quantile(double[] data, double p) {
+        double m = 1 - p;
+        int j = (int) Math.floor(data.length * p + m);
+        double gamma = data.length * p + m - j;
+
+        Arrays.sort(data);
+
+        return (1 - gamma) * data[j - 1] + gamma * data[j];
+    }
+
+    public int poisson(double l) {
+        Random random = new Random();
+        double limit = Math.exp(-l);
+        double prod = random.nextDouble();
+        int n = 0;
+        for (n = 0; prod >= limit; n++)
+            prod *= random.nextDouble();
+
+        return n;
+    }
+
+    /**
+     * GScore function which takes vectors as input. Why these specifically? Needed it for Bayesian computations
+     * Could have also used loop and call gscore repeatedly
+     *
+     * @param a
+     * @param b
+     * @param c
+     * @param d
+     * @param e
+     * @param f
+     * @return
+     */
+    public double[] GScoreMatrix(ArrayList<Double> a, ArrayList<Double> b, ArrayList<Double> c, double[] d, double[] e, double[] f) {
+        double[] res = new double[a.size()];
+
+        for (int i = 0; i < a.size(); i++) {
+            double p = a.get(i) * (e[i] + f[i]) + b.get(i) * f[i];
+            double q = c.get(i) * (d[i] + e[i]) + b.get(i) * d[i];
+            res[i] = (p - q) / (p + q);
+        }
+
+        return res;
     }
 
     public Set<String> intersection(Set<String> geneNames, Set<String> termGenes) {
@@ -304,30 +418,13 @@ public class Bayesian {
     }
 
     /**
-     * G score function which accepts some of its variables as being vectors
-     *
-     * @param a
-     * @param b
-     * @param c
-     * @param d
-     * @param e
-     * @param f
-     * @return
-     */
-    public double GScoreMatrix(int[] a, int[] b, int[] c, double d, double e, double f)
-    {
-
-    }
-
-    /**
      * Element-wise summation of two vectors
      *
      * @param a
      * @param b
      * @return
      */
-    public int[] vectSum(int[] a, int[] b)
-    {
+    public int[] vectSum(int[] a, int[] b) {
         int[] tmp = new int[a.length];
         for (int i = 0; i < a.length; i++)
             tmp[i] = a[i] + b[i];
@@ -335,8 +432,7 @@ public class Bayesian {
         return tmp;
     }
 
-    public double[] constantMinusVector(int n, ArrayList<Double> vec)
-    {
+    public double[] constantMinusVector(int n, ArrayList<Double> vec) {
         double[] res = new double[vec.size()];
         for (int i = 0; i < res.length; i++)
             res[i] = n - vec.get(i);
@@ -350,11 +446,9 @@ public class Bayesian {
      * @param tmp
      * @return
      */
-    public int[] matrixConstantSum(int[] a, int tmp)
-    {
+    public int[] matrixConstantSum(int[] a, int tmp) {
         int[] tmpVec = new int[a.length];
-        for (int i = 0; i < tmpVec.length; i++)
-        {
+        for (int i = 0; i < tmpVec.length; i++) {
             tmpVec[i] = a[i] + tmp;
         }
 
@@ -368,11 +462,9 @@ public class Bayesian {
      * @param tmp
      * @return
      */
-    public double[] matrixConstantSum(double[] a, double tmp)
-    {
+    public double[] matrixConstantSum(double[] a, double tmp) {
         double[] res = new double[a.length];
-        for (int i = 0; i < a.length; i++)
-        {
+        for (int i = 0; i < a.length; i++) {
             res[i] = a[i] + tmp;
         }
 
@@ -386,19 +478,16 @@ public class Bayesian {
      * @param b
      * @return
      */
-    public int[] vectorMult(int[] a, int[] b)
-    {
+    public int[] vectorMult(int[] a, int[] b) {
         int[] result = new int[a.length];
-        for (int i = 0; i < a.length; i++)
-        {
+        for (int i = 0; i < a.length; i++) {
             result[i] = a[i] * b[i];
         }
 
         return result;
     }
 
-    public double[] vectorConstantMult(double[] a, double b)
-    {
+    public double[] vectorConstantMult(double[] a, double b) {
         double[] result = new double[a.length];
         for (int i = 0; i < a.length; i++)
             result[i] = a[i] * b;
@@ -406,8 +495,7 @@ public class Bayesian {
         return result;
     }
 
-    public int[] vectorConstantMult(int[] a, int b)
-    {
+    public int[] vectorConstantMult(int[] a, int b) {
         int[] result = new int[a.length];
         for (int i = 0; i < a.length; i++)
             result[i] = a[i] * b;
@@ -415,9 +503,8 @@ public class Bayesian {
         return result;
     }
 
-    public double[] matrixSum(double[] a, double[] b)
-    {
-        double [] res = new double[a.length];
+    public double[] matrixSum(double[] a, double[] b) {
+        double[] res = new double[a.length];
 
         for (int i = 0; i < a.length; i++)
             res[i] = a[i] + b[i];
@@ -432,11 +519,9 @@ public class Bayesian {
      * @param b
      * @return
      */
-    public int[] vectorDiv(int[] a, int[] b)
-    {
+    public int[] vectorDiv(int[] a, int[] b) {
         int[] result = new int[a.length];
-        for (int i = 0; i < a.length; i++)
-        {
+        for (int i = 0; i < a.length; i++) {
             result[i] = a[i] / b[i];
         }
 
@@ -449,8 +534,7 @@ public class Bayesian {
      * @param vec
      * @return
      */
-    public Double[] expVect(double[] vec)
-    {
+    public Double[] expVect(double[] vec) {
         Double[] result = new Double[vec.length];
         for (int i = 0; i < vec.length; i++)
             result[i] = Math.exp(vec[i]);
@@ -464,8 +548,7 @@ public class Bayesian {
         for (int i = 0; i <= N; i++)
             xAr[i] = i;
 
-        for (int i = 0; i < k; i++)
-        {
+        for (int i = 0; i < k; i++) {
             double[] firstPart = matrixConstantSum(lchooseVect(xAr, x), -lchoose(N, n));
             double[] secondPart = lchooseVect(matrixConstantSum(vectorConstantMult(xAr, -1), N), n - x);
             Double[] P = expVect(matrixSum(firstPart, secondPart));
@@ -481,20 +564,17 @@ public class Bayesian {
         return xVect;
     }
 
-    public double randomSelect(int[] xAr, Double[] P, Integer[] indices)
-    {
+    public double randomSelect(int[] xAr, Double[] P, Integer[] indices) {
         // Have to follow the indices correctly
         double totalSum = 0.0;
-        for (int i = 0; i < P.length; i++)
-        {
+        for (int i = 0; i < P.length; i++) {
             totalSum += P[i];
         }
         double rand = Math.random();
         double sumSoFar = 0.0;
-        for (int i = 0; i < indices.length; i++)
-        {
+        for (int i = 0; i < indices.length; i++) {
             int actualIndex = indices[i];
-            sumSoFar += P[actualIndex]/totalSum;
+            sumSoFar += P[actualIndex] / totalSum;
             if (rand <= sumSoFar)
                 return xAr[actualIndex];
         }
@@ -524,13 +604,11 @@ public class Bayesian {
             // Formula is: n*(n-1)*...*(n-k+1)/k!
             // We only need the log versions, so, let's not compute any factorials ;)
             double num = 0.0, kFact = 0.0;
-            for (int i = n - k + 1; i <= n; i++)
-            {
+            for (int i = n - k + 1; i <= n; i++) {
                 num += Math.log(i);
             }
 
-            for (int i = 1; i <= k; i++)
-            {
+            for (int i = 1; i <= k; i++) {
                 kFact += Math.log(i);
             }
 
@@ -545,8 +623,7 @@ public class Bayesian {
      * @param k
      * @return
      */
-    public double[] lchooseVect(int[] n, int k)
-    {
+    public double[] lchooseVect(int[] n, int k) {
         if (k < 0) // If we try to choose more than we have, then there 0 ways of doing it
             return new double[]{0};
         else if (k == 0)
