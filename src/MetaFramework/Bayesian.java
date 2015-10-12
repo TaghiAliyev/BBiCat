@@ -105,10 +105,10 @@ public class Bayesian {
         ArrayList<String> diffGenes = new ArrayList<String>();
         if (colChoice == -1) {
             // Diff expression
-            System.out.println("Differentially expressed computations are starting noooow....");
+//            System.out.println("Differentially expressed computations are starting noooow....");
             // TODO: Given a set of genes, find all related terms/pathways, and then for each
-            // TODO: assess the enrichment through Bayesian statistics (Check WinGo.R)
             diffGenes = calculateDiff(bicluster, colChoice, dataset, -1.0); // Threshold does not matter here
+//            System.out.println("Number of differentially expressed genes : " + diffGenes.size());
         } else {
             // Column based differentiation
             // Make sure it is binary (0/1 or true/false)
@@ -120,10 +120,11 @@ public class Bayesian {
             }
             // Now that we know the threshold, we should be fine
             diffGenes = calculateDiff(bicluster, colChoice, dataset, Double.parseDouble(threshold));
-            System.out.println("All is fine, let's do this");
+//            System.out.println("All is fine, let's do this");
         }
         Set<String> notDiffGenes = setDifference(geneNames, new HashSet<String>(diffGenes));
         for (String tmp : allPathways) {
+//            System.out.println("Analyzing pathway named : " + tmp);
             ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
             int nMin = 1;//(int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 should be diff expressed
@@ -150,7 +151,7 @@ public class Bayesian {
             int x1Path = x1OnlyPathway + x1PathAnd;
 
             if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
-                System.out.println("Not skipping");
+//                System.out.println("Not skipping");
                 double[] gObs = new double[nSim];
                 // Do not skip the loop, still continue
                 if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
@@ -216,17 +217,17 @@ public class Bayesian {
                 // Simulations are done, so let's start comparing the results
                 int cnt = 0;
                 for (int j = 0; j < nSim; j++)
-                    if (gRand[j] > gObs[j])
+                    if (gRand[j] >= gObs[j])
                         cnt++;
                 double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
-                System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
+                if (result <= 0.05)
+                    System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
 
                 // computing error bars
                 double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
-                System.out.println("G hat : " + gHat + " " + (gHat == Double.NaN));
-                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
-                // TODO : Write a test case for this method. Quantile works, but overall bayesian needs checking
+//                System.out.println("G hat : " + gHat);
+//                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
             }
             else
                 System.out.println("GHat : " + gHat);
@@ -270,8 +271,8 @@ public class Bayesian {
         double gamma = data.length * p + m - j;
 
         Arrays.sort(data);
-
-        return (1 - gamma) * data[j - 1] + gamma * data[j];
+        double res =(1 - gamma) * data[j - 1] + gamma * data[j];
+        return res;
     }
 
     public int poisson(double l) {
@@ -410,6 +411,8 @@ public class Bayesian {
      * @param threshold    Threshold value based on which, differentiation will be performed on a @param chosenColumn
      * @return
      */
+    private boolean done = false;
+    private int[] firstColumns, secondColumns;
     public ArrayList<String> calculateDiff(Bicluster bicluster, int chosenColumn, Dataset dataset, double threshold) {
         ArrayList<String> res = new ArrayList<String>();
         int[] genes = bicluster.getGenes();
@@ -419,7 +422,54 @@ public class Bayesian {
             // Only need this one as the other option is still to be implemented
             // Let's do grouping/based on the conditions. However, we need that as being an input or something
             // There might be many groups
-            // TODO : FINISH THIS TODAY, URGENTLY NEEDED FOR THE TEST CASE!
+            // First ask for the groups/conditions
+            if (!done) {
+                String first = JOptionPane.showInputDialog("Enter the columns of first group/condition (comma separated)");
+                String second = JOptionPane.showInputDialog("Enter the columns of second group/condition (comma separated)");
+                String[] words = first.split(",");
+                String[] words2 = second.split(",");
+                firstColumns = new int[words.length];
+                secondColumns = new int[words2.length];
+                done = true;
+                for (int i = 0; i < firstColumns.length; i++)
+                    firstColumns[i] = Integer.parseInt(words[i]);
+                for (int i = 0; i < secondColumns.length; i++)
+                    secondColumns[i] = Integer.parseInt(words2[i]);
+            }
+            float[][] data = dataset.getData();
+            // Let's compute the means first
+            for (int i = 0; i < genes.length; i++)
+            {
+                double meanA = 0.0, meanB = 0.0, mean = 0.0;
+                for (int j = 0; j < firstColumns.length; j++)
+                    meanA += data[genes[i]][firstColumns[j]];
+                for (int j = 0; j < secondColumns.length; j++)
+                    meanB += data[genes[i]][secondColumns[j]];
+
+                mean = (meanA + meanB) / (firstColumns.length + secondColumns.length);
+                meanA = meanA / firstColumns.length;
+                meanB = meanB / secondColumns.length;
+                double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0, sum4 = 0.0;
+                for (int j = 0; j < firstColumns.length; j++)
+                {
+                    sum1 += Math.pow(data[genes[i]][firstColumns[j]] - meanA, 2);
+                    sum3 += Math.pow(data[genes[i]][firstColumns[j]] - mean, 2);
+                }
+
+                for (int j = 0; j < secondColumns.length; j++)
+                {
+                    sum2 += Math.pow(data[genes[i]][secondColumns[j]] - meanB, 2);
+                    sum4 += Math.pow(data[genes[i]][secondColumns[j]] - mean, 2);
+                }
+
+                double t = 2.0 * (sum1 + sum2) / (sum3 + sum4);
+                // Bonferroni correction (divide by sample size)
+                double pValue = computePValue(t, 1) / genes.length; // Degrees of freedom for us 1!
+                if (pValue <= 0.05){
+//                    System.out.println("Diff expressed!");
+                    res.add(dataset.getGeneName(genes[i]));
+                }
+            }
 
         } else {
             // Based on the column
@@ -430,18 +480,123 @@ public class Bayesian {
                 int[][] discrData = dataset.getDiscrData();
                 System.out.println("For debugging!");
                 for (int i = 0; i < genes.length; i++) {
-                    if (discrData[genes[i]][chosenColumn] > 0.5)
-                        res.add(dataset.getGeneName(genes[i]));
+                    if (discrData[genes[i]][chosenColumn] > 0.5) // 0.5 is used as in binary columns I expect 0/1 values
+                        res.add(dataset.getGeneName(genes[i])); // TODO : Change this to min/max
                 }
             } else {
                 // Based on the threshold. Higher than threshold is diff
-
+                float[][] discrData = dataset.getData();
+                for (int i = 0; i < genes.length; i++)
+                {
+                    if (discrData[genes[i]][chosenColumn] > threshold)
+                        res.add(dataset.getGeneName(genes[i]));
+                }
             }
         }
 
         return res;
     }
 
+
+    /**
+     * Given a critical value t and degrees of freedom to account for, computes a p-value for a chi-square distribution
+     *
+     * @param t Critical value/test statistics
+     * @param df Degrees of Freedom
+     * @return Returns a p-value
+     */
+    public double computePValue(double t, int df)
+    {
+        double result = 0.0;
+        if(t < 0 || df < 1)
+        {
+            return 0.0;
+        }
+        double K = ((double)df) * 0.5;
+        double X = t * 0.5;
+        if(df == 2)
+        {
+            return Math.exp(-1.0 * X);
+        }
+
+        double PValue = igf(K, X);
+        if(Double.isNaN(PValue) || Double.isInfinite(PValue) || PValue <= 1e-8)
+        {
+            return 1e-14;
+        }
+
+        PValue /= gamma(K);
+        //PValue /= tgamma(K);
+
+        return (1.0 - PValue);
+    }
+
+    /**
+     * Implementation of a incomplete Gamma function
+     * @param S
+     * @param Z
+     * @return
+     */
+    public double igf(double S, double Z)
+    {
+        if(Z < 0.0)
+        {
+            return 0.0;
+        }
+        double Sc = (1.0 / S);
+        Sc *= Math.pow(Z, S);
+        Sc *= Math.exp(-Z);
+
+        double Sum = 1.0;
+        double Nom = 1.0;
+        double Denom = 1.0;
+
+        for(int I = 0; I < 200; I++)
+        {
+            Nom *= Z;
+            S++;
+            Denom *= S;
+            Sum += (Nom / Denom);
+        }
+
+        return Sum * Sc;
+    }
+
+    /**
+     * Implementation of a Gamma function (not the approximated, faster version)
+     * @param N
+     * @return
+     */
+    public double gamma(double N)
+    {
+        final double SQRT2PI = 2.5066282746310005024157652848110452530069867406099383;
+
+        double A = 11.0;
+
+        double Z = (double)N;
+        double Sc = Math.pow((Z + A), (Z + 0.5));
+        Sc *= Math.exp(-1.0 * (Z + A));
+        Sc /= Z;
+
+        double F = 1.0;
+        double Ck;
+        double Sum = SQRT2PI;
+
+
+        for(int K = 1; K < A; K++)
+        {
+            Z++;
+            Ck = Math.pow(A - K, K - 0.5);
+            Ck *= Math.exp(A - K);
+            Ck /= F;
+
+            Sum += (Ck / Z);
+
+            F *= (-1.0 * K);
+        }
+
+        return (double)(Sum * Sc);
+    }
 
     /**
      * Implementation of the G score function
@@ -615,7 +770,7 @@ public class Bayesian {
                 P = expVect(matrixSum(firstPart, secondPart));
 
             for (int j = 0; j < P.length; j++)
-                if (P[j] == Double.NaN)
+                if (Double.isNaN(P[j]))
                     P[j] = 0.0;
             // Sorting both datasets and indices
             SpecialMatrix comparator = new SpecialMatrix(P);
