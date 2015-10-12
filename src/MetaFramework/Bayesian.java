@@ -63,6 +63,7 @@
 
 package MetaFramework;
 
+import bicat.biclustering.Bicluster;
 import bicat.biclustering.Dataset;
 import com.sun.security.cert.internal.x509.X509V1CertImpl;
 import lombok.Data;
@@ -92,133 +93,144 @@ public class Bayesian {
         this.nSim = nSim;
     }
 
-    public void compute(ArrayList<String> geneNames, PathwayAnalysis engine, Dataset dataset, int colChoice) {
+    public void compute(Bicluster bicluster, PathwayAnalysis engine, Dataset dataset, int colChoice) {
         // Idea is to compute Bayesian statistics for the given gene list/cluster and term
-        int intersect, geneExc, termExc;
+        ArrayList<String> geneNames = new ArrayList<String>();
+        System.out.println(bicluster.getGenes().length);
+        for (int i = 0; i < bicluster.getGenes().length; i++) {
+            geneNames.add(dataset.getGeneName(bicluster.getGenes()[i]));
+        }
+//        System.out.println(geneNames.size());
+        Set<String> allPathways = getAllPath(geneNames, engine);
+        ArrayList<String> diffGenes = new ArrayList<String>();
         if (colChoice == -1) {
             // Diff expression
             System.out.println("Differentially expressed computations are starting noooow....");
             // TODO: Given a set of genes, find all related terms/pathways, and then for each
             // TODO: assess the enrichment through Bayesian statistics (Check WinGo.R)
-            Set<String> allPathways = getAllPath(geneNames, engine);
-            ArrayList<String> diffGenes = calculateDiff(geneNames, colChoice, dataset);
-            Set<String> notDiffGenes = setDifference(geneNames, new HashSet<String>(diffGenes));
-            for (String tmp : allPathways) {
-                ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
-                int nMin = (int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
-                int xMin = 1; // Let's say at least 1 should be diff expressed
-                Set<String> genesInOther = new HashSet<String>();
-                for (String tmp2 : allPathways) {
-                    if (!tmp.equalsIgnoreCase(tmp2))
-                        genesInOther.addAll(engine.getPathwayToGenes().get(tmp2));
-                }
-
-                Set<String> genesOnlyPathway = setDifference(genesInPathway, genesInOther);
-                Set<String> genesNotPathway = setDifference(genesInOther, genesInPathway);
-
-                int x1OnlyPathway = intersection(genesOnlyPathway, diffGenes).size();
-                int x0OnlyPathway = intersection(genesOnlyPathway, notDiffGenes).size();
-                int nOnlyPath = genesOnlyPathway.size();
-                int x1PathAnd = intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
-                int x0PathAnd = intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
-                int nAnd = setDifference(genesInPathway, genesOnlyPathway).size();
-                int x1NoPathway = intersection(genesNotPathway, diffGenes).size();
-                int x0NoPathway = intersection(genesNotPathway, notDiffGenes).size();
-                int nNoPath = genesNotPathway.size();
-
-                double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
-                int x1Path = x1OnlyPathway + x1PathAnd;
-
-                if (!(genesInPathway.size() < nMin || x1Path < xMin || gHat <= 0)) {
-                    double[] gObs = new double[nSim];
-                    // Do not skip the loop, still continue
-                    if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
-                        ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
-                        double[] X0onlyPath = constantMinusVector(nOnlyPath, X1onlyPath);
-                        ArrayList<Double> X1andPath = RPosterior(nSim, x1PathAnd, x1PathAnd + x0PathAnd, nAnd);
-                        double[] X0andPath = constantMinusVector(nAnd, X1andPath);
-                        ArrayList<Double> X1noPath = RPosterior(nSim, x1NoPathway, x1NoPathway + x0NoPathway, nNoPath);
-                        double[] X0noPath = constantMinusVector(nNoPath, X1noPath);
-                        // gObs will be used for the comparison vs simulation results
-                        gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
-
-                    } else {
-                        double X1onlyPath = x1OnlyPathway;
-                        double X0onlyPath = nOnlyPath - X1onlyPath;
-                        double X1andPath = x1OnlyPathway;
-                        double X0andPath = nAnd - X1andPath;
-                        double X1noPath = x1NoPathway;
-                        double X0noPath = nNoPath - X1noPath;
-                        for (int k = 0; k < nSim; k++)
-                            gObs[k] = gHat;
-                    }
-                    double[] gRand = new double[nSim];
-                    for (int j = 0; j < nSim; j++) {
-                        // Simulation loop
-                        int n = Math.min(poisson(diffGenes.size()), diffGenes.size() + notDiffGenes.size());
-                        Set<String> diffRandom = new HashSet<String>();
-                        Random random = new Random();
-                        for (int i = 0; i < n; i++) {
-                            diffRandom.add(geneNames.get(random.nextInt(geneNames.size())));
-                        }
-                        Set<String> notDiffRandom = setDifference(geneNames, diffRandom);
-                        int x1OnlyPathR = intersection(genesOnlyPathway, diffRandom).size();
-                        int x0OnlyPathR = intersection(genesOnlyPathway, notDiffRandom).size();
-                        int nOnlyPathR = genesOnlyPathway.size();
-
-                        int x1AndPathR = intersection(genesInPathway, diffRandom).size() - x1OnlyPathR;
-                        int x0AndPathR = intersection(genesInPathway, notDiffRandom).size() - x0OnlyPathR;
-                        int nPathAndR = setDifference(genesInPathway, genesOnlyPathway).size();
-
-                        int x1NoPathR = intersection(genesNotPathway, diffRandom).size();
-                        int x0NoPathR = intersection(genesNotPathway, notDiffRandom).size();
-                        int nNoPathR = genesNotPathway.size();
-
-                        ArrayList<Double> X1onlyPathR = RPosterior(1, x1OnlyPathR, x1OnlyPathR + x0OnlyPathR, nOnlyPathR);
-                        double[] X0onlyPathR = new double[X1onlyPathR.size()];
-                        for (int k = 0; k < X0onlyPathR.length; k++) {
-                            X0onlyPathR[k] = nOnlyPathR - X1onlyPathR.get(k);
-                        }
-                        ArrayList<Double> X1andPathR = RPosterior(1, x1AndPathR, x1AndPathR + x0AndPathR, nPathAndR);
-                        double[] X0andPathR = new double[X1andPathR.size()];
-                        for (int k = 0; k < X0andPathR.length; k++) {
-                            X0andPathR[k] = nPathAndR - X1andPathR.get(k);
-                        }
-                        ArrayList<Double> X1noPathR = RPosterior(1, x1NoPathR, x1NoPathR + x0NoPathR, nNoPathR);
-                        double[] X0noPathR = new double[X1noPathR.size()];
-                        for (int k = 0; k < X1noPathR.size(); k++) {
-                            X0noPathR[k] = nNoPathR - X1noPathR.get(k);
-                        }
-                        gRand[j] = GScoreMatrix(X1onlyPathR, X1andPathR, X1noPathR, X0onlyPathR, X0andPathR, X0noPathR)[0];
-                    }
-                    // Simulations are done, so let's start comparing the results
-                    int cnt = 0;
-                    for (int j = 0; j < nSim; j++)
-                        if (gRand[j] > gObs[j])
-                            cnt++;
-                    double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
-                    System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
-
-                    // computing error bars
-                    double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
-                    double errorRight = Math.max(quantile(gObs, 0.95), gHat);
-                    System.out.println("G hat : " + gHat);
-                    System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
-                    // TODO : Write a test case for this method. Quantile works, but overall bayesian needs checking
-                }
-                System.out.println("-------------------------------");
-            }
+            diffGenes = calculateDiff(bicluster, colChoice, dataset, -1.0); // Threshold does not matter here
         } else {
             // Column based differentiation
             // Make sure it is binary (0/1 or true/false)
             // And 1 basically means differentiated
-            if (checkForBinary(dataset, colChoice)) {
-                calculateDiff(geneNames, colChoice, dataset);
-                System.out.println("All is fine, let's do this");
-            } else {
-                JOptionPane.showMessageDialog(null, "Column values are not binary! More than 2 possible values");
+            String threshold = Double.toString(Double.MAX_VALUE);
+            if (!checkForBinary(dataset, colChoice)) {
+                // If not binary, then ask for a threshold (smaller -> notDiff, higher -> Diff)
+                threshold = JOptionPane.showInputDialog(null, "Column values are not binary! Please input a threshold for differentiation:");
             }
+            // Now that we know the threshold, we should be fine
+            diffGenes = calculateDiff(bicluster, colChoice, dataset, Double.parseDouble(threshold));
+            System.out.println("All is fine, let's do this");
         }
+        Set<String> notDiffGenes = setDifference(geneNames, new HashSet<String>(diffGenes));
+        for (String tmp : allPathways) {
+            ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
+            int nMin = 1;//(int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
+            int xMin = 1; // Let's say at least 1 should be diff expressed
+            Set<String> genesInOther = new HashSet<String>();
+            for (String tmp2 : allPathways) {
+                if (!tmp.equalsIgnoreCase(tmp2))
+                    genesInOther.addAll(engine.getPathwayToGenes().get(tmp2));
+            }
+
+            Set<String> genesOnlyPathway = setDifference(genesInPathway, genesInOther);
+            Set<String> genesNotPathway = setDifference(genesInOther, genesInPathway);
+
+            int x1OnlyPathway = intersection(genesOnlyPathway, diffGenes).size();
+            int x0OnlyPathway = intersection(genesOnlyPathway, notDiffGenes).size();
+            int nOnlyPath = genesOnlyPathway.size();
+            int x1PathAnd = intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
+            int x0PathAnd = intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
+            int nAnd = setDifference(genesInPathway, genesOnlyPathway).size();
+            int x1NoPathway = intersection(genesNotPathway, diffGenes).size();
+            int x0NoPathway = intersection(genesNotPathway, notDiffGenes).size();
+            int nNoPath = genesNotPathway.size();
+
+            double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
+            int x1Path = x1OnlyPathway + x1PathAnd;
+
+            if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
+                System.out.println("Not skipping");
+                double[] gObs = new double[nSim];
+                // Do not skip the loop, still continue
+                if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
+                    ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
+                    double[] X0onlyPath = constantMinusVector(nOnlyPath, X1onlyPath);
+                    ArrayList<Double> X1andPath = RPosterior(nSim, x1PathAnd, x1PathAnd + x0PathAnd, nAnd);
+                    double[] X0andPath = constantMinusVector(nAnd, X1andPath);
+                    ArrayList<Double> X1noPath = RPosterior(nSim, x1NoPathway, x1NoPathway + x0NoPathway, nNoPath);
+                    double[] X0noPath = constantMinusVector(nNoPath, X1noPath);
+                    // gObs will be used for the comparison vs simulation results
+                    gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
+
+                } else {
+                    double X1onlyPath = x1OnlyPathway;
+                    double X0onlyPath = nOnlyPath - X1onlyPath;
+                    double X1andPath = x1OnlyPathway;
+                    double X0andPath = nAnd - X1andPath;
+                    double X1noPath = x1NoPathway;
+                    double X0noPath = nNoPath - X1noPath;
+                    for (int k = 0; k < nSim; k++)
+                        gObs[k] = gHat;
+                }
+                double[] gRand = new double[nSim];
+                for (int j = 0; j < nSim; j++) {
+//                    System.out.println("Simulation number : " + j);
+                    // Simulation loop
+                    int n = Math.min(poisson(diffGenes.size()), diffGenes.size() + notDiffGenes.size());
+                    Set<String> diffRandom = new HashSet<String>();
+                    Random random = new Random();
+                    for (int i = 0; i < n; i++) {
+                        diffRandom.add(geneNames.get(random.nextInt(geneNames.size())));
+                    }
+                    Set<String> notDiffRandom = setDifference(geneNames, diffRandom);
+                    int x1OnlyPathR = intersection(genesOnlyPathway, diffRandom).size();
+                    int x0OnlyPathR = intersection(genesOnlyPathway, notDiffRandom).size();
+                    int nOnlyPathR = genesOnlyPathway.size();
+
+                    int x1AndPathR = intersection(genesInPathway, diffRandom).size() - x1OnlyPathR;
+                    int x0AndPathR = intersection(genesInPathway, notDiffRandom).size() - x0OnlyPathR;
+                    int nPathAndR = setDifference(genesInPathway, genesOnlyPathway).size();
+
+                    int x1NoPathR = intersection(genesNotPathway, diffRandom).size();
+                    int x0NoPathR = intersection(genesNotPathway, notDiffRandom).size();
+                    int nNoPathR = genesNotPathway.size();
+
+                    ArrayList<Double> X1onlyPathR = RPosterior(1, x1OnlyPathR, x1OnlyPathR + x0OnlyPathR, nOnlyPathR);
+                    double[] X0onlyPathR = new double[X1onlyPathR.size()];
+                    for (int k = 0; k < X0onlyPathR.length; k++) {
+                        X0onlyPathR[k] = nOnlyPathR - X1onlyPathR.get(k);
+                    }
+                    ArrayList<Double> X1andPathR = RPosterior(1, x1AndPathR, x1AndPathR + x0AndPathR, nPathAndR);
+                    double[] X0andPathR = new double[X1andPathR.size()];
+                    for (int k = 0; k < X0andPathR.length; k++) {
+                        X0andPathR[k] = nPathAndR - X1andPathR.get(k);
+                    }
+                    ArrayList<Double> X1noPathR = RPosterior(1, x1NoPathR, x1NoPathR + x0NoPathR, nNoPathR);
+                    double[] X0noPathR = new double[X1noPathR.size()];
+                    for (int k = 0; k < X1noPathR.size(); k++) {
+                        X0noPathR[k] = nNoPathR - X1noPathR.get(k);
+                    }
+                    gRand[j] = GScoreMatrix(X1onlyPathR, X1andPathR, X1noPathR, X0onlyPathR, X0andPathR, X0noPathR)[0];
+                }
+                // Simulations are done, so let's start comparing the results
+                int cnt = 0;
+                for (int j = 0; j < nSim; j++)
+                    if (gRand[j] > gObs[j])
+                        cnt++;
+                double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
+                System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
+
+                // computing error bars
+                double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
+                double errorRight = Math.max(quantile(gObs, 0.95), gHat);
+                System.out.println("G hat : " + gHat);
+                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
+                // TODO : Write a test case for this method. Quantile works, but overall bayesian needs checking
+            }
+            System.out.println("-------------------------------");
+        }
+
 
     }
 
@@ -322,10 +334,12 @@ public class Bayesian {
      * @param genesInOther
      * @return
      */
+    // TODO : Test the set difference methods
     public Set<String> setDifference(ArrayList<String> genesInPathway, Set<String> genesInOther) {
-        genesInPathway.removeAll(genesInOther);
-
-        return new HashSet<String>(genesInPathway);
+        Set<String> res = new HashSet<String>(genesInPathway);
+        res.removeAll(genesInOther);
+//        System.out.println(res.size());
+        return res;
     }
 
     /**
@@ -336,8 +350,10 @@ public class Bayesian {
      * @return
      */
     public Set<String> setDifference(Set<String> genesInOther, ArrayList<String> genesInPathway) {
-        genesInOther.removeAll(genesInPathway);
-        return genesInOther;
+        Set<String> res = new HashSet<String>(genesInOther);
+        res.removeAll(genesInPathway);
+//        genesInOther.removeAll(genesInPathway);
+        return res;
     }
 
     /**
@@ -371,30 +387,53 @@ public class Bayesian {
 
         float[][] data = dataset.getData();
         for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[0].length; j++) {
-                allValues.add(Float.toString(data[i][j]));
-            }
+            allValues.add(Float.toString(data[i][choice]));
         }
 
-        return allValues.size() < 2; // Means, we can easily distinguish if needed.
+        System.out.println("Amount of different values : " + allValues.size());
+        return allValues.size() <= 2; // Means, we can easily distinguish if needed.
         // And we make sure to use original data, not the processed one
     }
 
     /**
      * Given a list of gene Names, gives back a list which is differentially expressed
      *
-     * @param geneNames     List of gene names that should be assessed
-     * @param choisenColumn Number representing upon which column should the differention be performed
-     * @param dataset       Dataset containing the expression level of the genes
+     * @param bicluster    A bicluster for which the differential expressed genes should be computed
+     * @param chosenColumn Number representing upon which column should the differention be performed
+     * @param dataset      Dataset containing the expression level of the genes
+     * @param threshold    Threshold value based on which, differentiation will be performed on a @param chosenColumn
+     * @return
      */
-    public ArrayList<String> calculateDiff(ArrayList<String> geneNames, int choisenColumn, Dataset dataset) {
-        if (choisenColumn == -1) {
+    public ArrayList<String> calculateDiff(Bicluster bicluster, int chosenColumn, Dataset dataset, double threshold) {
+        ArrayList<String> res = new ArrayList<String>();
+        int[] genes = bicluster.getGenes();
+
+        if (chosenColumn == -1) {
             // Differential gene expression
+            // Only need this one as the other option is still to be implemented
+            // Let's do grouping/based on the conditions. However, we need that as being an input or something
+            // There might be many groups
+            // TODO : FINISH THIS TODAY, URGENTLY NEEDED FOR THE TEST CASE!
+
         } else {
             // Based on the column
+            // This part is easy as it will be just about grouping genes into two values
+            if (threshold == Double.MAX_VALUE) {
+                // Means column was actually binary (so, 2 possible values)
+                // This is the case for our test case
+                int[][] discrData = dataset.getDiscrData();
+                System.out.println("For debugging!");
+                for (int i = 0; i < genes.length; i++) {
+                    if (discrData[genes[i]][chosenColumn] > 0.5)
+                        res.add(dataset.getGeneName(genes[i]));
+                }
+            } else {
+                // Based on the threshold. Higher than threshold is diff
+
+            }
         }
 
-        return null;
+        return res;
     }
 
 
@@ -551,7 +590,19 @@ public class Bayesian {
         for (int i = 0; i < k; i++) {
             double[] firstPart = matrixConstantSum(lchooseVect(xAr, x), -lchoose(N, n));
             double[] secondPart = lchooseVect(matrixConstantSum(vectorConstantMult(xAr, -1), N), n - x);
-            Double[] P = expVect(matrixSum(firstPart, secondPart));
+            Double[] P = null;
+            if (firstPart.length != secondPart.length)
+            {
+                // well, this will be weird. One of them should be constant
+                if (secondPart.length == 1)
+                    P = expVect(matrixConstantSum(firstPart, secondPart[0]));
+                else if (firstPart.length == 1)
+                    P = expVect(matrixConstantSum(secondPart, firstPart[0]));
+                else
+                    System.out.println("Strange");
+            }
+            else
+                P = expVect(matrixSum(firstPart, secondPart));
 
             // Sorting both datasets and indices
             SpecialMatrix comparator = new SpecialMatrix(P);

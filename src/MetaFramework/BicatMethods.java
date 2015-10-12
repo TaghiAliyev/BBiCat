@@ -107,26 +107,40 @@ public class BicatMethods {
     /**
      * Method that runs BiMax method on the given dataset with default variable values
      */
-    public LinkedList<Bicluster> callBiMax() {
+    public LinkedList<Bicluster> callBiMax(boolean thresholding, int perc, int minGene, int minChip) {
         LinkedList<Bicluster> result = null;
 
         RunMachine_BiMax runningMachine = new RunMachine_BiMax(engine);
 
-        PreprocessOption options = new PreprocessOption();
-        options.setDo_discretize(true);
-        options.setDiscretizationScheme(MethodConstants.PREPROCESS_OPTIONS_DISCRETIZATION_UP);
-        options.setOnesPercentage(25); // 25% Thresholding
-        options.setDiscretizationMode("onesPercentage");
+        if (thresholding) {
+            PreprocessOption options = new PreprocessOption();
+            options.setDo_discretize(true);
+            options.setDiscretizationScheme(MethodConstants.PREPROCESS_OPTIONS_DISCRETIZATION_UP);
+            options.setOnesPercentage(perc); // 25% Thresholding
+            options.setDiscretizationMode("onesPercentage");
 
-        // Pre-processing the data
-        readingEngine.preprocessData(options);
-
+            // Pre-processing the data
+            readingEngine.preprocessData(options);
+        }
+        else
+        {
+            int[][] discreteData = new int[data.getData().length][data.getData()[0].length];
+            for (int i = 0; i < discreteData.length; i++)
+            {
+                for (int j = 0; j < discreteData[0].length; j++)
+                {
+                    discreteData[i][j] = (int)(data.getData()[i][j]);
+                }
+            }
+            readingEngine.setDiscretizedData(discreteData);
+            data.setDiscrData(discreteData);
+        }
         // After this point, we can already use Bimax and run bi-clustering on the processed data
         // First, let's set some parameters/arguments for the BiMax
         ArgumentsBiMax argumentsBiMax = new ArgumentsBiMax();
         argumentsBiMax.setBinaryData(readingEngine.getDiscreteData());
-        argumentsBiMax.setLower_genes(8);
-        argumentsBiMax.setLower_chips(15);
+        argumentsBiMax.setLower_genes(minGene);
+        argumentsBiMax.setLower_chips(minChip);
         argumentsBiMax.setExtended(false);
         argumentsBiMax.setGeneNumber(readingEngine.getGeneCount());
         argumentsBiMax.setChipNumber(readingEngine.getOriginalChipCount());

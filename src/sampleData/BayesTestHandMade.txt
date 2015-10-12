@@ -1,0 +1,9 @@
+probeset	diabetes	athero	narcolepsy	schizo	rheuma	ebola	swine	gasthritis
+PFKM	1	1	0	0	1	0	0	0
+SCP2	1	0	0	0	0	0	0	0
+AKAP1	0	0	1	1	0	0	0	1
+CRY1-2	0	0	1	1	1	0	0	0
+Eps8	1	1	0	0	0	1	0	1
+AKT2	0	0	0	0	1	1	1	0
+FGFR1	0	0	1	0	0	0	1	1
+PIP5K1B	0	0	0	0	0	1	1	1

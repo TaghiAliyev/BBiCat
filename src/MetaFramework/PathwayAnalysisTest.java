@@ -102,7 +102,7 @@ public class PathwayAnalysisTest {
         BicatMethods bicatEngine = new BicatMethods(fileLocation);
 
         // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
+        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 8, 15);
         Bicluster oneSample;
         int[] toFetch;
         for (int j = 0; j < biclusters.size(); j++) {

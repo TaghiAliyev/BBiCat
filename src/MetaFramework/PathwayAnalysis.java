@@ -85,7 +85,7 @@ import java.util.HashMap;
 public class PathwayAnalysis {
 
     // Two hashmaps that will contain pathway to the genes relations and genes to pathway relations
-    private HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
+    private HashMap<String, ArrayList<String>>  pathwayToGenes = new HashMap<String, ArrayList<String>>();
     private HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
 
     // Main Document File that will be used around
