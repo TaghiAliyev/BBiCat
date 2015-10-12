@@ -224,10 +224,12 @@ public class Bayesian {
                 // computing error bars
                 double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
-                System.out.println("G hat : " + gHat);
+                System.out.println("G hat : " + gHat + " " + (gHat == Double.NaN));
                 System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
                 // TODO : Write a test case for this method. Quantile works, but overall bayesian needs checking
             }
+            else
+                System.out.println("GHat : " + gHat);
             System.out.println("-------------------------------");
         }
 
@@ -302,6 +304,10 @@ public class Bayesian {
             double p = a.get(i) * (e[i] + f[i]) + b.get(i) * f[i];
             double q = c.get(i) * (d[i] + e[i]) + b.get(i) * d[i];
             res[i] = (p - q) / (p + q);
+            if (Double.isNaN(res[i])) {
+//                System.out.println("NaN found!");
+                res[i] = 0;
+            }
         }
 
         return res;
@@ -453,6 +459,10 @@ public class Bayesian {
         double P = a * (e + f) + b * f;
         double Q = c * (d + e) + b * d;
         result = (P - Q + 0.0) / (P + Q + 0.0); // 0.0 are there in order to make sure division is not an integer division
+        if (Double.isNaN(result)) {
+            System.out.println("Here");
+            result = 0.0;
+        }
         return result;
     }
 
@@ -604,6 +614,9 @@ public class Bayesian {
             else
                 P = expVect(matrixSum(firstPart, secondPart));
 
+            for (int j = 0; j < P.length; j++)
+                if (P[j] == Double.NaN)
+                    P[j] = 0.0;
             // Sorting both datasets and indices
             SpecialMatrix comparator = new SpecialMatrix(P);
             Integer[] indices = comparator.createIndexArray();

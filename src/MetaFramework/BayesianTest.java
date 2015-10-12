@@ -130,4 +130,22 @@ public class BayesianTest {
             System.out.println("--------------\n\n");
         }
     }
+
+    /**
+     * This test case will check the differentially expressed gene computation
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testDiff() throws Exception
+    {
+        String dataFile = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/BayesTestHandMade.txt";
+
+        // Reading the pathway information from NCI Curated Database
+        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        PathwayAnalysis engine = new PathwayAnalysis(file);
+        Set<String> allGenes = engine.getGeneToPathways().keySet();
+        String[] geneNames = new String[40];
+        geneNames = allGenes.toArray(geneNames);
+    }
 }
