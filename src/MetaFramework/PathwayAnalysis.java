@@ -85,7 +85,7 @@ import java.util.HashMap;
 public class PathwayAnalysis {
 
     // Two hashmaps that will contain pathway to the genes relations and genes to pathway relations
-    private HashMap<String, ArrayList<String>>  pathwayToGenes = new HashMap<String, ArrayList<String>>();
+    private HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
     private HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
 
     // Main Document File that will be used around
@@ -197,8 +197,16 @@ public class PathwayAnalysis {
                                     // Means that it is not family member and is just simple
                                     String name = mol_att.item(t).getAttributes().item(2).getNodeValue();
                                     String[] toAdd = name.split("/");
-                                    for (String tmp : toAdd)
-                                        addToHashmaps(tmp, pathwayName);
+                                    for (String tmp : toAdd) {
+                                        tmp = tmp.split("\\(")[0];
+                                        if (tmp.split("\\(").length != 0)
+                                            addToHashmaps(tmp.split("\\(")[0], pathwayName);
+                                        else if (tmp.split("\\)").length != 0)
+                                            // ignore this
+                                            System.out.println("Ignoring");
+                                        else
+                                            addToHashmaps(tmp, pathwayName);
+                                    }
                                     done = true;
                                 }
                                 if (done)
@@ -211,8 +219,7 @@ public class PathwayAnalysis {
         }
     }
 
-    public void searchForTheName(String name, String pathwayName)
-    {
+    public void searchForTheName(String name, String pathwayName) {
         // Let's find the name of the molecule with id-> name
         for (int m = 0; m < molecules.getChildNodes().getLength(); m++) {
             if (molecules.getChildNodes().item(m).getNodeName().equalsIgnoreCase("Molecule")) {
@@ -222,13 +229,25 @@ public class PathwayAnalysis {
                     NodeList mol_att = mol.getChildNodes();
                     for (int t = mol_att.getLength() - 1; t >= 0; t--) {
                         // Trying to find the Preferred Symbol name: Same asa HUGO, HNBC_Symbol
-                            if (mol_att.item(t).hasAttributes() && mol_att.item(t).getAttributes().item(0).getNodeValue().equalsIgnoreCase("PF")) {
-                                // Means that it is not family member and is just simple
-                                String gg = mol_att.item(t).getAttributes().item(2).getNodeValue();
-                                String[] toAdd = gg.split("/");
-                                for (String tmp : toAdd)
+                        if (mol_att.item(t).hasAttributes() && mol_att.item(t).getAttributes().item(0).getNodeValue().equalsIgnoreCase("PF")) {
+                            // Means that it is not family member and is just simple
+                            String gg = mol_att.item(t).getAttributes().item(2).getNodeValue();
+                            String[] toAdd = gg.split("/");
+                            for (String tmp : toAdd) {
+                                // Alright, problem : if there was a / which did not mean to divide genes but rather
+                                // meant something else like (light/heavy), that should be dealt with.
+                                tmp = tmp.split("\\(")[0];
+                                if (tmp.contains("BoNT"))
+                                    System.out.println("Here!");
+                                if (tmp.split("\\(").length != 0)
+                                    addToHashmaps(tmp.split("\\(")[0], pathwayName);
+                                else if (tmp.split("\\)").length != 0)
+                                    // ignore this
+                                    System.out.println("Ignoring");
+                                else
                                     addToHashmaps(tmp, pathwayName);
                             }
+                        }
                     }
                 }
             }

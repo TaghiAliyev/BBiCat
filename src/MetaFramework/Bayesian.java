@@ -86,7 +86,7 @@ public class Bayesian {
     private int nSim;
 
     public Bayesian() {
-        nSim = 5; // Default is 500
+        nSim = 500; // Default is 500
     }
 
     public Bayesian(int nSim) {
@@ -120,11 +120,9 @@ public class Bayesian {
             }
             // Now that we know the threshold, we should be fine
             diffGenes = calculateDiff(bicluster, colChoice, dataset, Double.parseDouble(threshold));
-//            System.out.println("All is fine, let's do this");
         }
         Set<String> notDiffGenes = MatrixFunctions.setDifference(geneNames, new HashSet<String>(diffGenes));
         for (String tmp : allPathways) {
-//            System.out.println("Analyzing pathway named : " + tmp);
             ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
             int nMin = 1;//(int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 should be diff expressed
@@ -175,9 +173,10 @@ public class Bayesian {
                 }
                 double[] gRand = new double[nSim];
                 for (int j = 0; j < nSim; j++) {
-//                    System.out.println("Simulation number : " + j);
                     // Simulation loop
                     int n = Math.min(poisson(diffGenes.size()), geneNames.size()); // 2nd argument is actually number of observed genes
+                    // TODO : Look into observability (not from control theory) of genes. Some genes won't be observable or observed
+
                     Set<String> diffRandom = new HashSet<String>();
                     Random random = new Random();
                     for (int i = 0; i < n; i++) {
