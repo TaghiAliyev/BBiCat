@@ -86,7 +86,7 @@ public class Bayesian {
     private int nSim;
 
     public Bayesian() {
-        nSim = 500; // Default is 500
+        nSim = 5; // Default is 500
     }
 
     public Bayesian(int nSim) {
@@ -122,7 +122,7 @@ public class Bayesian {
             diffGenes = calculateDiff(bicluster, colChoice, dataset, Double.parseDouble(threshold));
 //            System.out.println("All is fine, let's do this");
         }
-        Set<String> notDiffGenes = setDifference(geneNames, new HashSet<String>(diffGenes));
+        Set<String> notDiffGenes = MatrixFunctions.setDifference(geneNames, new HashSet<String>(diffGenes));
         for (String tmp : allPathways) {
 //            System.out.println("Analyzing pathway named : " + tmp);
             ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
@@ -134,19 +134,18 @@ public class Bayesian {
                     genesInOther.addAll(engine.getPathwayToGenes().get(tmp2));
             }
 
-            Set<String> genesOnlyPathway = setDifference(genesInPathway, genesInOther);
-            Set<String> genesNotPathway = setDifference(genesInOther, genesInPathway);
+            Set<String> genesOnlyPathway = MatrixFunctions.setDifference(genesInPathway, genesInOther);
+            Set<String> genesNotPathway = MatrixFunctions.setDifference(genesInOther, genesInPathway);
 
-            int x1OnlyPathway = intersection(genesOnlyPathway, diffGenes).size();
-            int x0OnlyPathway = intersection(genesOnlyPathway, notDiffGenes).size();
+            int x1OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, diffGenes).size();
+            int x0OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, notDiffGenes).size();
             int nOnlyPath = genesOnlyPathway.size();
-            int x1PathAnd = intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
-            int x0PathAnd = intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
-            int nAnd = setDifference(genesInPathway, genesOnlyPathway).size();
-            int x1NoPathway = intersection(genesNotPathway, diffGenes).size();
-            int x0NoPathway = intersection(genesNotPathway, notDiffGenes).size();
+            int x1PathAnd = MatrixFunctions.intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
+            int x0PathAnd = MatrixFunctions.intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
+            int nAnd = MatrixFunctions.setDifference(genesInPathway, genesOnlyPathway).size();
+            int x1NoPathway = MatrixFunctions.intersection(genesNotPathway, diffGenes).size();
+            int x0NoPathway = MatrixFunctions.intersection(genesNotPathway, notDiffGenes).size();
             int nNoPath = genesNotPathway.size();
-
             double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
             int x1Path = x1OnlyPathway + x1PathAnd;
 
@@ -156,11 +155,11 @@ public class Bayesian {
                 // Do not skip the loop, still continue
                 if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
                     ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
-                    double[] X0onlyPath = constantMinusVector(nOnlyPath, X1onlyPath);
+                    double[] X0onlyPath = MatrixFunctions.constantMinusVector(nOnlyPath, X1onlyPath);
                     ArrayList<Double> X1andPath = RPosterior(nSim, x1PathAnd, x1PathAnd + x0PathAnd, nAnd);
-                    double[] X0andPath = constantMinusVector(nAnd, X1andPath);
+                    double[] X0andPath = MatrixFunctions.constantMinusVector(nAnd, X1andPath);
                     ArrayList<Double> X1noPath = RPosterior(nSim, x1NoPathway, x1NoPathway + x0NoPathway, nNoPath);
-                    double[] X0noPath = constantMinusVector(nNoPath, X1noPath);
+                    double[] X0noPath = MatrixFunctions.constantMinusVector(nNoPath, X1noPath);
                     // gObs will be used for the comparison vs simulation results
                     gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
 
@@ -178,23 +177,23 @@ public class Bayesian {
                 for (int j = 0; j < nSim; j++) {
 //                    System.out.println("Simulation number : " + j);
                     // Simulation loop
-                    int n = Math.min(poisson(diffGenes.size()), diffGenes.size() + notDiffGenes.size());
+                    int n = Math.min(poisson(diffGenes.size()), geneNames.size()); // 2nd argument is actually number of observed genes
                     Set<String> diffRandom = new HashSet<String>();
                     Random random = new Random();
                     for (int i = 0; i < n; i++) {
                         diffRandom.add(geneNames.get(random.nextInt(geneNames.size())));
                     }
-                    Set<String> notDiffRandom = setDifference(geneNames, diffRandom);
-                    int x1OnlyPathR = intersection(genesOnlyPathway, diffRandom).size();
-                    int x0OnlyPathR = intersection(genesOnlyPathway, notDiffRandom).size();
+                    Set<String> notDiffRandom = MatrixFunctions.setDifference(geneNames, diffRandom);
+                    int x1OnlyPathR = MatrixFunctions.intersection(genesOnlyPathway, diffRandom).size();
+                    int x0OnlyPathR = MatrixFunctions.intersection(genesOnlyPathway, notDiffRandom).size();
                     int nOnlyPathR = genesOnlyPathway.size();
 
-                    int x1AndPathR = intersection(genesInPathway, diffRandom).size() - x1OnlyPathR;
-                    int x0AndPathR = intersection(genesInPathway, notDiffRandom).size() - x0OnlyPathR;
-                    int nPathAndR = setDifference(genesInPathway, genesOnlyPathway).size();
+                    int x1AndPathR = MatrixFunctions.intersection(genesInPathway, diffRandom).size() - x1OnlyPathR;
+                    int x0AndPathR = MatrixFunctions.intersection(genesInPathway, notDiffRandom).size() - x0OnlyPathR;
+                    int nPathAndR = MatrixFunctions.setDifference(genesInPathway, genesOnlyPathway).size();
 
-                    int x1NoPathR = intersection(genesNotPathway, diffRandom).size();
-                    int x0NoPathR = intersection(genesNotPathway, notDiffRandom).size();
+                    int x1NoPathR = MatrixFunctions.intersection(genesNotPathway, diffRandom).size();
+                    int x0NoPathR = MatrixFunctions.intersection(genesNotPathway, notDiffRandom).size();
                     int nNoPathR = genesNotPathway.size();
 
                     ArrayList<Double> X1onlyPathR = RPosterior(1, x1OnlyPathR, x1OnlyPathR + x0OnlyPathR, nOnlyPathR);
@@ -226,36 +225,14 @@ public class Bayesian {
                 // computing error bars
                 double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
-//                System.out.println("G hat : " + gHat);
-//                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
-            }
-            else
+                System.out.println("G hat : " + gHat);
+                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
+            } else
                 System.out.println("GHat : " + gHat);
             System.out.println("-------------------------------");
         }
 
 
-    }
-
-    /**
-     * Computes the intersection between two sets/lists
-     *
-     * @param geneNames
-     * @param termGenes
-     * @return
-     */
-    public Set<String> intersection(ArrayList<String> geneNames, ArrayList<String> termGenes) {
-        Set<String> gene = new HashSet<String>();
-        Set<String> term = new HashSet<String>();
-        for (String tmp : geneNames)
-            gene.add(tmp);
-        for (String tmp : termGenes)
-            term.add(tmp);
-
-        Set<String> intersect = new TreeSet(gene);
-        intersect.retainAll(term);
-
-        return intersect;
     }
 
     /**
@@ -271,7 +248,7 @@ public class Bayesian {
         double gamma = data.length * p + m - j;
 
         Arrays.sort(data);
-        double res =(1 - gamma) * data[j - 1] + gamma * data[j];
+        double res = (1 - gamma) * data[j - 1] + gamma * data[j];
         return res;
     }
 
@@ -311,55 +288,6 @@ public class Bayesian {
             }
         }
 
-        return res;
-    }
-
-    public Set<String> intersection(Set<String> geneNames, Set<String> termGenes) {
-        Set<String> intersect = new TreeSet(geneNames);
-        intersect.retainAll(termGenes);
-        return intersect;
-    }
-
-    public Set<String> intersection(Set<String> geneNames, ArrayList<String> termGenes) {
-        Set<String> tmp = new HashSet<String>(termGenes);
-
-        Set<String> intersect = new TreeSet(geneNames);
-        intersect.retainAll(tmp);
-
-        return intersect;
-    }
-
-    public Set<String> intersection(ArrayList<String> list1, Set<String> list2) {
-        return intersection(list2, list1);
-    }
-
-
-    /**
-     * Computes the set difference between two lists/sets
-     *
-     * @param genesInPathway
-     * @param genesInOther
-     * @return
-     */
-    // TODO : Test the set difference methods
-    public Set<String> setDifference(ArrayList<String> genesInPathway, Set<String> genesInOther) {
-        Set<String> res = new HashSet<String>(genesInPathway);
-        res.removeAll(genesInOther);
-//        System.out.println(res.size());
-        return res;
-    }
-
-    /**
-     * Computes the element-wise set difference
-     *
-     * @param genesInOther
-     * @param genesInPathway
-     * @return
-     */
-    public Set<String> setDifference(Set<String> genesInOther, ArrayList<String> genesInPathway) {
-        Set<String> res = new HashSet<String>(genesInOther);
-        res.removeAll(genesInPathway);
-//        genesInOther.removeAll(genesInPathway);
         return res;
     }
 
@@ -413,6 +341,7 @@ public class Bayesian {
      */
     private boolean done = false;
     private int[] firstColumns, secondColumns;
+
     public ArrayList<String> calculateDiff(Bicluster bicluster, int chosenColumn, Dataset dataset, double threshold) {
         ArrayList<String> res = new ArrayList<String>();
         int[] genes = bicluster.getGenes();
@@ -438,8 +367,7 @@ public class Bayesian {
             }
             float[][] data = dataset.getData();
             // Let's compute the means first
-            for (int i = 0; i < genes.length; i++)
-            {
+            for (int i = 0; i < genes.length; i++) {
                 double meanA = 0.0, meanB = 0.0, mean = 0.0;
                 for (int j = 0; j < firstColumns.length; j++)
                     meanA += data[genes[i]][firstColumns[j]];
@@ -450,14 +378,12 @@ public class Bayesian {
                 meanA = meanA / firstColumns.length;
                 meanB = meanB / secondColumns.length;
                 double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0, sum4 = 0.0;
-                for (int j = 0; j < firstColumns.length; j++)
-                {
+                for (int j = 0; j < firstColumns.length; j++) {
                     sum1 += Math.pow(data[genes[i]][firstColumns[j]] - meanA, 2);
                     sum3 += Math.pow(data[genes[i]][firstColumns[j]] - mean, 2);
                 }
 
-                for (int j = 0; j < secondColumns.length; j++)
-                {
+                for (int j = 0; j < secondColumns.length; j++) {
                     sum2 += Math.pow(data[genes[i]][secondColumns[j]] - meanB, 2);
                     sum4 += Math.pow(data[genes[i]][secondColumns[j]] - mean, 2);
                 }
@@ -465,7 +391,7 @@ public class Bayesian {
                 double t = 2.0 * (sum1 + sum2) / (sum3 + sum4);
                 // Bonferroni correction (divide by sample size)
                 double pValue = computePValue(t, 1) / genes.length; // Degrees of freedom for us 1!
-                if (pValue <= 0.05){
+                if (pValue <= 0.05) {
 //                    System.out.println("Diff expressed!");
                     res.add(dataset.getGeneName(genes[i]));
                 }
@@ -486,8 +412,7 @@ public class Bayesian {
             } else {
                 // Based on the threshold. Higher than threshold is diff
                 float[][] discrData = dataset.getData();
-                for (int i = 0; i < genes.length; i++)
-                {
+                for (int i = 0; i < genes.length; i++) {
                     if (discrData[genes[i]][chosenColumn] > threshold)
                         res.add(dataset.getGeneName(genes[i]));
                 }
@@ -501,27 +426,23 @@ public class Bayesian {
     /**
      * Given a critical value t and degrees of freedom to account for, computes a p-value for a chi-square distribution
      *
-     * @param t Critical value/test statistics
+     * @param t  Critical value/test statistics
      * @param df Degrees of Freedom
      * @return Returns a p-value
      */
-    public double computePValue(double t, int df)
-    {
+    public double computePValue(double t, int df) {
         double result = 0.0;
-        if(t < 0 || df < 1)
-        {
+        if (t < 0 || df < 1) {
             return 0.0;
         }
-        double K = ((double)df) * 0.5;
+        double K = ((double) df) * 0.5;
         double X = t * 0.5;
-        if(df == 2)
-        {
+        if (df == 2) {
             return Math.exp(-1.0 * X);
         }
 
         double PValue = igf(K, X);
-        if(Double.isNaN(PValue) || Double.isInfinite(PValue) || PValue <= 1e-8)
-        {
+        if (Double.isNaN(PValue) || Double.isInfinite(PValue) || PValue <= 1e-8) {
             return 1e-14;
         }
 
@@ -533,14 +454,13 @@ public class Bayesian {
 
     /**
      * Implementation of a incomplete Gamma function
+     *
      * @param S
      * @param Z
      * @return
      */
-    public double igf(double S, double Z)
-    {
-        if(Z < 0.0)
-        {
+    public double igf(double S, double Z) {
+        if (Z < 0.0) {
             return 0.0;
         }
         double Sc = (1.0 / S);
@@ -551,8 +471,7 @@ public class Bayesian {
         double Nom = 1.0;
         double Denom = 1.0;
 
-        for(int I = 0; I < 200; I++)
-        {
+        for (int I = 0; I < 200; I++) {
             Nom *= Z;
             S++;
             Denom *= S;
@@ -564,16 +483,16 @@ public class Bayesian {
 
     /**
      * Implementation of a Gamma function (not the approximated, faster version)
+     *
      * @param N
      * @return
      */
-    public double gamma(double N)
-    {
+    public double gamma(double N) {
         final double SQRT2PI = 2.5066282746310005024157652848110452530069867406099383;
 
         double A = 11.0;
 
-        double Z = (double)N;
+        double Z = (double) N;
         double Sc = Math.pow((Z + A), (Z + 0.5));
         Sc *= Math.exp(-1.0 * (Z + A));
         Sc /= Z;
@@ -583,8 +502,7 @@ public class Bayesian {
         double Sum = SQRT2PI;
 
 
-        for(int K = 1; K < A; K++)
-        {
+        for (int K = 1; K < A; K++) {
             Z++;
             Ck = Math.pow(A - K, K - 0.5);
             Ck *= Math.exp(A - K);
@@ -595,7 +513,7 @@ public class Bayesian {
             F *= (-1.0 * K);
         }
 
-        return (double)(Sum * Sc);
+        return (double) (Sum * Sc);
     }
 
     /**
@@ -621,131 +539,6 @@ public class Bayesian {
         return result;
     }
 
-    /**
-     * Element-wise summation of two vectors
-     *
-     * @param a
-     * @param b
-     * @return
-     */
-    public int[] vectSum(int[] a, int[] b) {
-        int[] tmp = new int[a.length];
-        for (int i = 0; i < a.length; i++)
-            tmp[i] = a[i] + b[i];
-
-        return tmp;
-    }
-
-    public double[] constantMinusVector(int n, ArrayList<Double> vec) {
-        double[] res = new double[vec.size()];
-        for (int i = 0; i < res.length; i++)
-            res[i] = n - vec.get(i);
-        return res;
-    }
-
-    /**
-     * Adding a constant to all the elements of a vector
-     *
-     * @param a
-     * @param tmp
-     * @return
-     */
-    public int[] matrixConstantSum(int[] a, int tmp) {
-        int[] tmpVec = new int[a.length];
-        for (int i = 0; i < tmpVec.length; i++) {
-            tmpVec[i] = a[i] + tmp;
-        }
-
-        return tmpVec;
-    }
-
-    /**
-     * Adds a constant to a given double vector (element-wise)
-     *
-     * @param a
-     * @param tmp
-     * @return
-     */
-    public double[] matrixConstantSum(double[] a, double tmp) {
-        double[] res = new double[a.length];
-        for (int i = 0; i < a.length; i++) {
-            res[i] = a[i] + tmp;
-        }
-
-        return res;
-    }
-
-    /**
-     * Element-wise multiplication of two vectors
-     *
-     * @param a
-     * @param b
-     * @return
-     */
-    public int[] vectorMult(int[] a, int[] b) {
-        int[] result = new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            result[i] = a[i] * b[i];
-        }
-
-        return result;
-    }
-
-    public double[] vectorConstantMult(double[] a, double b) {
-        double[] result = new double[a.length];
-        for (int i = 0; i < a.length; i++)
-            result[i] = a[i] * b;
-
-        return result;
-    }
-
-    public int[] vectorConstantMult(int[] a, int b) {
-        int[] result = new int[a.length];
-        for (int i = 0; i < a.length; i++)
-            result[i] = a[i] * b;
-
-        return result;
-    }
-
-    public double[] matrixSum(double[] a, double[] b) {
-        double[] res = new double[a.length];
-
-        for (int i = 0; i < a.length; i++)
-            res[i] = a[i] + b[i];
-
-        return res;
-    }
-
-    /**
-     * Element-wise division of two vectors
-     *
-     * @param a
-     * @param b
-     * @return
-     */
-    public int[] vectorDiv(int[] a, int[] b) {
-        int[] result = new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            result[i] = a[i] / b[i];
-        }
-
-        return result;
-    }
-
-    /**
-     * Computes the exponent of each element of a given vector
-     *
-     * @param vec
-     * @return
-     */
-    public Double[] expVect(double[] vec) {
-        Double[] result = new Double[vec.length];
-        for (int i = 0; i < vec.length; i++)
-            result[i] = Math.exp(vec[i]);
-
-        return result;
-    }
-
     public ArrayList<Double> RPosterior(double k, int x, int n, int N) {
         ArrayList<Double> xVect = new ArrayList<Double>();
         int[] xAr = new int[N + 1];
@@ -753,21 +546,19 @@ public class Bayesian {
             xAr[i] = i;
 
         for (int i = 0; i < k; i++) {
-            double[] firstPart = matrixConstantSum(lchooseVect(xAr, x), -lchoose(N, n));
-            double[] secondPart = lchooseVect(matrixConstantSum(vectorConstantMult(xAr, -1), N), n - x);
+            double[] firstPart = MatrixFunctions.matrixConstantSum(lchooseVect(xAr, x), -lchoose(N, n));
+            double[] secondPart = lchooseVect(MatrixFunctions.matrixConstantSum(MatrixFunctions.vectorConstantMult(xAr, -1), N), n - x);
             Double[] P = null;
-            if (firstPart.length != secondPart.length)
-            {
+            if (firstPart.length != secondPart.length) {
                 // well, this will be weird. One of them should be constant
                 if (secondPart.length == 1)
-                    P = expVect(matrixConstantSum(firstPart, secondPart[0]));
+                    P = MatrixFunctions.expVect(MatrixFunctions.matrixConstantSum(firstPart, secondPart[0]));
                 else if (firstPart.length == 1)
-                    P = expVect(matrixConstantSum(secondPart, firstPart[0]));
+                    P = MatrixFunctions.expVect(MatrixFunctions.matrixConstantSum(secondPart, firstPart[0]));
                 else
                     System.out.println("Strange");
-            }
-            else
-                P = expVect(matrixSum(firstPart, secondPart));
+            } else
+                P = MatrixFunctions.expVect(MatrixFunctions.matrixSum(firstPart, secondPart));
 
             for (int j = 0; j < P.length; j++)
                 if (Double.isNaN(P[j]))
@@ -870,6 +661,4 @@ public class Bayesian {
             return res;
         }
     }
-
-
 }

@@ -68,7 +68,6 @@ import java.util.Comparator;
 /**
  * Implements a matrix which, when sorted, also sorts the indices of the elements
  * Needed as an utility for Bayesian analysis.
- * TODO: All matrix operations should come here
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
@@ -97,4 +96,5 @@ public class SpecialMatrix implements Comparator<Integer> {
         // Autounbox from Integer to int to use as array indexes
         return data[index1].compareTo(data[index2]);
     }
+
 }
