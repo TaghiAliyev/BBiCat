@@ -124,10 +124,11 @@ public class PathwayAnalysis {
      */
     public void createHashMaps() {
         int length2 = pathwayList.getChildNodes().getLength();
+        NodeList child = pathwayList.getChildNodes();
         for (int i = 0; i < length2; i++) {
-            if (pathwayList.getChildNodes().item(i).getNodeName().equalsIgnoreCase("Pathway")) {
+            if (child.item(i).getNodeName().equalsIgnoreCase("Pathway")) {
                 // This is a pathway!
-                DomElement PathwayComponent = (DomElement) ((DomElement) (pathwayList.getChildNodes().item(i))).getElementsByTagName("PathwayComponentList").item(0);
+                DomElement PathwayComponent = (DomElement) ((DomElement) (child.item(i))).getElementsByTagName("PathwayComponentList").item(0);
 
                 // Seems like there is one exception to this rule. I think the pathway is represented as being an interaction
                 // Ignored for now.
@@ -136,18 +137,20 @@ public class PathwayAnalysis {
                 else {
                     System.out.println("Pathway number : " + i);
 //                    System.out.println(PathwayComponent.getElementsByTagName("PathwayComponent").getLength());
-                    NodeList pathName = (DomElement) ((DomElement) (pathwayList.getChildNodes().item(i))).getElementsByTagName("LongName").item(0);
+                    NodeList pathName = (DomElement) ((DomElement) (child.item(i))).getElementsByTagName("LongName").item(0);
                     String pathwayName = pathName.item(0).getNodeValue();
                     NodeList pathInteractions = PathwayComponent.getElementsByTagName("PathwayComponent");
-
-                    for (int k = 0; k < pathInteractions.getLength(); k++) {
+                    int interLength = pathInteractions.getLength();
+                    for (int k = 0; k < interLength; k++) {
                         String id = pathInteractions.item(k).getAttributes().item(0).getFirstChild().getNodeValue();
                         // Given a pathway components, let's find them
                         // Every pathway component is an interaction and has a reference to that interaction
                         // So, let's fetch some information about it. For now let's try only on one pathway
-                        for (int j = 0; j < interactions.getChildNodes().getLength(); j++) {
-                            if (interactions.getChildNodes().item(j).getNodeName().equalsIgnoreCase("Interaction")) {
-                                DomElement interaction = (DomElement) interactions.getChildNodes().item(j);
+                        NodeList child2 = interactions.getChildNodes();
+                        int chiLen = child2.getLength();
+                        for (int j = 0; j < chiLen; j++) {
+                            if (child2.item(j).getNodeName().equalsIgnoreCase("Interaction")) {
+                                DomElement interaction = (DomElement) child2.item(j);
                                 if (interaction.getAttribute("id").equalsIgnoreCase(id)) {
 //                                    System.out.println(interaction.getAttribute("interaction_type"));
 
@@ -168,25 +171,31 @@ public class PathwayAnalysis {
         // If they are, just add them to the hashmaps.
 
 //        System.out.println("Length : " + parts.getLength());
-        for (int l = 0; l < parts.getLength(); l++) {
+        int partLen = parts.getLength();
+        for (int l = 0; l < partLen; l++) {
             // We should look for molecules here
 //            String moleculeID = "200185";
             String moleculeID = parts.item(l).getAttributes().item(1).getFirstChild().getNodeValue();
-            for (int m = 0; m < molecules.getChildNodes().getLength(); m++) {
-                if (molecules.getChildNodes().item(m).getNodeName().equalsIgnoreCase("Molecule")) {
+            NodeList list = molecules.getChildNodes();
+            int listLen = list.getLength();
+            for (int m = 0; m < listLen; m++) {
+                if (list.item(m).getNodeName().equalsIgnoreCase("Molecule")) {
 
                     DomElement mol = (DomElement) molecules.getChildNodes().item(m);
                     if (mol.getAttribute("id").equalsIgnoreCase(moleculeID)) {
                         NodeList mol_att = mol.getChildNodes();
-                        for (int t = mol_att.getLength() - 1; t >= 0; t--) {
+                        int mLen = mol_att.getLength();
+                        for (int t = mLen - 1; t >= 0; t--) {
                             // Trying to find the Preferred Symbol name: Same asa HUGO, HNBC_Symbol
                             boolean done = false;
                             if (mol_att.item(t) instanceof DomElement) {
                                 DomElement child = (DomElement) (mol_att.item(t));
                                 if (child.getNodeName().equalsIgnoreCase("FamilyMemberList")) {
                                     // This means there are family members in the list
-                                    for (int i = 0; i < child.getChildNodes().getLength(); i++) {
-                                        if (child.getChildNodes().item(i).hasChildNodes()) {
+                                    NodeList children = child.getChildNodes();
+                                    int childLen = children.getLength();
+                                    for (int i = 0; i < childLen; i++) {
+                                        if (children.item(i).hasChildNodes()) {
                                             // Let's find the actual name of the guys.
                                             searchForTheName(child.getChildNodes().item(i).getAttributes().item(0).getNodeValue(), pathwayName);
                                             done = true;
@@ -221,13 +230,16 @@ public class PathwayAnalysis {
 
     public void searchForTheName(String name, String pathwayName) {
         // Let's find the name of the molecule with id-> name
-        for (int m = 0; m < molecules.getChildNodes().getLength(); m++) {
-            if (molecules.getChildNodes().item(m).getNodeName().equalsIgnoreCase("Molecule")) {
+        NodeList child = molecules.getChildNodes();
+        int molChildLen = molecules.getChildNodes().getLength();
+        for (int m = 0; m < molChildLen; m++) {
+            if (child.item(m).getNodeName().equalsIgnoreCase("Molecule")) {
 
-                DomElement mol = (DomElement) molecules.getChildNodes().item(m);
+                DomElement mol = (DomElement)child.item(m);
                 if (mol.getAttribute("id").equalsIgnoreCase(name)) {
                     NodeList mol_att = mol.getChildNodes();
-                    for (int t = mol_att.getLength() - 1; t >= 0; t--) {
+                    int len = mol_att.getLength();
+                    for (int t = len - 1; t >= 0; t--) {
                         // Trying to find the Preferred Symbol name: Same asa HUGO, HNBC_Symbol
                         if (mol_att.item(t).hasAttributes() && mol_att.item(t).getAttributes().item(0).getNodeValue().equalsIgnoreCase("PF")) {
                             // Means that it is not family member and is just simple

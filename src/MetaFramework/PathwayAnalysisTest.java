@@ -77,8 +77,10 @@ public class PathwayAnalysisTest {
     public static void main(String[] args) throws Exception {
         // Let's read the pathway information first.
         String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        long start = System.currentTimeMillis();
         PathwayAnalysis engine = new PathwayAnalysis(file);
-
+        long end = System.currentTimeMillis();
+        System.out.println("Took : "  + (end - start) + " ms");
         Set<String> genes = engine.getGeneToPathways().keySet();
         String[] geneNames = new String[40];
         geneNames = genes.toArray(geneNames);
@@ -95,29 +97,29 @@ public class PathwayAnalysisTest {
 //            System.out.println("Pathway named:" + tmp + ", contains ADCY3 gene");
 //        }
         // Let's do biclustering now!
-        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
-
-        // Creating BiCat engine that can run the algorithms on the dataset.
-        // If you want to change the parameters, adopt the methods themselves
-        BicatMethods bicatEngine = new BicatMethods(fileLocation);
-
-        // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 8, 15);
-        Bicluster oneSample;
-        int[] toFetch;
-        for (int j = 0; j < biclusters.size(); j++) {
-            oneSample = biclusters.get(j);
-            toFetch = oneSample.getGenes();
-            for (int i = 0; i < toFetch.length; i++) {
-                // This call will be updated. As in the sample data, gene names are just numbers, we do this
-                // However, TODO : Include the R Calling for parsing the gene names to HGNC Symbols
-                ArrayList<String> pathways = engine.getGeneToPathways().get(geneNames[toFetch[i]]);
-                for (String tmp : pathways) {
-                    System.out.println("Pathway named : " + tmp + " contains gene named " + geneNames[toFetch[i]]);
-                }
-            }
-            System.out.println();
-            System.out.println("------------------------------------------------");
-        }
+//        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+//
+//        // Creating BiCat engine that can run the algorithms on the dataset.
+//        // If you want to change the parameters, adopt the methods themselves
+//        BicatMethods bicatEngine = new BicatMethods(fileLocation);
+//
+//        // Let's run the algorithm now
+//        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 8, 15);
+//        Bicluster oneSample;
+//        int[] toFetch;
+//        for (int j = 0; j < biclusters.size(); j++) {
+//            oneSample = biclusters.get(j);
+//            toFetch = oneSample.getGenes();
+//            for (int i = 0; i < toFetch.length; i++) {
+//                // This call will be updated. As in the sample data, gene names are just numbers, we do this
+//                // However, TODO : Include the R Calling for parsing the gene names to HGNC Symbols
+//                ArrayList<String> pathways = engine.getGeneToPathways().get(geneNames[toFetch[i]]);
+//                for (String tmp : pathways) {
+//                    System.out.println("Pathway named : " + tmp + " contains gene named " + geneNames[toFetch[i]]);
+//                }
+//            }
+//            System.out.println();
+//            System.out.println("------------------------------------------------");
+//        }
     }
 }
