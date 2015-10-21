@@ -84,16 +84,31 @@ import java.util.Set;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+@Data
 public class PathwayAnalysisMixing {
 
-    public static void main(String[] args) throws Exception {
+    private HashMap<Integer, Molecule> molecules;
+    private HashMap<String, Interaction> interactions;
+    private HashMap<Integer, Pathway> pathways;
+
+    private HashMap<Pathway, ArrayList<Molecule>> pathToGene;
+    private HashMap<Molecule, ArrayList<Pathway>> geneToPath;
+
+    private String file;
+
+    public PathwayAnalysisMixing(String file) throws Exception {
+        this.file = file;
+        parse();
+    }
+
+    public void parse() throws Exception {
 //        System.out.println(System.getProperty("os.arch"));
         Document mainDoc;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
 
         long start = System.currentTimeMillis();
-        mainDoc = db.parse(new File("C:/Users/tagi1_000/Desktop/NCI.xml"));
+        mainDoc = db.parse(new File(this.file));
         System.out.println("Done parsing");
         mainDoc.getDocumentElement().normalize();
         System.out.println("Done normalizing as well");
@@ -108,17 +123,17 @@ public class PathwayAnalysisMixing {
                 Node pathwayList = tmp.getElementsByTagName("PathwayList").item(0);
                 Node interactionList = tmp.getElementsByTagName("InteractionList").item(0);
                 Node moleculesList = tmp.getElementsByTagName("MoleculeList").item(0);
-                HashMap<Integer, Molecule> molecules = new HashMap<Integer, Molecule>();
-                HashMap<String, Interaction> interactions = new HashMap<String, Interaction>();
-                HashMap<Integer, Pathway> pathways = new HashMap<Integer, Pathway>();
+                molecules = new HashMap<Integer, Molecule>();
+                interactions = new HashMap<String, Interaction>();
+                pathways = new HashMap<Integer, Pathway>();
                 readMolecules(molecules, moleculesList);
                 // Done reading the molecules into hashmap
                 // Now, the interactions
                 readInteractions(interactions, interactionList, molecules);
                 readPathways(pathways, pathwayList, interactions, molecules);
                 // Hashmaps
-                HashMap<Pathway, ArrayList<Molecule>> pathToGene = new HashMap<Pathway, ArrayList<Molecule>>();
-                HashMap<Molecule, ArrayList<Pathway>> geneToPath = new HashMap<Molecule, ArrayList<Pathway>>();
+                pathToGene = new HashMap<Pathway, ArrayList<Molecule>>();
+                geneToPath = new HashMap<Molecule, ArrayList<Pathway>>();
 
                 fillHashs(pathToGene, geneToPath, pathways);
                 ArrayList<Molecule> result = pathToGene.get(new Pathway(null, 12, null, "Aurora C signaling"));
@@ -136,7 +151,7 @@ public class PathwayAnalysisMixing {
         }
     }
 
-    public static void fillHashs(HashMap<Pathway, ArrayList<Molecule>> pathToGene, HashMap<Molecule, ArrayList<Pathway>> geneToPath, HashMap<Integer, Pathway> pathways) {
+    private void fillHashs(HashMap<Pathway, ArrayList<Molecule>> pathToGene, HashMap<Molecule, ArrayList<Pathway>> geneToPath, HashMap<Integer, Pathway> pathways) {
         Set<Integer> allId = pathways.keySet();
         for (Integer id : allId) {
             Pathway pathway = pathways.get(id);
@@ -160,7 +175,7 @@ public class PathwayAnalysisMixing {
         }
     }
 
-    public static void readPathways(HashMap<Integer, Pathway> pathways, Node pathwayList, HashMap<String, Interaction> interactions, HashMap<Integer, Molecule> molecules) {
+    private void readPathways(HashMap<Integer, Pathway> pathways, Node pathwayList, HashMap<String, Interaction> interactions, HashMap<Integer, Molecule> molecules) {
         // TODO : Read through the pathways. Should be quite straight-forward
         long start = System.currentTimeMillis();
         if (pathwayList.getNodeType() == Node.ELEMENT_NODE) {
@@ -206,7 +221,7 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for reading pathways : " + (end - start));
     }
 
-    public static void readInteractions(HashMap<String, Interaction> interactions, Node interactionList, HashMap<Integer, Molecule> molecules) {
+    private void readInteractions(HashMap<String, Interaction> interactions, Node interactionList, HashMap<Integer, Molecule> molecules) {
         long start = System.currentTimeMillis();
         if (interactionList.getNodeType() == Node.ELEMENT_NODE) {
             Element interE = (Element) interactionList;
@@ -228,7 +243,7 @@ public class PathwayAnalysisMixing {
                             Element elC = (Element) parts.item(i);
                             int molID = Integer.parseInt(elC.getAttribute("molecule_idref"));
                             Molecule mol = molecules.get(molID); // Getting the molecule
-                            if (mol.isType()) {
+                            if (mol.isType() || mol.getIds() != null) {
                                 // mol is complex -> Meaning we need to go through the list of ids
                                 ArrayList<Integer> toAdd = mol.getIds();
                                 for (Integer tmpAdd : toAdd) {
@@ -252,7 +267,7 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for interactions : " + (end - start) + " ms");
     }
 
-    public static void readMolecules(HashMap<Integer, Molecule> molecules, Node moleculesList) {
+    private void readMolecules(HashMap<Integer, Molecule> molecules, Node moleculesList) {
         long start = System.currentTimeMillis();
         if (moleculesList.getNodeType() == Node.ELEMENT_NODE) {
             System.out.println("Hashing the molecules");
@@ -267,13 +282,33 @@ public class PathwayAnalysisMixing {
                 String type = mol.getAttribute("molecule_type");
                 String name = "";
                 if (!type.equalsIgnoreCase("complex")) {
+                    // Might have family component list
+                    ArrayList<Integer> ids = null;
+                    NodeList family = mol.getElementsByTagName("FamilyMemberList");
+                    if (family != null && family.getLength() > 0)
+                    {
+                        Node famN = family.item(0);
+                        if (famN.getNodeType() == Node.ELEMENT_NODE)
+                        {
+                            ids = new ArrayList<Integer>();
+                            Element el = (Element) famN;
+                            NodeList members = el.getElementsByTagName("Member");
+                            int memLen = members.getLength();
+                            for (int k = 0; k < memLen; k++)
+                            {
+                                Element mem = (Element) members.item(k);
+                                String idM = mem.getAttribute("member_molecule_idref");
+                                ids.add(Integer.parseInt(idM));
+                            }
+                        }
+                    }
                     // Simple, just get PF
                     NodeList PF = mol.getElementsByTagName("Name");
                     for (int k = 0; k < PF.getLength(); k++) {
                         Element PFt = (Element) PF.item(k);
                         if (PFt.getAttribute("name_type").equalsIgnoreCase("PF")) {
                             name = PFt.getAttribute("value");
-                            molecules.put(id, new Molecule(id, name, false, null));
+                            molecules.put(id, new Molecule(id, name, false, ids));
 //                                    System.out.println(name);
                         }
                     }

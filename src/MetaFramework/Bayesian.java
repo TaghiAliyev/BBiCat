@@ -93,7 +93,7 @@ public class Bayesian {
         this.nSim = nSim;
     }
 
-    public void compute(Bicluster bicluster, PathwayAnalysis engine, Dataset dataset, int colChoice) {
+    public void compute(Bicluster bicluster, PathwayAnalysisMixing engine, Dataset dataset, int colChoice) {
         // Idea is to compute Bayesian statistics for the given gene list/cluster and term
         ArrayList<String> geneNames = new ArrayList<String>();
         System.out.println(bicluster.getGenes().length);
@@ -123,13 +123,21 @@ public class Bayesian {
         }
         Set<String> notDiffGenes = MatrixFunctions.setDifference(geneNames, new HashSet<String>(diffGenes));
         for (String tmp : allPathways) {
-            ArrayList<String> genesInPathway = engine.getPathwayToGenes().get(tmp);
+            ArrayList<PathwayAnalysisMixing.Molecule> molecules = engine.getPathToGene().get(tmp);
+            ArrayList<String> genesInPathway = new ArrayList<String>();
+            for (PathwayAnalysisMixing.Molecule mol : molecules)
+                genesInPathway.add(mol.getName());
             int nMin = 1;//(int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 should be diff expressed
             Set<String> genesInOther = new HashSet<String>();
             for (String tmp2 : allPathways) {
-                if (!tmp.equalsIgnoreCase(tmp2))
-                    genesInOther.addAll(engine.getPathwayToGenes().get(tmp2));
+                if (!tmp.equalsIgnoreCase(tmp2)) {
+                    ArrayList<PathwayAnalysisMixing.Molecule> mols = engine.getPathToGene().get(tmp2);
+                    ArrayList<String> molNames = new ArrayList<String>();
+                    for (PathwayAnalysisMixing.Molecule molT : mols)
+                        molNames.add(molT.getName());
+                    genesInOther.addAll(molNames);
+                }
             }
 
             Set<String> genesOnlyPathway = MatrixFunctions.setDifference(genesInPathway, genesInOther);
@@ -297,12 +305,15 @@ public class Bayesian {
      * @param engine
      * @return
      */
-    public Set<String> getAllPath(ArrayList<String> geneNames, PathwayAnalysis engine) {
+    public Set<String> getAllPath(ArrayList<String> geneNames, PathwayAnalysisMixing engine) {
         Set<String> allPath = new HashSet<String>();
 
         for (String tmp : geneNames) {
-            if (engine.getGeneToPathways().get(tmp) != null)
-                allPath.addAll(engine.getGeneToPathways().get(tmp));
+            if (engine.getGeneToPath().get(tmp) != null) {
+                ArrayList<PathwayAnalysisMixing.Pathway> mols = engine.getGeneToPath().get(tmp);
+                for (PathwayAnalysisMixing.Pathway mol : mols)
+                    allPath.add(mol.getName());
+            }
         }
 
         return allPath;
