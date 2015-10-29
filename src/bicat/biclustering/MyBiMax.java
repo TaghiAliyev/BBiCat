@@ -118,15 +118,20 @@ public class MyBiMax {
             bitsPerBV++;
         }
 
+        System.out.println("Bits per BV : " + bitsPerBV);
+
         bitMaskLastBv = new BitVector();
-        bitMaskLastBv.setValue((4294967295l >> (bitsPerBV - (noColumns % bitsPerBV))));
+        bitMaskLastBv.setValue((~0L >>> (bitsPerBV - (noColumns % bitsPerBV))));
+        System.out.println("bit Mask Last BV : " + bitMaskLastBv);
         noBVs = (noColumns / bitsPerBV) + ((noColumns % bitsPerBV) == 0 ? 0 : 1);
+
+        System.out.println("Number of BVs : " + noBVs);
 
         rows = new Row[(int) noRows];
 
         if (rows == null)
             failed = 1;
-        System.out.println("Failed : " + failed);
+//        System.out.println("Failed : " + failed);
         for (i = 0L; i < noRows; i++) {
             rows[(int) i] = new Row();
             rows[(int) i].setOriginalRowNumber(i);
@@ -210,12 +215,12 @@ public class MyBiMax {
         columnSet[(int) noBVs - 1].setValue(columnSet[(int) noBVs - 1].getValue() & bitMaskLastBv.getValue());
         counter = 0L;
         for (i = noBVs - 1; i >= 0; i--) {
-            bv = columnSet[(int) i];
+            bv = new BitVector(columnSet[(int) i].getValue());
             if (bv.getValue() != 0L) {
                 for (j = 0L; j < bitsPerBV; j++) {
                     if ((bv.getValue() & 1L) != 0L)
                         counter++;
-                    bv.setValue(bv.getValue() >> 1);
+                    bv.setValue(bv.getValue() >>> 1);
                 }
             }
         }
@@ -228,15 +233,18 @@ public class MyBiMax {
 
         contained = 1;
         disjoint = 1;
-        bitMask = bitMaskLastBv;
+//        System.out.println("Bitmask value before : " + bitMaskLastBv.getValue());
+        bitMask = new BitVector(bitMaskLastBv.getValue());
         for (i = (int) noBVs - 1; i >= 0; i--) {
-            sharedColumns = new BitVector(((columnSetA[i].getValue() & columnSetB[i].getValue()) & mask[i].getValue()) & bitMask.getValue());
+            sharedColumns =
+                    new BitVector(((columnSetA[i].getValue() & columnSetB[i].getValue()) & mask[i].getValue()) & bitMask.getValue());
             if ((sharedColumns.getValue() | columnSetB[i].getValue()) != sharedColumns.getValue())
                 contained = 0;
             if (sharedColumns.getValue() != 0L)
                 disjoint = 0;
-            bitMask.setValue(4294967295l);
+            bitMask.setValue(~0L);
         }
+//        System.out.println("Bitmask value after : " + bitMaskLastBv.getValue());
 
         if (contained != 0 && disjoint != 0)
             return -2;
@@ -302,7 +310,6 @@ public class MyBiMax {
     public void swapRows(long a, long b) {
         long tempOriginalRowNumber;
         BitVector[] tempColumnSet;
-
         if (a != b && a >= 0L && a < noRows && b >= 0L && b < noRows) {
             tempOriginalRowNumber = rows[(int) a].originalRowNumber;
             tempColumnSet = rows[(int) a].columnSet;
@@ -311,6 +318,7 @@ public class MyBiMax {
             rows[(int) b].originalRowNumber = tempOriginalRowNumber;
             rows[(int) b].columnSet = tempColumnSet;
         }
+
     }
 
     public long chooseSplitRow(long firstRow, long lastRow, int level) {
@@ -320,7 +328,7 @@ public class MyBiMax {
                 compareColumns(rows[(int) i].columnSet, consideredColumns[level].bitVectors, consideredColumns[0].bitVectors) < 0; i++)
             ;
 
-        System.out.println(i + " " + firstRow + " " + lastRow);
+//        System.out.println(i + " " + firstRow + " " + lastRow);
 
         if (i <= lastRow)
             return i;
@@ -341,7 +349,7 @@ public class MyBiMax {
                     lastRow--;
                     break;
                 case 0:
-                    System.out.println("Overlapping should be 1!");
+//                    System.out.println("Overlapping should be 1!");
                     overlapping.setValue(1);
                 default:
                     selected++;
@@ -358,18 +366,19 @@ public class MyBiMax {
         long i;
 
         biclusterCounter++;
-        System.out.printf("\n%ld\n", biclusterCounter);
+        System.out.printf("\n%d\n", biclusterCounter);
         for (i = firstRow; i <= lastRow; i++) {
-            System.out.printf("%ld\t", rows[(int) i].originalRowNumber + 1L);
+            System.out.printf("%d\t", rows[(int) i].originalRowNumber + 1L);
         }
         System.out.printf("\n");
         for (i = 0; i < noColumns; i++)
             if (isSet(columnSet, i) != 0)
-                System.out.printf("%ld\t", i + 1L);
+                System.out.printf("%d\t", i + 1L);
         System.out.printf("\n");
     }
 
     public void conquer(long firstRow, long lastRow, long level, long noMandatorySets) {
+//        System.out.println("Some statistics : " + noRows + " " + noColumns + " " + minNoRows + " " + minNoColumns);
         IntHolder overlapping = new IntHolder(0);
         long splitRow, noSelectedRows;
 
@@ -383,7 +392,7 @@ public class MyBiMax {
             if (columnCount(consideredColumns[(int) (level + 1L)].bitVectors) >= minNoColumns &&
                     containsMandatoryColumns(consideredColumns[(int) (level + 1L)].bitVectors, (int) noMandatorySets)) {
                 noSelectedRows = selectRows(firstRow, lastRow, level + 1L, overlapping);
-                System.out.println("Overlapping after : " + overlapping.getValue());
+//                System.out.println("Overlapping after : " + overlapping.getValue());
                 if (noSelectedRows >= minNoRows)
                     conquer(firstRow, firstRow + noSelectedRows - 1L, level + 1L, noMandatorySets);
             }
@@ -398,7 +407,7 @@ public class MyBiMax {
 
             noSelectedRows = selectRows(firstRow, lastRow, level + 1L, overlapping);
             copyColumnSet(consideredColumns[(int) level].bitVectors, consideredColumns[(int) (level + 1L)].bitVectors, cMode_t.IDENTITY);
-            System.out.println("Number of selected rows : " + noSelectedRows);
+//            System.out.println("Number of selected rows : " + noSelectedRows);
             if (noSelectedRows >= minNoRows)
                 conquer(firstRow, firstRow + noSelectedRows - 1L, level + 1L, noMandatorySets);
         }
@@ -457,7 +466,7 @@ public class MyBiMax {
 
 
         // Let's first try the simple one
-        FileInputStream stream = new FileInputStream("C:/Users/tagi1_000/Desktop/CERN/BBiCat/matrix.txt");
+        FileInputStream stream = new FileInputStream("C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/BayesTestHandMade.txt");
         Scanner scanner = new Scanner(stream);
 
         MyBiMax engine = new MyBiMax();
