@@ -63,6 +63,8 @@
 
 package MetaFramework;
 
+import lombok.Data;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -75,6 +77,7 @@ import java.util.ArrayList;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+@Data
 public class ReadingBigData {
 
     private String fileLoc = "";
@@ -129,13 +132,18 @@ public class ReadingBigData {
 
     }
 
+    private float[][] actual;
+    private String[] colNames;
+    private ArrayList<String> rowNames;
+
     public void read2() throws Exception {
+        rowNames = new ArrayList<String>();
         File file = new File(fileLoc);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String colLine = br.readLine();
         String[] cols = colLine.split("\t");
         int numCol = cols.length;
-        String[] colNames = new String[numCol - 1];
+        colNames = new String[numCol - 1];
         for (int i = 1; i < numCol; i++)
             colNames[i - 1] = cols[i];
         br.readLine();
@@ -144,7 +152,7 @@ public class ReadingBigData {
         System.out.println("Done read 2");
         br.close();
 
-        float[][] actual = new float[tmpMat.size() / columnNum][columnNum];
+        actual = new float[tmpMat.size() / columnNum][columnNum];
 
         int len = tmpMat.size();
 
@@ -163,6 +171,7 @@ public class ReadingBigData {
         while ((line = br.readLine()) != null) {
             cnt++;
             String[] parts = line.split("\t");
+            rowNames.add(parts[0]);// Line starts with gene name
             columnNum = parts.length - 1;
             for (int i = 0; i < parts.length - 1; i++) {
                 dat.add(Float.parseFloat(parts[i + 1]));
