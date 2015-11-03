@@ -85,6 +85,39 @@ import java.util.Vector;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+
+// Notice from the original code:
+/*-------------------------------------------------------------------------------------
+ * bimax.c: C implementation for the Bimax algorithm as described in the paper
+ *          "A Systematic Comparison and Evaluation of Biclustering Methods for Gene
+ *          Expression Data" by A. Prelic et al., Bioinformatics, 2006.
+ *
+ * USAGE:   Compile the program using any C compiler, e.g., gcc -O4 -o bimax bimax.c
+ *          under Linux. The program assumes the data matrix to be contained in the
+ *          file 'matrix.txt' in the same directory; this file is structured as follows:
+ *
+ *          - the first number specifies the number n of rows
+ *          - the second number number specifies the number m of columns
+ *          - the third number defines the minimal number of rows a bicluster must
+ *            contain
+ *          - the fourth number defines the minimal number of columns a bicluster must
+ *            contain
+ *          - the succeeding numbers, which are either 0s or 1s, represent the contents
+ *            of the data matrix where the order is first columnwise and then rowwise,
+ *            i.e., <row_1_column_1> <row_1_column_2> ... <row_1_column_m>
+ *            <row_2_column_1> ... <row_2_column_m> ... <row_n_column_m>
+ *
+ *          The biclusters found are outputted on the terminal, where for each
+ *          bicluster three lines are printed:
+ *
+ *          - the first line contains the number of the bicluster
+ *          - the second line contains the selected rows (tab delimited)
+ *          - the third line contains the selected columns (tab delimited)
+ *
+ *          Subsequent biclusters are separated by blank lines.
+ *
+ * (c)2005/6 Eckart Zitzler, ETH Zurich, Switzerland
+ *-------------------------------------------------------------------------------------*/
 @Data
 public class MyBiMax {
 
