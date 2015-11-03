@@ -80,6 +80,7 @@ import java.io.*;
  * </p>
  * 
  * @author Thomas Frech
+ * @author Taghi Aliyev
  * @version 2004-07-22
  */
 public class ParetoModelRecord{

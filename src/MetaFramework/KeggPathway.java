@@ -66,6 +66,9 @@ package MetaFramework;
 /**
  * Class that parses and analyzes biclusters based on the KEGG Pathway lists
  *
+ * NOTE: TODO : STILL TO BE IMPLEMENTED FOR POST-ANALYSIS
+ * If someone wants to implement this, please refer to PathwayAnalysisMixing to see the format of results that are expected
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class KeggPathway {

@@ -61,24 +61,77 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.TestCases;
+
+import MetaFramework.Bayesian;
+import MetaFramework.BicatMethods;
+import bicat.biclustering.Bicluster;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
+ * These test cases try to use the p-value method from Bayesian.java class and make sure they return correct values
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class GeneOntologyTest {
+public class PValueTest {
 
-    public static void main(String[] args) {
-        // Idea is to create some dummy string arrays (Representing clusters)
-        // We only need to send the gene names
+    @Test
+    public void test1() throws Exception {
+        double t1 = 3.46; // From some online presentation
+        int df = 1;
 
-        // Just a dummy data
+        Bayesian engine = new Bayesian();
 
+        Assert.assertEquals(0.06, engine.computePValue(t1, df),0.01);
+    }
 
-        RConnection rConnection = new RConnection(true);
-        // Adding the biclusters to the R environment.
-        // Calling the script after adding the biclusters to the environment
-//        rConnection.callRScript("C:/Users/tagi1_000/Desktop/CERN/GeneOntologyRetriever.R");
+    @Test
+    public void test2() throws Exception
+    {
+        // Let's run a test on the whole dataset
+        String dataFile = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/dataSample_2.txt";
+        BicatMethods bicatEngine = new BicatMethods(dataFile);
+
+        Bayesian bayesian = new Bayesian();
+        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 6, 10);
+
+        int[][] discrData = bicatEngine.getReadingEngine().getDiscretizedData();
+        for (int i = 0; i < discrData.length; i++)
+        {
+            for (int j = 0; j < discrData[0].length; j++)
+            {
+                System.out.print(discrData[i][j] + ",");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Number of biclusters : " + biclusters.size());
+        for (Bicluster tmp : biclusters)
+        {
+            int[] genes = tmp.getGenes();
+            int[] chips = tmp.getChips();
+            System.out.println("Involved genes");
+            for (int i = 0; i < genes.length; i++)
+            {
+                System.out.println(bicatEngine.getData().getGeneName(genes[i]));
+            }
+
+            System.out.println();
+            System.out.println("Involved chips");
+            for (int i = 0; i < chips.length; i++)
+            {
+                System.out.println(bicatEngine.getData().getChipName(chips[i]));
+            }
+            System.out.println("---------------------");
+        }
+        ArrayList<String> diffGenes = bayesian.calculateDiff(biclusters.get(0), -1, bicatEngine.getData(), 10.0);
+
+        for (String tmp : diffGenes)
+            System.out.println("Diff expressed gene : " + tmp);
     }
 
 }

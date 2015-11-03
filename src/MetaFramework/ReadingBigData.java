@@ -75,6 +75,11 @@ import java.util.ArrayList;
  * One issue: BiMax and some other algorithms have been implemented in 32-bit architecture, limiting the memory
  * that we can use.
  *
+ * NOTE : THIS CLASS CAN READ BIG FILES EVEN IN 32-BIT THAT WERE NOT POSSIBLE TO BE READ BY BicatGUI file readers
+ * However, as BiMax is implemented now locally, 64-bit architecture can be used for reading files as well.
+ * One thing: BicatGUI still uses the .dll files as most of the other methods are not implemented locally and rely
+ * on native libraries. So, big files are better to be processed without the GUI.
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @Data

@@ -72,7 +72,8 @@ import java.util.LinkedList;
  * This class will compute index values for the given cluster(s) that will help with the assessment of the clustering
  * techniques
  *
- * It will include: C-index and Silhouette Width
+ * It will include: C-index for now. Not used. Mean Residue Scores are used each time bicluster is computed and are part
+ * of the bicluster instances
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */

@@ -68,6 +68,13 @@ import bicat.gui.BicatGui;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Class representing the errors printed by Bicat GUI. It does not extend the exception class as
+ * it will pop-up the graphical interface with the error message.
+ *
+ * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
 public class BicatError {
 
 	static BicatGui owner;

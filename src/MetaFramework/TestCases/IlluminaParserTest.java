@@ -61,42 +61,30 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.TestCases;
 
-import java.io.FileInputStream;
-import java.util.Scanner;
+import MetaFramework.IlluminaParsers;
+import junit.framework.Assert;
+import org.junit.Test;
 
 /**
+ * Small test cases checking the functionality of the parser
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class DataProcessing {
+public class IlluminaParserTest {
 
-    public static void main(String[] args) throws Exception
+    @Test
+    public void test1() throws Exception
     {
-        FileInputStream stream = new FileInputStream("C:/Users/tagi1_000/Desktop/CERN/MuTHER_LCL_main_normalized_data_newIds.txt");
-        Scanner scanner = new Scanner(stream);
+        String file = "C:/Users/tagi1_000/Desktop/CERN/HumanHT-12_V3_0_R3_11283641_A.txt";
+        IlluminaParsers engine = new IlluminaParsers(file);
 
-        int counter = 0;
+        String illumina1 = "ILMN_1725881";
+        String illumina2 = "ILMN_1704173";
 
-        while (scanner.hasNextLine())
-        {
-            String line = scanner.nextLine();
-            String[] words = line.split("\t");
-            if (counter == 0)
-                System.out.println(line);
-
-            if (counter == 0)
-                System.out.println(words.length);
-
-            if (counter == 2)
-                System.out.println(words.length);
-
-            if (counter == 2)
-                System.out.println(words[0]);
-
-            counter++;
-        }
-        System.out.println("Total line count : " + counter);
+        Assert.assertEquals("LOC23117", engine.getIlluminaToHGNC().get(illumina1));
+        Assert.assertEquals("AIFM3", engine.getIlluminaToHGNC().get(illumina2));
     }
 
 }

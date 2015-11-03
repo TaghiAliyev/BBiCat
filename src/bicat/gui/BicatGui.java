@@ -2015,29 +2015,29 @@ public class BicatGui extends JFrame implements ActionListener,
         menu.add(menuItem);
 
         //////////////////////////////////////////////////////////////////////
-        menu = new JMenu("Biological Post-Analysis");
-        menuBar.add(menu);
-
-        menuItem = new JMenuItem("Pathway Analysis");
-        menuItem.setActionCommand("Pathway_Analysis");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-
-        menuItem = new JMenuItem("Translation of genes");
-        menuItem.setActionCommand("Translation");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
+//        menu = new JMenu("Biological Post-Analysis");
+//        menuBar.add(menu);
+//
+//        menuItem = new JMenuItem("Pathway Analysis");
+//        menuItem.setActionCommand("Pathway_Analysis");
+//        menuItem.addActionListener(this);
+//        menu.add(menuItem);
+//
+//        menuItem = new JMenuItem("Translation of genes");
+//        menuItem.setActionCommand("Translation");
+//        menuItem.addActionListener(this);
+//        menu.add(menuItem);
 
         //////////////////////////////////////////////////////////////////////
 
         // Adding the Bayesian statistic computing tab
-        menu = new JMenu("Bayesian");
-        menuBar.add(menu);
-
-        menuItem = new JMenuItem("Assess bi-clusters with Bayesian statistics");
-        menuItem.setActionCommand("Bayes_Simple");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
+//        menu = new JMenu("Bayesian");
+//        menuBar.add(menu);
+//
+//        menuItem = new JMenuItem("Assess bi-clusters with Bayesian statistics");
+//        menuItem.setActionCommand("Bayes_Simple");
+//        menuItem.addActionListener(this);
+//        menu.add(menuItem);
 		/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
         return menuBar;

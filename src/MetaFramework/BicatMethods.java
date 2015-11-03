@@ -116,7 +116,7 @@ public class BicatMethods {
             PreprocessOption options = new PreprocessOption();
             options.setDo_discretize(true);
             options.setDiscretizationScheme(MethodConstants.PREPROCESS_OPTIONS_DISCRETIZATION_UP);
-            options.setOnesPercentage(perc); // 25% Thresholding
+            options.setOnesPercentage(perc);
             options.setDiscretizationMode("onesPercentage");
 
             // Pre-processing the data

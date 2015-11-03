@@ -155,7 +155,12 @@ public class BayesianWindow {
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Bayesian bayesian = new Bayesian();
+                Bayesian bayesian = null;
+                try {
+                    bayesian = new Bayesian();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
                 int chosenIndex = -1;
                 int counter = 0;
                 for (Enumeration<AbstractButton> buttons = choices.getElements(); buttons.hasMoreElements();) {

@@ -70,6 +70,8 @@ import java.util.HashMap;
  * Abstract interface representing Pathway Analysis engines so that user can choose which one to choose
  * Some of the common functionalities are included here
  *
+ * TODO : THIS IS STILL AN IDEA THAT SHOULD BE IMPLEMENTED
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class AbstractPathwayAnalysis {

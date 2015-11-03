@@ -61,8 +61,10 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.TestCases;
 
+import MetaFramework.PathwayAnalysis;
+import MetaFramework.RConnection;
 import bicat.biclustering.Bicluster;
 import org.w3c.dom.NodeList;
 
@@ -71,6 +73,9 @@ import java.util.*;
 
 /**
  * This script tries to run Translation code written in R and test it to see how it works and how the results could be interpreted
+ *
+ * NOTE : Not used right now, as translation is only needed from Illumina to HGNC, which is implemented in Java
+ * However, this code could be used as a reference if someone wants to use R libraries and methods for translation
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */

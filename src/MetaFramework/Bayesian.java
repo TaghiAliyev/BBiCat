@@ -70,33 +70,45 @@ import lombok.Data;
 import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
 import javax.swing.*;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
  * Class that will contain the bayesian statistics computations
  * Method at : http://www.biomedcentral.com/content/pdf/1471-2105-7-86.pdf
  * <p>
- * Will be implemented next week (21.09 - 28.09, 2015)
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class Bayesian {
 
+    private int nSim; // number of simulations
+    private PrintWriter outFile; // Output file
 
-    private int nSim;
-
-    public Bayesian() {
+    public Bayesian() throws Exception{
+        outFile = new PrintWriter("PostAnalysis.out");
         nSim = 500; // Default is 500
     }
 
-    public Bayesian(int nSim) {
+    public Bayesian(int nSim) throws Exception{
+        outFile = new PrintWriter("PostAnalysis.out");
         this.nSim = nSim;
     }
 
+    /**
+     * Computes the bayesian statistics for enrichment for all the relevant pathways and it prints the results to a
+     * file.
+     *
+     * @param bicluster Bicluster for which the enrichment analysis will be done
+     * @param engine    Engine/Parser with the geneToPathway and pathToGene hashsets.
+     * @param dataset   Dataset from which biclusters are computed
+     * @param colChoice Column on which differentiation will be done. -1 Means diff expressed genes will be computed over columns
+     */
     public void compute(Bicluster bicluster, PathwayAnalysisMixing engine, Dataset dataset, int colChoice) {
         // Idea is to compute Bayesian statistics for the given gene list/cluster and term
         ArrayList<String> geneNames = new ArrayList<String>();
-        System.out.println(bicluster.getGenes().length);
+//        System.out.println(bicluster.getGenes().length);
         for (int i = 0; i < bicluster.getGenes().length; i++) {
             geneNames.add(dataset.getGeneName(bicluster.getGenes()[i]));
         }
@@ -105,13 +117,11 @@ public class Bayesian {
         ArrayList<String> diffGenes = new ArrayList<String>();
         if (colChoice == -1) {
             // Diff expression
-//            System.out.println("Differentially expressed computations are starting noooow....");
-            // TODO: Given a set of genes, find all related terms/pathways, and then for each
             diffGenes = calculateDiff(bicluster, colChoice, dataset, -1.0); // Threshold does not matter here
 //            System.out.println("Number of differentially expressed genes : " + diffGenes.size());
         } else {
             // Column based differentiation
-            // Make sure it is binary (0/1 or true/false)
+            // Make sure it is binary (0/1 or false/true)
             // And 1 basically means differentiated
             String threshold = Double.toString(Double.MAX_VALUE);
             if (!checkForBinary(dataset, colChoice)) {
@@ -121,18 +131,24 @@ public class Bayesian {
             // Now that we know the threshold, we should be fine
             diffGenes = calculateDiff(bicluster, colChoice, dataset, Double.parseDouble(threshold));
         }
+//        System.out.println("Some debug results : ");
+//        System.out.println("Number of diff genes : " + diffGenes.size());
+//        for (String dTm : diffGenes)
+//            System.out.println("Diff gene : " + dTm);
         Set<String> notDiffGenes = MatrixFunctions.setDifference(geneNames, new HashSet<String>(diffGenes));
+//        System.out.println("Amount of pathways : " + allPathways);
         for (String tmp : allPathways) {
-            ArrayList<PathwayAnalysisMixing.Molecule> molecules = engine.getPathToGene().get(tmp);
+            ArrayList<PathwayAnalysisMixing.Molecule> molecules = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, tmp));
             ArrayList<String> genesInPathway = new ArrayList<String>();
             for (PathwayAnalysisMixing.Molecule mol : molecules)
                 genesInPathway.add(mol.getName());
-            int nMin = 1;//(int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
-            int xMin = 1; // Let's say at least 1 should be diff expressed
+            int nMin = (int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
+            int xMin = 1; // Let's say at least 1 gene should be diff expressed
             Set<String> genesInOther = new HashSet<String>();
+            // Getting all the genes from other pathways.
             for (String tmp2 : allPathways) {
                 if (!tmp.equalsIgnoreCase(tmp2)) {
-                    ArrayList<PathwayAnalysisMixing.Molecule> mols = engine.getPathToGene().get(tmp2);
+                    ArrayList<PathwayAnalysisMixing.Molecule> mols = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, tmp2));
                     ArrayList<String> molNames = new ArrayList<String>();
                     for (PathwayAnalysisMixing.Molecule molT : mols)
                         molNames.add(molT.getName());
@@ -143,6 +159,7 @@ public class Bayesian {
             Set<String> genesOnlyPathway = MatrixFunctions.setDifference(genesInPathway, genesInOther);
             Set<String> genesNotPathway = MatrixFunctions.setDifference(genesInOther, genesInPathway);
 
+            // Computation of relevant terms
             int x1OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, diffGenes).size();
             int x0OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, notDiffGenes).size();
             int nOnlyPath = genesOnlyPathway.size();
@@ -154,7 +171,7 @@ public class Bayesian {
             int nNoPath = genesNotPathway.size();
             double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
             int x1Path = x1OnlyPathway + x1PathAnd;
-
+//            System.out.println("Genes in Pathways : " + genesInPathway.size() + " , x1Path : " + x1Path);
             if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
 //                System.out.println("Not skipping");
                 double[] gObs = new double[nSim];
@@ -180,10 +197,12 @@ public class Bayesian {
                         gObs[k] = gHat;
                 }
                 double[] gRand = new double[nSim];
+                // Random simulations loop.
+                // NOTE: As you will see in the comments in the loop, some of the variables actually should be replaced
+                // in case there is an existence of knowledge about observability of certain genes
                 for (int j = 0; j < nSim; j++) {
                     // Simulation loop
                     int n = Math.min(poisson(diffGenes.size()), geneNames.size()); // 2nd argument is actually number of observed genes
-                    // TODO : Look into observability (not from control theory) of genes. Some genes won't be observable or observed
 
                     Set<String> diffRandom = new HashSet<String>();
                     Random random = new Random();
@@ -225,22 +244,30 @@ public class Bayesian {
                 for (int j = 0; j < nSim; j++)
                     if (gRand[j] >= gObs[j])
                         cnt++;
+                outFile.println("Results for : " + tmp);
                 double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
                 if (result <= 0.05)
-                    System.out.println("Pathway with name : " + tmp + " has p-value of : " + result);
+                    outFile.println("Pathway with name : " + tmp + " has p-value of : " + result);
 
                 // computing error bars
                 double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
-                System.out.println("G hat : " + gHat);
-                System.out.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
-            } else
-                System.out.println("GHat : " + gHat);
-            System.out.println("-------------------------------");
+                outFile.println("G hat : " + gHat);
+                outFile.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
+            } else {
+                outFile.println("Results for : " + tmp);
+                outFile.println("GHat : " + gHat);
+            }
+            outFile.println("-------------------------------");
         }
 
-
     }
+
+    public void closeFile()
+    {
+        this.outFile.close();
+    }
+
 
     /**
      * Implements the quantile function (type 7 from R implementation) where m = 1 - p
@@ -259,6 +286,12 @@ public class Bayesian {
         return res;
     }
 
+    /**
+     * Draws a number from poisson distribution
+     *
+     * @param l
+     * @return
+     */
     public int poisson(double l) {
         Random random = new Random();
         double limit = Math.exp(-l);
@@ -309,8 +342,8 @@ public class Bayesian {
         Set<String> allPath = new HashSet<String>();
 
         for (String tmp : geneNames) {
-            if (engine.getGeneToPath().get(tmp) != null) {
-                ArrayList<PathwayAnalysisMixing.Pathway> mols = engine.getGeneToPath().get(tmp);
+            if (engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, tmp, false, null)) != null) {
+                ArrayList<PathwayAnalysisMixing.Pathway> mols = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, tmp, false, null));
                 for (PathwayAnalysisMixing.Pathway mol : mols)
                     allPath.add(mol.getName());
             }
@@ -367,16 +400,50 @@ public class Bayesian {
                 String second = JOptionPane.showInputDialog("Enter the columns of second group/condition (comma separated)");
                 String[] words = first.split(",");
                 String[] words2 = second.split(",");
-                firstColumns = new int[words.length];
-                secondColumns = new int[words2.length];
+                ArrayList<Integer> tmp = new ArrayList<Integer>();
+//                firstColumns = new int[words.length];
+//                secondColumns = new int[words2.length];
                 done = true;
-                for (int i = 0; i < firstColumns.length; i++)
-                    firstColumns[i] = Integer.parseInt(words[i]);
-                for (int i = 0; i < secondColumns.length; i++)
-                    secondColumns[i] = Integer.parseInt(words2[i]);
+                for (int i = 0; i < words.length; i++) {
+                    String[] range = words[i].split("-");
+                    if (range.length == 1)
+                        tmp.add(Integer.parseInt(words[i].replaceAll("\\s+", ""))); // Just a number
+                    else
+                    {
+                        int left = Integer.parseInt(range[0].replaceAll("\\s+", ""));
+                        int right = Integer.parseInt(range[1].replaceAll("\\s+", ""));
+                        for (int j = left; j <= right; j++)
+                            tmp.add(j);
+                    }
+                        //range
+                }
+                firstColumns = new int[tmp.size()];
+                for (int i = 0; i < tmp.size(); i++)
+                    firstColumns[i] = tmp.get(i);
+
+                tmp = new ArrayList<Integer>();
+
+                for (int i = 0; i < words2.length; i++) {
+                    String[] range = words2[i].split("-");
+                    if (range.length == 1)
+                        tmp.add(Integer.parseInt(words2[i].replaceAll("\\s+", ""))); // Just a number
+                    else
+                    {
+                        int left = Integer.parseInt(range[0].replaceAll("\\s+", ""));
+                        int right = Integer.parseInt(range[1].replaceAll("\\s+", ""));
+                        for (int j = left; j <= right; j++)
+                            tmp.add(j);
+                    }
+                    //range
+                }
+                secondColumns = new int[tmp.size()];
+                for (int i = 0; i < tmp.size(); i++) {
+                    secondColumns[i] = tmp.get(i);
+                }
             }
             float[][] data = dataset.getData();
             // Let's compute the means first
+            Double[] allP = new Double[genes.length];
             for (int i = 0; i < genes.length; i++) {
                 double meanA = 0.0, meanB = 0.0, mean = 0.0;
                 for (int j = 0; j < firstColumns.length; j++)
@@ -399,13 +466,35 @@ public class Bayesian {
                 }
 
                 double t = 2.0 * (sum1 + sum2) / (sum3 + sum4);
-                // Bonferroni correction (divide by sample size)
-                double pValue = computePValue(t, 1) / genes.length; // Degrees of freedom for us 1!
+                // Bonferroni correction (multiply by sample size)
+                double pValue = Math.min(1.0, computePValue(t, 1) * genes.length); // Degrees of freedom for us 1!
                 if (pValue <= 0.05) {
-//                    System.out.println("Diff expressed!");
+                    System.out.println("Diff expressed!");
                     res.add(dataset.getGeneName(genes[i]));
                 }
+                // Benjamini-Hochberg:
+//                allP[i] = computePValue(t, 1);
+
             }
+            // Benjamini - Hochberg:
+
+//            Arrays.sort(allP);
+//            for (int i = 0; i < allP.length; i++)
+//                System.out.print(allP[i] + " ");
+//            double[] adjustedP = new double[allP.length];
+//            double min = 1.0;
+//            for (int i = allP.length; i > 0; i--)
+//            {
+//                double tmp = (allP.length * allP[i - 1]) / (i + 0.0);
+//                if (tmp < min)
+//                    min = tmp;
+//                adjustedP[i - 1] = min;
+//                System.out.println(adjustedP[i - 1]);
+//                if (tmp <= 0.05)
+//                {
+//                    res.add(dataset.getGeneName)
+//                }
+//            }
 
         } else {
             // Based on the column
@@ -543,7 +632,7 @@ public class Bayesian {
         double Q = c * (d + e) + b * d;
         result = (P - Q + 0.0) / (P + Q + 0.0); // 0.0 are there in order to make sure division is not an integer division
         if (Double.isNaN(result)) {
-            System.out.println("Here");
+//            System.out.println("Here");
             result = 0.0;
         }
         return result;

@@ -76,6 +76,9 @@ import java.util.Vector;
 
 /**
  * Method that will create R connection, get clusters and call R scripts
+ * This class calls an R script on a given data. Please change addClusters and some other parts of the code
+ * for specific needs when needed. One note: Connection and calling R is not very fast, so it is better to use Java
+ * versions of everything whenever possible.
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
@@ -98,7 +101,6 @@ public class RConnection {
 
     /**
      * Adding the computed (bi)-clusters to the R environment
-     * TODO : Think about the representation of the clusters in R
      *
      * @param biclusters Computed (bi-)clusters
      */

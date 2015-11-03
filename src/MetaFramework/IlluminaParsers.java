@@ -87,6 +87,12 @@ public class IlluminaParsers {
         parse();
     }
 
+    /**
+     * Method that parses the information from illumina database file. Results are stored in a hashmap which maps
+     * illumina gene name to a HGNC Symbol name.
+     *
+     * @throws Exception
+     */
     public void parse() throws Exception
     {
         FileInputStream stream = new FileInputStream(file);

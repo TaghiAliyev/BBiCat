@@ -99,7 +99,10 @@ public class MyBiMax {
     private PrintWriter outFile;
 
     private String[] colNames;
-    private ArrayList<String> rowNames;
+    private String[] rowNames;
+    private Dataset dataset;
+
+    private ArrayList<Bicluster> biclusters; // Results will be stored inside of this array list
 
     public enum cMode_t {
         IDENTITY,
@@ -107,10 +110,12 @@ public class MyBiMax {
     }
 
 
-    public MyBiMax(String[] colNames, ArrayList<String> rowNames) throws FileNotFoundException {
+    public MyBiMax(String[] colNames, String[] rowNames, Dataset dataset) throws FileNotFoundException {
         outFile = new PrintWriter("BimaxResults.out");
         this.colNames = colNames;
         this.rowNames = rowNames;
+        biclusters = new ArrayList<Bicluster>();
+        this.dataset = dataset;
     }
 
     // BiMax methods
@@ -378,18 +383,36 @@ public class MyBiMax {
     private long biclusterCounter = 0;
 
     public void writeBicluster(long firstRow, long lastRow, BitVector[] columnSet) {
+//        System.out.println("Bicluster found!!!");
+
         long i;
+        Bicluster bicluster;
+
+        /*
+        Bicluster(int identification, int[] g, int[] c, float[][] rawData,
+                     int[][] binData)
+         */
 
         biclusterCounter++;
-        outFile.printf("\n%d\n", biclusterCounter);
+        int[] g = new int[(int)(lastRow - firstRow + 1)];
+        ArrayList<Integer> cL = new ArrayList<Integer>();
+        outFile.printf("\n%s\n", biclusterCounter);
         for (i = firstRow; i <= lastRow; i++) {
-            outFile.printf("%d\t", rowNames.get((int)rows[(int) i].originalRowNumber));
+            outFile.printf("%s\t", rowNames[(int)rows[(int) i].originalRowNumber]);
+            g[(int)(i - firstRow)] = (int)(rows[(int)i].originalRowNumber);
         }
         outFile.printf("\n");
         for (i = 0; i < noColumns; i++)
-            if (isSet(columnSet, i) != 0)
-                outFile.printf("%d\t", colNames[(int)i]);
+            if (isSet(columnSet, i) != 0) {
+                outFile.printf("%s\t", colNames[(int) i]);
+                cL.add((int) i);
+            }
         outFile.printf("\n");
+        int[] c = new int[cL.size()];
+        for (int j = 0; j < cL.size(); j++)
+            c[j] = cL.get(j);
+        bicluster = new Bicluster((int)i, g, c, this.dataset.getData(), this.dataset.getDiscrData());
+        biclusters.add(bicluster);
     }
 
     public void conquer(long firstRow, long lastRow, long level, long noMandatorySets) {
@@ -444,7 +467,7 @@ public class MyBiMax {
 
     public void readInDataMatrix(int[][] dataset) {
         int i, j, cell;
-        for (i = 0; i < dataset.length / 20; i++) {
+        for (i = 0; i < dataset.length; i++) {
             for (j = 0; j < dataset[0].length; j++) {
                 cell = dataset[i][j];
                 if (cell == 0)
@@ -453,6 +476,11 @@ public class MyBiMax {
                     setColumn(rows[i].columnSet, j);
             }
         }
+    }
+
+    public void closePrint()
+    {
+        this.outFile.close();
     }
 
 
@@ -485,111 +513,6 @@ public class MyBiMax {
     @NoArgsConstructor
     private class IntHolder {
         private int value;
-    }
-
-    // Small test case
-    public static void main(String[] args) throws Exception {
-        // First read the data file
-        // Then apply the conquer method
-
-
-        // TwinsUK test
-        System.out.println("Reading the dataset");
-        ReadingBigData bigEngine = new ReadingBigData("C:/Users/tagi1_000/Desktop/CERN/BBicat/src/sampleData/MuTHER_LCL_main_normalized_data_newIds.txt");
-        bigEngine.read2();
-        System.out.println("Reading done");
-
-        System.out.println("Dataset being created");
-        float[][] data = bigEngine.getActual();
-        String[] colNames = bigEngine.getColNames();
-        Vector cols = new Vector();
-        for (int i = 0; i < colNames.length; i++)
-            cols.add(colNames[i]);
-
-        ArrayList<String> rowNames = bigEngine.getRowNames();
-        Vector genes = new Vector();
-        for (int i = 0;i < rowNames.size(); i++)
-            genes.add(rowNames.get(i));
-
-        // Dataset that will be pre-processed before being sent to the bimax algorithm
-        Dataset dataset = new Dataset(data, data, null, genes, cols, cols, new Vector(), new Vector());
-
-        System.out.println("Dataset is ready");
-        // Pre-processing
-        System.out.println("Getting ready for pre-processing");
-        UtilFunctionalities engine = new UtilFunctionalities();
-        Preprocessor pre = new Preprocessor(engine);
-        pre.setRawData(data);
-        pre.setChipNames(colNames);
-        pre.setDiscretizedData(null);
-        pre.setGeneNames(rowNames.toArray(new String[]{}));
-        pre.setLabels(new Vector());
-        pre.setLabelArrays(new Vector());
-        pre.setWorkChipNames(colNames);
-        pre.setPreprocessedData(data);
-        pre.setDataContainsNegValues(false);
-
-        /*
-        Pre-process the data
-         */
-
-        PreprocessOption options = new PreprocessOption();
-        options.setDo_discretize(true);
-        options.setDiscretizationScheme(MethodConstants.PREPROCESS_OPTIONS_DISCRETIZATION_UP);
-        options.setOnesPercentage(40); // 25% Thresholding
-        options.setDiscretizationMode("onesPercentage");
-
-        // Pre-processing the data
-        pre.preprocessData(options);
-
-        System.out.println("Preprocessing done");
-        System.out.println("Initializing the solver");
-        MyBiMax algo = new MyBiMax(colNames, rowNames);
-        algo.setNoColumns(data[0].length);
-        algo.setNoRows(data.length);
-        algo.setMinNoColumns(50);
-        algo.setMinNoRows(250);
-        int[][] disData = pre.getDiscretizedData();
-
-//        for (int i = 0; i < disData[0].length;i++)
-//            System.out.println(disData[0][i]);
-        System.out.println("Starting to solve!!!");
-        if (algo.getNoColumns() > 0L && algo.getNoRows() > 0L && algo.initialize() != 0) {
-            algo.readInDataMatrix(disData);
-            algo.conquer(0L, algo.getNoRows() - 1L, 0L, 0L);
-        }
-        algo.outFile.close();
-
-        System.out.println("Solved!");
-        /*
-        // Let's first try the simple one
-        FileInputStream stream = new FileInputStream("C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/BayesTestHandMade.txt");
-        Scanner scanner = new Scanner(stream);
-
-        MyBiMax engine = new MyBiMax();
-        engine.setNoRows(scanner.nextLong());
-        engine.setNoColumns(scanner.nextLong());
-        engine.setMinNoRows(scanner.nextLong());
-        engine.setMinNoColumns(scanner.nextLong());
-        if (engine.getMinNoRows() < 1L)
-            engine.setMinNoRows(1L);
-        if (engine.getMinNoColumns() < 1L)
-            engine.setMinNoColumns(1L);
-
-        int[][] dataset = new int[(int)engine.getNoRows()][(int)engine.getNoColumns()];
-        for (int i = 0; i < dataset.length; i++)
-        {
-            for (int j = 0; j < dataset[0].length; j++)
-            {
-                dataset[i][j] = scanner.nextInt();
-            }
-        }
-
-        if (engine.getNoColumns() > 0L && engine.getNoRows() > 0L && engine.initialize() != 0) {
-            engine.readInDataMatrix(dataset);
-            engine.conquer(0L, engine.getNoRows() - 1L, 0L, 0L);
-        }
-        */
     }
 
 }

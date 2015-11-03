@@ -61,8 +61,10 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.TestCases;
 
+import MetaFramework.BicatMethods;
+import MetaFramework.RConnection;
 import bicat.biclustering.Bicluster;
 
 import java.io.File;

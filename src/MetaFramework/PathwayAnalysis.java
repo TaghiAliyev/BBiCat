@@ -79,6 +79,8 @@ import java.util.HashMap;
 /**
  * This class contains the methods needed for generating and reading the information about pathways and related proteins
  *
+ * NOTE : THIS IS AN OLD VERSION AND IS VERY SLOW! PLEASE REFER TO PathwayAnalysisMixing.java for a better version
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @Data

@@ -80,7 +80,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Just a test class, playing around with the pathway analysis
+ * New version of a pathway database parser (NCI-Curated)
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
@@ -101,6 +101,14 @@ public class PathwayAnalysisMixing {
         parse();
     }
 
+    /**
+     * Parser that reads through NCI-Curated pathway database
+     * Prints out times spent on different parts of the parsing and overall time.
+     * As a result creates two hashmaps : genesToPathways and pathwaysToGenes
+     * These are lated used by the Bayesian analysis for post-analysis of the biclusters
+     *
+     * @throws Exception
+     */
     public void parse() throws Exception {
 //        System.out.println(System.getProperty("os.arch"));
         Document mainDoc;
@@ -136,9 +144,9 @@ public class PathwayAnalysisMixing {
                 geneToPath = new HashMap<Molecule, ArrayList<Pathway>>();
 
                 fillHashs(pathToGene, geneToPath, pathways);
-                ArrayList<Molecule> result = pathToGene.get(new Pathway(null, 12, null, "Aurora C signaling"));
-                for (Molecule name : result)
-                    System.out.println(name.getName());
+//                ArrayList<Molecule> result = pathToGene.get(new Pathway(null, 12, null, "Aurora C signaling"));
+//                for (Molecule name : result)
+//                    System.out.println(name.getName());
 //                System.out.println(pathToGene.get(new Pathway(null, 12, null, "Aurora C signaling")).get(0).getName());
                 long end = System.currentTimeMillis();
                 System.out.println("Time spent : " + (end - start));
@@ -151,6 +159,13 @@ public class PathwayAnalysisMixing {
         }
     }
 
+    /**
+     * Fills the hashmaps with the correct elements
+     *
+     * @param pathToGene
+     * @param geneToPath
+     * @param pathways
+     */
     private void fillHashs(HashMap<Pathway, ArrayList<Molecule>> pathToGene, HashMap<Molecule, ArrayList<Pathway>> geneToPath, HashMap<Integer, Pathway> pathways) {
         Set<Integer> allId = pathways.keySet();
         for (Integer id : allId) {
@@ -175,8 +190,15 @@ public class PathwayAnalysisMixing {
         }
     }
 
+    /**
+     * Reads through pathways. First interactions and molecules should be read and mapped before calling this method
+     *
+     * @param pathways  Hashmap that will be filled
+     * @param pathwayList   Node from which search starts
+     * @param interactions  List of already parsed interactions
+     * @param molecules List of already parsed molecules
+     */
     private void readPathways(HashMap<Integer, Pathway> pathways, Node pathwayList, HashMap<String, Interaction> interactions, HashMap<Integer, Molecule> molecules) {
-        // TODO : Read through the pathways. Should be quite straight-forward
         long start = System.currentTimeMillis();
         if (pathwayList.getNodeType() == Node.ELEMENT_NODE) {
             Element pathE = (Element) (pathwayList);
@@ -221,6 +243,13 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for reading pathways : " + (end - start));
     }
 
+    /**
+     * Method that parses list of interactions from the database and fills the hashmap
+     *
+     * @param interactions  Hashmap that will be filled in with the interactions
+     * @param interactionList   Node from which search starts (top-level tree node)
+     * @param molecules List of already parsed Molecules list
+     */
     private void readInteractions(HashMap<String, Interaction> interactions, Node interactionList, HashMap<Integer, Molecule> molecules) {
         long start = System.currentTimeMillis();
         if (interactionList.getNodeType() == Node.ELEMENT_NODE) {
@@ -267,6 +296,12 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for interactions : " + (end - start) + " ms");
     }
 
+    /**
+     * Parses the list of molecules into an empty hashmap
+     *
+     * @param molecules Empty hashmap
+     * @param moleculesList Top-level tree node for reading through the molecules list
+     */
     private void readMolecules(HashMap<Integer, Molecule> molecules, Node moleculesList) {
         long start = System.currentTimeMillis();
         if (moleculesList.getNodeType() == Node.ELEMENT_NODE) {
@@ -345,10 +380,13 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for molecules : " + (end - start));
     }
 
+    /**
+     * Specific class to contain all the information related to Molecules
+     */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    static class Molecule implements Comparable {
+    public static class Molecule implements Comparable {
         private int id;
         private String name; // maybe just String needed
         private boolean type; // False -> protein, True -> Complex
@@ -401,18 +439,24 @@ public class PathwayAnalysisMixing {
         }
     }
 
+    /**
+     * Specific class that contains interaction-related information
+     */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    static class Interaction {
+    public static class Interaction {
         private ArrayList<Molecule> molecules;
         private String id;
     }
 
+    /**
+     * Specific class that contains pathways-related information
+     */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    static class Pathway implements Comparable {
+    public static class Pathway implements Comparable {
         private ArrayList<Interaction> interactions;
         private int id;
         private ArrayList<Molecule> molList;
