@@ -6,7 +6,7 @@
  *
  *                                DOI for citing the release : 10.5281/zenodo.33117
  *
- *                                Copyright (c) 2015 Taghi Aliyev
+ *                                Copyright (c) 2015 Taghi Aliyev, Marco Manca, Alberto Di Meglio
  *
  *                                This file is part of BBiCat.
  *

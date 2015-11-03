@@ -1,10 +1,12 @@
 /*
- *                                BBiCat is a toolbox that combines different Biological Post-Analytic tools, Bi-Clustering and
- *                                clustering techniques in it, which can be applied on a given dataset. This software is the
- *                                modified version of the original BiCat Toolbox implemented at ETH Zurich by Simon
- *                                Barkow, Eckart Zitzler, Stefan Bleuler, Amela Prelic and Don Frick.
+ *                                BBiCat is a toolbox that combines different Bi-Clustering and clustering techniques in it, which
+ *                                can be applied on a given dataset. This software is the modified version of the original BiCat
+ *                                Toolbox implemented at ETH Zurich by Simon Barkow, Eckart Zitzler, Stefan Bleuler, Amela
+ *                                Prelic and Don Frick.
  *
- *                                Copyright (c) 2015 Taghi Aliyev
+ *                                DOI for citing the release : 10.5281/zenodo.33117
+ *
+ *                                Copyright (c) 2015 Taghi Aliyev, Marco Manca, Alberto Di Meglio
  *
  *                                This file is part of BBiCat.
  *
