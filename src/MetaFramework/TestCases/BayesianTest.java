@@ -90,10 +90,10 @@ public class BayesianTest {
         // In this test case, used dataset is a hand made text file
         // Gene names were randomly selected from the NCI database
         // This test case is mainly for seeing the use of the Bayesian method for enrichment assessment
-        String dataFile = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/BayesTestHandMade.txt";
+        String dataFile = "src/sampleData/BayesTestHandMade.txt";
 
         // Reading the pathway information from NCI Curated Database
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
         Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();
@@ -142,10 +142,10 @@ public class BayesianTest {
      */
     @Test
     public void testDiff() throws Exception {
-        String dataFile = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/dataSample_2.txt";
+        String dataFile = "src/sampleData/dataSample_2.txt";
 
         // Reading the pathway information from NCI Curated Database
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
         Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();

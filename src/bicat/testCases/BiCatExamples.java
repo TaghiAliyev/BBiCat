@@ -91,7 +91,7 @@ public class BiCatExamples {
 
         RunMachine_BiMax runningMachine = new RunMachine_BiMax(engine);
 
-        String benchmark1 = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+        String benchmark1 = "src/sampleData/ProcessedFirst.txt";
         Preprocessor readingEngine = new Preprocessor(engine);
         File file = new File(benchmark1);
 

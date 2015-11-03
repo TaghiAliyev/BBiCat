@@ -93,7 +93,7 @@ public class PValueTest {
     public void test2() throws Exception
     {
         // Let's run a test on the whole dataset
-        String dataFile = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/src/sampleData/dataSample_2.txt";
+        String dataFile = "src/sampleData/dataSample_2.txt";
         BicatMethods bicatEngine = new BicatMethods(dataFile);
 
         Bayesian bayesian = new Bayesian();

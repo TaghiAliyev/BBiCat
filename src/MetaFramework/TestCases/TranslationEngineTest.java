@@ -83,7 +83,7 @@ public class TranslationEngineTest {
 
     public static void main(String[] args) throws Exception {
 //        // Getting all the gene names
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        String file = "NCI.xml";
         PathwayAnalysis engine = new PathwayAnalysis(file);
 
         Set<String> genes = engine.getGeneToPathways().keySet();
@@ -101,7 +101,7 @@ public class TranslationEngineTest {
 //        // Let's run the algorithm now
 //        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax();
 
-        String rScript = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/TranslationScript.R";
+        String rScript = "TranslationScript.R";
         RConnection connection = new RConnection(false);
         connection.setUp(rScript);
         // Entrez : org.Hs.eg.db

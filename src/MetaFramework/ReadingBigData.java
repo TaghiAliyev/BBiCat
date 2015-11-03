@@ -187,7 +187,7 @@ public class ReadingBigData {
     }
 
     public static void main(String[] args) throws Exception {
-        ReadingBigData engine = new ReadingBigData("C:/Users/tagi1_000/Desktop/CERN/MuTHER_Fat_normalized_31032010_uncondensed_Ids.txt");
+        ReadingBigData engine = new ReadingBigData("MuTHER_Fat_normalized_31032010_uncondensed_Ids.txt");
         long start, end;
 //        start = System.currentTimeMillis();
 //        engine.read();

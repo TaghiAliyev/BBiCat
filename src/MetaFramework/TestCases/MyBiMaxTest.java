@@ -96,7 +96,7 @@ public class MyBiMaxTest {
 
         // Reading a dataset
         System.out.println("Reading the dataset");
-        ReadingBigData bigEngine = new ReadingBigData("C:/Users/tagi1_000/Desktop/CERN/BBicat/src/sampleData/ProcessedFirst.txt");
+        ReadingBigData bigEngine = new ReadingBigData("src/sampleData/ProcessedFirst.txt");
         bigEngine.read2();
         System.out.println("Reading done");
 
@@ -109,7 +109,7 @@ public class MyBiMaxTest {
 
         System.out.println("Reading the illumina information");
 
-        IlluminaParsers illuminaEngine = new IlluminaParsers("C:/Users/tagi1_000/Desktop/CERN/BBiCat/HumanHT-12_V3_0_R3_11283641_A.txt");
+        IlluminaParsers illuminaEngine = new IlluminaParsers("HumanHT-12_V3_0_R3_11283641_A.txt");
 
         ArrayList<String> rowNamesNew = new ArrayList<String>();
         String[] allEntries = illuminaEngine.getIlluminaToHGNC().keySet().toArray(new String[]{});
@@ -200,7 +200,7 @@ public class MyBiMaxTest {
         System.out.println("Starting post-analysis");
         ArrayList<Bicluster> biclusters = algo.getBiclusters();
         Bayesian bayesian = new Bayesian();
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        String file = "NCI.xml";
         PathwayAnalysisMixing pathEngine = new PathwayAnalysisMixing(file);
 
         // Let's transform the genes to some random genes from NCI database in order to be able to test the Bayesian

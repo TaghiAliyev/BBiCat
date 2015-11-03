@@ -79,7 +79,7 @@ import java.util.Vector;
 public class BicatAndRTest {
 
     public static void main(String[] args) throws Exception {
-        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+        String fileLocation = "src/sampleData/ProcessedFirst.txt";
 
         // Creating BiCat engine that can run the algorithms on the dataset.
         // If you want to change the parameters, adopt the methods themselves

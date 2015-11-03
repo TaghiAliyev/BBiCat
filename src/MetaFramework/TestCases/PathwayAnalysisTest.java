@@ -83,7 +83,7 @@ public class PathwayAnalysisTest {
 
     public static void main(String[] args) throws Exception {
         // Let's read the pathway information first.
-        String file = "C:/Users/tagi1_000/Desktop/NCI.xml";
+        String file = "NCI.xml";
         long start = System.currentTimeMillis();
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
         long end = System.currentTimeMillis();
@@ -105,7 +105,7 @@ public class PathwayAnalysisTest {
             System.out.println("Pathway named:" + tmp.getName() + ", contains ADCY3 gene");
         }
 
-        String fileLocation = "C:/Users/tagi1_000/eclipseWorkspace/LocalCopyBiCat/src/sampleData/ProcessedFirst.txt";
+        String fileLocation = "src/sampleData/ProcessedFirst.txt";
 
         // Creating BiCat engine that can run the algorithms on the dataset.
         // If you want to change the parameters, adopt the methods themselves
