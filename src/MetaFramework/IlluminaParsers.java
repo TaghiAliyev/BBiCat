@@ -128,7 +128,7 @@ public class IlluminaParsers {
 
     public static void main(String[] args) throws Exception
     {
-        String file = "C:/Users/tagi1_000/Desktop/CERN/HumanHT-12_V3_0_R3_11283641_A.txt";
+        String file = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/HumanHT-12_V3_0_R3_11283641_A.txt";
         IlluminaParsers engine = new IlluminaParsers(file);
     }
 

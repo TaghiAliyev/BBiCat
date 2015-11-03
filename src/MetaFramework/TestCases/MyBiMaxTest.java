@@ -109,7 +109,7 @@ public class MyBiMaxTest {
 
         System.out.println("Reading the illumina information");
 
-        IlluminaParsers illuminaEngine = new IlluminaParsers("C:/Users/tagi1_000/Desktop/CERN/HumanHT-12_V3_0_R3_11283641_A.txt");
+        IlluminaParsers illuminaEngine = new IlluminaParsers("C:/Users/tagi1_000/Desktop/CERN/BBiCat/HumanHT-12_V3_0_R3_11283641_A.txt");
 
         ArrayList<String> rowNamesNew = new ArrayList<String>();
         String[] allEntries = illuminaEngine.getIlluminaToHGNC().keySet().toArray(new String[]{});

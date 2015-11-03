@@ -77,7 +77,7 @@ public class IlluminaParserTest {
     @Test
     public void test1() throws Exception
     {
-        String file = "C:/Users/tagi1_000/Desktop/CERN/HumanHT-12_V3_0_R3_11283641_A.txt";
+        String file = "C:/Users/tagi1_000/Desktop/CERN/BBiCat/HumanHT-12_V3_0_R3_11283641_A.txt";
         IlluminaParsers engine = new IlluminaParsers(file);
 
         String illumina1 = "ILMN_1725881";
