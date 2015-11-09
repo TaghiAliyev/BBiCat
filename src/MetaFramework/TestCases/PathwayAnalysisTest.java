@@ -69,6 +69,7 @@ import MetaFramework.BicatMethods;
 import MetaFramework.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -105,6 +106,15 @@ public class PathwayAnalysisTest {
 
         for (PathwayAnalysisMixing.Pathway tmp : pathways) {
             System.out.println("Pathway named:" + tmp.getName() + ", contains ADCY3 gene");
+        }
+
+        String pathwayInterest = "Notch signaling pathway";
+        System.out.println(pathwayInterest + " contains following genes:");
+        ArrayList<PathwayAnalysisMixing.Molecule> molsIn = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, pathwayInterest));
+
+        for (PathwayAnalysisMixing.Molecule tmp : molsIn)
+        {
+            System.out.println(tmp.getName());
         }
 
         String fileLocation = "src/sampleData/ProcessedFirst.txt";

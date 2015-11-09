@@ -427,22 +427,22 @@ public class MyBiMax {
         Bicluster(int identification, int[] g, int[] c, float[][] rawData,
                      int[][] binData)
          */
-
+        System.out.println("Bicluster counter : " + biclusterCounter);
         biclusterCounter++;
         int[] g = new int[(int)(lastRow - firstRow + 1)];
         ArrayList<Integer> cL = new ArrayList<Integer>();
-        outFile.printf("\n%s\n", biclusterCounter);
+//        outFile.printf("\n%s\n", biclusterCounter);
         for (i = firstRow; i <= lastRow; i++) {
-            outFile.printf("%s\t", rowNames[(int)rows[(int) i].originalRowNumber]);
+//            outFile.printf("%s\t", rowNames[(int)rows[(int) i].originalRowNumber]);
             g[(int)(i - firstRow)] = (int)(rows[(int)i].originalRowNumber);
         }
-        outFile.printf("\n");
+//        outFile.printf("\n");
         for (i = 0; i < noColumns; i++)
             if (isSet(columnSet, i) != 0) {
-                outFile.printf("%s\t", colNames[(int) i]);
+//                outFile.printf("%s\t", colNames[(int) i]);
                 cL.add((int) i);
             }
-        outFile.printf("\n");
+//        outFile.printf("\n");
         int[] c = new int[cL.size()];
         for (int j = 0; j < cL.size(); j++)
             c[j] = cL.get(j);
@@ -451,6 +451,9 @@ public class MyBiMax {
     }
 
     public void conquer(long firstRow, long lastRow, long level, long noMandatorySets) {
+        if (biclusterCounter > 1000)
+            return;
+//        System.out.println("Bicluster count from conquer : " + biclusterCounter);
 //        System.out.println("Some statistics : " + noRows + " " + noColumns + " " + minNoRows + " " + minNoColumns);
         IntHolder overlapping = new IntHolder(0);
         long splitRow, noSelectedRows;

@@ -201,4 +201,65 @@ public class BayesianTest {
 
         bayesian.closeFile();
     }
+
+    @Test
+    public void testPaper() throws Exception
+    {
+        String dataFile = "src/sampleData/dataSample_2.txt";
+
+        // Reading the pathway information from NCI Curated Database
+        String file = "NCI.xml";
+        PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
+//        engine.parse();
+        Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();
+        Set<String> names = new HashSet<String>();
+        for (PathwayAnalysisMixing.Molecule mol : allGenes)
+            names.add(mol.getName());
+        String[] geneNames = new String[40];
+        geneNames = names.toArray(geneNames);
+
+        // Performing biclustering
+        BicatMethods bicatEngine = new BicatMethods(dataFile);
+
+        // Let's run the algorithm now
+        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 10, 4, 6);
+
+        System.out.println("Biclustering results: " + biclusters.size());
+        Vector<String> newGeneNames = new Vector<String>();
+        Random rand = new Random();
+        for (int i = 0; i < bicatEngine.getData().getGeneCount(); i++) {
+            int randN = rand.nextInt(geneNames.length);
+            newGeneNames.add(geneNames[randN]);
+        }
+        bicatEngine.getData().setGeneNames(newGeneNames);
+        for (Bicluster tmp : biclusters) {
+            int[] genes = tmp.getGenes();
+            int[] chips = tmp.getChips();
+            System.out.println("Involved genes");
+            for (int i = 0; i < genes.length; i++) {
+                System.out.println(bicatEngine.getData().getGeneName(genes[i]));
+            }
+
+            System.out.println();
+            System.out.println("Involved chips");
+            for (int i = 0; i < chips.length; i++) {
+                System.out.println(bicatEngine.getData().getChipName(chips[i]));
+            }
+            System.out.println("---------------------");
+        }
+
+        Bayesian bayesian = new Bayesian();
+
+        System.out.println("\n\n\n\n");
+        System.out.println("Bayesian analysis results!!!");
+
+        for (Bicluster tmp : biclusters) {
+            System.out.println("New bicluster!!!\n");
+            // -1 means differential expression
+            bayesian.compute(tmp, engine, bicatEngine.getData(), -1);
+            System.out.println("--------------\n\n");
+        }
+
+        bayesian.closeFile();
+    }
 }

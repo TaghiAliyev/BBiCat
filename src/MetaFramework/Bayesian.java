@@ -69,11 +69,13 @@ import bicat.biclustering.Bicluster;
 import bicat.biclustering.Dataset;
 import com.sun.security.cert.internal.x509.X509V1CertImpl;
 import lombok.Data;
+import org.apache.commons.math3.stat.inference.TTest;
 import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
 import javax.swing.*;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -135,16 +137,21 @@ public class Bayesian {
         }
 //        System.out.println("Some debug results : ");
 //        System.out.println("Number of diff genes : " + diffGenes.size());
+
 //        for (String dTm : diffGenes)
 //            System.out.println("Diff gene : " + dTm);
         Set<String> notDiffGenes = MatrixFunctions.setDifference(geneNames, new HashSet<String>(diffGenes));
 //        System.out.println("Amount of pathways : " + allPathways);
+//        if (diffGenes.size() != 0)
+//        {
+//            System.out.println(notDiffGenes.size());
+//        }
         for (String tmp : allPathways) {
             ArrayList<PathwayAnalysisMixing.Molecule> molecules = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, tmp));
             ArrayList<String> genesInPathway = new ArrayList<String>();
             for (PathwayAnalysisMixing.Molecule mol : molecules)
                 genesInPathway.add(mol.getName());
-            int nMin = (int) (geneNames.size() * 0.2); // At least 20 percent of input genes should be part of the pathway
+            int nMin = (int) (1); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 gene should be diff expressed
             Set<String> genesInOther = new HashSet<String>();
             // Getting all the genes from other pathways.
@@ -163,19 +170,31 @@ public class Bayesian {
 
             // Computation of relevant terms
             int x1OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, diffGenes).size();
+//            x1OnlyPathway = 0;
             int x0OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, notDiffGenes).size();
+//            x0OnlyPathway = 0;
             int nOnlyPath = genesOnlyPathway.size();
+//            nOnlyPath = 0;
             int x1PathAnd = MatrixFunctions.intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
+//            x1PathAnd = 4;
             int x0PathAnd = MatrixFunctions.intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
+//            x0PathAnd = 2;
             int nAnd = MatrixFunctions.setDifference(genesInPathway, genesOnlyPathway).size();
+//            nAnd = 6;
             int x1NoPathway = MatrixFunctions.intersection(genesNotPathway, diffGenes).size();
+//            x1NoPathway = 380;
             int x0NoPathway = MatrixFunctions.intersection(genesNotPathway, notDiffGenes).size();
+//            x0NoPathway = 3590;
             int nNoPath = genesNotPathway.size();
+//            nNoPath = 380 + 3590;
             double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
+            if (gHat != 0)
+                System.out.println("Ghat is : " + gHat);
             int x1Path = x1OnlyPathway + x1PathAnd;
+
 //            System.out.println("Genes in Pathways : " + genesInPathway.size() + " , x1Path : " + x1Path);
             if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
-//                System.out.println("Not skipping");
+                System.out.println("Not skipping");
                 double[] gObs = new double[nSim];
                 // Do not skip the loop, still continue
                 if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
@@ -423,6 +442,8 @@ public class Bayesian {
                 for (int i = 0; i < tmp.size(); i++)
                     firstColumns[i] = tmp.get(i);
 
+
+                System.out.println("First columns size : " + firstColumns.length);
                 tmp = new ArrayList<Integer>();
 
                 for (int i = 0; i < words2.length; i++) {
@@ -442,36 +463,65 @@ public class Bayesian {
                 for (int i = 0; i < tmp.size(); i++) {
                     secondColumns[i] = tmp.get(i);
                 }
+                System.out.println("Second columns size : " + secondColumns.length);
             }
             float[][] data = dataset.getData();
             // Let's compute the means first
             Double[] allP = new Double[genes.length];
             for (int i = 0; i < genes.length; i++) {
-                double meanA = 0.0, meanB = 0.0, mean = 0.0;
-                for (int j = 0; j < firstColumns.length; j++)
-                    meanA += data[genes[i]][firstColumns[j]];
-                for (int j = 0; j < secondColumns.length; j++)
-                    meanB += data[genes[i]][secondColumns[j]];
+//                double meanA = 0.0, meanB = 0.0, mean = 0.0;
+//
+//                for (int j = 0; j < data[0].length; j++)
+//                    mean += data[genes[i]][j];
+//
+//                mean = mean / data[0].length;
+//
+//                for (int j = 0; j < firstColumns.length; j++)
+//                    meanA += data[genes[i]][firstColumns[j]];
+//                for (int j = 0; j < secondColumns.length; j++)
+//                    meanB += data[genes[i]][secondColumns[j]];
+//
+////                mean = (meanA + meanB) / (firstColumns.length + secondColumns.length);
+//                meanA = meanA / firstColumns.length;
+//                meanB = meanB / secondColumns.length;
+//                double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0, sum4 = 0.0;
+//                for (int j = 0; j < firstColumns.length; j++) {
+//                    sum1 += Math.pow(data[genes[i]][firstColumns[j]] - meanA, 2);
+//                    sum3 += Math.pow(data[genes[i]][firstColumns[j]] - mean, 2);
+//                }
 
-                mean = (meanA + meanB) / (firstColumns.length + secondColumns.length);
-                meanA = meanA / firstColumns.length;
-                meanB = meanB / secondColumns.length;
-                double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0, sum4 = 0.0;
+//                for (int j = 0; j < secondColumns.length; j++) {
+//                    sum2 += Math.pow(data[genes[i]][secondColumns[j]] - meanB, 2);
+//                    sum4 += Math.pow(data[genes[i]][secondColumns[j]] - mean, 2);
+//                }
+
+//                double t = 2.0 * (sum1 + sum2) / (sum3 + sum4);
+//                DecimalFormat formatter = new DecimalFormat("#0.00");
+//                t = Double.parseDouble(formatter.format(t));
+                // Bonferroni correction (multiply by sample size)
+//                double pValue = computePValue(t, 1);
+//                double toCheck = Math.min(1.0, pValue * genes.length);
+                double[] aValues = new double[firstColumns.length];
+                double[] bValues = new double[secondColumns.length];
                 for (int j = 0; j < firstColumns.length; j++) {
-                    sum1 += Math.pow(data[genes[i]][firstColumns[j]] - meanA, 2);
-                    sum3 += Math.pow(data[genes[i]][firstColumns[j]] - mean, 2);
+                    aValues[j] = data[genes[i]][firstColumns[j]];
+//                    System.out.print(aValues[j] + ",");
                 }
+//                System.out.println();
 
                 for (int j = 0; j < secondColumns.length; j++) {
-                    sum2 += Math.pow(data[genes[i]][secondColumns[j]] - meanB, 2);
-                    sum4 += Math.pow(data[genes[i]][secondColumns[j]] - mean, 2);
+                    bValues[j] = data[genes[i]][secondColumns[j]];
+//                    System.out.print(bValues[j] + ",");
                 }
+                TTest tTest = new TTest();
 
-                double t = 2.0 * (sum1 + sum2) / (sum3 + sum4);
-                // Bonferroni correction (multiply by sample size)
-                double pValue = Math.min(1.0, computePValue(t, 1) * genes.length); // Degrees of freedom for us 1!
-                if (pValue <= 0.05) {
-                    System.out.println("Diff expressed!");
+                // Using apache common math library. This seems to be more stable
+                double apacheP = tTest.tTest(aValues, bValues);
+
+                double toCheck = apacheP * genes.length;
+//                System.out.println("Apache adapted P value : " + toCheck);
+                if (toCheck <= 0.1) {
+//                    System.out.println("Diff expressed!");
                     res.add(dataset.getGeneName(genes[i]));
                 }
                 // Benjamini-Hochberg:
@@ -479,6 +529,8 @@ public class Bayesian {
 
             }
             // Benjamini - Hochberg:
+
+            // TODO : CHECK WITH MATLAB T-TEST FUNCTION!
 
 //            Arrays.sort(allP);
 //            for (int i = 0; i < allP.length; i++)
@@ -547,7 +599,8 @@ public class Bayesian {
             return 1e-14;
         }
 
-        PValue /= gamma(K);
+        PValue /= approx_gamma(K);
+//        PValue /= gamma(K);
         //PValue /= tgamma(K);
 
         return (1.0 - PValue);
@@ -567,6 +620,7 @@ public class Bayesian {
         double Sc = (1.0 / S);
         Sc *= Math.pow(Z, S);
         Sc *= Math.exp(-Z);
+        System.out.println("Sc is : " + Sc + " " + S + " " + Z);
 
         double Sum = 1.0;
         double Nom = 1.0;
@@ -582,6 +636,20 @@ public class Bayesian {
         return Sum * Sc;
     }
 
+    public double approx_gamma(double Z)
+    {
+        double RECIP_E = 0.36787944117144232159552377016147;  // RECIP_E = (E^-1) = (1.0 / E)
+        double TWOPI = 6.283185307179586476925286766559;  // TWOPI = 2.0 * PI
+
+        double D = 1.0 / (10.0 * Z);
+        D = 1.0 / ((12 * Z) - D);
+        D = (D + Z) * RECIP_E;
+        D = Math.pow(D, Z);
+        D *= Math.sqrt(TWOPI / Z);
+
+        return D;
+    }
+
     /**
      * Implementation of a Gamma function (not the approximated, faster version)
      *
@@ -591,7 +659,7 @@ public class Bayesian {
     public double gamma(double N) {
         final double SQRT2PI = 2.5066282746310005024157652848110452530069867406099383;
 
-        double A = 11.0;
+        double A = 15.0;
 
         double Z = (double) N;
         double Sc = Math.pow((Z + A), (Z + 0.5));

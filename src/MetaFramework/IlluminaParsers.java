@@ -106,7 +106,7 @@ public class IlluminaParsers {
         {
             line = scanner.nextLine();
         }
-        System.out.println(line);
+//        System.out.println(line);
         line = scanner.nextLine();
         line = scanner.nextLine();
         int cnt = 0;
@@ -119,8 +119,8 @@ public class IlluminaParsers {
             String illumina = parts[13];
             String symbol = parts[4];
 
-            if (cnt == 0)
-                System.out.println(illumina + " " + symbol);
+//            if (cnt == 0)
+//                System.out.println(illumina + " " + symbol);
 
             illuminaToHGNC.put(illumina, symbol);
             line = scanner.nextLine();

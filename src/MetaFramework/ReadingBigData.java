@@ -93,17 +93,67 @@ public class ReadingBigData {
         this.fileLoc = file;
     }
 
-    public void read() throws Exception {
+    public void read(int row, int colLimit) throws Exception
+    {
         File file = new File(fileLoc);
         BufferedReader br = new BufferedReader(new FileReader(file));
         String colLine = br.readLine();
         String[] cols = colLine.split("\t");
         int numCol = cols.length;
-        String[] colNames = new String[numCol - 1];
+        colNames = new String[Math.min(numCol - 1, colLimit)];
+        for (int i = 1; i < colNames.length; i++)
+            colNames[i - 1] = cols[i];
+        br.readLine();
+//        float[][] matrix;
+        System.out.println("Started reading");
+        String line;
+        int cnt = 0;
+        int partsLen = 0;
+        while ((line = br.readLine()) != null && cnt < row - 1) {
+            partsLen = line.split("\t").length - 1;
+            cnt++;
+        }
+        System.out.println("First part of reading done");
+        file = new File(fileLoc);
+        br = new BufferedReader(new FileReader(file));
+        br.readLine();
+        br.readLine();
+        actual = new float[cnt + 1][Math.min(partsLen, colLimit)];
+        cnt = 0;
+//        float max = 0f;
+//        float min = 12f;
+        rowNames = new ArrayList<String>();
+        while ((line = br.readLine()) != null && cnt < row - 1) {
+            String[] parts = line.split("\t");
+            String geneName = parts[0]; // First column is gene names
+            rowNames.add(geneName);
+            // The rest are the values
+            for (int i = 1; i < Math.min(partsLen, colLimit); i++) {
+                actual[cnt][i - 1] = Float.parseFloat(parts[i]);
+//                if (matrix[cnt][i - 1] > max)
+//                    max = matrix[cnt][i - 1];
+//                if (matrix[cnt][i - 1] < min)
+//                    min = matrix[cnt][i - 1];
+            }
+            cnt++;
+        }
+//        System.out.println("Max value : " + max + ", Min value : " + min);
+        System.out.println("Done reading");
+    }
+
+
+    public void read() throws Exception {
+        rowNames = new ArrayList<String>();
+        File file = new File(fileLoc);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String colLine = br.readLine();
+        String[] cols = colLine.split("\t");
+        int numCol = cols.length;
+        colNames = new String[numCol - 1];
         for (int i = 1; i < numCol; i++)
             colNames[i - 1] = cols[i];
         br.readLine();
-        float[][] matrix;
+//        float[][] matrix;
         System.out.println("Started reading");
         String line;
         int cnt = 0;
@@ -117,16 +167,17 @@ public class ReadingBigData {
         br = new BufferedReader(new FileReader(file));
         br.readLine();
         br.readLine();
-        matrix = new float[cnt + 1][partsLen];
+        actual = new float[cnt + 1][partsLen];
         cnt = 0;
 //        float max = 0f;
 //        float min = 12f;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split("\t");
             String geneName = parts[0]; // First column is gene names
+            rowNames.add(geneName);
             // The rest are the values
             for (int i = 1; i < parts.length; i++) {
-                matrix[cnt][i - 1] = Float.parseFloat(parts[i]);
+                actual[cnt][i - 1] = Float.parseFloat(parts[i]);
 //                if (matrix[cnt][i - 1] > max)
 //                    max = matrix[cnt][i - 1];
 //                if (matrix[cnt][i - 1] < min)
@@ -169,8 +220,6 @@ public class ReadingBigData {
         System.out.println("Done matricizing the 2nd version");
     }
 
-    private int columnNum;
-
     public ArrayList<Float> readToList(BufferedReader br) throws Exception {
         ArrayList<Float> dat = new ArrayList<Float>(40000);
         String line;
@@ -181,6 +230,51 @@ public class ReadingBigData {
             rowNames.add(parts[0]);// Line starts with gene name
             columnNum = parts.length - 1;
             for (int i = 0; i < parts.length - 1; i++) {
+                dat.add(Float.parseFloat(parts[i + 1]));
+            }
+        }
+
+        return dat;
+    }
+
+    public void read2(int rowLimit, int colLimit) throws Exception {
+        rowNames = new ArrayList<String>();
+        File file = new File(fileLoc);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String colLine = br.readLine();
+        String[] cols = colLine.split("\t");
+        int numCol = cols.length;
+        colNames = new String[Math.min(numCol - 1, colLimit)];
+        for (int i = 1; i < Math.min(numCol, colLimit); i++)
+            colNames[i - 1] = cols[i];
+        br.readLine();
+        ArrayList<Float> tmpMat = new ArrayList<Float>();
+        tmpMat = readToList(br, colLimit, rowLimit);
+        System.out.println("Done read 2");
+        br.close();
+
+        actual = new float[tmpMat.size() / columnNum][columnNum];
+
+        int len = tmpMat.size();
+
+        for (int i = 0; i < len; i++) {
+            actual[i / columnNum][i % columnNum] = tmpMat.get(i);
+        }
+        System.out.println("Done matricizing the 2nd version");
+    }
+
+    private int columnNum;
+
+    public ArrayList<Float> readToList(BufferedReader br, int colLimit, int rowLimit) throws Exception {
+        ArrayList<Float> dat = new ArrayList<Float>(40000);
+        String line;
+        int cnt = 0;
+        while ((line = br.readLine()) != null && cnt < rowLimit) {
+            cnt++;
+            String[] parts = line.split("\t");
+            rowNames.add(parts[0]);// Line starts with gene name
+            columnNum = Math.min(parts.length - 1, colLimit);
+            for (int i = 0; i < Math.min(parts.length - 1, colLimit); i++) {
                 dat.add(Float.parseFloat(parts[i + 1]));
             }
         }
