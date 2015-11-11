@@ -63,81 +63,50 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework.TestCases;
-
-import MetaFramework.BicatMethods;
-import MetaFramework.NCI.PathwayAnalysisMixing;
-import bicat.biclustering.Bicluster;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+package MetaFramework.AbstractPathwayUtils;
 
 /**
- * Showcase of how pathway parser could be used in order to see what pathways are involved with the biclusters
- * NOTE : Some gene names are changed locally in order to be able to show the functionality and use of the parser
- * In real cases, most of the genes won't be even related to NCI Pathways, so expected list should be a bit smaller
- *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class PathwayAnalysisTest {
 
-    public static void main(String[] args) throws Exception {
-        // Let's read the pathway information first.
-        String file = "NCI.xml";
-        long start = System.currentTimeMillis();
-        PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
-        long end = System.currentTimeMillis();
-        System.out.println("Took : " + (end - start) + " ms");
-        Set<PathwayAnalysisMixing.Molecule> mols = engine.getGeneToPath().keySet();
-        Set<String> genes = new HashSet<String>();
-        for (PathwayAnalysisMixing.Molecule mol : mols)
-            genes.add(mol.getName());
-        String[] geneNames = new String[40];
-        geneNames = genes.toArray(geneNames);
-//
-        for (String tmp : genes) {
-            System.out.println("Gene name : " + tmp);
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+
+/**
+ * Specific class that contains pathways-related information
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public abstract class Pathway<E extends Molecule, T extends Interaction> implements Comparable {
+    private ArrayList<T> interactions;
+    private int id;
+    private ArrayList<E> molList;
+    private String name;
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Pathway) {
+            Pathway o2 = (Pathway) o;
+            if (o2.id == id || o2.name.equalsIgnoreCase(name))
+                return true;
         }
-//
-        ArrayList<PathwayAnalysisMixing.Pathway> pathways = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, "ADCY3", false, null));
 
-        for (PathwayAnalysisMixing.Pathway tmp : pathways) {
-            System.out.println("Pathway named:" + tmp.getName() + ", contains ADCY3 gene");
-        }
 
-        String pathwayInterest = "Notch signaling pathway";
-        System.out.println(pathwayInterest + " contains following genes:");
-        ArrayList<PathwayAnalysisMixing.Molecule> molsIn = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, pathwayInterest));
-
-        for (PathwayAnalysisMixing.Molecule tmp : molsIn)
-        {
-            System.out.println(tmp.getName());
-        }
-
-        String fileLocation = "src/sampleData/ProcessedFirst.txt";
-
-        // Creating BiCat engine that can run the algorithms on the dataset.
-        // If you want to change the parameters, adopt the methods themselves
-        BicatMethods bicatEngine = new BicatMethods(fileLocation);
-
-        // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 8, 15);
-        Bicluster oneSample;
-        int[] toFetch;
-        for (int j = 0; j < biclusters.size(); j++) {
-            oneSample = biclusters.get(j);
-            toFetch = oneSample.getGenes();
-            for (int i = 0; i < toFetch.length; i++) {
-                // This call will be updated. As in the sample data, gene names are just numbers, we do this
-                ArrayList<PathwayAnalysisMixing.Pathway> pathways2 = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, geneNames[toFetch[i]], false, null));
-                for (PathwayAnalysisMixing.Pathway tmp : pathways2) {
-                    System.out.println("Pathway named : " + tmp.getName() + " contains gene named " + geneNames[toFetch[i]]);
-                }
-            }
-            System.out.println();
-            System.out.println("------------------------------------------------");
-        }
+        return false;
     }
 }

@@ -427,7 +427,7 @@ public class MyBiMax {
         Bicluster(int identification, int[] g, int[] c, float[][] rawData,
                      int[][] binData)
          */
-        System.out.println("Bicluster counter : " + biclusterCounter);
+//        System.out.println("Bicluster counter : " + biclusterCounter);
         biclusterCounter++;
         int[] g = new int[(int)(lastRow - firstRow + 1)];
         ArrayList<Integer> cL = new ArrayList<Integer>();
@@ -451,8 +451,8 @@ public class MyBiMax {
     }
 
     public void conquer(long firstRow, long lastRow, long level, long noMandatorySets) {
-        if (biclusterCounter > 1000)
-            return;
+//        if (biclusterCounter > 1000)
+//            return;
 //        System.out.println("Bicluster count from conquer : " + biclusterCounter);
 //        System.out.println("Some statistics : " + noRows + " " + noColumns + " " + minNoRows + " " + minNoColumns);
         IntHolder overlapping = new IntHolder(0);

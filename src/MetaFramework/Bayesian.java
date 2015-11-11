@@ -65,17 +65,18 @@
 
 package MetaFramework;
 
+import MetaFramework.AbstractPathwayUtils.AbstractPathwayAnalysis;
+import MetaFramework.AbstractPathwayUtils.Interaction;
+import MetaFramework.AbstractPathwayUtils.Molecule;
+import MetaFramework.AbstractPathwayUtils.Pathway;
+import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 import bicat.biclustering.Dataset;
-import com.sun.security.cert.internal.x509.X509V1CertImpl;
-import lombok.Data;
 import org.apache.commons.math3.stat.inference.TTest;
-import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
 import javax.swing.*;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
+import java.nio.file.Path;
 import java.util.*;
 
 /**
@@ -85,7 +86,7 @@ import java.util.*;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class Bayesian {
+public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pathway<E, T>> {
 
     private int nSim; // number of simulations
     private PrintWriter outFile; // Output file
@@ -109,7 +110,7 @@ public class Bayesian {
      * @param dataset   Dataset from which biclusters are computed
      * @param colChoice Column on which differentiation will be done. -1 Means diff expressed genes will be computed over columns
      */
-    public void compute(Bicluster bicluster, PathwayAnalysisMixing engine, Dataset dataset, int colChoice) {
+    public void compute(Bicluster bicluster, AbstractPathwayAnalysis<E, T, G> engine, Dataset dataset, int colChoice) {
         // Idea is to compute Bayesian statistics for the given gene list/cluster and term
         ArrayList<String> geneNames = new ArrayList<String>();
 //        System.out.println(bicluster.getGenes().length);
@@ -147,9 +148,9 @@ public class Bayesian {
 //            System.out.println(notDiffGenes.size());
 //        }
         for (String tmp : allPathways) {
-            ArrayList<PathwayAnalysisMixing.Molecule> molecules = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, tmp));
+            ArrayList<E> molecules = engine.getPathToGene().get(new G(null, 0, null, tmp));
             ArrayList<String> genesInPathway = new ArrayList<String>();
-            for (PathwayAnalysisMixing.Molecule mol : molecules)
+            for (E mol : molecules)
                 genesInPathway.add(mol.getName());
             int nMin = (int) (1); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 gene should be diff expressed
@@ -157,9 +158,9 @@ public class Bayesian {
             // Getting all the genes from other pathways.
             for (String tmp2 : allPathways) {
                 if (!tmp.equalsIgnoreCase(tmp2)) {
-                    ArrayList<PathwayAnalysisMixing.Molecule> mols = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, tmp2));
+                    ArrayList<Molecule> mols = engine.getPathToGene().get(new G(null, 0, null, tmp2));
                     ArrayList<String> molNames = new ArrayList<String>();
-                    for (PathwayAnalysisMixing.Molecule molT : mols)
+                    for (Molecule molT : mols)
                         molNames.add(molT.getName());
                     genesInOther.addAll(molNames);
                 }
@@ -188,17 +189,18 @@ public class Bayesian {
             int nNoPath = genesNotPathway.size();
 //            nNoPath = 380 + 3590;
             double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
-            if (gHat != 0)
-                System.out.println("Ghat is : " + gHat);
+//            if (gHat != 0)
+//                System.out.println("Ghat is : " + gHat);
             int x1Path = x1OnlyPathway + x1PathAnd;
 
 //            System.out.println("Genes in Pathways : " + genesInPathway.size() + " , x1Path : " + x1Path);
             if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
-                System.out.println("Not skipping");
+//                System.out.println("Not skipping");
                 double[] gObs = new double[nSim];
                 // Do not skip the loop, still continue
                 if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
                     ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
+
                     double[] X0onlyPath = MatrixFunctions.constantMinusVector(nOnlyPath, X1onlyPath);
                     ArrayList<Double> X1andPath = RPosterior(nSim, x1PathAnd, x1PathAnd + x0PathAnd, nAnd);
                     double[] X0andPath = MatrixFunctions.constantMinusVector(nAnd, X1andPath);
@@ -206,7 +208,7 @@ public class Bayesian {
                     double[] X0noPath = MatrixFunctions.constantMinusVector(nNoPath, X1noPath);
                     // gObs will be used for the comparison vs simulation results
                     gObs = GScoreMatrix(X1onlyPath, X1andPath, X1noPath, X0onlyPath, X0andPath, X0noPath);
-
+//                    System.out.println("For debug");
                 } else {
                     double X1onlyPath = x1OnlyPathway;
                     double X0onlyPath = nOnlyPath - X1onlyPath;
@@ -275,9 +277,14 @@ public class Bayesian {
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
                 outFile.println("G hat : " + gHat);
                 outFile.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
+                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + genesInPathway.size() + " genes");
+                outFile.println("From the diff expressed genes, " + (x1PathAnd + x1OnlyPathway) + " were in the pathway");
             } else {
                 outFile.println("Results for : " + tmp);
                 outFile.println("GHat : " + gHat);
+                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + genesInPathway.size() + " genes");
+                outFile.println("From the diff expressed genes, " + (x1PathAnd + x1OnlyPathway) + " were in the pathway");
+
             }
             outFile.println("-------------------------------");
         }
@@ -359,13 +366,14 @@ public class Bayesian {
      * @param engine
      * @return
      */
-    public Set<String> getAllPath(ArrayList<String> geneNames, PathwayAnalysisMixing engine) {
+    public Set<String> getAllPath(ArrayList<String> geneNames, AbstractPathwayAnalysis<E, T, G> engine) {
         Set<String> allPath = new HashSet<String>();
 
         for (String tmp : geneNames) {
-            if (engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, tmp, false, null)) != null) {
-                ArrayList<PathwayAnalysisMixing.Pathway> mols = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, tmp, false, null));
-                for (PathwayAnalysisMixing.Pathway mol : mols)
+            // TODO: Possible initialize to null and then change? Might be an option, still to be investigated
+            if (engine.getGeneToPath().get(new E(0, tmp, false, null)) != null) {
+                ArrayList<G> mols = engine.getGeneToPath().get(new Molecule(0, tmp, false, null));
+                for (G mol : mols)
                     allPath.add(mol.getName());
             }
         }

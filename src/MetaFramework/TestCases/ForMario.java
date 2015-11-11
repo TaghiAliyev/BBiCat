@@ -67,7 +67,7 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.IlluminaParsers;
-import MetaFramework.PathwayAnalysisMixing;
+import MetaFramework.NCI.PathwayAnalysisMixing;
 import MetaFramework.ReadingBigData;
 import bicat.Constants.MethodConstants;
 import bicat.Main.UtilFunctionalities;
@@ -76,8 +76,6 @@ import bicat.biclustering.Dataset;
 import bicat.biclustering.MyBiMax;
 import bicat.preprocessor.PreprocessOption;
 import bicat.preprocessor.Preprocessor;
-import junit.framework.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Scanner;

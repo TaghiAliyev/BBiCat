@@ -63,11 +63,13 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.NCI;
 
-import lombok.AllArgsConstructor;
+import MetaFramework.AbstractPathwayUtils.AbstractPathwayAnalysis;
+import MetaFramework.AbstractPathwayUtils.Interaction;
+import MetaFramework.AbstractPathwayUtils.Molecule;
+import MetaFramework.AbstractPathwayUtils.Pathway;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -87,19 +89,15 @@ import java.util.Set;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @Data
-public class PathwayAnalysisMixing {
+public class PathwayAnalysisMixing extends AbstractPathwayAnalysis<NCIPathway, NCIInteraction, NCIMolecule> {
 
-    private HashMap<Integer, Molecule> molecules;
-    private HashMap<String, Interaction> interactions;
-    private HashMap<Integer, Pathway> pathways;
+    private HashMap<Integer, NCIMolecule> molecules;
+    private HashMap<String, NCIInteraction> interactions;
+    private HashMap<Integer, NCIPathway> pathways;
 
-    private HashMap<Pathway, ArrayList<Molecule>> pathToGene;
-    private HashMap<Molecule, ArrayList<Pathway>> geneToPath;
-
-    private String file;
 
     public PathwayAnalysisMixing(String file) throws Exception {
-        this.file = file;
+        super(file);
         parse();
     }
 
@@ -118,7 +116,7 @@ public class PathwayAnalysisMixing {
         DocumentBuilder db = dbf.newDocumentBuilder();
 
         long start = System.currentTimeMillis();
-        mainDoc = db.parse(new File(this.file));
+        mainDoc = db.parse(new File(file));
         System.out.println("Done parsing");
         mainDoc.getDocumentElement().normalize();
         System.out.println("Done normalizing as well");
@@ -133,17 +131,17 @@ public class PathwayAnalysisMixing {
                 Node pathwayList = tmp.getElementsByTagName("PathwayList").item(0);
                 Node interactionList = tmp.getElementsByTagName("InteractionList").item(0);
                 Node moleculesList = tmp.getElementsByTagName("MoleculeList").item(0);
-                molecules = new HashMap<Integer, Molecule>();
-                interactions = new HashMap<String, Interaction>();
-                pathways = new HashMap<Integer, Pathway>();
+                molecules = new HashMap<Integer, NCIMolecule>();
+                interactions = new HashMap<String, NCIInteraction>();
+                pathways = new HashMap<Integer, NCIPathway>();
                 readMolecules(molecules, moleculesList);
                 // Done reading the molecules into hashmap
                 // Now, the interactions
                 readInteractions(interactions, interactionList, molecules);
                 readPathways(pathways, pathwayList, interactions, molecules);
                 // Hashmaps
-                pathToGene = new HashMap<Pathway, ArrayList<Molecule>>();
-                geneToPath = new HashMap<Molecule, ArrayList<Pathway>>();
+                pathToGene = new HashMap<NCIPathway, ArrayList<NCIMolecule>>();
+                geneToPath = new HashMap<NCIMolecule, ArrayList<NCIPathway>>();
 
                 fillHashs(pathToGene, geneToPath, pathways);
 //                ArrayList<Molecule> result = pathToGene.get(new Pathway(null, 12, null, "Aurora C signaling"));
@@ -168,18 +166,18 @@ public class PathwayAnalysisMixing {
      * @param geneToPath
      * @param pathways
      */
-    private void fillHashs(HashMap<Pathway, ArrayList<Molecule>> pathToGene, HashMap<Molecule, ArrayList<Pathway>> geneToPath, HashMap<Integer, Pathway> pathways) {
+    private void fillHashs(HashMap<NCIPathway, ArrayList<NCIMolecule>> pathToGene, HashMap<NCIMolecule, ArrayList<NCIPathway>> geneToPath, HashMap<Integer, NCIPathway> pathways) {
         Set<Integer> allId = pathways.keySet();
         for (Integer id : allId) {
-            Pathway pathway = pathways.get(id);
+            NCIPathway pathway = pathways.get(id);
             if (pathway != null) {
                 // Not null, let's do this. Though it can never be null
-                ArrayList<Molecule> mols = pathway.getMolList();
+                ArrayList<NCIMolecule> mols = pathway.getMolList();
                 pathToGene.put(pathway, mols);
-                for (Molecule mol : mols) {
-                    ArrayList<Pathway> genePaths;
+                for (NCIMolecule mol : mols) {
+                    ArrayList<NCIPathway> genePaths;
                     if (geneToPath.get(mol) == null) {
-                        genePaths = new ArrayList<Pathway>();
+                        genePaths = new ArrayList<NCIPathway>();
                         genePaths.add(pathway);
                         geneToPath.put(mol, genePaths);
                     } else {
@@ -200,7 +198,7 @@ public class PathwayAnalysisMixing {
      * @param interactions  List of already parsed interactions
      * @param molecules List of already parsed molecules
      */
-    private void readPathways(HashMap<Integer, Pathway> pathways, Node pathwayList, HashMap<String, Interaction> interactions, HashMap<Integer, Molecule> molecules) {
+    private void readPathways(HashMap<Integer, NCIPathway> pathways, Node pathwayList, HashMap<String, NCIInteraction> interactions, HashMap<Integer, NCIMolecule> molecules) {
         long start = System.currentTimeMillis();
         if (pathwayList.getNodeType() == Node.ELEMENT_NODE) {
             Element pathE = (Element) (pathwayList);
@@ -218,23 +216,23 @@ public class PathwayAnalysisMixing {
                     if (pathComList != null) {
                         NodeList pathCom = pathComList.getChildNodes();
                         int comLen = pathCom.getLength();
-                        ArrayList<Interaction> interac = new ArrayList<Interaction>();
-                        Set<Molecule> molecList = new HashSet<Molecule>();
+                        ArrayList<NCIInteraction> interac = new ArrayList<NCIInteraction>();
+                        Set<NCIMolecule> molecList = new HashSet<NCIMolecule>();
                         for (int j = 0; j < comLen; j++) {
                             Node components = pathCom.item(j);
                             if (components.getNodeType() == Node.ELEMENT_NODE) {
                                 Element compE = (Element) components;
                                 String interID = compE.getAttribute("interaction_idref");
-                                Interaction tmp = interactions.get(interID);
+                                NCIInteraction tmp = interactions.get(interID);
                                 if (tmp != null) {
                                     interac.add(tmp);
                                     molecList.addAll(tmp.getMolecules());
                                 }
                             }
                         }
-                        ArrayList<Molecule> molList = new ArrayList<Molecule>();
+                        ArrayList<NCIMolecule> molList = new ArrayList<NCIMolecule>();
                         molList.addAll(molecList);
-                        Pathway pathway = new Pathway(interac, id, molList, name);
+                        NCIPathway pathway = new NCIPathway(interac, id, molList, name);
                         pathways.put(id, pathway);
                     }
                 }
@@ -252,7 +250,7 @@ public class PathwayAnalysisMixing {
      * @param interactionList   Node from which search starts (top-level tree node)
      * @param molecules List of already parsed Molecules list
      */
-    private void readInteractions(HashMap<String, Interaction> interactions, Node interactionList, HashMap<Integer, Molecule> molecules) {
+    private void readInteractions(HashMap<String, NCIInteraction> interactions, Node interactionList, HashMap<Integer, NCIMolecule> molecules) {
         long start = System.currentTimeMillis();
         if (interactionList.getNodeType() == Node.ELEMENT_NODE) {
             Element interE = (Element) interactionList;
@@ -268,12 +266,12 @@ public class PathwayAnalysisMixing {
                         Element compE = (Element) components;
                         NodeList parts = compE.getElementsByTagName("InteractionComponent");
                         int lenP = parts.getLength();
-                        Interaction interaction;
-                        ArrayList<Molecule> moleculesToAdd = new ArrayList<Molecule>();
+                        NCIInteraction interaction;
+                        ArrayList<NCIMolecule> moleculesToAdd = new ArrayList<NCIMolecule>();
                         for (int i = 0; i < lenP; i++) {
                             Element elC = (Element) parts.item(i);
                             int molID = Integer.parseInt(elC.getAttribute("molecule_idref"));
-                            Molecule mol = molecules.get(molID); // Getting the molecule
+                            NCIMolecule mol = molecules.get(molID); // Getting the molecule
                             if (mol.isType() || mol.getIds() != null) {
                                 // mol is complex -> Meaning we need to go through the list of ids
                                 ArrayList<Integer> toAdd = mol.getIds();
@@ -287,7 +285,7 @@ public class PathwayAnalysisMixing {
                                 moleculesToAdd.add(mol);
                             }
                         }
-                        interaction = new Interaction(moleculesToAdd, id);
+                        interaction = new NCIInteraction(moleculesToAdd, id);
                         interactions.put(id, interaction); // Adds the interactions
                     }
                 }
@@ -304,7 +302,7 @@ public class PathwayAnalysisMixing {
      * @param molecules Empty hashmap
      * @param moleculesList Top-level tree node for reading through the molecules list
      */
-    private void readMolecules(HashMap<Integer, Molecule> molecules, Node moleculesList) {
+    private void readMolecules(HashMap<Integer, NCIMolecule> molecules, Node moleculesList) {
         long start = System.currentTimeMillis();
         if (moleculesList.getNodeType() == Node.ELEMENT_NODE) {
             System.out.println("Hashing the molecules");
@@ -345,7 +343,7 @@ public class PathwayAnalysisMixing {
                         Element PFt = (Element) PF.item(k);
                         if (PFt.getAttribute("name_type").equalsIgnoreCase("PF")) {
                             name = PFt.getAttribute("value");
-                            molecules.put(id, new Molecule(id, name, false, ids));
+                            molecules.put(id, new NCIMolecule(id, name, false, ids));
 //                                    System.out.println(name);
                         }
                     }
@@ -360,7 +358,7 @@ public class PathwayAnalysisMixing {
                             Element PFt = (Element) PF.item(k);
                             if (PFt.getAttribute("name_type").equalsIgnoreCase("PF")) {
                                 name = PFt.getAttribute("value");
-                                molecules.put(id, new Molecule(id, name, false, null));
+                                molecules.put(id, new NCIMolecule(id, name, false, null));
 //                                    System.out.println(name);
                             }
                         }
@@ -373,7 +371,7 @@ public class PathwayAnalysisMixing {
                         }
                         // IDs of reference molecules are known
                         // Name of the complex molecule is known as well
-                        molecules.put(id, new Molecule(id, name, true, ids));
+                        molecules.put(id, new NCIMolecule(id, name, true, ids));
                     }
                 }
             }
@@ -382,108 +380,6 @@ public class PathwayAnalysisMixing {
         System.out.println("Time spent for molecules : " + (end - start));
     }
 
-    /**
-     * Specific class to contain all the information related to Molecules
-     */
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Molecule implements Comparable {
-        private int id;
-        private String name; // maybe just String needed
-        private boolean type; // False -> protein, True -> Complex
-        private ArrayList<Integer> ids; // if type is True -> list of ids making up the complex protein
-
-        @Override
-        public int hashCode() {
-            return 0;
-        }
-
-        private static int minimum(int a, int b, int c) {
-            return Math.min(Math.min(a, b), c);
-        }
-
-        public static int computeLevenshteinDistance(CharSequence lhs, CharSequence rhs) {
-            int[][] distance = new int[lhs.length() + 1][rhs.length() + 1];
-
-            for (int i = 0; i <= lhs.length(); i++)
-                distance[i][0] = i;
-            for (int j = 1; j <= rhs.length(); j++)
-                distance[0][j] = j;
-
-            for (int i = 1; i <= lhs.length(); i++)
-                for (int j = 1; j <= rhs.length(); j++)
-                    distance[i][j] = minimum(
-                            distance[i - 1][j] + 1,
-                            distance[i][j - 1] + 1,
-                            distance[i - 1][j - 1] + ((lhs.charAt(i - 1) == rhs.charAt(j - 1)) ? 0 : 1));
-
-            return distance[lhs.length()][rhs.length()];
-        }
 
 
-        @Override
-        public boolean equals(Object o) {
-            if (o instanceof Molecule) {
-                Molecule o2 = (Molecule) o;
-                if (name.equalsIgnoreCase(o2.name))
-                    return true;
-
-                // TODO : MIGHT NEED TO USE LEVENSHTEIN DISTANCE TO GET BETTER
-            }
-
-            return false;
-        }
-
-        @Override
-        public int compareTo(Object o) {
-            return 0;
-        }
-    }
-
-    /**
-     * Specific class that contains interaction-related information
-     */
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Interaction {
-        private ArrayList<Molecule> molecules;
-        private String id;
-    }
-
-    /**
-     * Specific class that contains pathways-related information
-     */
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Pathway implements Comparable {
-        private ArrayList<Interaction> interactions;
-        private int id;
-        private ArrayList<Molecule> molList;
-        private String name;
-
-        @Override
-        public int hashCode() {
-            return 0;
-        }
-
-        @Override
-        public int compareTo(Object o) {
-            return 0;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (o instanceof Pathway) {
-                Pathway o2 = (Pathway) o;
-                if (o2.id == id || o2.name.equalsIgnoreCase(name))
-                    return true;
-            }
-
-
-            return false;
-        }
-    }
 }

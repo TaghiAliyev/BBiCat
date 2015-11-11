@@ -63,7 +63,7 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.AbstractPathwayUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,28 +72,37 @@ import java.util.HashMap;
  * Abstract interface representing Pathway Analysis engines so that user can choose which one to choose
  * Some of the common functionalities are included here
  *
- * TODO : THIS IS STILL AN IDEA THAT SHOULD BE IMPLEMENTED
+ * E -> Class representing the pathway and pathway information
+ * T -> Class representing the molecules and molecule information
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class AbstractPathwayAnalysis {
+public abstract class AbstractPathwayAnalysis<E extends Molecule, A extends Interaction<E>, T extends Pathway<E, A>> {
 
-    private HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
-    private HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
+    protected HashMap<T, ArrayList<E>> pathToGene = new HashMap<T, ArrayList<E>>();
+    protected HashMap<E, ArrayList<T>> geneToPath = new HashMap<E, ArrayList<T>>();
+    protected String file;
 
-    public AbstractPathwayAnalysis()
+    public AbstractPathwayAnalysis(String file)
     {
-
+        this.file = file;
     }
 
-    public HashMap<String, ArrayList<String>> getPathwayToGenes()
+    public abstract void parse() throws Exception;
+
+    public HashMap<T, ArrayList<E>> getPathToGene()
     {
-        return this.pathwayToGenes;
+        return this.pathToGene;
     }
 
-    public HashMap<String, ArrayList<String>> getGeneToPathways()
+    public HashMap<E, ArrayList<T>> getGeneToPath()
     {
-        return this.geneToPathways;
+        return this.geneToPath;
+    }
+
+    public String getFile()
+    {
+        return this.file;
     }
 
 }

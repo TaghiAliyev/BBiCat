@@ -67,7 +67,7 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.BicatMethods;
-import MetaFramework.PathwayAnalysisMixing;
+import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -130,9 +130,9 @@ public class BayesianTest {
         System.out.println("Bayesian analysis results!!!");
 
         for (Bicluster tmp : biclusters) {
-            System.out.println("New bicluster!!!\n");
+//            System.out.println("New bicluster!!!\n");
             bayesian.compute(tmp, engine, bicatEngine.getData(), 3);
-            System.out.println("--------------\n\n");
+//            System.out.println("--------------\n\n");
         }
         bayesian.closeFile();
     }

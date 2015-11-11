@@ -67,7 +67,7 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.IlluminaParsers;
-import MetaFramework.PathwayAnalysisMixing;
+import MetaFramework.NCI.PathwayAnalysisMixing;
 import MetaFramework.ReadingBigData;
 import bicat.Constants.MethodConstants;
 import bicat.Main.UtilFunctionalities;

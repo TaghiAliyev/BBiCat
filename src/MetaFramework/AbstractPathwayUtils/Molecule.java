@@ -63,81 +63,71 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework.TestCases;
+package MetaFramework.AbstractPathwayUtils;
 
-import MetaFramework.BicatMethods;
-import MetaFramework.NCI.PathwayAnalysisMixing;
-import bicat.biclustering.Bicluster;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 /**
- * Showcase of how pathway parser could be used in order to see what pathways are involved with the biclusters
- * NOTE : Some gene names are changed locally in order to be able to show the functionality and use of the parser
- * In real cases, most of the genes won't be even related to NCI Pathways, so expected list should be a bit smaller
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class PathwayAnalysisTest {
+public abstract class Molecule implements Comparable {
+    private int id;
+    private String name; // maybe just String needed
+    private boolean type; // False -> protein, True -> Complex
+    private ArrayList<Integer> ids; // if type is True -> list of ids making up the complex protein
 
-    public static void main(String[] args) throws Exception {
-        // Let's read the pathway information first.
-        String file = "NCI.xml";
-        long start = System.currentTimeMillis();
-        PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
-        long end = System.currentTimeMillis();
-        System.out.println("Took : " + (end - start) + " ms");
-        Set<PathwayAnalysisMixing.Molecule> mols = engine.getGeneToPath().keySet();
-        Set<String> genes = new HashSet<String>();
-        for (PathwayAnalysisMixing.Molecule mol : mols)
-            genes.add(mol.getName());
-        String[] geneNames = new String[40];
-        geneNames = genes.toArray(geneNames);
-//
-        for (String tmp : genes) {
-            System.out.println("Gene name : " + tmp);
-        }
-//
-        ArrayList<PathwayAnalysisMixing.Pathway> pathways = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, "ADCY3", false, null));
-
-        for (PathwayAnalysisMixing.Pathway tmp : pathways) {
-            System.out.println("Pathway named:" + tmp.getName() + ", contains ADCY3 gene");
-        }
-
-        String pathwayInterest = "Notch signaling pathway";
-        System.out.println(pathwayInterest + " contains following genes:");
-        ArrayList<PathwayAnalysisMixing.Molecule> molsIn = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, pathwayInterest));
-
-        for (PathwayAnalysisMixing.Molecule tmp : molsIn)
-        {
-            System.out.println(tmp.getName());
-        }
-
-        String fileLocation = "src/sampleData/ProcessedFirst.txt";
-
-        // Creating BiCat engine that can run the algorithms on the dataset.
-        // If you want to change the parameters, adopt the methods themselves
-        BicatMethods bicatEngine = new BicatMethods(fileLocation);
-
-        // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 8, 15);
-        Bicluster oneSample;
-        int[] toFetch;
-        for (int j = 0; j < biclusters.size(); j++) {
-            oneSample = biclusters.get(j);
-            toFetch = oneSample.getGenes();
-            for (int i = 0; i < toFetch.length; i++) {
-                // This call will be updated. As in the sample data, gene names are just numbers, we do this
-                ArrayList<PathwayAnalysisMixing.Pathway> pathways2 = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, geneNames[toFetch[i]], false, null));
-                for (PathwayAnalysisMixing.Pathway tmp : pathways2) {
-                    System.out.println("Pathway named : " + tmp.getName() + " contains gene named " + geneNames[toFetch[i]]);
-                }
-            }
-            System.out.println();
-            System.out.println("------------------------------------------------");
-        }
+    @Override
+    public int hashCode() {
+        return 0;
     }
+
+    private static int minimum(int a, int b, int c) {
+        return Math.min(Math.min(a, b), c);
+    }
+
+    public static int computeLevenshteinDistance(CharSequence lhs, CharSequence rhs) {
+        int[][] distance = new int[lhs.length() + 1][rhs.length() + 1];
+
+        for (int i = 0; i <= lhs.length(); i++)
+            distance[i][0] = i;
+        for (int j = 1; j <= rhs.length(); j++)
+            distance[0][j] = j;
+
+        for (int i = 1; i <= lhs.length(); i++)
+            for (int j = 1; j <= rhs.length(); j++)
+                distance[i][j] = minimum(
+                        distance[i - 1][j] + 1,
+                        distance[i][j - 1] + 1,
+                        distance[i - 1][j - 1] + ((lhs.charAt(i - 1) == rhs.charAt(j - 1)) ? 0 : 1));
+
+        return distance[lhs.length()][rhs.length()];
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Molecule) {
+            Molecule o2 = (Molecule) o;
+            if (name.equalsIgnoreCase(o2.name))
+                return true;
+
+            // TODO : MIGHT NEED TO USE LEVENSHTEIN DISTANCE TO GET BETTER
+        }
+
+        return false;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
 }
