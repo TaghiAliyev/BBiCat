@@ -79,4 +79,9 @@ public class NCIPathway extends Pathway<NCIMolecule, NCIInteraction>{
         super(interactions, id, molecules, name);
     }
 
+    public NCIPathway()
+    {
+
+    }
+
 }

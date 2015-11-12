@@ -89,7 +89,7 @@ import java.util.Set;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @Data
-public class PathwayAnalysisMixing extends AbstractPathwayAnalysis<NCIPathway, NCIInteraction, NCIMolecule> {
+public class PathwayAnalysisMixing extends AbstractPathwayAnalysis<NCIMolecule, NCIInteraction, NCIPathway> {
 
     private HashMap<Integer, NCIMolecule> molecules;
     private HashMap<String, NCIInteraction> interactions;

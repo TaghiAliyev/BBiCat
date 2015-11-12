@@ -78,4 +78,9 @@ public class NCIMolecule extends Molecule{
     {
         super(id, name, type, ids);
     }
+
+    public NCIMolecule()
+    {
+
+    }
 }

@@ -67,6 +67,9 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.BicatMethods;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import bicat.biclustering.Bicluster;
 import org.junit.Assert;
 import org.junit.Test;
@@ -86,7 +89,7 @@ public class PValueTest {
         double t1 = 3.46; // From some online presentation
         int df = 1;
 
-        Bayesian engine = new Bayesian();
+        Bayesian engine = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
 
         Assert.assertEquals(0.06, engine.computePValue(t1, df),0.01);
     }
@@ -98,7 +101,7 @@ public class PValueTest {
         String dataFile = "src/sampleData/dataSample_2.txt";
         BicatMethods bicatEngine = new BicatMethods(dataFile);
 
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
         LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 6, 10);
 
         int[][] discrData = bicatEngine.getReadingEngine().getDiscretizedData();

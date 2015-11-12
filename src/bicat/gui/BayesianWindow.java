@@ -66,6 +66,9 @@
 package bicat.gui;
 
 import MetaFramework.Bayesian;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import bicat.Main.UtilFunctionalities;
 import bicat.biclustering.Dataset;
 
@@ -159,7 +162,7 @@ public class BayesianWindow {
             public void actionPerformed(ActionEvent e) {
                 Bayesian bayesian = null;
                 try {
-                    bayesian = new Bayesian();
+                    bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -176,7 +179,11 @@ public class BayesianWindow {
                     }
                     counter++;
                 }
-                bayesian.compute(null, null, dataset, chosenIndex);
+                try {
+                    bayesian.compute(null, null, dataset, chosenIndex);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         });
         buttons.add(goButton);

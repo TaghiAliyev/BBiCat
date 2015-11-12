@@ -90,15 +90,24 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
 
     private int nSim; // number of simulations
     private PrintWriter outFile; // Output file
+    private Class<E> molClass;
+    private Class<T> interClass;
+    private Class<G> pathClass;
 
-    public Bayesian() throws Exception{
+    public Bayesian(Class<E> molClass, Class<T> interClass, Class<G> pathClass) throws Exception{
         outFile = new PrintWriter("PostAnalysis.out");
         nSim = 500; // Default is 500
+        this.molClass = molClass;
+        this.interClass = interClass;
+        this.pathClass = pathClass;
     }
 
-    public Bayesian(int nSim) throws Exception{
+    public Bayesian(int nSim, Class<E> molClass, Class<T> interClass, Class<G> pathClass) throws Exception{
         outFile = new PrintWriter("PostAnalysis.out");
         this.nSim = nSim;
+        this.molClass = molClass;
+        this.interClass = interClass;
+        this.pathClass = pathClass;
     }
 
     /**
@@ -110,7 +119,7 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
      * @param dataset   Dataset from which biclusters are computed
      * @param colChoice Column on which differentiation will be done. -1 Means diff expressed genes will be computed over columns
      */
-    public void compute(Bicluster bicluster, AbstractPathwayAnalysis<E, T, G> engine, Dataset dataset, int colChoice) {
+    public void compute(Bicluster bicluster, AbstractPathwayAnalysis<E, T, G> engine, Dataset dataset, int colChoice) throws Exception {
         // Idea is to compute Bayesian statistics for the given gene list/cluster and term
         ArrayList<String> geneNames = new ArrayList<String>();
 //        System.out.println(bicluster.getGenes().length);
@@ -148,7 +157,12 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
 //            System.out.println(notDiffGenes.size());
 //        }
         for (String tmp : allPathways) {
-            ArrayList<E> molecules = engine.getPathToGene().get(new G(null, 0, null, tmp));
+            G pathTmp = pathClass.newInstance();
+            pathTmp.setInteractions(null);
+            pathTmp.setId(0);
+            pathTmp.setMolList(null);
+            pathTmp.setName(tmp);
+            ArrayList<E> molecules = engine.getPathToGene().get(pathTmp);
             ArrayList<String> genesInPathway = new ArrayList<String>();
             for (E mol : molecules)
                 genesInPathway.add(mol.getName());
@@ -158,7 +172,12 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
             // Getting all the genes from other pathways.
             for (String tmp2 : allPathways) {
                 if (!tmp.equalsIgnoreCase(tmp2)) {
-                    ArrayList<Molecule> mols = engine.getPathToGene().get(new G(null, 0, null, tmp2));
+                    G pathTmp2 = pathClass.newInstance();
+                    pathTmp2.setInteractions(null);
+                    pathTmp2.setId(0);
+                    pathTmp2.setMolList(null);
+                    pathTmp2.setName(tmp2);
+                    ArrayList<E> mols = engine.getPathToGene().get(pathTmp2);
                     ArrayList<String> molNames = new ArrayList<String>();
                     for (Molecule molT : mols)
                         molNames.add(molT.getName());
@@ -366,13 +385,18 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
      * @param engine
      * @return
      */
-    public Set<String> getAllPath(ArrayList<String> geneNames, AbstractPathwayAnalysis<E, T, G> engine) {
+    public Set<String> getAllPath(ArrayList<String> geneNames, AbstractPathwayAnalysis<E, T, G> engine) throws Exception {
         Set<String> allPath = new HashSet<String>();
 
         for (String tmp : geneNames) {
             // TODO: Possible initialize to null and then change? Might be an option, still to be investigated
-            if (engine.getGeneToPath().get(new E(0, tmp, false, null)) != null) {
-                ArrayList<G> mols = engine.getGeneToPath().get(new Molecule(0, tmp, false, null));
+            E tmpMol = molClass.newInstance();
+            tmpMol.setId(0);
+            tmpMol.setName(tmp);
+            tmpMol.setIds(null);
+            tmpMol.setType(false);
+            if (engine.getGeneToPath().get(tmpMol) != null) {
+                ArrayList<G> mols = engine.getGeneToPath().get(tmpMol);
                 for (G mol : mols)
                     allPath.add(mol.getName());
             }

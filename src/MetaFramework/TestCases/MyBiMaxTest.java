@@ -67,6 +67,9 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.IlluminaParsers;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import MetaFramework.NCI.PathwayAnalysisMixing;
 import MetaFramework.ReadingBigData;
 import bicat.Constants.MethodConstants;
@@ -201,7 +204,7 @@ public class MyBiMaxTest {
 
         System.out.println("Starting post-analysis");
         ArrayList<Bicluster> biclusters = algo.getBiclusters();
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
         String file = "NCI.xml";
         PathwayAnalysisMixing pathEngine = new PathwayAnalysisMixing(file);
 
@@ -209,10 +212,10 @@ public class MyBiMaxTest {
         // Method. This is just for the proof-of-concept. Should not be done in other circumstances!!
 
         // Transforming gene names to some random gene name from the bayesian analysis
-        Set<PathwayAnalysisMixing.Molecule> mols = pathEngine.getGeneToPath().keySet();
+        Set<NCIMolecule> mols = pathEngine.getGeneToPath().keySet();
         String[] nciGenes = new String[mols.size()];
         int cnt = 0;
-        for (PathwayAnalysisMixing.Molecule mol : mols) {
+        for (NCIMolecule mol : mols) {
             nciGenes[cnt] = mol.getName();
             cnt++;
         }

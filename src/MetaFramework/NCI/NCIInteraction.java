@@ -78,4 +78,9 @@ public class NCIInteraction extends Interaction<NCIMolecule> {
     {
         super(molecules, id);
     }
+
+    public NCIInteraction()
+    {
+        
+    }
 }

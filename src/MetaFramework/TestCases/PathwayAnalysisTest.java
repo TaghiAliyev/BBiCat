@@ -66,6 +66,8 @@
 package MetaFramework.TestCases;
 
 import MetaFramework.BicatMethods;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 
@@ -90,9 +92,9 @@ public class PathwayAnalysisTest {
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
         long end = System.currentTimeMillis();
         System.out.println("Took : " + (end - start) + " ms");
-        Set<PathwayAnalysisMixing.Molecule> mols = engine.getGeneToPath().keySet();
+        Set<NCIMolecule> mols = engine.getGeneToPath().keySet();
         Set<String> genes = new HashSet<String>();
-        for (PathwayAnalysisMixing.Molecule mol : mols)
+        for (NCIMolecule mol : mols)
             genes.add(mol.getName());
         String[] geneNames = new String[40];
         geneNames = genes.toArray(geneNames);
@@ -101,17 +103,17 @@ public class PathwayAnalysisTest {
             System.out.println("Gene name : " + tmp);
         }
 //
-        ArrayList<PathwayAnalysisMixing.Pathway> pathways = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, "ADCY3", false, null));
+        ArrayList<NCIPathway> pathways = engine.getGeneToPath().get(new NCIMolecule(0, "ADCY3", false, null));
 
-        for (PathwayAnalysisMixing.Pathway tmp : pathways) {
+        for (NCIPathway tmp : pathways) {
             System.out.println("Pathway named:" + tmp.getName() + ", contains ADCY3 gene");
         }
 
         String pathwayInterest = "Notch signaling pathway";
         System.out.println(pathwayInterest + " contains following genes:");
-        ArrayList<PathwayAnalysisMixing.Molecule> molsIn = engine.getPathToGene().get(new PathwayAnalysisMixing.Pathway(null, 0, null, pathwayInterest));
+        ArrayList<NCIMolecule> molsIn = engine.getPathToGene().get(new NCIPathway(null, 0, null, pathwayInterest));
 
-        for (PathwayAnalysisMixing.Molecule tmp : molsIn)
+        for (NCIMolecule tmp : molsIn)
         {
             System.out.println(tmp.getName());
         }
@@ -131,8 +133,8 @@ public class PathwayAnalysisTest {
             toFetch = oneSample.getGenes();
             for (int i = 0; i < toFetch.length; i++) {
                 // This call will be updated. As in the sample data, gene names are just numbers, we do this
-                ArrayList<PathwayAnalysisMixing.Pathway> pathways2 = engine.getGeneToPath().get(new PathwayAnalysisMixing.Molecule(0, geneNames[toFetch[i]], false, null));
-                for (PathwayAnalysisMixing.Pathway tmp : pathways2) {
+                ArrayList<NCIPathway> pathways2 = engine.getGeneToPath().get(new NCIMolecule(0, geneNames[toFetch[i]], false, null));
+                for (NCIPathway tmp : pathways2) {
                     System.out.println("Pathway named : " + tmp.getName() + " contains gene named " + geneNames[toFetch[i]]);
                 }
             }

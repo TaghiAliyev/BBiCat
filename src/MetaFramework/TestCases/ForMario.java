@@ -67,6 +67,9 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.IlluminaParsers;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import MetaFramework.NCI.PathwayAnalysisMixing;
 import MetaFramework.ReadingBigData;
 import bicat.Constants.MethodConstants;
@@ -199,7 +202,7 @@ public class ForMario {
         System.out.println("It took bimax " + (bimaxEnd - bimaxStart) + " ms to finish the job");
         System.out.println("Starting post-analysis");
         ArrayList<Bicluster> biclusters = algo.getBiclusters();
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
         String file = "NCI.xml"; // NCI Database file
         PathwayAnalysisMixing pathEngine = new PathwayAnalysisMixing(file);
 

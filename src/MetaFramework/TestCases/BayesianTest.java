@@ -67,6 +67,9 @@ package MetaFramework.TestCases;
 
 import MetaFramework.Bayesian;
 import MetaFramework.BicatMethods;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
+import MetaFramework.NCI.NCIPathway;
 import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 import junit.framework.Assert;
@@ -98,7 +101,7 @@ public class BayesianTest {
         String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
-        Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();
+        Set<NCIMolecule> allGenes = engine.getGeneToPath().keySet();
         Assert.assertEquals(allGenes == null, false);
         Assert.assertEquals(allGenes.size() > 0, true);
         // Performing biclustering
@@ -124,7 +127,7 @@ public class BayesianTest {
             System.out.println("---------------------");
         }
 
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
 
         System.out.println("\n\n\n\n");
         System.out.println("Bayesian analysis results!!!");
@@ -150,9 +153,9 @@ public class BayesianTest {
         String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
-        Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();
+        Set<NCIMolecule> allGenes = engine.getGeneToPath().keySet();
         Set<String> names = new HashSet<String>();
-        for (PathwayAnalysisMixing.Molecule mol : allGenes)
+        for (NCIMolecule mol : allGenes)
             names.add(mol.getName());
         String[] geneNames = new String[40];
         geneNames = names.toArray(geneNames);
@@ -187,7 +190,7 @@ public class BayesianTest {
             System.out.println("---------------------");
         }
 
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
 
         System.out.println("\n\n\n\n");
         System.out.println("Bayesian analysis results!!!");
@@ -211,9 +214,9 @@ public class BayesianTest {
         String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
-        Set<PathwayAnalysisMixing.Molecule> allGenes = engine.getGeneToPath().keySet();
+        Set<NCIMolecule> allGenes = engine.getGeneToPath().keySet();
         Set<String> names = new HashSet<String>();
-        for (PathwayAnalysisMixing.Molecule mol : allGenes)
+        for (NCIMolecule mol : allGenes)
             names.add(mol.getName());
         String[] geneNames = new String[40];
         geneNames = names.toArray(geneNames);
@@ -248,7 +251,7 @@ public class BayesianTest {
             System.out.println("---------------------");
         }
 
-        Bayesian bayesian = new Bayesian();
+        Bayesian bayesian = new Bayesian(NCIMolecule.class, NCIInteraction.class, NCIPathway.class);
 
         System.out.println("\n\n\n\n");
         System.out.println("Bayesian analysis results!!!");
