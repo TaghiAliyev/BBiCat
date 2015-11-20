@@ -63,23 +63,25 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework.NCI;
+package MetaFramework.KEGG;
 
-import MetaFramework.AbstractPathwayUtils.Interaction;
+import MetaFramework.AbstractPathwayUtils.Pathway;
+import MetaFramework.NCI.NCIInteraction;
+import MetaFramework.NCI.NCIMolecule;
 
 import java.util.ArrayList;
 
 /**
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class NCIInteraction extends Interaction<NCIMolecule> {
+public class KEGGPathwayInstance extends Pathway<KEGGMolecule, KEGGInteraction> {
 
-    public NCIInteraction(ArrayList<NCIMolecule> molecules, String id)
+    public KEGGPathwayInstance(ArrayList<KEGGInteraction> interactions, int id, ArrayList<KEGGMolecule> molecules, String name)
     {
-        super(molecules, id);
+        super(interactions, id, molecules, name);
     }
 
-    public NCIInteraction()
+    public KEGGPathwayInstance()
     {
 
     }

@@ -63,24 +63,89 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework.NCI;
+package MetaFramework.KEGG;
 
-import MetaFramework.AbstractPathwayUtils.Interaction;
+import MetaFramework.AbstractPathwayUtils.AbstractPathwayAnalysis;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
+ * Class that parses and analyzes biclusters based on the KEGG Pathway lists
+ *
+ * NOTE: TODO : STILL TO BE IMPLEMENTED FOR POST-ANALYSIS
+ * If someone wants to implement this, please refer to PathwayAnalysisMixing to see the format of results that are expected
+ *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class NCIInteraction extends Interaction<NCIMolecule> {
+public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInteraction, KEGGPathwayInstance>{
 
-    public NCIInteraction(ArrayList<NCIMolecule> molecules, String id)
+    private String allKeggPath = "http://rest.kegg.jp/list/pathway/hsa";
+    private String getBaseLink = "http://rest.kegg.jp/get/";
+    private String getGeneBase = "http://rest.kegg.jp/get/hsa:";
+
+    private URL allPathURL;
+
+    public KeggPathway(String file) throws Exception
     {
-        super(molecules, id);
+        super(file);
+        allPathURL = new URL(allKeggPath);
+        parse();
     }
 
-    public NCIInteraction()
-    {
 
+    public static void main(String[] args) throws Exception
+    {
+        KeggPathway engine = new KeggPathway("");
+
+    }
+
+    @Override
+    public void parse() throws Exception {
+        BufferedReader in = new BufferedReader(new InputStreamReader(allPathURL.openStream()));
+
+        String line;
+        int pathCnt = 0, molCnt = 0;
+        while((line = in.readLine()) != null)
+        {
+            // Line is already read
+            String[] parts = line.split("\t");
+            String pathCode = parts[0];
+            String pathName = parts[1].substring(0, parts[1].length() - 23);
+            KEGGPathwayInstance path = new KEGGPathwayInstance(null, pathCnt, null, pathName);
+//            System.out.println("Path name : " + pathName);
+            String pathLink = getBaseLink + pathCode;
+            URL pathURL = new URL(pathLink);
+            BufferedReader pathIn = new BufferedReader(new InputStreamReader(pathURL.openStream()));
+            boolean geneStarted = false;
+            boolean geneEnd = false;
+            String pLine;
+            ArrayList<KEGGMolecule> mols = new ArrayList<KEGGMolecule>();
+            while ((pLine = pathIn.readLine()) != null && (!geneStarted || !geneEnd))
+            {
+                if (!pLine.substring(0, 4).equalsIgnoreCase("    ") && geneStarted)
+                    geneEnd = true;
+                if (pLine.substring(0,4).equalsIgnoreCase("GENE"))
+                    geneStarted = true;
+                if (geneStarted && !geneEnd) {
+                    String pureGene = pLine.substring(12);
+                    String geneName = pureGene.split(" ")[2].split(";")[0];
+                    // TODO: LOOK INTO HOW COMPARISONS ARE DONE FOR HASHMAP THING.
+                    // THIS WAY ID WILL BE PROBLEMATIC
+                    KEGGMolecule toAdd = new KEGGMolecule();
+                    molCnt++;
+//                    System.out.println(geneName);
+                }
+            }
+            System.out.println();
+//            System.out.println("Amount of parts : " + parts.length);
+//            System.out.println("First part : " + parts[0]);
+//            System.out.println("Second part : " + parts[1]);
+            pathCnt++;
+        }
+
+        in.close();
     }
 }

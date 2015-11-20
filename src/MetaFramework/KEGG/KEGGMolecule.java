@@ -63,20 +63,19 @@
  *                                MODIFICATIONS.
  */
 
-package MetaFramework;
+package MetaFramework.KEGG;
+
+import MetaFramework.AbstractPathwayUtils.Molecule;
+
+import java.util.ArrayList;
 
 /**
- * Class that parses and analyzes biclusters based on the KEGG Pathway lists
- *
- * NOTE: TODO : STILL TO BE IMPLEMENTED FOR POST-ANALYSIS
- * If someone wants to implement this, please refer to PathwayAnalysisMixing to see the format of results that are expected
- *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class KeggPathway {
+public class KEGGMolecule extends Molecule {
 
-    public KeggPathway()
+    public KEGGMolecule(int id, String name, boolean type, ArrayList<Integer> ids)
     {
-
+        super(id, name, type, ids);
     }
 }
