@@ -1,0 +1,9 @@
+Contingency table: 
+x1OnlyPathway: 0, x0OnlyPathway : 0, nOnlyPath : 25, x1PathAnd : 5, x0PathAnd : 0, nAnd : 5, x1NoPathway : 395, x0NoPathway : 3575 , nNoPath : 3970
+Ghat is : 1.0
+Results for : i
+Pathway with name : i has P of : 0.0
+P value : 0.0
+G hat : 1.0
+Errorbar : [0.2825112107623318, 1.0]
+From the diff expressed genes, 5 were in the pathway

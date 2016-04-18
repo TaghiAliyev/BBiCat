@@ -1,0 +1,5 @@
+Contingency table: 
+x1OnlyPathway: 17, x0OnlyPathway : 8, nOnlyPath : 25, x1PathAnd : 3, x0PathAnd : 2, nAnd : 5, x1NoPathway : 380, x0NoPathway : 3590 , nNoPath : 3970
+Results for : i
+GHat : 0.8989135319463903
+From the diff expressed genes, 20 were in the pathway
