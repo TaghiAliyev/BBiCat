@@ -1,4 +1,10 @@
 *.class
+MuTHER*
+*.classpath
+*.project
+*.euml2
+*.umlproject
+*.xml
 
 hs_err_pid*
 .mtj.tmp/

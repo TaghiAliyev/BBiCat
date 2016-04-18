@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_60"/>
 	<classpathentry kind="lib" path="C:/Users/tagi1_000/Downloads/lombok.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tagi1_000/Downloads/combinatoricslib-2.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
@@ -12,5 +11,7 @@
 	<classpathentry kind="lib" path="C:/Users/tagi1_000/Desktop/CERN/BicAT_v2.22/lib/junit.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tagi1_000/Desktop/CERN/BicAT_v2.22/lib/servlet.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tagi1_000/Desktop/CERN/BicAT_v2.22/jfreechart-0.9.21.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/tagi1_000/Downloads/RCaller-2.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
