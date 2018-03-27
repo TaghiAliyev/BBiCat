@@ -81,14 +81,108 @@ import java.text.NumberFormat;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="wl"
+ */
+/**
+ * @return
+ * @uml.property  name="wi"
+ */
+/**
+ * @return
+ * @uml.property  name="minGPScoreField"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param wl
+ * @uml.property  name="wl"
+ */
+/**
+ * @param wi
+ * @uml.property  name="wi"
+ */
+/**
+ * This class is never used but can be used later on by the Hamming Distance method. Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="wl"
+ */
+/**
+ * @return
+ * @uml.property  name="wi"
+ */
+/**
+ * @return
+ * @uml.property  name="minGPScoreField"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param wl
+ * @uml.property  name="wl"
+ */
+/**
+ * @param wi
+ * @uml.property  name="wi"
+ */
+/**
+ * @param minGPScoreField
+ * @uml.property  name="minGPScoreField"
+ */
 @Data
 public class AuxDialog  implements ActionListener {
 
-  private JDialog dialog;
-  private bicat.gui.BicatGui owner;
+  /**
+ * @uml.property  name="dialog"
+ * @uml.associationEnd  
+ */
+private JDialog dialog;
+  /**
+ * @uml.property  name="owner"
+ * @uml.associationEnd  
+ */
+private bicat.gui.BicatGui owner;
 
-  private int wl = 0;  // default: is ALWAYS the first list of biclusters!
-  private int wi = 0;
+  /**
+ * @uml.property  name="wl"
+ */
+private int wl = 0;  // default: is ALWAYS the first list of biclusters!
+  /**
+ * @uml.property  name="wi"
+ */
+private int wi = 0;
 
   // ===========================================================================
   public AuxDialog() { }
@@ -249,7 +343,11 @@ public class AuxDialog  implements ActionListener {
   // ===========================================================================
   // AUX-DIALOG: GenePair Analysis By Co-ocurrence
 
-  JFormattedTextField minGPScoreField;
+  /**
+ * @uml.property  name="minGPScoreField"
+ * @uml.associationEnd  
+ */
+JFormattedTextField minGPScoreField;
   static final String AUX_DIALOG_GPA_COOCURRENCE_APPLY = "gpa_cooc_apply";
 
   // ===========================================================================

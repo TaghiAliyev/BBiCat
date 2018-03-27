@@ -81,6 +81,213 @@ import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
 import java.util.Vector;
 
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="minGsField"
+ */
+/**
+ * @return
+ * @uml.property  name="maxGsField"
+ */
+/**
+ * @return
+ * @uml.property  name="minCsField"
+ */
+/**
+ * @return
+ * @uml.property  name="maxCsField"
+ */
+/**
+ * @return
+ * @uml.property  name="bcNumber"
+ */
+/**
+ * @return
+ * @uml.property  name="overlap"
+ */
+/**
+ * @return
+ * @uml.property  name="tries"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param minGsField
+ * @uml.property  name="minGsField"
+ */
+/**
+ * @param maxGsField
+ * @uml.property  name="maxGsField"
+ */
+/**
+ * @param minCsField
+ * @uml.property  name="minCsField"
+ */
+/**
+ * @param maxCsField
+ * @uml.property  name="maxCsField"
+ */
+/**
+ * @param bcNumber
+ * @uml.property  name="bcNumber"
+ */
+/**
+ * @param overlap
+ * @uml.property  name="overlap"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="minGsField"
+ */
+/**
+ * @return
+ * @uml.property  name="maxGsField"
+ */
+/**
+ * @return
+ * @uml.property  name="minCsField"
+ */
+/**
+ * @return
+ * @uml.property  name="maxCsField"
+ */
+/**
+ * @return
+ * @uml.property  name="bcNumber"
+ */
+/**
+ * @return
+ * @uml.property  name="overlap"
+ */
+/**
+ * @return
+ * @uml.property  name="tries"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param minGsField
+ * @uml.property  name="minGsField"
+ */
+/**
+ * @param maxGsField
+ * @uml.property  name="maxGsField"
+ */
+/**
+ * @param minCsField
+ * @uml.property  name="minCsField"
+ */
+/**
+ * @param maxCsField
+ * @uml.property  name="maxCsField"
+ */
+/**
+ * @param bcNumber
+ * @uml.property  name="bcNumber"
+ */
+/**
+ * @param overlap
+ * @uml.property  name="overlap"
+ */
+/**
+ * @param tries
+ * @uml.property  name="tries"
+ */
 @Data
 /**
  * GUI element related to the filtering of the clusters. Calls the filter method from UtilFunctionalities class
@@ -90,27 +297,72 @@ import java.util.Vector;
  */
 public class Filter implements ActionListener {
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="which_list"
+	 */
     private int which_list = -1;
 
+    /**
+	 * @uml.property  name="list_idx"
+	 */
     private int list_idx = -1;
 
+    /**
+	 * @uml.property  name="which_data"
+	 */
     private int which_data = -1;
 
+    /**
+	 * @uml.property  name="minGsField"
+	 * @uml.associationEnd  
+	 */
     private JTextField minGsField;
 
+    /**
+	 * @uml.property  name="maxGsField"
+	 * @uml.associationEnd  
+	 */
     private JTextField maxGsField;
 
+    /**
+	 * @uml.property  name="minCsField"
+	 * @uml.associationEnd  
+	 */
     private JTextField minCsField;
 
+    /**
+	 * @uml.property  name="maxCsField"
+	 * @uml.associationEnd  
+	 */
     private JTextField maxCsField;
 
+    /**
+	 * @uml.property  name="bcNumber"
+	 * @uml.associationEnd  
+	 */
     private JTextField bcNumber;
 
+    /**
+	 * @uml.property  name="overlap"
+	 * @uml.associationEnd  
+	 */
     private JFormattedTextField overlap;
 
     // ===========================================================================
@@ -281,6 +533,9 @@ public class Filter implements ActionListener {
         }
     }
 
+    /**
+	 * @uml.property  name="tries"
+	 */
     private int tries = 0;
 
     // ===========================================================================

@@ -75,19 +75,152 @@ import lombok.EqualsAndHashCode;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="delta"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha"
+ */
+/**
+ * @return
+ * @uml.property  name="randomize"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_1"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_2"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_3"
+ */
+/**
+ * @return
+ * @uml.property  name="n"
+ */
+/**
+ * @param delta
+ * @uml.property  name="delta"
+ */
+/**
+ * @param alpha
+ * @uml.property  name="alpha"
+ */
+/**
+ * @param randomize
+ * @uml.property  name="randomize"
+ */
+/**
+ * @param p_rand_1
+ * @uml.property  name="p_rand_1"
+ */
+/**
+ * @param p_rand_2
+ * @uml.property  name="p_rand_2"
+ */
+/**
+ * @param p_rand_3
+ * @uml.property  name="p_rand_3"
+ */
+/**
+ * Class that contains the specific arguments/variables needed for CC algorithm <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="delta"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha"
+ */
+/**
+ * @return
+ * @uml.property  name="randomize"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_1"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_2"
+ */
+/**
+ * @return
+ * @uml.property  name="p_rand_3"
+ */
+/**
+ * @return
+ * @uml.property  name="n"
+ */
+/**
+ * @param delta
+ * @uml.property  name="delta"
+ */
+/**
+ * @param alpha
+ * @uml.property  name="alpha"
+ */
+/**
+ * @param randomize
+ * @uml.property  name="randomize"
+ */
+/**
+ * @param p_rand_1
+ * @uml.property  name="p_rand_1"
+ */
+/**
+ * @param p_rand_2
+ * @uml.property  name="p_rand_2"
+ */
+/**
+ * @param p_rand_3
+ * @uml.property  name="p_rand_3"
+ */
+/**
+ * @param n
+ * @uml.property  name="n"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ArgumentsCC extends Arguments {
 
+    /**
+	 * @uml.property  name="delta"
+	 */
     private double delta;
+    /**
+	 * @uml.property  name="alpha"
+	 */
     private double alpha;
 
+    /**
+	 * @uml.property  name="randomize"
+	 */
     private int randomize;
 
+    /**
+	 * @uml.property  name="p_rand_1"
+	 */
     private double p_rand_1;
+    /**
+	 * @uml.property  name="p_rand_2"
+	 */
     private double p_rand_2;
+    /**
+	 * @uml.property  name="p_rand_3"
+	 */
     private double p_rand_3;
 
+    /**
+	 * @uml.property  name="n"
+	 */
     private int n;
 
     // ===========================================================================

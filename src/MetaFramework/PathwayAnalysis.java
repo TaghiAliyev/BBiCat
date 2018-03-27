@@ -85,16 +85,127 @@ import java.util.HashMap;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="mainDoc"
+ */
+/**
+ * @return
+ * @uml.property  name="model"
+ */
+/**
+ * @return
+ * @uml.property  name="interactions"
+ */
+/**
+ * @return
+ * @uml.property  name="molecules"
+ */
+/**
+ * @return
+ * @uml.property  name="pathwayList"
+ */
+/**
+ * @param mainDoc
+ * @uml.property  name="mainDoc"
+ */
+/**
+ * @param model
+ * @uml.property  name="model"
+ */
+/**
+ * @param interactions
+ * @uml.property  name="interactions"
+ */
+/**
+ * @param molecules
+ * @uml.property  name="molecules"
+ */
+/**
+ * This class contains the methods needed for generating and reading the information about pathways and related proteins NOTE : THIS IS AN OLD VERSION AND IS VERY SLOW! PLEASE REFER TO PathwayAnalysisMixing.java for a better version
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="mainDoc"
+ */
+/**
+ * @return
+ * @uml.property  name="model"
+ */
+/**
+ * @return
+ * @uml.property  name="interactions"
+ */
+/**
+ * @return
+ * @uml.property  name="molecules"
+ */
+/**
+ * @return
+ * @uml.property  name="pathwayList"
+ */
+/**
+ * @param mainDoc
+ * @uml.property  name="mainDoc"
+ */
+/**
+ * @param model
+ * @uml.property  name="model"
+ */
+/**
+ * @param interactions
+ * @uml.property  name="interactions"
+ */
+/**
+ * @param molecules
+ * @uml.property  name="molecules"
+ */
+/**
+ * @param pathwayList
+ * @uml.property  name="pathwayList"
+ */
 @Data
 public class PathwayAnalysis {
 
     // Two hashmaps that will contain pathway to the genes relations and genes to pathway relations
+    /**
+	 * @uml.property  name="pathwayToGenes"
+	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" elementType="java.lang.String" qualifier="pathwayName:java.lang.String java.util.ArrayList"
+	 */
     private HashMap<String, ArrayList<String>> pathwayToGenes = new HashMap<String, ArrayList<String>>();
+    /**
+	 * @uml.property  name="geneToPathways"
+	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" elementType="java.lang.String" qualifier="molName:java.lang.String java.util.ArrayList"
+	 */
     private HashMap<String, ArrayList<String>> geneToPathways = new HashMap<String, ArrayList<String>>();
 
     // Main Document File that will be used around
+    /**
+	 * @uml.property  name="mainDoc"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     Document mainDoc;
-    DomElement model, interactions, molecules, pathwayList;
+    /**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+    DomElement model;
+	/**
+	 * @uml.property  name="interactions"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DomElement interactions;
+	/**
+	 * @uml.property  name="molecules"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DomElement molecules;
+	/**
+	 * @uml.property  name="pathwayList"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
+	DomElement pathwayList;
 
     /**
      * Constructor for the pathway analysis. File is the NCI Curated XML file

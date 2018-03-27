@@ -91,55 +91,221 @@ import java.util.Vector;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="geneList"
+ */
+/**
+ * @return
+ * @uml.property  name="chipList"
+ */
+/**
+ * @return
+ * @uml.property  name="graphDataList"
+ */
+/**
+ * @return
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @return
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_TABLE"
+ */
+/**
+ * @return
+ * @uml.property  name="chart"
+ */
+/**
+ * @return
+ * @uml.property  name="chartPanel"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param geneList
+ * @uml.property  name="geneList"
+ */
+/**
+ * @param chipList
+ * @uml.property  name="chipList"
+ */
+/**
+ * @param filledRect
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @param colorWheel
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @param DEFAULT_X_TABLE
+ * @uml.property  name="dEFAULT_X_TABLE"
+ */
+/**
+ * @param chart
+ * @uml.property  name="chart"
+ */
+/**
+ * Used by the BicatGui. Contains the details about what should be shown Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="geneList"
+ */
+/**
+ * @return
+ * @uml.property  name="chipList"
+ */
+/**
+ * @return
+ * @uml.property  name="graphDataList"
+ */
+/**
+ * @return
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @return
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_TABLE"
+ */
+/**
+ * @return
+ * @uml.property  name="chart"
+ */
+/**
+ * @return
+ * @uml.property  name="chartPanel"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param geneList
+ * @uml.property  name="geneList"
+ */
+/**
+ * @param chipList
+ * @uml.property  name="chipList"
+ */
+/**
+ * @param filledRect
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @param colorWheel
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @param DEFAULT_X_TABLE
+ * @uml.property  name="dEFAULT_X_TABLE"
+ */
+/**
+ * @param chart
+ * @uml.property  name="chart"
+ */
+/**
+ * @param chartPanel
+ * @uml.property  name="chartPanel"
+ */
 @Data
 public class GraphicPane extends JPanel // extends ChartPanel
         implements ActionListener {
 
+    /**
+	 * @uml.property  name="mAXIMUM_SIZE"
+	 */
     private final int MAXIMUM_SIZE = 25;
 
     /**
-     * Hook to the governing <code>BicaGUI</code> object.
-     */
+	 * Hook to the governing <code>BicaGUI</code> object.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  inverse="gp:bicat.gui.BicatGui"
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
     /**
-     * List of genes that have been selected.
-     */
+	 * List of genes that have been selected.
+	 * @uml.property  name="geneList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private Vector geneList;
 
     /**
-     * List of chips that have been selected.
-     */
+	 * List of chips that have been selected.
+	 * @uml.property  name="chipList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private Vector chipList;
 
     /**
-     * List of arrays containing expression values for graphs.
-     */
+	 * List of arrays containing expression values for graphs.
+	 * @uml.property  name="graphDataList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="[F"
+	 */
     private Vector graphDataList;
 
     /**
-     * Bounding rectangle of area that has been drawn to.
-     */
+	 * Bounding rectangle of area that has been drawn to.
+	 * @uml.property  name="filledRect"
+	 */
     private Rectangle filledRect;
 
     /**
-     * Step size of values in x (horizontal) direction.
-     */
+	 * Step size of values in x (horizontal) direction.
+	 * @uml.property  name="xStep"
+	 */
     private int xStep;
 
     /**
-     * Step size of values in y (vertical) direction.
-     */
+	 * Step size of values in y (vertical) direction.
+	 * @uml.property  name="yStep"
+	 */
     private int yStep;
 
     /**
-     * Array of preset colors to differentiate expression graphs.
-     */
+	 * Array of preset colors to differentiate expression graphs.
+	 * @uml.property  name="colorWheel"
+	 */
     private Color[] colorWheel;
 
     // public ChartPanel() {}
 
+    /**
+	 * @uml.property  name="dEFAULT_X_TABLE"
+	 */
     private int DEFAULT_X_TABLE = 3;
 
     // ===========================================================================
@@ -322,18 +488,31 @@ public class GraphicPane extends JPanel // extends ChartPanel
 
     }
 
+    /**
+	 * @uml.property  name="chart"
+	 * @uml.associationEnd  
+	 */
     org.jfree.chart.JFreeChart chart;
 
+    /**
+	 * @uml.property  name="chartPanel"
+	 * @uml.associationEnd  
+	 */
     org.jfree.chart.ChartPanel chartPanel; // ChartPanel chartPanel;
 
     // org.jfree.data.xy.XYDataset[] datasets;
+    /**
+	 * @uml.property  name="gProfiles"
+	 * @uml.associationEnd  
+	 */
     org.jfree.data.xy.DefaultTableXYDataset gProfiles;
 
     // ===========================================================================
 
     /**
-     * Hands the governing <code>BicaGUI</code> to this <code>GraphPane</code.>
-     */
+	 * Hands the governing <code>BicaGUI</code> to this <code>GraphPane</code.>
+	 * @uml.property  name="owner"
+	 */
     public void setOwner(BicatGui o) {
         this.engine = o.getUtilEngine();
         owner = o;
@@ -669,9 +848,9 @@ public class GraphicPane extends JPanel // extends ChartPanel
     // ===========================================================================
 
     /**
-     * Hands a list of selected genes and their respective expression value
-     * arrays to this <code>PicturePane</code>.
-     */
+	 * Hands a list of selected genes and their respective expression value arrays to this <code>PicturePane</code>.
+	 * @uml.property  name="graphDataList"
+	 */
     public void setGraphDataList(Vector graphs, Vector genes, Vector chips) {
         graphDataList = new Vector(graphs);
         geneList = new Vector(genes);

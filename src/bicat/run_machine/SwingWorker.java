@@ -68,15 +68,15 @@ package bicat.run_machine;
 import javax.swing.SwingUtilities;
 
 /**
- * This is the class used by the GUI element in order to have parallel thread where computation are done
- * However, this feature is disabled at the moment, at it makes console program to misbehave at times.
- *
- * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * This is the class used by the GUI element in order to have parallel thread where computation are done However, this feature is disabled at the moment, at it makes console program to misbehave at times. Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public abstract class SwingWorker {
 
-  private Object value; // see getValue(), setValue();
+  /**
+ * @uml.property  name="value"
+ */
+private Object value; // see getValue(), setValue();
 
   // ===========================================================================
   /**
@@ -91,7 +91,11 @@ public abstract class SwingWorker {
     synchronized void clear() { thread = null; }
   }
 
-  private ThreadVar threadVar;
+  /**
+ * @uml.property  name="threadVar"
+ * @uml.associationEnd  multiplicity="(1 1)"
+ */
+private ThreadVar threadVar;
 
   // ===========================================================================
   /**
@@ -132,17 +136,16 @@ public abstract class SwingWorker {
 
   // ===========================================================================
   /**
-   * Get the value produced by the worker thread, or null if it hasn't been
-   * constructed yet.
-   *
-   * */
+ * Get the value produced by the worker thread, or null if it hasn't been constructed yet.
+ * @uml.property  name="value"
+ */
   protected synchronized Object getValue() { return value; }
 
   // ===========================================================================
   /**
-   * Set the value produced by the worker thread.
-   *
-   * */
+ * Set the value produced by the worker thread.
+ * @uml.property  name="value"
+ */
   protected synchronized void setValue(Object x) { value = x; }
 
   // ===========================================================================

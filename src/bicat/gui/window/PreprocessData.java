@@ -82,47 +82,424 @@ import java.util.*;
 
 import java.text.NumberFormat;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOption"
+ */
+/**
+ * @return
+ * @uml.property  name="log_base"
+ */
+/**
+ * @return
+ * @uml.property  name="log_label"
+ */
+/**
+ * @return
+ * @uml.property  name="n_label"
+ */
+/**
+ * @return
+ * @uml.property  name="n_combo"
+ */
+/**
+ * @return
+ * @uml.property  name="d_field_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="d_field_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_combo_discr_scheme"
+ */
+/**
+ * @return
+ * @uml.property  name="d_combo_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_0_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_1_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_2_discr_scheme"
+ */
+/**
+ * @return
+ * @uml.property  name="norm_gs"
+ */
+/**
+ * @return
+ * @uml.property  name="norm_cs"
+ */
+/**
+ * @return
+ * @uml.property  name="cb_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="cb_perc"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param preprocessOption
+ * @uml.property  name="preprocessOption"
+ */
+/**
+ * @param log_base
+ * @uml.property  name="log_base"
+ */
+/**
+ * @param log_label
+ * @uml.property  name="log_label"
+ */
+/**
+ * @param n_label
+ * @uml.property  name="n_label"
+ */
+/**
+ * @param n_combo
+ * @uml.property  name="n_combo"
+ */
+/**
+ * @param d_field_thr
+ * @uml.property  name="d_field_thr"
+ */
+/**
+ * @param d_field_perc
+ * @uml.property  name="d_field_perc"
+ */
+/**
+ * @param d_combo_discr_scheme
+ * @uml.property  name="d_combo_discr_scheme"
+ */
+/**
+ * @param d_combo_perc
+ * @uml.property  name="d_combo_perc"
+ */
+/**
+ * @param d_label_0_perc
+ * @uml.property  name="d_label_0_perc"
+ */
+/**
+ * @param d_label_1_thr
+ * @uml.property  name="d_label_1_thr"
+ */
+/**
+ * @param d_label_2_discr_scheme
+ * @uml.property  name="d_label_2_discr_scheme"
+ */
+/**
+ * @param norm_gs
+ * @uml.property  name="norm_gs"
+ */
+/**
+ * @param norm_cs
+ * @uml.property  name="norm_cs"
+ */
+/**
+ * @param cb_thr
+ * @uml.property  name="cb_thr"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOption"
+ */
+/**
+ * @return
+ * @uml.property  name="log_base"
+ */
+/**
+ * @return
+ * @uml.property  name="log_label"
+ */
+/**
+ * @return
+ * @uml.property  name="n_label"
+ */
+/**
+ * @return
+ * @uml.property  name="n_combo"
+ */
+/**
+ * @return
+ * @uml.property  name="d_field_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="d_field_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_combo_discr_scheme"
+ */
+/**
+ * @return
+ * @uml.property  name="d_combo_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_0_perc"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_1_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="d_label_2_discr_scheme"
+ */
+/**
+ * @return
+ * @uml.property  name="norm_gs"
+ */
+/**
+ * @return
+ * @uml.property  name="norm_cs"
+ */
+/**
+ * @return
+ * @uml.property  name="cb_thr"
+ */
+/**
+ * @return
+ * @uml.property  name="cb_perc"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param preprocessOption
+ * @uml.property  name="preprocessOption"
+ */
+/**
+ * @param log_base
+ * @uml.property  name="log_base"
+ */
+/**
+ * @param log_label
+ * @uml.property  name="log_label"
+ */
+/**
+ * @param n_label
+ * @uml.property  name="n_label"
+ */
+/**
+ * @param n_combo
+ * @uml.property  name="n_combo"
+ */
+/**
+ * @param d_field_thr
+ * @uml.property  name="d_field_thr"
+ */
+/**
+ * @param d_field_perc
+ * @uml.property  name="d_field_perc"
+ */
+/**
+ * @param d_combo_discr_scheme
+ * @uml.property  name="d_combo_discr_scheme"
+ */
+/**
+ * @param d_combo_perc
+ * @uml.property  name="d_combo_perc"
+ */
+/**
+ * @param d_label_0_perc
+ * @uml.property  name="d_label_0_perc"
+ */
+/**
+ * @param d_label_1_thr
+ * @uml.property  name="d_label_1_thr"
+ */
+/**
+ * @param d_label_2_discr_scheme
+ * @uml.property  name="d_label_2_discr_scheme"
+ */
+/**
+ * @param norm_gs
+ * @uml.property  name="norm_gs"
+ */
+/**
+ * @param norm_cs
+ * @uml.property  name="norm_cs"
+ */
+/**
+ * @param cb_thr
+ * @uml.property  name="cb_thr"
+ */
+/**
+ * @param cb_perc
+ * @uml.property  name="cb_perc"
+ */
 @Data
 public class PreprocessData implements ActionListener {
 
+	/**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
 	private BicatGui owner;
 
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private UtilFunctionalities engine;
 
+	/**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
 	private JDialog dialog;
 
 	// options to pass to my owner
+	/**
+	 * @uml.property  name="preprocessOption"
+	 * @uml.associationEnd  
+	 */
 	private  PreprocessOption preprocessOption;
 
 	// i need these labels, since i will accordingly enable and disable them!
+	/**
+	 * @uml.property  name="log_base"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
 	private JFormattedTextField log_base;
 
+	/**
+	 * @uml.property  name="log_label"
+	 * @uml.associationEnd  
+	 */
 	private JLabel log_label;
 
+	/**
+	 * @uml.property  name="n_label"
+	 * @uml.associationEnd  
+	 */
 	private JLabel n_label;
 
+	/**
+	 * @uml.property  name="n_combo"
+	 * @uml.associationEnd  
+	 */
 	private JComboBox n_combo;
 
+	/**
+	 * @uml.property  name="d_field_thr"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField d_field_thr;
 
+	/**
+	 * @uml.property  name="d_field_perc"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField d_field_perc;
 
+	/**
+	 * @uml.property  name="d_combo_discr_scheme"
+	 * @uml.associationEnd  
+	 */
 	private JComboBox d_combo_discr_scheme;
 
+	/**
+	 * @uml.property  name="d_combo_perc"
+	 * @uml.associationEnd  
+	 */
 	private JComboBox d_combo_perc;
 
+	/**
+	 * @uml.property  name="d_label_0_perc"
+	 * @uml.associationEnd  
+	 */
 	private JLabel d_label_0_perc;
 
+	/**
+	 * @uml.property  name="d_label_1_thr"
+	 * @uml.associationEnd  
+	 */
 	private JLabel d_label_1_thr;
 
+	/**
+	 * @uml.property  name="d_label_2_discr_scheme"
+	 * @uml.associationEnd  
+	 */
 	private JLabel d_label_2_discr_scheme;
 
+	/**
+	 * @uml.property  name="norm_gs"
+	 */
 	private boolean norm_gs;
 
+	/**
+	 * @uml.property  name="norm_cs"
+	 */
 	private boolean norm_cs;
 
+	/**
+	 * @uml.property  name="cb_thr"
+	 * @uml.associationEnd  
+	 */
 	private JCheckBox cb_thr;
 
+	/**
+	 * @uml.property  name="cb_perc"
+	 * @uml.associationEnd  
+	 */
 	private JCheckBox cb_perc;
 
 	// ===========================================================================

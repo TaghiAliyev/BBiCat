@@ -71,52 +71,9 @@ package bicat.util;
 //import com.sun.org.apache.bcel.internal.generic.DMUL;
 
 /**
- * <p>
- * Represents a dataset. Datasets can be obtained from files or be created by
- * random.
- * </p>
- * 
- * <p>
- * This class provides a main method to create random datasets by a command line
- * call.
- * </p>
- * 
- * <p>
- * Notation:
- * </p>
- * <table border cellpadding=5>
- * <tr>
- * <th align=left>object</th>
- * <th align=left>field name</th>
- * </tr>
- * <tr>
- * <td># tissues in dataset</td>
- * <td>m</td>
- * </tr>
- * <tr>
- * <td># genes in dataset</td>
- * <td>n</td>
- * </tr>
- * <tr>
- * <td># tissues in submatrix</td>
- * <td>s</td>
- * </tr>
- * <tr>
- * <td>set of indices of tissues in submatrix</td>
- * <td>T</td>
- * </tr>
- * <tr>
- * <td># planted genes</td>
- * <td>k</td>
- * </tr>
- * <tr>
- * <td>set of indices of genes in submatrix</td>
- * <td>G</td>
- * </tr>
- * </table>
- * 
- * @author Thomas Frech
- * @version 2004-07-22
+ * <p> Represents a dataset. Datasets can be obtained from files or be created by random. </p> <p> This class provides a main method to create random datasets by a command line call. </p> <p> Notation: </p> <table border cellpadding=5> <tr> <th align=left>object</th> <th align=left>field name</th> </tr> <tr> <td># tissues in dataset</td> <td>m</td> </tr> <tr> <td># genes in dataset</td> <td>n</td> </tr> <tr> <td># tissues in submatrix</td> <td>s</td> </tr> <tr> <td>set of indices of tissues in submatrix</td> <td>T</td> </tr> <tr> <td># planted genes</td> <td>k</td> </tr> <tr> <td>set of indices of genes in submatrix</td> <td>G</td> </tr> </table>
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public final class OPSMDataset {
 	// Remark: The following convention for counter variables is used:
@@ -125,22 +82,41 @@ public final class OPSMDataset {
 	// i for indices in set T
 	// j for indices in set G
 
-	/** Ranked data matrix. The ranks are in range <tt>1...m</tt>. */
+	/**
+	 * Ranked data matrix. The ranks are in range <tt>1...m</tt>.
+	 * @uml.property  name="rankedDataMatrix"
+	 */
 	public int[][] rankedDataMatrix;
 
-	/** # tissues (columns). */
+	/**
+	 * # tissues (columns).
+	 * @uml.property  name="nr_col"
+	 */
 	public int nr_col;
 
-	/** # genes (rows). */
+	/**
+	 * # genes (rows).
+	 * @uml.property  name="nr_rows"
+	 */
 	public int nr_rows;
 
-	/** gene names */
+	/**
+	 * gene names
+	 * @uml.property  name="geneName"
+	 */
 	public String[] geneName;
 
-	/** tissue names */
+	/**
+	 * tissue names
+	 * @uml.property  name="experimentName"
+	 */
 	public String[] experimentName;
 
-	/** Planted model. Not available for real datasets. */
+	/**
+	 * Planted model. Not available for real datasets.
+	 * @uml.property  name="plantedModel"
+	 * @uml.associationEnd  readOnly="true" inverse="dataset:bicat.util.Model"
+	 */
 	public Model plantedModel;
 
 //	private boolean isRandom;

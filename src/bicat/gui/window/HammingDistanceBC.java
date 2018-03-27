@@ -80,16 +80,182 @@ import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
 import java.util.Vector;
 
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessor"
+ */
+/**
+ * @return
+ * @uml.property  name="bcluster"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @return
+ * @uml.property  name="field"
+ */
+/**
+ * @return
+ * @uml.property  name="gene_d_selected"
+ */
+/**
+ * @return
+ * @uml.property  name="chip_d_selected"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param preprocessor
+ * @uml.property  name="preprocessor"
+ */
+/**
+ * @param bcluster
+ * @uml.property  name="bcluster"
+ */
+/**
+ * @param extended
+ * @uml.property  name="extended"
+ */
+/**
+ * @param field
+ * @uml.property  name="field"
+ */
+/**
+ * @param gene_d_selected
+ * @uml.property  name="gene_d_selected"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessor"
+ */
+/**
+ * @return
+ * @uml.property  name="bcluster"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @return
+ * @uml.property  name="field"
+ */
+/**
+ * @return
+ * @uml.property  name="gene_d_selected"
+ */
+/**
+ * @return
+ * @uml.property  name="chip_d_selected"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param preprocessor
+ * @uml.property  name="preprocessor"
+ */
+/**
+ * @param bcluster
+ * @uml.property  name="bcluster"
+ */
+/**
+ * @param extended
+ * @uml.property  name="extended"
+ */
+/**
+ * @param field
+ * @uml.property  name="field"
+ */
+/**
+ * @param gene_d_selected
+ * @uml.property  name="gene_d_selected"
+ */
+/**
+ * @param chip_d_selected
+ * @uml.property  name="chip_d_selected"
+ */
 @Data
 public class HammingDistanceBC implements ActionListener {
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
+    /**
+	 * @uml.property  name="preprocessor"
+	 * @uml.associationEnd  
+	 */
     private Preprocessor preprocessor;
 
 
+    /**
+	 * @uml.property  name="bcluster"
+	 * @uml.associationEnd  
+	 */
     private Bicluster bcluster;
+    /**
+	 * @uml.property  name="extended"
+	 */
     private boolean extended = false;
 
     // ===========================================================================
@@ -128,6 +294,10 @@ public class HammingDistanceBC implements ActionListener {
     static final String HAMMING_DISTANCE_BC_WINDOW_APPLY = "hdbc_apply";
     static final String HAMMING_DISTANCE_BC_WINDOW_CANCEL = "hdbc_cancel";
 
+    /**
+	 * @uml.property  name="field"
+	 * @uml.associationEnd  
+	 */
     private JFormattedTextField field;
 
     // ===========================================================================
@@ -193,7 +363,13 @@ public class HammingDistanceBC implements ActionListener {
         dialog.setVisible(true);
     }
 
+    /**
+	 * @uml.property  name="gene_d_selected"
+	 */
     boolean gene_d_selected = false;
+    /**
+	 * @uml.property  name="chip_d_selected"
+	 */
     boolean chip_d_selected = false;
 
     // ===========================================================================

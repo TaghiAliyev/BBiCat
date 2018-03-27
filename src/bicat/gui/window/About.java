@@ -80,17 +80,53 @@ import java.awt.event.ActionListener;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * GUI element that contains the information about the software. <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
 @Data
 public class About implements ActionListener {
 
     /**
-     * Hook to governings <code>BiacGUI</code>.
-     */
+	 * Hook to governings <code>BiacGUI</code>.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private BicatGui owner;
 
     /**
-     * Dialog window.
-     */
+	 * Dialog window.
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
     // ===========================================================================

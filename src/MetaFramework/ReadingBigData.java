@@ -84,9 +84,76 @@ import java.util.ArrayList;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="fileLoc"
+ */
+/**
+ * @return
+ * @uml.property  name="actual"
+ */
+/**
+ * @return
+ * @uml.property  name="colNames"
+ */
+/**
+ * @return
+ * @uml.property  name="columnNum"
+ */
+/**
+ * @param fileLoc
+ * @uml.property  name="fileLoc"
+ */
+/**
+ * @param actual
+ * @uml.property  name="actual"
+ */
+/**
+ * @param colNames
+ * @uml.property  name="colNames"
+ */
+/**
+ * BicatGui has trouble reading the data file. So, new version of file reader is needed for Big Data One issue: BiMax and some other algorithms have been implemented in 32-bit architecture, limiting the memory that we can use. NOTE : THIS CLASS CAN READ BIG FILES EVEN IN 32-BIT THAT WERE NOT POSSIBLE TO BE READ BY BicatGUI file readers However, as BiMax is implemented now locally, 64-bit architecture can be used for reading files as well. One thing: BicatGUI still uses the .dll files as most of the other methods are not implemented locally and rely on native libraries. So, big files are better to be processed without the GUI.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="fileLoc"
+ */
+/**
+ * @return
+ * @uml.property  name="actual"
+ */
+/**
+ * @return
+ * @uml.property  name="colNames"
+ */
+/**
+ * @return
+ * @uml.property  name="columnNum"
+ */
+/**
+ * @param fileLoc
+ * @uml.property  name="fileLoc"
+ */
+/**
+ * @param actual
+ * @uml.property  name="actual"
+ */
+/**
+ * @param colNames
+ * @uml.property  name="colNames"
+ */
+/**
+ * @param columnNum
+ * @uml.property  name="columnNum"
+ */
 @Data
 public class ReadingBigData {
 
+    /**
+	 * @uml.property  name="fileLoc"
+	 */
     private String fileLoc = "";
 
     public ReadingBigData(String file) {
@@ -190,8 +257,18 @@ public class ReadingBigData {
 
     }
 
+    /**
+	 * @uml.property  name="actual"
+	 */
     private float[][] actual;
+    /**
+	 * @uml.property  name="colNames"
+	 */
     private String[] colNames;
+    /**
+	 * @uml.property  name="rowNames"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private ArrayList<String> rowNames;
 
     public void read2() throws Exception {
@@ -263,6 +340,9 @@ public class ReadingBigData {
         System.out.println("Done matricizing the 2nd version");
     }
 
+    /**
+	 * @uml.property  name="columnNum"
+	 */
     private int columnNum;
 
     public ArrayList<Float> readToList(BufferedReader br, int colLimit, int rowLimit) throws Exception {

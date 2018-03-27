@@ -69,6 +69,21 @@ import lombok.Data;
 
 import java.awt.event.*;
 import javax.swing.JPopupMenu;
+/**
+ * @return
+ * @uml.property  name="popup"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="popup"
+ */
+/**
+ * @param popup
+ * @uml.property  name="popup"
+ */
 @Data
 /**
  * Popup listener implements the mouse adapter, which listens for the mouse actions in order to show some popup windows
@@ -78,7 +93,11 @@ import javax.swing.JPopupMenu;
  */
 public class PopupListener extends MouseAdapter {
 
-  private JPopupMenu popup;
+  /**
+ * @uml.property  name="popup"
+ * @uml.associationEnd  
+ */
+private JPopupMenu popup;
 
   // ===========================================================================
   public PopupListener(JPopupMenu popupMenu) { popup = popupMenu; }

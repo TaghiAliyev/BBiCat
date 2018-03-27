@@ -83,51 +83,480 @@ import java.text.NumberFormat;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_XMOTIFS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_XMOTIFS_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_MAX_P_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_N_S_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_N_D_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_S_D_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_MAX_LENGTH_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="max_p_value_f"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @return
+ * @uml.property  name="n_s_f"
+ */
+/**
+ * @return
+ * @uml.property  name="n_d_f"
+ */
+/**
+ * @return
+ * @uml.property  name="s_d_f"
+ */
+/**
+ * @return
+ * @uml.property  name="max_length_f"
+ */
+/**
+ * @return
+ * @uml.property  name="nf"
+ */
+/**
+ * @return
+ * @uml.property  name="xma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_XMOTIFS
+ * @uml.property  name="rUN_XMOTIFS"
+ */
+/**
+ * @param RUN_XMOTIFS_DIALOG_CANCEL
+ * @uml.property  name="rUN_XMOTIFS_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_MAX_P_VALUE
+ * @uml.property  name="dEFAULT_MAX_P_VALUE"
+ */
+/**
+ * @param DEFAULT_ALPHA_VALUE
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @param DEFAULT_N_S_VALUE
+ * @uml.property  name="dEFAULT_N_S_VALUE"
+ */
+/**
+ * @param DEFAULT_N_D_VALUE
+ * @uml.property  name="dEFAULT_N_D_VALUE"
+ */
+/**
+ * @param DEFAULT_S_D_VALUE
+ * @uml.property  name="dEFAULT_S_D_VALUE"
+ */
+/**
+ * @param DEFAULT_MAX_LENGTH_VALUE
+ * @uml.property  name="dEFAULT_MAX_LENGTH_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param max_p_value_f
+ * @uml.property  name="max_p_value_f"
+ */
+/**
+ * @param alpha_f
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @param n_s_f
+ * @uml.property  name="n_s_f"
+ */
+/**
+ * @param n_d_f
+ * @uml.property  name="n_d_f"
+ */
+/**
+ * @param s_d_f
+ * @uml.property  name="s_d_f"
+ */
+/**
+ * @param max_length_f
+ * @uml.property  name="max_length_f"
+ */
+/**
+ * @param nf
+ * @uml.property  name="nf"
+ */
+/**
+ * GUI element that reads in the values needed for the XMotifs algorithm and sends them through <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_XMOTIFS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_XMOTIFS_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_MAX_P_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_N_S_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_N_D_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_S_D_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_MAX_LENGTH_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="max_p_value_f"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @return
+ * @uml.property  name="n_s_f"
+ */
+/**
+ * @return
+ * @uml.property  name="n_d_f"
+ */
+/**
+ * @return
+ * @uml.property  name="s_d_f"
+ */
+/**
+ * @return
+ * @uml.property  name="max_length_f"
+ */
+/**
+ * @return
+ * @uml.property  name="nf"
+ */
+/**
+ * @return
+ * @uml.property  name="xma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_XMOTIFS
+ * @uml.property  name="rUN_XMOTIFS"
+ */
+/**
+ * @param RUN_XMOTIFS_DIALOG_CANCEL
+ * @uml.property  name="rUN_XMOTIFS_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_MAX_P_VALUE
+ * @uml.property  name="dEFAULT_MAX_P_VALUE"
+ */
+/**
+ * @param DEFAULT_ALPHA_VALUE
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @param DEFAULT_N_S_VALUE
+ * @uml.property  name="dEFAULT_N_S_VALUE"
+ */
+/**
+ * @param DEFAULT_N_D_VALUE
+ * @uml.property  name="dEFAULT_N_D_VALUE"
+ */
+/**
+ * @param DEFAULT_S_D_VALUE
+ * @uml.property  name="dEFAULT_S_D_VALUE"
+ */
+/**
+ * @param DEFAULT_MAX_LENGTH_VALUE
+ * @uml.property  name="dEFAULT_MAX_LENGTH_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param max_p_value_f
+ * @uml.property  name="max_p_value_f"
+ */
+/**
+ * @param alpha_f
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @param n_s_f
+ * @uml.property  name="n_s_f"
+ */
+/**
+ * @param n_d_f
+ * @uml.property  name="n_d_f"
+ */
+/**
+ * @param s_d_f
+ * @uml.property  name="s_d_f"
+ */
+/**
+ * @param max_length_f
+ * @uml.property  name="max_length_f"
+ */
+/**
+ * @param nf
+ * @uml.property  name="nf"
+ */
+/**
+ * @param xma
+ * @uml.property  name="xma"
+ */
 @Data
 public class RunDialog_XMotifs implements ActionListener {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="dEFAULT_PARAMETERS"
+	 */
     private String DEFAULT_PARAMETERS = "set_defaults";
 
+    /**
+	 * @uml.property  name="rUN_XMOTIFS"
+	 */
     private String RUN_XMOTIFS = "run_xmotifs";
 
+    /**
+	 * @uml.property  name="rUN_XMOTIFS_DIALOG_CANCEL"
+	 */
     private String RUN_XMOTIFS_DIALOG_CANCEL = "cancel";
 
+    /**
+	 * @uml.property  name="dEFAULT_SEED_VALUE"
+	 */
     private String DEFAULT_SEED_VALUE = "13";
 
+    /**
+	 * @uml.property  name="dEFAULT_MAX_P_VALUE"
+	 */
     private String DEFAULT_MAX_P_VALUE = "1e-9"; // "0.0000000001" // 10 ^ -1
 
+    /**
+	 * @uml.property  name="dEFAULT_ALPHA_VALUE"
+	 */
     private String DEFAULT_ALPHA_VALUE = "0.05"; // 2.0
 
+    /**
+	 * @uml.property  name="dEFAULT_N_S_VALUE"
+	 */
     private String DEFAULT_N_S_VALUE = "10";
 
+    /**
+	 * @uml.property  name="dEFAULT_N_D_VALUE"
+	 */
     private String DEFAULT_N_D_VALUE = "100";
 
+    /**
+	 * @uml.property  name="dEFAULT_S_D_VALUE"
+	 */
     private String DEFAULT_S_D_VALUE = "4";
 
+    /**
+	 * @uml.property  name="dEFAULT_MAX_LENGTH_VALUE"
+	 */
     private int DEFAULT_MAX_LENGTH_VALUE; // = 50;... etwa 75 % nr chips
 
+    /**
+	 * @uml.property  name="seed_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField seed_f;
 
+    /**
+	 * @uml.property  name="max_p_value_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField max_p_value_f;
 
+    /**
+	 * @uml.property  name="alpha_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField alpha_f;
 
+    /**
+	 * @uml.property  name="n_s_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField n_s_f;
 
+    /**
+	 * @uml.property  name="n_d_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField n_d_f;
 
+    /**
+	 * @uml.property  name="s_d_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField s_d_f;
 
+    /**
+	 * @uml.property  name="max_length_f"
+	 * @uml.associationEnd  
+	 */
     private JFormattedTextField max_length_f;
 
+    /**
+	 * @uml.property  name="nf"
+	 */
     private NumberFormat nf;
 
+    /**
+	 * @uml.property  name="xma"
+	 * @uml.associationEnd  
+	 */
     private ArgumentsXMotifs xma;
 
     // ===========================================================================

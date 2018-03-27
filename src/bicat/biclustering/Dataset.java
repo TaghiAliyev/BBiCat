@@ -83,9 +83,1260 @@ import java.util.Vector;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 
+/**
+ * @return
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="origDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="preDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="discrDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="withCtrlInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="chipToControls"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_biclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_filters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_searches"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsList"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsList_cluster"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2c"
+ */
+/**
+ * @return
+ * @uml.property  name="f2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="f2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="fc_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2c"
+ */
+/**
+ * @return
+ * @uml.property  name="s2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="s2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="sc_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2c"
+ */
+/**
+ * @return
+ * @uml.property  name="a2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="a2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="ac_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @return
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="headerColLabels"
+ */
+/**
+ * @return
+ * @uml.property  name="headerColInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="visualDiscrDataMatrix"
+ */
+/**
+ * @param preprocessComplete
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @param origDataMatrix
+ * @uml.property  name="origDataMatrix"
+ */
+/**
+ * @param preDataMatrix
+ * @uml.property  name="preDataMatrix"
+ */
+/**
+ * @param discrDataMatrix
+ * @uml.property  name="discrDataMatrix"
+ */
+/**
+ * @param withCtrlInfo
+ * @uml.property  name="withCtrlInfo"
+ */
+/**
+ * @param chipToControls
+ * @uml.property  name="chipToControls"
+ */
+/**
+ * @param valid_biclusters
+ * @uml.property  name="valid_biclusters"
+ */
+/**
+ * @param valid_clusters
+ * @uml.property  name="valid_clusters"
+ */
+/**
+ * @param valid_filters
+ * @uml.property  name="valid_filters"
+ */
+/**
+ * @param valid_searches
+ * @uml.property  name="valid_searches"
+ */
+/**
+ * @param preprocessOptionsList
+ * @uml.property  name="preprocessOptionsList"
+ */
+/**
+ * @param biclusterList
+ * @uml.property  name="biclusterList"
+ */
+/**
+ * @param BiclusterList_names
+ * @uml.property  name="biclusterList_names"
+ */
+/**
+ * @param BiclusterList_valid
+ * @uml.property  name="biclusterList_valid"
+ */
+/**
+ * @param preprocessOptionsList_cluster
+ * @uml.property  name="preprocessOptionsList_cluster"
+ */
+/**
+ * @param clusterList
+ * @uml.property  name="clusterList"
+ */
+/**
+ * @param ClusterList_names
+ * @uml.property  name="clusterList_names"
+ */
+/**
+ * @param ClusterList_valid
+ * @uml.property  name="clusterList_valid"
+ */
+/**
+ * @param filterList
+ * @uml.property  name="filterList"
+ */
+/**
+ * @param FilterList_names
+ * @uml.property  name="filterList_names"
+ */
+/**
+ * @param FilterList_valid
+ * @uml.property  name="filterList_valid"
+ */
+/**
+ * @param f2l
+ * @uml.property  name="f2l"
+ */
+/**
+ * @param f2c
+ * @uml.property  name="f2c"
+ */
+/**
+ * @param f2s
+ * @uml.property  name="f2s"
+ */
+/**
+ * @param f2f
+ * @uml.property  name="f2f"
+ */
+/**
+ * @param f2list
+ * @uml.property  name="f2list"
+ */
+/**
+ * @param f2idx
+ * @uml.property  name="f2idx"
+ */
+/**
+ * @param f2clist
+ * @uml.property  name="f2clist"
+ */
+/**
+ * @param f2cidx
+ * @uml.property  name="f2cidx"
+ */
+/**
+ * @param f2l_valid
+ * @uml.property  name="f2l_valid"
+ */
+/**
+ * @param f2s_valid
+ * @uml.property  name="f2s_valid"
+ */
+/**
+ * @param f2f_valid
+ * @uml.property  name="f2f_valid"
+ */
+/**
+ * @param f_valid
+ * @uml.property  name="f_valid"
+ */
+/**
+ * @param fc_valid
+ * @uml.property  name="fc_valid"
+ */
+/**
+ * @param f2l_realIdx
+ * @uml.property  name="f2l_realIdx"
+ */
+/**
+ * @param f2c_realIdx
+ * @uml.property  name="f2c_realIdx"
+ */
+/**
+ * @param f2s_realIdx
+ * @uml.property  name="f2s_realIdx"
+ */
+/**
+ * @param f2f_realIdx
+ * @uml.property  name="f2f_realIdx"
+ */
+/**
+ * @param searchList
+ * @uml.property  name="searchList"
+ */
+/**
+ * @param SearchList_names
+ * @uml.property  name="searchList_names"
+ */
+/**
+ * @param SearchList_valid
+ * @uml.property  name="searchList_valid"
+ */
+/**
+ * @param s2l
+ * @uml.property  name="s2l"
+ */
+/**
+ * @param s2s
+ * @uml.property  name="s2s"
+ */
+/**
+ * @param s2f
+ * @uml.property  name="s2f"
+ */
+/**
+ * @param s2list
+ * @uml.property  name="s2list"
+ */
+/**
+ * @param s2idx
+ * @uml.property  name="s2idx"
+ */
+/**
+ * @param s2l_realIdx
+ * @uml.property  name="s2l_realIdx"
+ */
+/**
+ * @param s2s_realIdx
+ * @uml.property  name="s2s_realIdx"
+ */
+/**
+ * @param s2f_realIdx
+ * @uml.property  name="s2f_realIdx"
+ */
+/**
+ * @param s2l_valid
+ * @uml.property  name="s2l_valid"
+ */
+/**
+ * @param s2s_valid
+ * @uml.property  name="s2s_valid"
+ */
+/**
+ * @param s2f_valid
+ * @uml.property  name="s2f_valid"
+ */
+/**
+ * @param s_valid
+ * @uml.property  name="s_valid"
+ */
+/**
+ * @param s2c
+ * @uml.property  name="s2c"
+ */
+/**
+ * @param s2c_realIdx
+ * @uml.property  name="s2c_realIdx"
+ */
+/**
+ * @param s2clist
+ * @uml.property  name="s2clist"
+ */
+/**
+ * @param s2cidx
+ * @uml.property  name="s2cidx"
+ */
+/**
+ * @param sc_valid
+ * @uml.property  name="sc_valid"
+ */
+/**
+ * @param analysisList
+ * @uml.property  name="analysisList"
+ */
+/**
+ * @param AnalysisList_names
+ * @uml.property  name="analysisList_names"
+ */
+/**
+ * @param AnalysisList_valid
+ * @uml.property  name="analysisList_valid"
+ */
+/**
+ * @param a2l
+ * @uml.property  name="a2l"
+ */
+/**
+ * @param a2s
+ * @uml.property  name="a2s"
+ */
+/**
+ * @param a2f
+ * @uml.property  name="a2f"
+ */
+/**
+ * @param a2list
+ * @uml.property  name="a2list"
+ */
+/**
+ * @param a2idx
+ * @uml.property  name="a2idx"
+ */
+/**
+ * @param a2l_realIdx
+ * @uml.property  name="a2l_realIdx"
+ */
+/**
+ * @param a2s_realIdx
+ * @uml.property  name="a2s_realIdx"
+ */
+/**
+ * @param a2f_realIdx
+ * @uml.property  name="a2f_realIdx"
+ */
+/**
+ * @param a2l_valid
+ * @uml.property  name="a2l_valid"
+ */
+/**
+ * @param a2s_valid
+ * @uml.property  name="a2s_valid"
+ */
+/**
+ * @param a2f_valid
+ * @uml.property  name="a2f_valid"
+ */
+/**
+ * @param a_valid
+ * @uml.property  name="a_valid"
+ */
+/**
+ * @param a2c
+ * @uml.property  name="a2c"
+ */
+/**
+ * @param a2c_realIdx
+ * @uml.property  name="a2c_realIdx"
+ */
+/**
+ * @param a2clist
+ * @uml.property  name="a2clist"
+ */
+/**
+ * @param a2cidx
+ * @uml.property  name="a2cidx"
+ */
+/**
+ * @param ac_valid
+ * @uml.property  name="ac_valid"
+ */
+/**
+ * @param l_valid
+ * @uml.property  name="l_valid"
+ */
+/**
+ * @param geneNames
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @param chipNames
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @param workChipNames
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @param headerColLabels
+ * @uml.property  name="headerColLabels"
+ */
+/**
+ * @param headerColInfo
+ * @uml.property  name="headerColInfo"
+ */
+/**
+ * @param visualDiscrDataMatrix
+ * @uml.property  name="visualDiscrDataMatrix"
+ */
+/**
+ * Placeholder for the original, discretized and preprocessed data. Also, contains dataset related utils <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="origDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="preDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="discrDataMatrix"
+ */
+/**
+ * @return
+ * @uml.property  name="withCtrlInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="chipToControls"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_biclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_filters"
+ */
+/**
+ * @return
+ * @uml.property  name="valid_searches"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsList"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsList_cluster"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="clusterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="filterList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2c"
+ */
+/**
+ * @return
+ * @uml.property  name="f2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="f2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="fc_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="f2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="f2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="searchList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="s2c"
+ */
+/**
+ * @return
+ * @uml.property  name="s2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="s2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="s2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="sc_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList_names"
+ */
+/**
+ * @return
+ * @uml.property  name="analysisList_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2l_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2s_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2f_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2s_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2f_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="a2c"
+ */
+/**
+ * @return
+ * @uml.property  name="a2c_realIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="a2clist"
+ */
+/**
+ * @return
+ * @uml.property  name="a2cidx"
+ */
+/**
+ * @return
+ * @uml.property  name="ac_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="l_valid"
+ */
+/**
+ * @return
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @return
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="headerColLabels"
+ */
+/**
+ * @return
+ * @uml.property  name="headerColInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="visualDiscrDataMatrix"
+ */
+/**
+ * @param preprocessComplete
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @param origDataMatrix
+ * @uml.property  name="origDataMatrix"
+ */
+/**
+ * @param preDataMatrix
+ * @uml.property  name="preDataMatrix"
+ */
+/**
+ * @param discrDataMatrix
+ * @uml.property  name="discrDataMatrix"
+ */
+/**
+ * @param withCtrlInfo
+ * @uml.property  name="withCtrlInfo"
+ */
+/**
+ * @param chipToControls
+ * @uml.property  name="chipToControls"
+ */
+/**
+ * @param valid_biclusters
+ * @uml.property  name="valid_biclusters"
+ */
+/**
+ * @param valid_clusters
+ * @uml.property  name="valid_clusters"
+ */
+/**
+ * @param valid_filters
+ * @uml.property  name="valid_filters"
+ */
+/**
+ * @param valid_searches
+ * @uml.property  name="valid_searches"
+ */
+/**
+ * @param preprocessOptionsList
+ * @uml.property  name="preprocessOptionsList"
+ */
+/**
+ * @param biclusterList
+ * @uml.property  name="biclusterList"
+ */
+/**
+ * @param BiclusterList_names
+ * @uml.property  name="biclusterList_names"
+ */
+/**
+ * @param BiclusterList_valid
+ * @uml.property  name="biclusterList_valid"
+ */
+/**
+ * @param preprocessOptionsList_cluster
+ * @uml.property  name="preprocessOptionsList_cluster"
+ */
+/**
+ * @param clusterList
+ * @uml.property  name="clusterList"
+ */
+/**
+ * @param ClusterList_names
+ * @uml.property  name="clusterList_names"
+ */
+/**
+ * @param ClusterList_valid
+ * @uml.property  name="clusterList_valid"
+ */
+/**
+ * @param filterList
+ * @uml.property  name="filterList"
+ */
+/**
+ * @param FilterList_names
+ * @uml.property  name="filterList_names"
+ */
+/**
+ * @param FilterList_valid
+ * @uml.property  name="filterList_valid"
+ */
+/**
+ * @param f2l
+ * @uml.property  name="f2l"
+ */
+/**
+ * @param f2c
+ * @uml.property  name="f2c"
+ */
+/**
+ * @param f2s
+ * @uml.property  name="f2s"
+ */
+/**
+ * @param f2f
+ * @uml.property  name="f2f"
+ */
+/**
+ * @param f2list
+ * @uml.property  name="f2list"
+ */
+/**
+ * @param f2idx
+ * @uml.property  name="f2idx"
+ */
+/**
+ * @param f2clist
+ * @uml.property  name="f2clist"
+ */
+/**
+ * @param f2cidx
+ * @uml.property  name="f2cidx"
+ */
+/**
+ * @param f2l_valid
+ * @uml.property  name="f2l_valid"
+ */
+/**
+ * @param f2s_valid
+ * @uml.property  name="f2s_valid"
+ */
+/**
+ * @param f2f_valid
+ * @uml.property  name="f2f_valid"
+ */
+/**
+ * @param f_valid
+ * @uml.property  name="f_valid"
+ */
+/**
+ * @param fc_valid
+ * @uml.property  name="fc_valid"
+ */
+/**
+ * @param f2l_realIdx
+ * @uml.property  name="f2l_realIdx"
+ */
+/**
+ * @param f2c_realIdx
+ * @uml.property  name="f2c_realIdx"
+ */
+/**
+ * @param f2s_realIdx
+ * @uml.property  name="f2s_realIdx"
+ */
+/**
+ * @param f2f_realIdx
+ * @uml.property  name="f2f_realIdx"
+ */
+/**
+ * @param searchList
+ * @uml.property  name="searchList"
+ */
+/**
+ * @param SearchList_names
+ * @uml.property  name="searchList_names"
+ */
+/**
+ * @param SearchList_valid
+ * @uml.property  name="searchList_valid"
+ */
+/**
+ * @param s2l
+ * @uml.property  name="s2l"
+ */
+/**
+ * @param s2s
+ * @uml.property  name="s2s"
+ */
+/**
+ * @param s2f
+ * @uml.property  name="s2f"
+ */
+/**
+ * @param s2list
+ * @uml.property  name="s2list"
+ */
+/**
+ * @param s2idx
+ * @uml.property  name="s2idx"
+ */
+/**
+ * @param s2l_realIdx
+ * @uml.property  name="s2l_realIdx"
+ */
+/**
+ * @param s2s_realIdx
+ * @uml.property  name="s2s_realIdx"
+ */
+/**
+ * @param s2f_realIdx
+ * @uml.property  name="s2f_realIdx"
+ */
+/**
+ * @param s2l_valid
+ * @uml.property  name="s2l_valid"
+ */
+/**
+ * @param s2s_valid
+ * @uml.property  name="s2s_valid"
+ */
+/**
+ * @param s2f_valid
+ * @uml.property  name="s2f_valid"
+ */
+/**
+ * @param s_valid
+ * @uml.property  name="s_valid"
+ */
+/**
+ * @param s2c
+ * @uml.property  name="s2c"
+ */
+/**
+ * @param s2c_realIdx
+ * @uml.property  name="s2c_realIdx"
+ */
+/**
+ * @param s2clist
+ * @uml.property  name="s2clist"
+ */
+/**
+ * @param s2cidx
+ * @uml.property  name="s2cidx"
+ */
+/**
+ * @param sc_valid
+ * @uml.property  name="sc_valid"
+ */
+/**
+ * @param analysisList
+ * @uml.property  name="analysisList"
+ */
+/**
+ * @param AnalysisList_names
+ * @uml.property  name="analysisList_names"
+ */
+/**
+ * @param AnalysisList_valid
+ * @uml.property  name="analysisList_valid"
+ */
+/**
+ * @param a2l
+ * @uml.property  name="a2l"
+ */
+/**
+ * @param a2s
+ * @uml.property  name="a2s"
+ */
+/**
+ * @param a2f
+ * @uml.property  name="a2f"
+ */
+/**
+ * @param a2list
+ * @uml.property  name="a2list"
+ */
+/**
+ * @param a2idx
+ * @uml.property  name="a2idx"
+ */
+/**
+ * @param a2l_realIdx
+ * @uml.property  name="a2l_realIdx"
+ */
+/**
+ * @param a2s_realIdx
+ * @uml.property  name="a2s_realIdx"
+ */
+/**
+ * @param a2f_realIdx
+ * @uml.property  name="a2f_realIdx"
+ */
+/**
+ * @param a2l_valid
+ * @uml.property  name="a2l_valid"
+ */
+/**
+ * @param a2s_valid
+ * @uml.property  name="a2s_valid"
+ */
+/**
+ * @param a2f_valid
+ * @uml.property  name="a2f_valid"
+ */
+/**
+ * @param a_valid
+ * @uml.property  name="a_valid"
+ */
+/**
+ * @param a2c
+ * @uml.property  name="a2c"
+ */
+/**
+ * @param a2c_realIdx
+ * @uml.property  name="a2c_realIdx"
+ */
+/**
+ * @param a2clist
+ * @uml.property  name="a2clist"
+ */
+/**
+ * @param a2cidx
+ * @uml.property  name="a2cidx"
+ */
+/**
+ * @param ac_valid
+ * @uml.property  name="ac_valid"
+ */
+/**
+ * @param l_valid
+ * @uml.property  name="l_valid"
+ */
+/**
+ * @param geneNames
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @param chipNames
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @param workChipNames
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @param headerColLabels
+ * @uml.property  name="headerColLabels"
+ */
+/**
+ * @param headerColInfo
+ * @uml.property  name="headerColInfo"
+ */
+/**
+ * @param visualDiscrDataMatrix
+ * @uml.property  name="visualDiscrDataMatrix"
+ */
+/**
+ * @param extended
+ * @uml.property  name="extended"
+ */
 @Data
 public class Dataset {
 
+    /**
+	 * @uml.property  name="preprocessComplete"
+	 */
     private boolean preprocessComplete = false;
 
     public void setPreprocessComplete() {
@@ -97,194 +1348,481 @@ public class Dataset {
     }
 
     /**
-     * Data matrix for the <code>this</code> dataset.
-     */
+	 * Data matrix for the <code>this</code> dataset.
+	 * @uml.property  name="origDataMatrix"
+	 */
     private float[][] origDataMatrix;
 
     /**
-     * Data matrix preprocessed, as to the last preprocessing options.
-     */
+	 * Data matrix preprocessed, as to the last preprocessing options.
+	 * @uml.property  name="preDataMatrix"
+	 */
     private float[][] preDataMatrix;
 
     /**
-     * Data matrix discretized, as to the last preprocessing options.
-     */
+	 * Data matrix discretized, as to the last preprocessing options.
+	 * @uml.property  name="discrDataMatrix"
+	 */
     private int[][] discrDataMatrix;
 
     /**
-     * Boolean indicator:<br>
-     * <code>true</code>, if matrix has been loaded with the chips-2-controls
-     * file;<br>
-     * <code>false</code>, otherwise.
-     * <p>
-     */
+	 * Boolean indicator:<br> <code>true</code>, if matrix has been loaded with the chips-2-controls file;<br> <code>false</code>, otherwise. <p>
+	 * @uml.property  name="withCtrlInfo"
+	 */
     private boolean withCtrlInfo;
 
     /**
-     * Dependencies matrix that contains the mappings: chips-2-controls.
-     */
+	 * Dependencies matrix that contains the mappings: chips-2-controls.
+	 * @uml.property  name="chipToControls"
+	 */
     private int[] chipToControls;
 
+    /**
+	 * @uml.property  name="valid_biclusters"
+	 */
     private int valid_biclusters = 0;
 
+    /**
+	 * @uml.property  name="valid_clusters"
+	 */
     private int valid_clusters = 0;
 
+    /**
+	 * @uml.property  name="valid_filters"
+	 */
     private int valid_filters = 0;
 
+    /**
+	 * @uml.property  name="valid_searches"
+	 */
     private int valid_searches = 0;
 
     // ....
+    /**
+	 * @uml.property  name="preprocessOptionsList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.preprocessor.PreprocessOption"
+	 */
     private LinkedList preprocessOptionsList;
 
+    /**
+	 * @uml.property  name="biclusterList"
+	 * @uml.associationEnd  
+	 */
     private LinkedList biclusterList;
 
+    /**
+	 * @uml.property  name="biclusterList_names"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector BiclusterList_names;
 
+    /**
+	 * @uml.property  name="biclusterList_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Boolean"
+	 */
     private Vector BiclusterList_valid;
 
     // ....
+    /**
+	 * @uml.property  name="preprocessOptionsList_cluster"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.preprocessor.PreprocessOption"
+	 */
     private LinkedList preprocessOptionsList_cluster;
 
+    /**
+	 * @uml.property  name="clusterList"
+	 * @uml.associationEnd  
+	 */
     private LinkedList clusterList;
 
+    /**
+	 * @uml.property  name="clusterList_names"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector ClusterList_names;
 
+    /**
+	 * @uml.property  name="clusterList_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Boolean"
+	 */
     private Vector ClusterList_valid;
 
     // ....
+    /**
+	 * @uml.property  name="filterList"
+	 * @uml.associationEnd  
+	 */
     private LinkedList filterList;
 
+    /**
+	 * @uml.property  name="filterList_names"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector FilterList_names;
 
+    /**
+	 * @uml.property  name="filterList_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Boolean"
+	 */
     private Vector FilterList_valid;
 
+    /**
+	 * @uml.property  name="f2l"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList f2l;
 
+    /**
+	 * @uml.property  name="f2c"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList f2c;
 
+    /**
+	 * @uml.property  name="f2s"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList f2s;
 
+    /**
+	 * @uml.property  name="f2f"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList f2f;
 
+    /**
+	 * @uml.property  name="f2list"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap f2list;
 
+    /**
+	 * @uml.property  name="f2idx"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap f2idx;
 
+    /**
+	 * @uml.property  name="f2clist"
+	 */
     private HashMap f2clist;
 
+    /**
+	 * @uml.property  name="f2cidx"
+	 */
     private HashMap f2cidx;
 
+    /**
+	 * @uml.property  name="f2l_valid"
+	 */
     private LinkedList f2l_valid;
 
+    /**
+	 * @uml.property  name="f2s_valid"
+	 */
     private LinkedList f2s_valid;
 
+    /**
+	 * @uml.property  name="f2f_valid"
+	 */
     private LinkedList f2f_valid;
 
+    /**
+	 * @uml.property  name="f_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList f_valid;
 
+    /**
+	 * @uml.property  name="fc_valid"
+	 */
     private LinkedList fc_valid;
 
+    /**
+	 * @uml.property  name="f2l_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap f2l_realIdx;
 
+    /**
+	 * @uml.property  name="f2c_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap f2c_realIdx;
 
+    /**
+	 * @uml.property  name="f2s_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap f2s_realIdx;
 
+    /**
+	 * @uml.property  name="f2f_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap f2f_realIdx;
 
     // ....
+    /**
+	 * @uml.property  name="searchList"
+	 * @uml.associationEnd  
+	 */
     private LinkedList searchList;
 
+    /**
+	 * @uml.property  name="searchList_names"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector SearchList_names;
 
+    /**
+	 * @uml.property  name="searchList_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Boolean"
+	 */
     private Vector SearchList_valid;
 
+    /**
+	 * @uml.property  name="s2l"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList s2l;
 
+    /**
+	 * @uml.property  name="s2s"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList s2s;
 
+    /**
+	 * @uml.property  name="s2f"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList s2f;
 
+    /**
+	 * @uml.property  name="s2list"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap s2list;
 
+    /**
+	 * @uml.property  name="s2idx"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap s2idx;
 
+    /**
+	 * @uml.property  name="s2l_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap s2l_realIdx;
 
+    /**
+	 * @uml.property  name="s2s_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap s2s_realIdx;
 
+    /**
+	 * @uml.property  name="s2f_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap s2f_realIdx;
 
+    /**
+	 * @uml.property  name="s2l_valid"
+	 */
     private LinkedList s2l_valid;
 
+    /**
+	 * @uml.property  name="s2s_valid"
+	 */
     private LinkedList s2s_valid;
 
+    /**
+	 * @uml.property  name="s2f_valid"
+	 */
     private LinkedList s2f_valid;
 
+    /**
+	 * @uml.property  name="s_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList s_valid;
 
+    /**
+	 * @uml.property  name="s2c"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList s2c;
 
+    /**
+	 * @uml.property  name="s2c_realIdx"
+	 */
     private HashMap s2c_realIdx;
 
+    /**
+	 * @uml.property  name="s2clist"
+	 */
     private HashMap s2clist;
 
+    /**
+	 * @uml.property  name="s2cidx"
+	 */
     private HashMap s2cidx;
 
+    /**
+	 * @uml.property  name="sc_valid"
+	 */
     private LinkedList sc_valid;
 
     // ....
+    /**
+	 * @uml.property  name="analysisList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.util.HashMap"
+	 */
     private LinkedList analysisList;
 
+    /**
+	 * @uml.property  name="analysisList_names"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector AnalysisList_names;
 
+    /**
+	 * @uml.property  name="analysisList_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Boolean"
+	 */
     private Vector AnalysisList_valid;
 
+    /**
+	 * @uml.property  name="a2l"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList a2l;
 
+    /**
+	 * @uml.property  name="a2s"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList a2s;
 
+    /**
+	 * @uml.property  name="a2f"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList a2f;
 
+    /**
+	 * @uml.property  name="a2list"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap a2list;
 
+    /**
+	 * @uml.property  name="a2idx"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap a2idx;
 
+    /**
+	 * @uml.property  name="a2l_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap a2l_realIdx;
 
+    /**
+	 * @uml.property  name="a2s_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap a2s_realIdx;
 
+    /**
+	 * @uml.property  name="a2f_realIdx"
+	 * @uml.associationEnd  qualifier="toString:java.lang.String java.lang.Integer"
+	 */
     private HashMap a2f_realIdx;
 
+    /**
+	 * @uml.property  name="a2l_valid"
+	 */
     private LinkedList a2l_valid;
 
+    /**
+	 * @uml.property  name="a2s_valid"
+	 */
     private LinkedList a2s_valid;
 
+    /**
+	 * @uml.property  name="a2f_valid"
+	 */
     private LinkedList a2f_valid;
 
+    /**
+	 * @uml.property  name="a_valid"
+	 */
     private LinkedList a_valid;
 
+    /**
+	 * @uml.property  name="a2c"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList a2c;
 
+    /**
+	 * @uml.property  name="a2c_realIdx"
+	 */
     private HashMap a2c_realIdx;
 
+    /**
+	 * @uml.property  name="a2clist"
+	 */
     private HashMap a2clist;
 
+    /**
+	 * @uml.property  name="a2cidx"
+	 */
     private HashMap a2cidx;
 
+    /**
+	 * @uml.property  name="ac_valid"
+	 */
     private LinkedList ac_valid;
 
+    /**
+	 * @uml.property  name="l_valid"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private LinkedList l_valid;
 
     // ....
+    /**
+	 * @uml.property  name="geneNames"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector geneNames;
 
+    /**
+	 * @uml.property  name="chipNames"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector chipNames;
 
+    /**
+	 * @uml.property  name="workChipNames"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private Vector workChipNames;
 
+    /**
+	 * @uml.property  name="headerColLabels"
+	 */
     private Vector headerColLabels;
 
+    /**
+	 * @uml.property  name="headerColInfo"
+	 * @uml.associationEnd  
+	 */
     private Vector headerColInfo;
 
     // ===========================================================================
@@ -566,10 +2104,20 @@ public class Dataset {
     }
 
     // ===========================================================================
+    /**
+	 * @uml.property  name="visualDiscrDataMatrix"
+	 */
     int[][] visualDiscrDataMatrix;
 
+    /**
+	 * @uml.property  name="extended"
+	 */
     boolean extended;
 
+    /**
+	 * @return
+	 * @uml.property  name="extended"
+	 */
     public boolean isExtended() {
         return extended;
     }

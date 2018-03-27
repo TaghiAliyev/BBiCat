@@ -148,6 +148,14 @@ public class MatrixFunctions {
         return res;
     }
 
+    public static Set<String> setDifference(Set<String> gene1, Set<String> gene2)
+    {
+        Set<String> local = new HashSet<String>(gene1);
+        local.removeAll(gene2);
+
+        return local;
+    }
+
 
     /**
      * Element-wise summation of two vectors

@@ -68,6 +68,69 @@ package bicat.run_machine;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * @return
+ * @uml.property  name="what_linkage"
+ */
+/**
+ * @return
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param what_linkage
+ * @uml.property  name="what_linkage"
+ */
+/**
+ * @param what_distance
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @param nr_clusters
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="what_linkage"
+ */
+/**
+ * @return
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param what_linkage
+ * @uml.property  name="what_linkage"
+ */
+/**
+ * @param what_distance
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @param nr_clusters
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @param myData
+ * @uml.property  name="myData"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 /**
@@ -78,12 +141,24 @@ import lombok.EqualsAndHashCode;
  */
 public class ArgumentsHCL extends Arguments {
 
-  private int what_linkage;
-  private int what_distance;
+  /**
+ * @uml.property  name="what_linkage"
+ */
+private int what_linkage;
+  /**
+ * @uml.property  name="what_distance"
+ */
+private int what_distance;
 
-  private int nr_clusters;
+  /**
+ * @uml.property  name="nr_clusters"
+ */
+private int nr_clusters;
 
-  private float[][] myData;
+  /**
+ * @uml.property  name="myData"
+ */
+private float[][] myData;
 
   // ===========================================================================
   public ArgumentsHCL() { }

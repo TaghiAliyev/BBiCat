@@ -78,6 +78,197 @@ import java.awt.event.*;
 import java.util.*;
 import java.text.NumberFormat;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="scoreCoocurrenceField"
+ */
+/**
+ * @return
+ * @uml.property  name="scoreCommonChipsField"
+ */
+/**
+ * @return
+ * @uml.property  name="coocLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="commLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="bcListSelected"
+ */
+/**
+ * @return
+ * @uml.property  name="byCooc"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param scoreCoocurrenceField
+ * @uml.property  name="scoreCoocurrenceField"
+ */
+/**
+ * @param scoreCommonChipsField
+ * @uml.property  name="scoreCommonChipsField"
+ */
+/**
+ * @param coocLabel
+ * @uml.property  name="coocLabel"
+ */
+/**
+ * @param commLabel
+ * @uml.property  name="commLabel"
+ */
+/**
+ * @param bcListSelected
+ * @uml.property  name="bcListSelected"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="scoreCoocurrenceField"
+ */
+/**
+ * @return
+ * @uml.property  name="scoreCommonChipsField"
+ */
+/**
+ * @return
+ * @uml.property  name="coocLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="commLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="bcListSelected"
+ */
+/**
+ * @return
+ * @uml.property  name="byCooc"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param scoreCoocurrenceField
+ * @uml.property  name="scoreCoocurrenceField"
+ */
+/**
+ * @param scoreCommonChipsField
+ * @uml.property  name="scoreCommonChipsField"
+ */
+/**
+ * @param coocLabel
+ * @uml.property  name="coocLabel"
+ */
+/**
+ * @param commLabel
+ * @uml.property  name="commLabel"
+ */
+/**
+ * @param bcListSelected
+ * @uml.property  name="bcListSelected"
+ */
+/**
+ * @param byCooc
+ * @uml.property  name="byCooc"
+ */
 @Data
 /**
  * GUI element associated with the overall GenePairAnalysis. Calls the methods from UtilFunctionalities in order
@@ -88,26 +279,66 @@ import java.text.NumberFormat;
  */
 public class GenePairAnalysis implements ActionListener {
 
+	/**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
 	private BicatGui owner;
 
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
 	private UtilFunctionalities engine;
 
+	/**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
 	private JDialog dialog;
 
+	/**
+	 * @uml.property  name="which_list"
+	 */
 	private int which_list = -1;
 
+	/**
+	 * @uml.property  name="list_idx"
+	 */
 	private int list_idx = -1;
 
+	/**
+	 * @uml.property  name="which_data"
+	 */
 	private int which_data = -1;
 
+	/**
+	 * @uml.property  name="scoreCoocurrenceField"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField scoreCoocurrenceField;
 
+	/**
+	 * @uml.property  name="scoreCommonChipsField"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField scoreCommonChipsField;
 
+	/**
+	 * @uml.property  name="coocLabel"
+	 * @uml.associationEnd  
+	 */
 	private JCheckBox coocLabel;
 
+	/**
+	 * @uml.property  name="commLabel"
+	 * @uml.associationEnd  
+	 */
 	private JCheckBox commLabel;
 	
+	/**
+	 * @uml.property  name="bcListSelected"
+	 */
 	private boolean bcListSelected = false;
 
 	// ===========================================================================
@@ -125,6 +356,9 @@ public class GenePairAnalysis implements ActionListener {
 		owner = o;
 	}
 
+	/**
+	 * @uml.property  name="byCooc"
+	 */
 	boolean byCooc = true;
 
 	// ===========================================================================

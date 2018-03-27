@@ -84,10 +84,50 @@ import java.util.Vector;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="rcaller"
+ */
+/**
+ * @return
+ * @uml.property  name="code"
+ */
+/**
+ * @param rcaller
+ * @uml.property  name="rcaller"
+ */
+/**
+ * Method that will create R connection, get clusters and call R scripts This class calls an R script on a given data. Please change addClusters and some other parts of the code for specific needs when needed. One note: Connection and calling R is not very fast, so it is better to use Java versions of everything whenever possible.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="rcaller"
+ */
+/**
+ * @return
+ * @uml.property  name="code"
+ */
+/**
+ * @param rcaller
+ * @uml.property  name="rcaller"
+ */
+/**
+ * @param code
+ * @uml.property  name="code"
+ */
 @Data
 public class RConnection {
 
+    /**
+	 * @uml.property  name="rcaller"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private RCaller rcaller;
+    /**
+	 * @uml.property  name="code"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private RCode code;
 
     public RConnection(boolean streamOutput) {

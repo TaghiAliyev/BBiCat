@@ -74,15 +74,91 @@ import lombok.EqualsAndHashCode;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="n_fix"
+ */
+/**
+ * @return
+ * @uml.property  name="max_size"
+ */
+/**
+ * @return
+ * @uml.property  name="t_g"
+ */
+/**
+ * @return
+ * @uml.property  name="t_c"
+ */
+/**
+ * @param n_fix
+ * @uml.property  name="n_fix"
+ */
+/**
+ * @param max_size
+ * @uml.property  name="max_size"
+ */
+/**
+ * @param t_g
+ * @uml.property  name="t_g"
+ */
+/**
+ * Class that contains all the variables/arguments needed for ISA clustering algorithm Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="n_fix"
+ */
+/**
+ * @return
+ * @uml.property  name="max_size"
+ */
+/**
+ * @return
+ * @uml.property  name="t_g"
+ */
+/**
+ * @return
+ * @uml.property  name="t_c"
+ */
+/**
+ * @param n_fix
+ * @uml.property  name="n_fix"
+ */
+/**
+ * @param max_size
+ * @uml.property  name="max_size"
+ */
+/**
+ * @param t_g
+ * @uml.property  name="t_g"
+ */
+/**
+ * @param t_c
+ * @uml.property  name="t_c"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ArgumentsISA extends Arguments {
 
-  private int n_fix;
-  private int max_size;
+  /**
+ * @uml.property  name="n_fix"
+ */
+private int n_fix;
+  /**
+ * @uml.property  name="max_size"
+ */
+private int max_size;
 
-  private double t_g;
-  private double t_c;
+  /**
+ * @uml.property  name="t_g"
+ */
+private double t_g;
+  /**
+ * @uml.property  name="t_c"
+ */
+private double t_c;
 
   // ===========================================================================
   public ArgumentsISA() { }

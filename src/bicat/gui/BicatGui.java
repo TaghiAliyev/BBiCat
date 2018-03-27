@@ -96,137 +96,843 @@ import java.util.regex.Pattern;
  */
 
 /**
- * Main GUI Class. Run this class if you want to make use of the GUI element.
- * <p>
- * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * <code>BicatGui</code> is the central manager for the Graphical Interface, datasets management, coordination of I/O operations.
  */
 @EqualsAndHashCode(of = {"serialVersionUID", "DEFAULT_TOLERABLE"})
+/**
+ * @return
+ * @uml.property  name="dEFAULT_TOLERABLE"
+ */
+/**
+ * @return
+ * @uml.property  name="parsedPathways"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="enlargeContrast"
+ */
+/**
+ * @return
+ * @uml.property  name="cONTRAST_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="stop_icon"
+ */
+/**
+ * @return
+ * @uml.property  name="bc_icon"
+ */
+/**
+ * @return
+ * @uml.property  name="listScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="otherScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="pp"
+ */
+/**
+ * @return
+ * @uml.property  name="gp"
+ */
+/**
+ * @return
+ * @uml.property  name="op"
+ */
+/**
+ * @return
+ * @uml.property  name="pm"
+ */
+/**
+ * @return
+ * @uml.property  name="tree"
+ */
+/**
+ * @return
+ * @uml.property  name="top"
+ */
+/**
+ * @return
+ * @uml.property  name="treeModel"
+ */
+/**
+ * @return
+ * @uml.property  name="originalPath"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessedPath"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="graphInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="otherInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="labelMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveAnalysisMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveBiclusterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveClusterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveSearchMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveFilterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="loadMenuItem"
+ */
+/**
+ * @return
+ * @uml.property  name="labels"
+ */
+/**
+ * @return
+ * @uml.property  name="currentLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @return
+ * @uml.property  name="popupListener"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixViewPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphViewPane"
+ */
+/**
+ * @return
+ * @uml.property  name="otherViewPane"
+ */
+/**
+ * @param DEFAULT_TOLERABLE
+ * @uml.property  name="dEFAULT_TOLERABLE"
+ */
+/**
+ * @param parsedPathways
+ * @uml.property  name="parsedPathways"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param enlargeContrast
+ * @uml.property  name="enlargeContrast"
+ */
+/**
+ * @param CONTRAST_VALUE
+ * @uml.property  name="cONTRAST_VALUE"
+ */
+/**
+ * @param stop_icon
+ * @uml.property  name="stop_icon"
+ */
+/**
+ * @param bc_icon
+ * @uml.property  name="bc_icon"
+ */
+/**
+ * @param listScrollPane
+ * @uml.property  name="listScrollPane"
+ */
+/**
+ * @param matrixScrollPane
+ * @uml.property  name="matrixScrollPane"
+ */
+/**
+ * @param graphScrollPane
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @param otherScrollPane
+ * @uml.property  name="otherScrollPane"
+ */
+/**
+ * @param pp
+ * @uml.property  name="pp"
+ */
+/**
+ * @param gp
+ * @uml.property  name="gp"
+ */
+/**
+ * @param op
+ * @uml.property  name="op"
+ */
+/**
+ * @param pm
+ * @uml.property  name="pm"
+ */
+/**
+ * @param tree
+ * @uml.property  name="tree"
+ */
+/**
+ * @param top
+ * @uml.property  name="top"
+ */
+/**
+ * @param treeModel
+ * @uml.property  name="treeModel"
+ */
+/**
+ * @param originalPath
+ * @uml.property  name="originalPath"
+ */
+/**
+ * @param preprocessedPath
+ * @uml.property  name="preprocessedPath"
+ */
+/**
+ * @param matrixInfoLabel
+ * @uml.property  name="matrixInfoLabel"
+ */
+/**
+ * @param graphInfoLabel
+ * @uml.property  name="graphInfoLabel"
+ */
+/**
+ * @param otherInfoLabel
+ * @uml.property  name="otherInfoLabel"
+ */
+/**
+ * @param preprocessOptionsMenu
+ * @uml.property  name="preprocessOptionsMenu"
+ */
+/**
+ * @param labelMenu
+ * @uml.property  name="labelMenu"
+ */
+/**
+ * @param saveAnalysisMenu
+ * @uml.property  name="saveAnalysisMenu"
+ */
+/**
+ * @param saveBiclusterMenu
+ * @uml.property  name="saveBiclusterMenu"
+ */
+/**
+ * @param saveClusterMenu
+ * @uml.property  name="saveClusterMenu"
+ */
+/**
+ * @param saveSearchMenu
+ * @uml.property  name="saveSearchMenu"
+ */
+/**
+ * @param saveFilterMenu
+ * @uml.property  name="saveFilterMenu"
+ */
+/**
+ * @param loadMenuItem
+ * @uml.property  name="loadMenuItem"
+ */
+/**
+ * @param labels
+ * @uml.property  name="labels"
+ */
+/**
+ * @param currentLabel
+ * @uml.property  name="currentLabel"
+ */
+/**
+ * @param utilEngine
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @param popupListener
+ * @uml.property  name="popupListener"
+ */
+/**
+ * @param matrixViewPane
+ * @uml.property  name="matrixViewPane"
+ */
+/**
+ * @param graphViewPane
+ * @uml.property  name="graphViewPane"
+ */
+/**
+ * @param otherViewPane
+ * @uml.property  name="otherViewPane"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_TOLERABLE"
+ */
+/**
+ * @return
+ * @uml.property  name="parsedPathways"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="enlargeContrast"
+ */
+/**
+ * @return
+ * @uml.property  name="cONTRAST_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="stop_icon"
+ */
+/**
+ * @return
+ * @uml.property  name="bc_icon"
+ */
+/**
+ * @return
+ * @uml.property  name="listScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="otherScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="pp"
+ */
+/**
+ * @return
+ * @uml.property  name="gp"
+ */
+/**
+ * @return
+ * @uml.property  name="op"
+ */
+/**
+ * @return
+ * @uml.property  name="pm"
+ */
+/**
+ * @return
+ * @uml.property  name="tree"
+ */
+/**
+ * @return
+ * @uml.property  name="top"
+ */
+/**
+ * @return
+ * @uml.property  name="treeModel"
+ */
+/**
+ * @return
+ * @uml.property  name="originalPath"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessedPath"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="graphInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="otherInfoLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptionsMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="labelMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveAnalysisMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveBiclusterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveClusterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveSearchMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="saveFilterMenu"
+ */
+/**
+ * @return
+ * @uml.property  name="loadMenuItem"
+ */
+/**
+ * @return
+ * @uml.property  name="labels"
+ */
+/**
+ * @return
+ * @uml.property  name="currentLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @return
+ * @uml.property  name="popupListener"
+ */
+/**
+ * @return
+ * @uml.property  name="matrixViewPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphViewPane"
+ */
+/**
+ * @return
+ * @uml.property  name="otherViewPane"
+ */
+/**
+ * @param DEFAULT_TOLERABLE
+ * @uml.property  name="dEFAULT_TOLERABLE"
+ */
+/**
+ * @param parsedPathways
+ * @uml.property  name="parsedPathways"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param enlargeContrast
+ * @uml.property  name="enlargeContrast"
+ */
+/**
+ * @param CONTRAST_VALUE
+ * @uml.property  name="cONTRAST_VALUE"
+ */
+/**
+ * @param stop_icon
+ * @uml.property  name="stop_icon"
+ */
+/**
+ * @param bc_icon
+ * @uml.property  name="bc_icon"
+ */
+/**
+ * @param listScrollPane
+ * @uml.property  name="listScrollPane"
+ */
+/**
+ * @param matrixScrollPane
+ * @uml.property  name="matrixScrollPane"
+ */
+/**
+ * @param graphScrollPane
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @param otherScrollPane
+ * @uml.property  name="otherScrollPane"
+ */
+/**
+ * @param pp
+ * @uml.property  name="pp"
+ */
+/**
+ * @param gp
+ * @uml.property  name="gp"
+ */
+/**
+ * @param op
+ * @uml.property  name="op"
+ */
+/**
+ * @param pm
+ * @uml.property  name="pm"
+ */
+/**
+ * @param tree
+ * @uml.property  name="tree"
+ */
+/**
+ * @param top
+ * @uml.property  name="top"
+ */
+/**
+ * @param treeModel
+ * @uml.property  name="treeModel"
+ */
+/**
+ * @param originalPath
+ * @uml.property  name="originalPath"
+ */
+/**
+ * @param preprocessedPath
+ * @uml.property  name="preprocessedPath"
+ */
+/**
+ * @param matrixInfoLabel
+ * @uml.property  name="matrixInfoLabel"
+ */
+/**
+ * @param graphInfoLabel
+ * @uml.property  name="graphInfoLabel"
+ */
+/**
+ * @param otherInfoLabel
+ * @uml.property  name="otherInfoLabel"
+ */
+/**
+ * @param preprocessOptionsMenu
+ * @uml.property  name="preprocessOptionsMenu"
+ */
+/**
+ * @param labelMenu
+ * @uml.property  name="labelMenu"
+ */
+/**
+ * @param saveAnalysisMenu
+ * @uml.property  name="saveAnalysisMenu"
+ */
+/**
+ * @param saveBiclusterMenu
+ * @uml.property  name="saveBiclusterMenu"
+ */
+/**
+ * @param saveClusterMenu
+ * @uml.property  name="saveClusterMenu"
+ */
+/**
+ * @param saveSearchMenu
+ * @uml.property  name="saveSearchMenu"
+ */
+/**
+ * @param saveFilterMenu
+ * @uml.property  name="saveFilterMenu"
+ */
+/**
+ * @param loadMenuItem
+ * @uml.property  name="loadMenuItem"
+ */
+/**
+ * @param labels
+ * @uml.property  name="labels"
+ */
+/**
+ * @param currentLabel
+ * @uml.property  name="currentLabel"
+ */
+/**
+ * @param utilEngine
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @param popupListener
+ * @uml.property  name="popupListener"
+ */
+/**
+ * @param matrixViewPane
+ * @uml.property  name="matrixViewPane"
+ */
+/**
+ * @param graphViewPane
+ * @uml.property  name="graphViewPane"
+ */
+/**
+ * @param otherViewPane
+ * @uml.property  name="otherViewPane"
+ */
 @Data
 public class BicatGui extends JFrame implements ActionListener,
         TreeSelectionListener, MouseListener, ItemListener {
 
+    /**
+	 * @uml.property  name="serialVersionUID"
+	 */
     private final long serialVersionUID = 1L;
 
+    /**
+	 * @uml.property  name="dEFAULT_TOLERABLE"
+	 */
     private int DEFAULT_TOLERABLE = 1000;
 
+    /**
+	 * @uml.property  name="parsedPathways"
+	 */
     private boolean parsedPathways = false;
 
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private PathwayAnalysis engine;
 
+    /**
+	 * @uml.property  name="genes"
+	 */
     private Set<String> genes;
 
     /* Matrix visualization: whether add contrast? */
+    /**
+	 * @uml.property  name="enlargeContrast"
+	 */
     private boolean enlargeContrast = true;
 
+    /**
+	 * @uml.property  name="cONTRAST_VALUE"
+	 */
     private float CONTRAST_VALUE = (float) 0; // 1; // 2; // 0.50;
 
+    /**
+	 * @uml.property  name="stop_icon"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private ImageIcon stop_icon;
 
+    /**
+	 * @uml.property  name="bc_icon"
+	 * @uml.associationEnd  
+	 */
     private ImageIcon bc_icon;
 
     /**
-     * A scroll pane for display of biclusters and other things in a tree.
-     */
+	 * A scroll pane for display of biclusters and other things in a tree.
+	 * @uml.property  name="listScrollPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JScrollPane listScrollPane;
 
     /**
-     * A scroll pane for matrix display.
-     */
+	 * A scroll pane for matrix display.
+	 * @uml.property  name="matrixScrollPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JScrollPane matrixScrollPane;
 
     /**
-     * A scroll pane for expression graph graph(ik) display.
-     */
+	 * A scroll pane for expression graph graph(ik) display.
+	 * @uml.property  name="graphScrollPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JScrollPane graphScrollPane;
 
     /**
-     * A scroll pane for visualizing GenePair Analysis results.
-     */
+	 * A scroll pane for visualizing GenePair Analysis results.
+	 * @uml.property  name="otherScrollPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JScrollPane otherScrollPane;
 
     /**
-     * Used to draw the data matrix and display biclusters.
-     */
+	 * Used to draw the data matrix and display biclusters.
+	 * @uml.property  name="pp"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="owner:bicat.gui.PicturePane"
+	 */
     private PicturePane pp;
 
     /**
-     * Used to draw expression graph.
-     */
+	 * Used to draw expression graph.
+	 * @uml.property  name="gp"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="owner:bicat.gui.GraphicPane"
+	 */
     private GraphicPane gp;
 
     /**
-     * Used to display the GPA table (and, eventually the graph)
-     */
+	 * Used to display the GPA table (and, eventually the graph)
+	 * @uml.property  name="op"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="owner:bicat.gui.AnalysisPane"
+	 */
     private AnalysisPane op;
 
     /**
-     * @todo would like to "personalize" it.
-     */
+	 * @todo   would like to "personalize" it.
+	 * @uml.property  name="pm"
+	 */
     private PopupMenu pm;
 
     /**
-     * Contains various display options, list of biclusters and list of search
-     * results, if available
-     */
+	 * Contains various display options, list of biclusters and list of search results, if available
+	 * @uml.property  name="tree"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
     private JTree tree;
 
     /**
-     * Root node of <code>tree</code>.
-     */
+	 * Root node of <code>tree</code>.
+	 * @uml.property  name="top"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private DefaultMutableTreeNode top;
 
     /**
-     * Model for <code>tree</code>.
-     */
+	 * Model for <code>tree</code>.
+	 * @uml.property  name="treeModel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private DefaultTreeModel treeModel;
 
     /**
-     * Tree path to node that represents original data display.
-     */
+	 * Tree path to node that represents original data display.
+	 * @uml.property  name="originalPath"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private TreePath originalPath;
 
     /**
-     * Tree path to node that represents display of preprocessed data.
-     */
+	 * Tree path to node that represents display of preprocessed data.
+	 * @uml.property  name="preprocessedPath"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private TreePath preprocessedPath;
 
     /**
-     * Provides information in the matrix display panel.
-     */
+	 * Provides information in the matrix display panel.
+	 * @uml.property  name="matrixInfoLabel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JLabel matrixInfoLabel;
 
     /**
-     * Provides informations in the expression graph(ik) panel.
-     */
+	 * Provides informations in the expression graph(ik) panel.
+	 * @uml.property  name="graphInfoLabel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JLabel graphInfoLabel;
 
     /**
-     * Provides information in the analysis panel.
-     */
+	 * Provides information in the analysis panel.
+	 * @uml.property  name="otherInfoLabel"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JLabel otherInfoLabel;
 
+    /**
+	 * @uml.property  name="preprocessOptionsMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu preprocessOptionsMenu = null;
 
+    /**
+	 * @uml.property  name="labelMenu"
+	 * @uml.associationEnd  
+	 */
     private JMenu labelMenu = null;
 
+    /**
+	 * @uml.property  name="saveAnalysisMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu saveAnalysisMenu = null;
 
+    /**
+	 * @uml.property  name="saveBiclusterMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu saveBiclusterMenu = null;
 
+    /**
+	 * @uml.property  name="saveClusterMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu saveClusterMenu = null;
 
+    /**
+	 * @uml.property  name="saveSearchMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu saveSearchMenu = null;
 
+    /**
+	 * @uml.property  name="saveFilterMenu"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenu saveFilterMenu = null;
 
+    /**
+	 * @uml.property  name="loadMenuItem"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JMenuItem loadMenuItem;
 
+    /**
+	 * @uml.property  name="labels"
+	 */
     private Vector labels = null;
 
+    /**
+	 * @uml.property  name="currentLabel"
+	 */
     private int currentLabel = -1;
 
+    /**
+	 * @uml.property  name="utilEngine"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="owner:bicat.Main.UtilFunctionalities"
+	 */
     private UtilFunctionalities utilEngine;
 
     // ===========================================================================
@@ -1602,6 +2308,9 @@ public class BicatGui extends JFrame implements ActionListener,
     }
 
     // ===========================================================================
+    /**
+	 * @uml.property  name="popupListener"
+	 */
     private MouseListener popupListener;
 
     private void createPopupMenu() {
@@ -1621,10 +2330,22 @@ public class BicatGui extends JFrame implements ActionListener,
         tree.addMouseListener(popupListener);
     }
 
+    /**
+	 * @uml.property  name="matrixViewPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     JPanel matrixViewPane;
 
+    /**
+	 * @uml.property  name="graphViewPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     JPanel graphViewPane;
 
+    /**
+	 * @uml.property  name="otherViewPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     JPanel otherViewPane;
 
     // ===========================================================================

@@ -69,29 +69,39 @@ import MetaFramework.AbstractPathwayUtils.AbstractPathwayAnalysis;
 import MetaFramework.AbstractPathwayUtils.Interaction;
 import MetaFramework.AbstractPathwayUtils.Molecule;
 import MetaFramework.AbstractPathwayUtils.Pathway;
-import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
 import bicat.biclustering.Dataset;
 import org.apache.commons.math3.stat.inference.TTest;
 
 import javax.swing.*;
 import java.io.PrintWriter;
-import java.nio.file.Path;
 import java.util.*;
 
 /**
- * Class that will contain the bayesian statistics computations
- * Method at : http://www.biomedcentral.com/content/pdf/1471-2105-7-86.pdf
- * <p>
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * Class that will contain the bayesian statistics computations Method at : http://www.biomedcentral.com/content/pdf/1471-2105-7-86.pdf <p>
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pathway<E, T>> {
 
+    /**
+	 * @uml.property  name="nSim"
+	 */
     private int nSim; // number of simulations
+    /**
+	 * @uml.property  name="outFile"
+	 */
     private PrintWriter outFile; // Output file
+    /**
+	 * @uml.property  name="molClass"
+	 */
     private Class<E> molClass;
+    /**
+	 * @uml.property  name="interClass"
+	 */
     private Class<T> interClass;
+    /**
+	 * @uml.property  name="pathClass"
+	 */
     private Class<G> pathClass;
 
     public Bayesian(Class<E> molClass, Class<T> interClass, Class<G> pathClass) throws Exception{
@@ -165,59 +175,67 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
             ArrayList<E> molecules = engine.getPathToGene().get(pathTmp);
             ArrayList<String> genesInPathway = new ArrayList<String>();
             for (E mol : molecules)
-                genesInPathway.add(mol.getName());
+            {
+                for (int i = 0; i < geneNames.size(); i++)
+                    if (geneNames.get(i).equalsIgnoreCase(mol.getName()))
+                        genesInPathway.add(geneNames.get(i));
+            }
             int nMin = (int) (1); // At least 20 percent of input genes should be part of the pathway
             int xMin = 1; // Let's say at least 1 gene should be diff expressed
             Set<String> genesInOther = new HashSet<String>();
             // Getting all the genes from other pathways.
-            for (String tmp2 : allPathways) {
-                if (!tmp.equalsIgnoreCase(tmp2)) {
+            for (G tmp2 : engine.getPathToGene().keySet()) {
+                if (!tmp.equalsIgnoreCase(tmp2.getName())) {
                     G pathTmp2 = pathClass.newInstance();
                     pathTmp2.setInteractions(null);
                     pathTmp2.setId(0);
                     pathTmp2.setMolList(null);
-                    pathTmp2.setName(tmp2);
+                    pathTmp2.setName(tmp2.getName());
                     ArrayList<E> mols = engine.getPathToGene().get(pathTmp2);
                     ArrayList<String> molNames = new ArrayList<String>();
-                    for (Molecule molT : mols)
-                        molNames.add(molT.getName());
+                    for (Molecule molT : mols) {
+                        for (int i = 0; i < geneNames.size();i++) {
+                            if (geneNames.get(i).equalsIgnoreCase(molT.getName()))
+                                molNames.add(molT.getName());
+                        }
+                    }
                     genesInOther.addAll(molNames);
                 }
             }
-
+            System.out.println("Genes in pathway : " + genesInPathway.size() + " , " + genesInOther.size());
             Set<String> genesOnlyPathway = MatrixFunctions.setDifference(genesInPathway, genesInOther);
             Set<String> genesNotPathway = MatrixFunctions.setDifference(genesInOther, genesInPathway);
 
             // Computation of relevant terms
             int x1OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, diffGenes).size();
-//            x1OnlyPathway = 0;
             int x0OnlyPathway = MatrixFunctions.intersection(genesOnlyPathway, notDiffGenes).size();
-//            x0OnlyPathway = 0;
             int nOnlyPath = genesOnlyPathway.size();
-//            nOnlyPath = 0;
             int x1PathAnd = MatrixFunctions.intersection(genesInPathway, diffGenes).size() - x1OnlyPathway;
-//            x1PathAnd = 4;
             int x0PathAnd = MatrixFunctions.intersection(genesInPathway, notDiffGenes).size() - x0OnlyPathway;
-//            x0PathAnd = 2;
             int nAnd = MatrixFunctions.setDifference(genesInPathway, genesOnlyPathway).size();
-//            nAnd = 6;
             int x1NoPathway = MatrixFunctions.intersection(genesNotPathway, diffGenes).size();
-//            x1NoPathway = 380;
             int x0NoPathway = MatrixFunctions.intersection(genesNotPathway, notDiffGenes).size();
-//            x0NoPathway = 3590;
+
+
             int nNoPath = genesNotPathway.size();
-//            nNoPath = 380 + 3590;
             double gHat = GScore(x1OnlyPathway, x1PathAnd, x1NoPathway, x0OnlyPathway, x0PathAnd, x0NoPathway);
+            outFile.println("Ghat is : " + gHat);
+            if (gHat != 0)
+                outFile.println("EUREKA");
 //            if (gHat != 0)
 //                System.out.println("Ghat is : " + gHat);
             int x1Path = x1OnlyPathway + x1PathAnd;
+            outFile.println("Contingency table: ");
+            outFile.println("x1OnlyPathway: " + x1OnlyPathway + ", x0OnlyPathway : " + x0OnlyPathway + ", nOnlyPath : " + nOnlyPath + ", x1PathAnd : " + x1PathAnd + ", x0PathAnd : " + x0PathAnd + ", nAnd : " + nAnd + ", x1NoPathway : " + x1NoPathway + ", x0NoPathway : " + x0NoPathway + " , nNoPath : " + nNoPath);
 
 //            System.out.println("Genes in Pathways : " + genesInPathway.size() + " , x1Path : " + x1Path);
-            if (!(genesInPathway.size() < nMin) && !(x1Path < xMin) && !(gHat <= 0)) {
-//                System.out.println("Not skipping");
+            if (!(genesInPathway.size() < nMin || x1Path < xMin || gHat <= 0)) {
+
+ //                System.out.println("Not skipping");
                 double[] gObs = new double[nSim];
                 // Do not skip the loop, still continue
                 if (genesInPathway.size() > (x1OnlyPathway + x0OnlyPathway + x1PathAnd + x0PathAnd)) {
+//                    System.out.println("In this weird case");
                     ArrayList<Double> X1onlyPath = RPosterior(nSim, x1OnlyPathway, x1OnlyPathway + x0OnlyPathway, nOnlyPath);
 
                     double[] X0onlyPath = MatrixFunctions.constantMinusVector(nOnlyPath, X1onlyPath);
@@ -244,11 +262,11 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
                 // in case there is an existence of knowledge about observability of certain genes
                 for (int j = 0; j < nSim; j++) {
                     // Simulation loop
-                    int n = Math.min(poisson(diffGenes.size()), geneNames.size()); // 2nd argument is actually number of observed genes
+                    int n = Math.min(poisson(diffGenes.size()), diffGenes.size() + notDiffGenes.size()); // 2nd argument is actually number of observed genes
 
                     Set<String> diffRandom = new HashSet<String>();
                     Random random = new Random();
-                    for (int i = 0; i < n; i++) {
+                    while (diffRandom.size() < n) {
                         diffRandom.add(geneNames.get(random.nextInt(geneNames.size())));
                     }
                     Set<String> notDiffRandom = MatrixFunctions.setDifference(geneNames, diffRandom);
@@ -289,19 +307,30 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
                 outFile.println("Results for : " + tmp);
                 double result = (cnt + 0.0) / (nSim + 0.0); // 0.0 is needed to push for the double division
                 if (result <= 0.05)
-                    outFile.println("Pathway with name : " + tmp + " has p-value of : " + result);
+                    outFile.println("Pathway with name : " + tmp + " has P of : " + result);
 
                 // computing error bars
                 double errorLeft = Math.min(quantile(gObs, 0.05), gHat);
                 double errorRight = Math.max(quantile(gObs, 0.95), gHat);
+                outFile.println("P value : " + result);
                 outFile.println("G hat : " + gHat);
+                G pathTmp2 = pathClass.newInstance();
+                pathTmp2.setInteractions(null);
+                pathTmp2.setId(0);
+                pathTmp2.setMolList(null);
+                pathTmp2.setName(tmp);
                 outFile.println("Errorbar : [" + errorLeft + ", " + errorRight + "]");
-                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + genesInPathway.size() + " genes");
+                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + engine.getPathToGene().get(pathTmp2).size() + " genes");
                 outFile.println("From the diff expressed genes, " + (x1PathAnd + x1OnlyPathway) + " were in the pathway");
             } else {
                 outFile.println("Results for : " + tmp);
                 outFile.println("GHat : " + gHat);
-                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + genesInPathway.size() + " genes");
+                G pathTmp2 = pathClass.newInstance();
+                pathTmp2.setInteractions(null);
+                pathTmp2.setId(0);
+                pathTmp2.setMolList(null);
+                pathTmp2.setName(tmp);
+                outFile.println("There were " + bicluster.getGenes().length + " genes. " + diffGenes.size() + " were diff expressed. Pathway has " + engine.getPathToGene().get(pathTmp2).size() + " genes");
                 outFile.println("From the diff expressed genes, " + (x1PathAnd + x1OnlyPathway) + " were in the pathway");
 
             }
@@ -364,7 +393,7 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
      */
     public double[] GScoreMatrix(ArrayList<Double> a, ArrayList<Double> b, ArrayList<Double> c, double[] d, double[] e, double[] f) {
         double[] res = new double[a.size()];
-
+        System.out.println("A size is : " + a.size());
         for (int i = 0; i < a.size(); i++) {
             double p = a.get(i) * (e[i] + f[i]) + b.get(i) * f[i];
             double q = c.get(i) * (d[i] + e[i]) + b.get(i) * d[i];
@@ -427,16 +456,23 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
     }
 
     /**
-     * Given a list of gene Names, gives back a list which is differentially expressed
-     *
-     * @param bicluster    A bicluster for which the differential expressed genes should be computed
-     * @param chosenColumn Number representing upon which column should the differention be performed
-     * @param dataset      Dataset containing the expression level of the genes
-     * @param threshold    Threshold value based on which, differentiation will be performed on a @param chosenColumn
-     * @return
-     */
+	 * Given a list of gene Names, gives back a list which is differentially expressed
+	 * @param bicluster      A bicluster for which the differential expressed genes should be computed
+	 * @param chosenColumn   Number representing upon which column should the differention be performed
+	 * @param dataset        Dataset containing the expression level of the genes
+	 * @param threshold      Threshold value based on which, differentiation will be performed on a @param chosenColumn
+	 * @return
+	 * @uml.property  name="done"
+	 */
     private boolean done = false;
-    private int[] firstColumns, secondColumns;
+    /**
+	 * @uml.property  name="firstColumns"
+	 */
+    private int[] firstColumns;
+	/**
+	 * @uml.property  name="secondColumns"
+	 */
+	private int[] secondColumns;
 
     public ArrayList<String> calculateDiff(Bicluster bicluster, int chosenColumn, Dataset dataset, double threshold) {
         ArrayList<String> res = new ArrayList<String>();
@@ -741,15 +777,27 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
     }
 
     public ArrayList<Double> RPosterior(double k, int x, int n, int N) {
+        if (n == N)
+        {
+            ArrayList<Double> xVect = new ArrayList<Double>();
+            for (int i = 0; i < k;i++)
+            {
+                xVect.add((double) x);
+            }
+            return xVect;
+        }
         ArrayList<Double> xVect = new ArrayList<Double>();
+//        System.out.println("Test");
         int[] xAr = new int[N + 1];
         for (int i = 0; i <= N; i++)
             xAr[i] = i;
-
+//        System.out.println("Test");
         for (int i = 0; i < k; i++) {
+            System.out.println("At iteration : " + i + " out of " + k);
             double[] firstPart = MatrixFunctions.matrixConstantSum(lchooseVect(xAr, x), -lchoose(N, n));
             double[] secondPart = lchooseVect(MatrixFunctions.matrixConstantSum(MatrixFunctions.vectorConstantMult(xAr, -1), N), n - x);
             Double[] P = null;
+//            System.out.println("Test");
             if (firstPart.length != secondPart.length) {
                 // well, this will be weird. One of them should be constant
                 if (secondPart.length == 1)
@@ -761,14 +809,19 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
             } else
                 P = MatrixFunctions.expVect(MatrixFunctions.matrixSum(firstPart, secondPart));
 
+//            System.out.println("Test");
             for (int j = 0; j < P.length; j++)
                 if (Double.isNaN(P[j]))
                     P[j] = 0.0;
+
+//            System.out.println("Test");
             // Sorting both datasets and indices
             SpecialMatrix comparator = new SpecialMatrix(P);
             Integer[] indices = comparator.createIndexArray();
 //            Arrays.sort(P, Comparator.reverseOrder());
+//            System.out.println("Test");
             Arrays.sort(indices, comparator); // Indices are in correct order now
+//            System.out.println("Test");
             xVect.add(randomSelect(xAr, P, indices));
         }
 
@@ -811,7 +864,9 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
             return 1;
         else {
             if (n < k)
-                return 0;
+                return Double.NEGATIVE_INFINITY;
+            else if (n == k)
+                return 0.0;
             // Formula is: n*(n-1)*...*(n-k+1)/k!
             // We only need the log versions, so, let's not compute any factorials ;)
             double num = 0.0, kFact = 0.0;
@@ -845,7 +900,9 @@ public class Bayesian<E extends Molecule, T extends Interaction<E>, G extends Pa
             double[] res = new double[n.length];
             for (int j = 0; j < n.length; j++) {
                 if (n[j] < k)
-                    res[j] = 0;
+                    res[j] = Double.NEGATIVE_INFINITY;
+                else if (n[j] == k)
+                    res[j] = 0.0;
                 else {
                     double num = 0.0, kFact = 0.0;
                     for (int i = n[j] - k + 1; i <= n[j]; i++) {

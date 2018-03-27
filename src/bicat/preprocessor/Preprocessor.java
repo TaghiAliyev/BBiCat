@@ -97,73 +97,343 @@ import java.util.Vector;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  * @version 0.2
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="preOption"
+ */
+/**
+ * @return
+ * @uml.property  name="dataContainsNegValues"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizedData"
+ */
+/**
+ * @return
+ * @uml.property  name="labels"
+ */
+/**
+ * @return
+ * @uml.property  name="labelArrays"
+ */
+/**
+ * @return
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="mISSING_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dISCRETE_MISSING_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="chipToControlsLoaded"
+ */
+/**
+ * @return
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param preOption
+ * @uml.property  name="preOption"
+ */
+/**
+ * @param dataContainsNegValues
+ * @uml.property  name="dataContainsNegValues"
+ */
+/**
+ * @param rawData
+ * @uml.property  name="rawData"
+ */
+/**
+ * @param preprocessedData
+ * @uml.property  name="preprocessedData"
+ */
+/**
+ * @param discretizedData
+ * @uml.property  name="discretizedData"
+ */
+/**
+ * @param geneNames
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @param labels
+ * @uml.property  name="labels"
+ */
+/**
+ * @param labelArrays
+ * @uml.property  name="labelArrays"
+ */
+/**
+ * @param chipNames
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @param workChipNames
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @param dependencies
+ * @uml.property  name="dependencies"
+ */
+/**
+ * @param MISSING_VALUE
+ * @uml.property  name="mISSING_VALUE"
+ */
+/**
+ * @param DISCRETE_MISSING_VALUE
+ * @uml.property  name="dISCRETE_MISSING_VALUE"
+ */
+/**
+ * @param chipToControlsLoaded
+ * @uml.property  name="chipToControlsLoaded"
+ */
+/**
+ * @param utilEngine
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * Preprocessor is used to read data from files and perform initial steps such as normalization, log operations and discretization of the original data matrix. <p> The methods in this class are generally called from the governing <code>bicat.gui.BicatGui</code> object. The <code>Preprocessor</code> will keep a copy of the original data at all times, allowing the user to experiment with different preprocessing steps before running any clustering algorithms. <p> Once the files have been read, the files need to be preprocessed, so that the biclustering can be run on it. <p>
+ * @author  A. Prelic, D.Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * @version  0.2
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="preOption"
+ */
+/**
+ * @return
+ * @uml.property  name="dataContainsNegValues"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizedData"
+ */
+/**
+ * @return
+ * @uml.property  name="labels"
+ */
+/**
+ * @return
+ * @uml.property  name="labelArrays"
+ */
+/**
+ * @return
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @return
+ * @uml.property  name="mISSING_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dISCRETE_MISSING_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="chipToControlsLoaded"
+ */
+/**
+ * @return
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param preOption
+ * @uml.property  name="preOption"
+ */
+/**
+ * @param dataContainsNegValues
+ * @uml.property  name="dataContainsNegValues"
+ */
+/**
+ * @param rawData
+ * @uml.property  name="rawData"
+ */
+/**
+ * @param preprocessedData
+ * @uml.property  name="preprocessedData"
+ */
+/**
+ * @param discretizedData
+ * @uml.property  name="discretizedData"
+ */
+/**
+ * @param geneNames
+ * @uml.property  name="geneNames"
+ */
+/**
+ * @param labels
+ * @uml.property  name="labels"
+ */
+/**
+ * @param labelArrays
+ * @uml.property  name="labelArrays"
+ */
+/**
+ * @param chipNames
+ * @uml.property  name="chipNames"
+ */
+/**
+ * @param workChipNames
+ * @uml.property  name="workChipNames"
+ */
+/**
+ * @param dependencies
+ * @uml.property  name="dependencies"
+ */
+/**
+ * @param MISSING_VALUE
+ * @uml.property  name="mISSING_VALUE"
+ */
+/**
+ * @param DISCRETE_MISSING_VALUE
+ * @uml.property  name="dISCRETE_MISSING_VALUE"
+ */
+/**
+ * @param chipToControlsLoaded
+ * @uml.property  name="chipToControlsLoaded"
+ */
+/**
+ * @param utilEngine
+ * @uml.property  name="utilEngine"
+ */
+/**
+ * @param extended
+ * @uml.property  name="extended"
+ */
 @Data
 public class Preprocessor {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="preOption"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private PreprocessOption preOption; // maintains the current
 
+    /**
+	 * @uml.property  name="dataContainsNegValues"
+	 */
     private boolean dataContainsNegValues;
 
     // preprocessing setting.
 
     /**
-     * Data from the main data file.
-     */
+	 * Data from the main data file.
+	 * @uml.property  name="rawData"
+	 */
     private float[][] rawData;
 
+    /**
+	 * @uml.property  name="preprocessedData"
+	 */
     private float[][] preprocessedData;
 
+    /**
+	 * @uml.property  name="discretizedData"
+	 */
     private int[][] discretizedData;
 
     /**
-     * Contains gene names, as read from main data file.<br>
-     * <p>
-     * When the data matrix has more than a single column header (for genes,
-     * normally) the last header column is assumed to contain the gene labels.
-     *
-     * @todo WISH FEATURE (AP): Relax Column / Row Offset requirement (allow the
-     * user to choose what is the gene column in the matrix).
-     */
+	 * Contains gene names, as read from main data file.<br> <p> When the data matrix has more than a single column header (for genes, normally) the last header column is assumed to contain the gene labels.
+	 * @todo   WISH FEATURE (AP): Relax Column / Row Offset requirement (allow theuser to choose what is the gene column in the matrix).
+	 * @uml.property  name="geneNames"
+	 */
     private String[] geneNames;
 
     /**
-     * Contains the labels of the <code>fileOffset</code> column headers.
-     */
+	 * Contains the labels of the <code>fileOffset</code> column headers.
+	 * @uml.property  name="labels"
+	 */
     private Vector labels;
 
     /**
-     * Contains the column header information.
-     */
+	 * Contains the column header information.
+	 * @uml.property  name="labelArrays"
+	 * @uml.associationEnd  
+	 */
     private Vector labelArrays;
 
     /**
-     * Contains chip names, as read from main data file (chip names are read
-     * from the header row of the input file; the first chip name follows at
-     * offset <code>fileOffset</code>).<br>
-     */
+	 * Contains chip names, as read from main data file (chip names are read from the header row of the input file; the first chip name follows at offset <code>fileOffset</code>).<br>
+	 * @uml.property  name="chipNames"
+	 */
     private String[] chipNames;
 
     /**
-     * Chip names with dependencies (no control chip).
-     */
+	 * Chip names with dependencies (no control chip).
+	 * @uml.property  name="workChipNames"
+	 */
     private String[] workChipNames;
 
     /**
-     * Chip to Control mappings.<br>
-     * <p>
-     * Element <code>i</code> is the index of the control value for chip
-     * <code>i</code>, and -1 if chip <code>i</code> is a control chip.
-     */
+	 * Chip to Control mappings.<br> <p> Element <code>i</code> is the index of the control value for chip <code>i</code>, and -1 if chip <code>i</code> is a control chip.
+	 * @uml.property  name="dependencies"
+	 */
     private int[] dependencies;
 
+    /**
+	 * @uml.property  name="mISSING_VALUE"
+	 */
     private float MISSING_VALUE = 0;
 
+    /**
+	 * @uml.property  name="dISCRETE_MISSING_VALUE"
+	 */
     private int DISCRETE_MISSING_VALUE = 0; // 9;
 
+    /**
+	 * @uml.property  name="chipToControlsLoaded"
+	 */
     private boolean chipToControlsLoaded = false;
 
+    /**
+	 * @uml.property  name="utilEngine"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="pre:bicat.Main.UtilFunctionalities"
+	 */
     private UtilFunctionalities utilEngine;
     // ===========================================================================
 
@@ -369,6 +639,9 @@ public class Preprocessor {
         discretizedData = null;
     }
 
+    /**
+	 * @uml.property  name="extended"
+	 */
     public boolean extended = false;
 
     // ===========================================================================
@@ -935,6 +1208,10 @@ public class Preprocessor {
         return rawData;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="preprocessedData"
+	 */
     public float[][] getPreprocessedData() {
         return preprocessedData;
     }
@@ -965,6 +1242,10 @@ public class Preprocessor {
         return cNs;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="dependencies"
+	 */
     public int[] getDependencies() {
         return dependencies;
     }

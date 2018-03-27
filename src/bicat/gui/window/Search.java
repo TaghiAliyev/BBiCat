@@ -85,25 +85,201 @@ import java.util.Vector;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="andSearch"
+ */
+/**
+ * @return
+ * @uml.property  name="geneNameField"
+ */
+/**
+ * @return
+ * @uml.property  name="chipNameField"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param andSearch
+ * @uml.property  name="andSearch"
+ */
+/**
+ * @param geneNameField
+ * @uml.property  name="geneNameField"
+ */
+/**
+ * Pop-up window that prompts user for search parameters. <p> Gets user input for a search of the bicluster list.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @return
+ * @uml.property  name="which_list"
+ */
+/**
+ * @return
+ * @uml.property  name="which_data"
+ */
+/**
+ * @return
+ * @uml.property  name="andSearch"
+ */
+/**
+ * @return
+ * @uml.property  name="geneNameField"
+ */
+/**
+ * @return
+ * @uml.property  name="chipNameField"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param list_idx
+ * @uml.property  name="list_idx"
+ */
+/**
+ * @param which_list
+ * @uml.property  name="which_list"
+ */
+/**
+ * @param which_data
+ * @uml.property  name="which_data"
+ */
+/**
+ * @param andSearch
+ * @uml.property  name="andSearch"
+ */
+/**
+ * @param geneNameField
+ * @uml.property  name="geneNameField"
+ */
+/**
+ * @param chipNameField
+ * @uml.property  name="chipNameField"
+ */
 @Data
 public class Search implements ActionListener {
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="list_idx"
+	 */
     private int list_idx = 0;
 
+    /**
+	 * @uml.property  name="which_list"
+	 */
     private int which_list = -1; // 0 def BCs, 1 def Search Results, ...
 
+    /**
+	 * @uml.property  name="which_data"
+	 */
     private int which_data = 0;
 
+    /**
+	 * @uml.property  name="andSearch"
+	 */
     private boolean andSearch;
 
+    /**
+	 * @uml.property  name="geneNameField"
+	 * @uml.associationEnd  
+	 */
     private JTextField geneNameField;
 
+    /**
+	 * @uml.property  name="chipNameField"
+	 * @uml.associationEnd  
+	 */
     private JTextField chipNameField;
 
     // ===========================================================================

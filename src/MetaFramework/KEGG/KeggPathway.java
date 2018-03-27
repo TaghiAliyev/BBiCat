@@ -74,26 +74,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Class that parses and analyzes biclusters based on the KEGG Pathway lists
- *
- * NOTE: TODO : STILL TO BE IMPLEMENTED FOR POST-ANALYSIS
- * If someone wants to implement this, please refer to PathwayAnalysisMixing to see the format of results that are expected
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * Class that parses and analyzes biclusters based on the KEGG Pathway lists <p> NOTE: TODO : STILL TO BE IMPLEMENTED FOR POST-ANALYSIS If someone wants to implement this, please refer to PathwayAnalysisMixing to see the format of results that are expected
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
-public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInteraction, KEGGPathwayInstance>{
+public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInteraction, KEGGPathwayInstance> {
 
+    /**
+	 * @uml.property  name="allKeggPath"
+	 */
     private String allKeggPath = "http://rest.kegg.jp/list/pathway/hsa";
+    /**
+	 * @uml.property  name="allGenes"
+	 */
     private String allGenes = "http://rest.kegg.jp/list/hsa";
+    /**
+	 * @uml.property  name="getBaseLink"
+	 */
     private String getBaseLink = "http://rest.kegg.jp/get/";
+    /**
+	 * @uml.property  name="getGeneBase"
+	 */
     private String getGeneBase = "http://rest.kegg.jp/get/hsa:";
 
+    /**
+	 * @uml.property  name="codeToName"
+	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" elementType="java.lang.String" qualifier="code:java.lang.String java.util.ArrayList"
+	 */
     private HashMap<String, ArrayList<String>> codeToName = new HashMap<String, ArrayList<String>>();
 
+    /**
+	 * @uml.property  name="allPathURL"
+	 */
     private URL allPathURL;
 
-    public KeggPathway(String file) throws Exception
-    {
+    public KeggPathway(String file) throws Exception {
         super(file);
         allPathURL = new URL(allKeggPath);
         readAllGenes();
@@ -102,22 +116,19 @@ public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInter
         System.out.println("All the pathways are done");
     }
 
-    public void readAllGenes() throws Exception
-    {
+    public void readAllGenes() throws Exception {
         URL allGeneURL = new URL(allGenes);
         BufferedReader geneIn = new BufferedReader(new InputStreamReader(allGeneURL.openStream()));
 
         String gene;
-        while ((gene = geneIn.readLine()) != null)
-        {
+        while ((gene = geneIn.readLine()) != null) {
             String[] parts = gene.split("\t");
             String code = parts[0];
             String geneName = parts[1];
             String geneParts = geneName.split(";")[0];
             String[] actualParts = geneParts.split(",");
             ArrayList<String> toAddList = new ArrayList<String>();
-            for (int i = 0 ; i < actualParts.length; i++)
-            {
+            for (int i = 0; i < actualParts.length; i++) {
                 String toAdd;
                 if (actualParts.length != 1)
                     toAdd = actualParts[i].replaceAll("\\s+", "");
@@ -133,14 +144,18 @@ public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInter
     }
 
 
-    public static void main(String[] args) throws Exception
-    {
+    public static void main(String[] args) throws Exception {
         long start = System.currentTimeMillis();
         KeggPathway engine = new KeggPathway("");
         long end = System.currentTimeMillis();
         System.out.println("It took " + (end - start) + " ms to parse the KEGG");
-        ArrayList<KEGGPathwayInstance> mols = engine.getGeneToPath().get(new KEGGMolecule(0, "XDH", false, null));
-        for (KEGGPathwayInstance tmp : mols)
+        ArrayList<KEGGPathwayInstance> mols = engine.getGeneToPath().get(new KEGGMolecule(-1, "XDH", false, null));
+        ArrayList<KEGGMolecule> mols2 = engine.getPathToGene().get(new KEGGPathwayInstance(null, -1, null, "Metabolic pathways"));
+        for (KEGGPathwayInstance tmp : mols) {
+            System.out.println("Molecule name in the pathway : " + tmp.getName());
+        }
+
+        for (KEGGMolecule tmp : mols2)
         {
             System.out.println("Molecule name in the pathway : " + tmp.getName());
         }
@@ -152,8 +167,7 @@ public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInter
 
         String line;
         int pathCnt = 0, molCnt = 0;
-        while((line = in.readLine()) != null)
-        {
+        while ((line = in.readLine()) != null) {
             if (pathCnt % 50 == 0)
                 System.out.println(pathCnt);
             // Line is already read
@@ -170,13 +184,12 @@ public class KeggPathway extends AbstractPathwayAnalysis<KEGGMolecule, KEGGInter
             boolean geneEnd = false;
             String pLine;
             ArrayList<KEGGMolecule> mols = new ArrayList<KEGGMolecule>();
-            while ((pLine = pathIn.readLine()) != null && (!geneStarted || !geneEnd))
-            {
+            while ((pLine = pathIn.readLine()) != null && (!geneStarted || !geneEnd)) {
                 if (pLine.length() < 4)
                     System.out.println(pathName + " ;" + pathCode);
                 if (pLine.length() >= 4 && !pLine.substring(0, 4).equalsIgnoreCase("    ") && geneStarted)
                     geneEnd = true;
-                if (pLine.length() >= 4 && pLine.substring(0,4).equalsIgnoreCase("GENE"))
+                if (pLine.length() >= 4 && pLine.substring(0, 4).equalsIgnoreCase("GENE"))
                     geneStarted = true;
                 if (geneStarted && !geneEnd) {
                     String pureGene = pLine.substring(12);

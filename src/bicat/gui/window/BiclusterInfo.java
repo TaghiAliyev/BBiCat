@@ -84,17 +84,97 @@ import java.io.IOException;
  * Pop up window that provides information on one bicluster.
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="bc"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param bc
+ * @uml.property  name="bc"
+ */
+/**
+ * Pop up window that provides information on one bicluster.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="bc"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param bc
+ * @uml.property  name="bc"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
 @Data
 public class BiclusterInfo implements ActionListener {
 
-	/** Hook to governings <code>BiacGUI</code>. */
+	/**
+	 * Hook to governings <code>BiacGUI</code>.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private BicatGui owner;
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private UtilFunctionalities engine;
 
-	/** Bicluster that this window shows information on. */
+	/**
+	 * Bicluster that this window shows information on.
+	 * @uml.property  name="bc"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private Bicluster bc;
 
-	/** Dialog window. */
+	/**
+	 * Dialog window.
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
 	private JDialog dialog;
 
 	// ===========================================================================

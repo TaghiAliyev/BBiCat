@@ -66,18 +66,23 @@
 package bicat.algorithms.opsm;
 
 /**
- * Provides functionality to store a model extension with its score and to
- * realize the extension, if it belongs to the best ones.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * Provides functionality to store a model extension with its score and to realize the extension, if it belongs to the best ones.
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public final class BendorReloadedModelExtension extends BendorReloadedModelEvaluation
 {
 	// model to extend
+	/**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public BendorReloadedModel model;
 
 	// extension
+	/**
+	 * @uml.property  name="t"
+	 */
 	public int t;
 
 

@@ -68,31 +68,23 @@ package bicat.util;
 import java.io.*;
 
 /**
- * <p>
- * Provides functionality to store a pareto set of models.
- * </p>
- * 
- * <p>
- * The objective values are <tt>s</tt> and <tt>k</tt>, which shall be
- * maximized. Models with <tt>s<=1</tt> or <tt>k<=1</tt> are not accepted.
- * </p>
- * 
- * <p>
- * The models are stored in a bidirectional linked list with dummy root.
- * </p>
- * 
- * @author Thomas Frech
- * @author Taghi Aliyev
- * @version 2004-07-22
+ * <p> Provides functionality to store a pareto set of models. </p> <p> The objective values are <tt>s</tt> and <tt>k</tt>, which shall be maximized. Models with <tt>s<=1</tt> or <tt>k<=1</tt> are not accepted. </p> <p> The models are stored in a bidirectional linked list with dummy root. </p>
+ * @author  Thomas Frech
+ * @author  Taghi Aliyev
+ * @version  2004-07-22
  */
 public class ParetoModelRecord{
 	/**
-	 * 
+	 * @uml.property  name="root"
+	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	// linked list of OPSMs (pareto optimal models), root is a dummy element
 	private LinkListElement root = new LinkListElement(null);
 
 	// record size (without root)
+	/**
+	 * @uml.property  name="size"
+	 */
 	private int size = 0;
 		
 	/**
@@ -309,9 +301,17 @@ public class ParetoModelRecord{
 		return false;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="size"
+	 */
 	public int getSize(){
 		return size;
 	}
+	/**
+	 * @return
+	 * @uml.property  name="root"
+	 */
 	public LinkListElement getRoot(){
 		return root;
 	}

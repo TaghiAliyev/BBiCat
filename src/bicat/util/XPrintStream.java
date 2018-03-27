@@ -69,13 +69,18 @@ import java.io.*;
 
 /**
  * PrintStream to print text to console and file simultaneously.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public class XPrintStream
 {
+	/**
+	 * @uml.property  name="outStream"
+	 */
 	private final OutputStream outStream;
+	/**
+	 * @uml.property  name="out"
+	 */
 	private final PrintStream out;
 
 	public XPrintStream(String filename) throws IOException

@@ -75,6 +75,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Vector;
 
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 public class PostUtil {
 
     // ===========================================================================
@@ -83,8 +86,16 @@ public class PostUtil {
         this.owner = null;
     }
 
+    /**
+	 * @uml.property  name="utilEngine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities utilEngine;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
     public PostUtil(BicatGui owner) {
@@ -826,8 +837,14 @@ public class PostUtil {
 }
 
 // =============================================================================
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 class Mask implements Comparable {
 
+    /**
+	 * @uml.property  name="hd_err"
+	 */
     int hd_err;
 
     public Mask() {
@@ -845,12 +862,24 @@ class Mask implements Comparable {
 }
 
 // =============================================================================
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 class Gene extends Mask implements Comparable {
 
+    /**
+	 * @uml.property  name="idx"
+	 */
     int idx;
 
+    /**
+	 * @uml.property  name="gene"
+	 */
     BitSet gene;
 
+    /**
+	 * @uml.property  name="hd_err"
+	 */
     int hd_err;
 
     public Gene(int i, BitSet gn, int err) {
@@ -872,12 +901,24 @@ class Gene extends Mask implements Comparable {
 }
 
 // =============================================================================
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 class Chip extends Mask implements Comparable {
 
+    /**
+	 * @uml.property  name="idx"
+	 */
     int idx;
 
+    /**
+	 * @uml.property  name="chip"
+	 */
     BitSet chip;
 
+    /**
+	 * @uml.property  name="hd_err"
+	 */
     int hd_err;
 
     public Chip(int i, BitSet ch, int err) {

@@ -125,10 +125,95 @@ import javax.swing.table.*;
  * @author Philip Milne
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
 */
+/**
+ * @return
+ * @uml.property  name="mouseListener"
+ */
+/**
+ * @return
+ * @uml.property  name="tableModelListener"
+ */
+/**
+ * @return
+ * @uml.property  name="columnComparators"
+ */
+/**
+ * @return
+ * @uml.property  name="sortingColumns"
+ */
+/**
+ * @param viewToModel
+ * @uml.property  name="viewToModel"
+ */
+/**
+ * @param modelToView
+ * @uml.property  name="modelToView"
+ */
+/**
+ * @param mouseListener
+ * @uml.property  name="mouseListener"
+ */
+/**
+ * @param tableModelListener
+ * @uml.property  name="tableModelListener"
+ */
+/**
+ * @param columnComparators
+ * @uml.property  name="columnComparators"
+ */
+/**
+ * TableSorter is a decorator for TableModels; adding sorting functionality to a supplied TableModel. TableSorter does not store or copy the data in its TableModel; instead it maintains a map from the row indexes of the view to the row indexes of the model. As requests are made of the sorter (like getValueAt(row, col)) they are passed to the underlying model after the row numbers have been translated via the internal mapping array. This way, the TableSorter appears to hold another copy of the table with the rows in a different order. <p/> TableSorter registers itself as a listener to the underlying model, just as the JTable itself would. Events recieved from the model are examined, sometimes manipulated (typically widened), and then passed on to the TableSorter's listeners (typically the JTable). If a change to the model has invalidated the order of TableSorter's rows, a note of this is made and the sorter will resort the rows the next time a value is requested. <p/> When the tableHeader property is set, either by using the setTableHeader() method or the two argument constructor, the table header may be used as a complete UI for TableSorter. The default renderer of the tableHeader is decorated with a renderer that indicates the sorting status of each column. In addition, a mouse listener is installed with the following behavior: <ul> <li> Mouse-click: Clears the sorting status of all other columns and advances the sorting status of that column through three values: {NOT_SORTED, ASCENDING, DESCENDING} (then back to NOT_SORTED again). <li> SHIFT-mouse-click: Clears the sorting status of all other columns and cycles the sorting status of the column through the same three values, in the opposite order: {NOT_SORTED, DESCENDING, ASCENDING}. <li> CONTROL-mouse-click and CONTROL-SHIFT-mouse-click: as above except that the changes to the column do not cancel the statuses of columns that are already sorting - giving a way to initiate a compound sort. </ul> <p/> This is a long overdue rewrite of a class of the same name that first appeared in the swing table demos in 1997.
+ * @author  Philip Milne
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="mouseListener"
+ */
+/**
+ * @return
+ * @uml.property  name="tableModelListener"
+ */
+/**
+ * @return
+ * @uml.property  name="columnComparators"
+ */
+/**
+ * @return
+ * @uml.property  name="sortingColumns"
+ */
+/**
+ * @param viewToModel
+ * @uml.property  name="viewToModel"
+ */
+/**
+ * @param modelToView
+ * @uml.property  name="modelToView"
+ */
+/**
+ * @param mouseListener
+ * @uml.property  name="mouseListener"
+ */
+/**
+ * @param tableModelListener
+ * @uml.property  name="tableModelListener"
+ */
+/**
+ * @param columnComparators
+ * @uml.property  name="columnComparators"
+ */
+/**
+ * @param sortingColumns
+ * @uml.property  name="sortingColumns"
+ */
 @Data
 public class TableSorter extends AbstractTableModel {
 
-  protected TableModel tableModel;
+  /**
+ * @uml.property  name="tableModel"
+ * @uml.associationEnd  
+ */
+protected TableModel tableModel;
 
   private static Directive EMPTY_DIRECTIVE = new Directive(-1, UtilConstants.NOT_SORTED);
 
@@ -146,14 +231,40 @@ public class TableSorter extends AbstractTableModel {
     }
   };
 
-  private Row[] viewToModel;
-  private int[] modelToView;
+  /**
+ * @uml.property  name="viewToModel"
+ * @uml.associationEnd  multiplicity="(0 -1)" inverse="this$0:bicat.gui.TableSorter$Row"
+ */
+private Row[] viewToModel;
+  /**
+ * @uml.property  name="modelToView"
+ */
+private int[] modelToView;
 
-  private JTableHeader tableHeader;
-  private MouseListener mouseListener;
-  private TableModelListener tableModelListener;
-  private Map columnComparators = new HashMap();
-  private List sortingColumns = new ArrayList();
+  /**
+ * @uml.property  name="tableHeader"
+ * @uml.associationEnd  
+ */
+private JTableHeader tableHeader;
+  /**
+ * @uml.property  name="mouseListener"
+ */
+private MouseListener mouseListener;
+  /**
+ * @uml.property  name="tableModelListener"
+ * @uml.associationEnd  multiplicity="(1 1)"
+ */
+private TableModelListener tableModelListener;
+  /**
+ * @uml.property  name="columnComparators"
+ * @uml.associationEnd  qualifier="columnType:java.lang.Class java.util.Comparator"
+ */
+private Map columnComparators = new HashMap();
+  /**
+ * @uml.property  name="sortingColumns"
+ * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.gui.TableSorter$Directive"
+ */
+private List sortingColumns = new ArrayList();
 
 
   // ===========================================================================
@@ -180,12 +291,20 @@ public class TableSorter extends AbstractTableModel {
   }
 
   // ===========================================================================
-  public TableModel getTableModel() {
+  /**
+ * @return
+ * @uml.property  name="tableModel"
+ */
+public TableModel getTableModel() {
     return tableModel;
   }
 
   // ===========================================================================
-  public void setTableModel(TableModel tableModel) {
+  /**
+ * @param  tableModel
+ * @uml.property  name="tableModel"
+ */
+public void setTableModel(TableModel tableModel) {
     if (this.tableModel != null) {
       this.tableModel.removeTableModelListener(tableModelListener);
     }
@@ -200,12 +319,20 @@ public class TableSorter extends AbstractTableModel {
   }
 
   // ===========================================================================
-  public JTableHeader getTableHeader() {
+  /**
+ * @return
+ * @uml.property  name="tableHeader"
+ */
+public JTableHeader getTableHeader() {
     return tableHeader;
   }
 
   // ===========================================================================
-  public void setTableHeader(JTableHeader tableHeader) {
+  /**
+ * @param  tableHeader
+ * @uml.property  name="tableHeader"
+ */
+public void setTableHeader(JTableHeader tableHeader) {
     if (this.tableHeader != null) {
       this.tableHeader.removeMouseListener(mouseListener);
       TableCellRenderer defaultRenderer = this.tableHeader.getDefaultRenderer();
@@ -301,7 +428,11 @@ public class TableSorter extends AbstractTableModel {
   }
 
   // ===========================================================================
-  private Row[] getViewToModel() {
+  /**
+ * @return
+ * @uml.property  name="viewToModel"
+ */
+private Row[] getViewToModel() {
     if (viewToModel == null) {
       int tableModelRowCount = tableModel.getRowCount();
       viewToModel = new Row[tableModelRowCount];
@@ -322,7 +453,11 @@ public class TableSorter extends AbstractTableModel {
   }
 
   // ===========================================================================
-  private int[] getModelToView() {
+  /**
+ * @return
+ * @uml.property  name="modelToView"
+ */
+private int[] getModelToView() {
     if (modelToView == null) {
       int n = getViewToModel().length;
       modelToView = new int[n];

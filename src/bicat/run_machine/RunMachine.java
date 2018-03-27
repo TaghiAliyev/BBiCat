@@ -84,6 +84,118 @@ import java.util.LinkedList;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="nrGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="nrChips"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="computedBiclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="outputBiclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="cullDegenerate"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param nrGenes
+ * @uml.property  name="nrGenes"
+ */
+/**
+ * @param nrChips
+ * @uml.property  name="nrChips"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param computedBiclusters
+ * @uml.property  name="computedBiclusters"
+ */
+/**
+ * @param outputBiclusters
+ * @uml.property  name="outputBiclusters"
+ */
+/**
+ * Generic Run Machine implementation. Every clustering method implements its own, by extending from this class. Specific classes only needs arguments as input (Arguments holds the dataset in it as well) for them to be run Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="nrGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="nrChips"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="computedBiclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="outputBiclusters"
+ */
+/**
+ * @return
+ * @uml.property  name="cullDegenerate"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param nrGenes
+ * @uml.property  name="nrGenes"
+ */
+/**
+ * @param nrChips
+ * @uml.property  name="nrChips"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param computedBiclusters
+ * @uml.property  name="computedBiclusters"
+ */
+/**
+ * @param outputBiclusters
+ * @uml.property  name="outputBiclusters"
+ */
+/**
+ * @param cullDegenerate
+ * @uml.property  name="cullDegenerate"
+ */
 @Data
 public class RunMachine {
 
@@ -94,18 +206,43 @@ public class RunMachine {
 	}
 
 
+	/**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
 	protected BicatGui owner;
 
+	/**
+	 * @uml.property  name="nrGenes"
+	 */
 	protected int nrGenes = -1;
 
+	/**
+	 * @uml.property  name="nrChips"
+	 */
 	protected int nrChips = -1;
 
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
 	protected UtilFunctionalities engine;
 
+	/**
+	 * @uml.property  name="computedBiclusters"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.run_machine.Bicluster_bitset"
+	 */
 	protected LinkedList computedBiclusters; // "raw" biclusters computed by algorithm.
 
+	/**
+	 * @uml.property  name="outputBiclusters"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.biclustering.Bicluster"
+	 */
 	protected LinkedList outputBiclusters; // transferred from bimax... run.
 
+	/**
+	 * @uml.property  name="cullDegenerate"
+	 */
 	protected boolean cullDegenerate; // remove the "line" BCs?
 
 	// ===========================================================================

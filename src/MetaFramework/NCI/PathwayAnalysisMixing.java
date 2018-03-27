@@ -85,14 +85,22 @@ import java.util.Set;
 
 /**
  * New version of a pathway database parser (NCI-Curated)
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 @Data
 public class PathwayAnalysisMixing extends AbstractPathwayAnalysis<NCIMolecule, NCIInteraction, NCIPathway> {
 
+    /**
+	 * @uml.property  name="molecules"
+	 */
     private HashMap<Integer, NCIMolecule> molecules;
+    /**
+	 * @uml.property  name="interactions"
+	 */
     private HashMap<String, NCIInteraction> interactions;
+    /**
+	 * @uml.property  name="pathways"
+	 */
     private HashMap<Integer, NCIPathway> pathways;
 
 

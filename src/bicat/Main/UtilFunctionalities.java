@@ -99,111 +99,660 @@ import java.util.Vector;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 
+/**
+ * @return
+ * @uml.property  name="currentDirectoryPath"
+ */
+/**
+ * @return
+ * @uml.property  name="debug"
+ */
+/**
+ * @return
+ * @uml.property  name="currentDataset"
+ */
+/**
+ * @return
+ * @uml.property  name="currentDatasetIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="datasetList"
+ */
+/**
+ * @return
+ * @uml.property  name="dataAndChipInformationLoaded"
+ */
+/**
+ * @return
+ * @uml.property  name="gpDistanceThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="hammingDistance"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="processExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizeExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="currentBiclusterSelection"
+ */
+/**
+ * @return
+ * @uml.property  name="fileOffset"
+ */
+/**
+ * @return
+ * @uml.property  name="pre"
+ */
+/**
+ * @return
+ * @uml.property  name="post"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptions"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineBiMax"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_CC"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_ISA"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_XMotifs"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineOPSM"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineHCL"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineKMeans"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData"
+ */
+/**
+ * @return
+ * @uml.property  name="logBaseSetting"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizeComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData_for_GP"
+ */
+/**
+ * @param currentDirectoryPath
+ * @uml.property  name="currentDirectoryPath"
+ */
+/**
+ * @param debug
+ * @uml.property  name="debug"
+ */
+/**
+ * @param currentDataset
+ * @uml.property  name="currentDataset"
+ */
+/**
+ * @param currentDatasetIdx
+ * @uml.property  name="currentDatasetIdx"
+ */
+/**
+ * @param datasetList
+ * @uml.property  name="datasetList"
+ */
+/**
+ * @param dataAndChipInformationLoaded
+ * @uml.property  name="dataAndChipInformationLoaded"
+ */
+/**
+ * @param gpDistanceThreshold
+ * @uml.property  name="gpDistanceThreshold"
+ */
+/**
+ * @param hammingDistance
+ * @uml.property  name="hammingDistance"
+ */
+/**
+ * @param preprocessExtended
+ * @uml.property  name="preprocessExtended"
+ */
+/**
+ * @param processExtended
+ * @uml.property  name="processExtended"
+ */
+/**
+ * @param discretizeExtended
+ * @uml.property  name="discretizeExtended"
+ */
+/**
+ * @param currentBiclusterSelection
+ * @uml.property  name="currentBiclusterSelection"
+ */
+/**
+ * @param fileOffset
+ * @uml.property  name="fileOffset"
+ */
+/**
+ * @param pre
+ * @uml.property  name="pre"
+ */
+/**
+ * @param post
+ * @uml.property  name="post"
+ */
+/**
+ * @param preprocessOptions
+ * @uml.property  name="preprocessOptions"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param runMachineBiMax
+ * @uml.property  name="runMachineBiMax"
+ */
+/**
+ * @param runMachine_CC
+ * @uml.property  name="runMachine_CC"
+ */
+/**
+ * @param runMachine_ISA
+ * @uml.property  name="runMachine_ISA"
+ */
+/**
+ * @param runMachine_XMotifs
+ * @uml.property  name="runMachine_XMotifs"
+ */
+/**
+ * @param runMachineOPSM
+ * @uml.property  name="runMachineOPSM"
+ */
+/**
+ * @param runMachineHCL
+ * @uml.property  name="runMachineHCL"
+ */
+/**
+ * @param runMachineKMeans
+ * @uml.property  name="runMachineKMeans"
+ */
+/**
+ * @param rawData
+ * @uml.property  name="rawData"
+ */
+/**
+ * @param logBaseSetting
+ * @uml.property  name="logBaseSetting"
+ */
+/**
+ * @param discretizationThreshold
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @param preprocessComplete
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @param discretizeComplete
+ * @uml.property  name="discretizeComplete"
+ */
+/**
+ * Contains the common functionalities that are used for processing files, doing analysis and calling other classes for running algorithms <p> For example: There shouldn't be a need for creating a GUI element if simple biclustering run is needed and this class tries to contain all the method-related logic in it and making BicatGui class just about GUI <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="currentDirectoryPath"
+ */
+/**
+ * @return
+ * @uml.property  name="debug"
+ */
+/**
+ * @return
+ * @uml.property  name="currentDataset"
+ */
+/**
+ * @return
+ * @uml.property  name="currentDatasetIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="datasetList"
+ */
+/**
+ * @return
+ * @uml.property  name="dataAndChipInformationLoaded"
+ */
+/**
+ * @return
+ * @uml.property  name="gpDistanceThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="hammingDistance"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="processExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizeExtended"
+ */
+/**
+ * @return
+ * @uml.property  name="currentBiclusterSelection"
+ */
+/**
+ * @return
+ * @uml.property  name="fileOffset"
+ */
+/**
+ * @return
+ * @uml.property  name="pre"
+ */
+/**
+ * @return
+ * @uml.property  name="post"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessOptions"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineBiMax"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_CC"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_ISA"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachine_XMotifs"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineOPSM"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineHCL"
+ */
+/**
+ * @return
+ * @uml.property  name="runMachineKMeans"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData"
+ */
+/**
+ * @return
+ * @uml.property  name="logBaseSetting"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizeComplete"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData_for_GP"
+ */
+/**
+ * @param currentDirectoryPath
+ * @uml.property  name="currentDirectoryPath"
+ */
+/**
+ * @param debug
+ * @uml.property  name="debug"
+ */
+/**
+ * @param currentDataset
+ * @uml.property  name="currentDataset"
+ */
+/**
+ * @param currentDatasetIdx
+ * @uml.property  name="currentDatasetIdx"
+ */
+/**
+ * @param datasetList
+ * @uml.property  name="datasetList"
+ */
+/**
+ * @param dataAndChipInformationLoaded
+ * @uml.property  name="dataAndChipInformationLoaded"
+ */
+/**
+ * @param gpDistanceThreshold
+ * @uml.property  name="gpDistanceThreshold"
+ */
+/**
+ * @param hammingDistance
+ * @uml.property  name="hammingDistance"
+ */
+/**
+ * @param preprocessExtended
+ * @uml.property  name="preprocessExtended"
+ */
+/**
+ * @param processExtended
+ * @uml.property  name="processExtended"
+ */
+/**
+ * @param discretizeExtended
+ * @uml.property  name="discretizeExtended"
+ */
+/**
+ * @param currentBiclusterSelection
+ * @uml.property  name="currentBiclusterSelection"
+ */
+/**
+ * @param fileOffset
+ * @uml.property  name="fileOffset"
+ */
+/**
+ * @param pre
+ * @uml.property  name="pre"
+ */
+/**
+ * @param post
+ * @uml.property  name="post"
+ */
+/**
+ * @param preprocessOptions
+ * @uml.property  name="preprocessOptions"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param runMachineBiMax
+ * @uml.property  name="runMachineBiMax"
+ */
+/**
+ * @param runMachine_CC
+ * @uml.property  name="runMachine_CC"
+ */
+/**
+ * @param runMachine_ISA
+ * @uml.property  name="runMachine_ISA"
+ */
+/**
+ * @param runMachine_XMotifs
+ * @uml.property  name="runMachine_XMotifs"
+ */
+/**
+ * @param runMachineOPSM
+ * @uml.property  name="runMachineOPSM"
+ */
+/**
+ * @param runMachineHCL
+ * @uml.property  name="runMachineHCL"
+ */
+/**
+ * @param runMachineKMeans
+ * @uml.property  name="runMachineKMeans"
+ */
+/**
+ * @param rawData
+ * @uml.property  name="rawData"
+ */
+/**
+ * @param logBaseSetting
+ * @uml.property  name="logBaseSetting"
+ */
+/**
+ * @param discretizationThreshold
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @param preprocessComplete
+ * @uml.property  name="preprocessComplete"
+ */
+/**
+ * @param discretizeComplete
+ * @uml.property  name="discretizeComplete"
+ */
+/**
+ * @param rawData_for_GP
+ * @uml.property  name="rawData_for_GP"
+ */
 @Data
 @EqualsAndHashCode(of = {"currentDirectoryPath"})
 public class UtilFunctionalities {
 
     /* Current working directory */
+    /**
+	 * @uml.property  name="currentDirectoryPath"
+	 */
     private String currentDirectoryPath;
+    /**
+	 * @uml.property  name="debug"
+	 */
     private boolean debug = false;
 
+    /**
+	 * @uml.property  name="currentDataset"
+	 * @uml.associationEnd  
+	 */
     private Dataset currentDataset = null;
 
+    /**
+	 * @uml.property  name="currentDatasetIdx"
+	 */
     private int currentDatasetIdx = 0;
 
+    /**
+	 * @uml.property  name="datasetList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.biclustering.Dataset"
+	 */
     private LinkedList datasetList = new LinkedList();
 
+    /**
+	 * @uml.property  name="dataAndChipInformationLoaded"
+	 */
     private boolean dataAndChipInformationLoaded;
 
+    /**
+	 * @uml.property  name="gpDistanceThreshold"
+	 */
     private int gpDistanceThreshold;
 
+    /**
+	 * @uml.property  name="hammingDistance"
+	 */
     private float hammingDistance; // for visualization purposes! (for
 
+    /**
+	 * @uml.property  name="preprocessExtended"
+	 */
     private boolean preprocessExtended;
 
+    /**
+	 * @uml.property  name="processExtended"
+	 */
     private boolean processExtended;
 
+    /**
+	 * @uml.property  name="discretizeExtended"
+	 */
     private boolean discretizeExtended;
+    /**
+	 * @uml.property  name="currentBiclusterSelection"
+	 */
     private Vector[] currentBiclusterSelection; // for selecting a BC at once
 
     /**
-     * 100504: will generalize this!!! .... 2 if files have an offset that must
-     * be ignored (e.g. pathway IDs)
-     */
+	 * 100504: will generalize this!!! .... 2 if files have an offset that must be ignored (e.g. pathway IDs)
+	 * @uml.property  name="fileOffset"
+	 */
     private int fileOffset;
 
+    /**
+	 * @uml.property  name="pre"
+	 * @uml.associationEnd  inverse="utilEngine:bicat.preprocessor.Preprocessor"
+	 */
     private Preprocessor pre;
 
+    /**
+	 * @uml.property  name="post"
+	 * @uml.associationEnd  inverse="engine:bicat.postprocessor.Postprocessor"
+	 */
     private Postprocessor post;
 
     /**
-     * Keep the last Preprocessing Option !
-     */
+	 * Keep the last Preprocessing Option !
+	 * @uml.property  name="preprocessOptions"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private PreprocessOption preprocessOptions = new PreprocessOption();
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  inverse="utilEngine:bicat.gui.BicatGui"
+	 */
     private BicatGui owner;
 
     /**
-     * Used to perform biclustering: RunMachine for BiMax
-     */
+	 * Used to perform biclustering: RunMachine for BiMax
+	 * @uml.property  name="runMachineBiMax"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_BiMax runMachineBiMax;
 
     /**
-     * Used to perform biclustering: RunMachine for Cheng and Church (2000)
-     */
+	 * Used to perform biclustering: RunMachine for Cheng and Church (2000)
+	 * @uml.property  name="runMachine_CC"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_CC runMachine_CC;
 
     /**
-     * Used to perform biclustering: RunMachine for Iterative Signature
-     * Algorithm (ISA, 2002)
-     */
+	 * Used to perform biclustering: RunMachine for Iterative Signature Algorithm (ISA, 2002)
+	 * @uml.property  name="runMachine_ISA"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_ISA runMachine_ISA;
 
     /**
-     * Used to perform biclustering: RunMachine for xMotifs (2003)
-     */
+	 * Used to perform biclustering: RunMachine for xMotifs (2003)
+	 * @uml.property  name="runMachine_XMotifs"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_XMotifs runMachine_XMotifs;
 
     /**
-     * Used to perform biclustering: RunMachine for OPSM
-     */
+	 * Used to perform biclustering: RunMachine for OPSM
+	 * @uml.property  name="runMachineOPSM"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_OPSM runMachineOPSM;
 
     /**
-     * Used to perform clustering: RunMachine for Hierarchical Clustering
-     */
+	 * Used to perform clustering: RunMachine for Hierarchical Clustering
+	 * @uml.property  name="runMachineHCL"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_HCL runMachineHCL;
 
     /**
-     * Used to perform clustering: RunMachine for K-Means Clustering
-     */
+	 * Used to perform clustering: RunMachine for K-Means Clustering
+	 * @uml.property  name="runMachineKMeans"
+	 * @uml.associationEnd  
+	 */
     private RunMachine_KMeans runMachineKMeans;
 
 
     /**
-     * Contains whatever dataset that is currently being displayed (can be
-     * non-normalized data).
-     */
+	 * Contains whatever dataset that is currently being displayed (can be non-normalized data).
+	 * @uml.property  name="rawData"
+	 */
     private float[][] rawData;
 
 
     /**
-     * 1 if no log operation is desired in the preprocessing step, 2 or 10 for
-     * respective base logarithm.
-     */
+	 * 1 if no log operation is desired in the preprocessing step, 2 or 10 for respective base logarithm.
+	 * @uml.property  name="logBaseSetting"
+	 */
     private int logBaseSetting;
 
     /**
-     * Applied to the preprocessed data to get the discretized matrix for
-     * biclustering
-     */
+	 * Applied to the preprocessed data to get the discretized matrix for biclustering
+	 * @uml.property  name="discretizationThreshold"
+	 */
     private float discretizationThreshold;
 
     /**
-     * True id preprocessing has been performed
-     */
+	 * True id preprocessing has been performed
+	 * @uml.property  name="preprocessComplete"
+	 */
     private boolean preprocessComplete;
 
+    /**
+	 * @uml.property  name="discretizeComplete"
+	 */
     private boolean discretizeComplete;
 
 
@@ -715,11 +1264,9 @@ public class UtilFunctionalities {
     }
 
     /**
-     * Hands a <code>float</code> data matrix for display.<br>
-     * <p>
-     * Normalization of the values for display is needed, because of the color
-     * mapping.
-     */
+	 * Hands a <code>float</code> data matrix for display.<br> <p> Normalization of the values for display is needed, because of the color mapping.
+	 * @uml.property  name="rawData_for_GP"
+	 */
 
     private float[][] rawData_for_GP;
 

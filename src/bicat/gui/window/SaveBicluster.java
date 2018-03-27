@@ -73,6 +73,77 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="gene_offset"
+ */
+/**
+ * @return
+ * @uml.property  name="chip_offset"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param ok
+ * @uml.property  name="ok"
+ */
+/**
+ * @param gene_offset
+ * @uml.property  name="gene_offset"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="gene_offset"
+ */
+/**
+ * @return
+ * @uml.property  name="chip_offset"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param ok
+ * @uml.property  name="ok"
+ */
+/**
+ * @param gene_offset
+ * @uml.property  name="gene_offset"
+ */
+/**
+ * @param chip_offset
+ * @uml.property  name="chip_offset"
+ */
 @Data
 /**
  * This class is never used as there are other functions which does the work
@@ -83,16 +154,29 @@ import java.awt.event.ActionListener;
 public class SaveBicluster implements ActionListener {
 
     /**
-     * Dialog window.
-     */
+	 * Dialog window.
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
     /**
-     * Hook to governing <code>BicaGUI</code>.
-     */
+	 * Hook to governing <code>BicaGUI</code>.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="ok"
+	 */
     private boolean ok;
+    /**
+	 * @uml.property  name="gene_offset"
+	 */
     private int gene_offset;
+    /**
+	 * @uml.property  name="chip_offset"
+	 */
     private int chip_offset;
 
     // ===========================================================================

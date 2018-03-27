@@ -79,13 +79,56 @@ import java.util.ArrayList;
 /**
  * Specific class that contains pathways-related information
  */
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * @return
+ * @uml.property  name="name"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * Specific class that contains pathways-related information
+ */
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * @return
+ * @uml.property  name="name"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * @param name
+ * @uml.property  name="name"
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Pathway<E extends Molecule, T extends Interaction> implements Comparable {
+    /**
+	 * @uml.property  name="interactions"
+	 */
     private ArrayList<T> interactions;
+    /**
+	 * @uml.property  name="id"
+	 */
     private int id;
+    /**
+	 * @uml.property  name="molList"
+	 */
     private ArrayList<E> molList;
+    /**
+	 * @uml.property  name="name"
+	 */
     private String name;
 
     @Override

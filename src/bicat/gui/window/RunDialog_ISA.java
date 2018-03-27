@@ -75,6 +75,245 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_ISA"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_ISA_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_T_G_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_T_C_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="t_g_f"
+ */
+/**
+ * @return
+ * @uml.property  name="t_c_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="isaa"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_ISA
+ * @uml.property  name="rUN_ISA"
+ */
+/**
+ * @param RUN_ISA_DIALOG_CANCEL
+ * @uml.property  name="rUN_ISA_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_BICLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_T_G_VALUE
+ * @uml.property  name="dEFAULT_T_G_VALUE"
+ */
+/**
+ * @param DEFAULT_T_C_VALUE
+ * @uml.property  name="dEFAULT_T_C_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param t_g_f
+ * @uml.property  name="t_g_f"
+ */
+/**
+ * @param t_c_f
+ * @uml.property  name="t_c_f"
+ */
+/**
+ * @param number_BCs_f
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_ISA"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_ISA_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_T_G_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_T_C_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="t_g_f"
+ */
+/**
+ * @return
+ * @uml.property  name="t_c_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="isaa"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_ISA
+ * @uml.property  name="rUN_ISA"
+ */
+/**
+ * @param RUN_ISA_DIALOG_CANCEL
+ * @uml.property  name="rUN_ISA_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_BICLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_T_G_VALUE
+ * @uml.property  name="dEFAULT_T_G_VALUE"
+ */
+/**
+ * @param DEFAULT_T_C_VALUE
+ * @uml.property  name="dEFAULT_T_C_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param t_g_f
+ * @uml.property  name="t_g_f"
+ */
+/**
+ * @param t_c_f
+ * @uml.property  name="t_c_f"
+ */
+/**
+ * @param number_BCs_f
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @param isaa
+ * @uml.property  name="isaa"
+ */
 @Data
 /**
  * GUI element that reads in the values needed for the ISA algorithm and sends them through
@@ -84,34 +323,87 @@ import java.awt.event.ActionListener;
  */
 public class RunDialog_ISA implements ActionListener {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="dEFAULT_PARAMETERS"
+	 */
     private String DEFAULT_PARAMETERS = "set_defaults";
 
+    /**
+	 * @uml.property  name="rUN_ISA"
+	 */
     private String RUN_ISA = "run_isa";
 
+    /**
+	 * @uml.property  name="rUN_ISA_DIALOG_CANCEL"
+	 */
     private String RUN_ISA_DIALOG_CANCEL = "cancel";
 
+    /**
+	 * @uml.property  name="dEFAULT_SEED_VALUE"
+	 */
     private String DEFAULT_SEED_VALUE = "13";
 
+    /**
+	 * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+	 */
     private String DEFAULT_NUMBER_BICLUSTERS_VALUE = "100";
 
+    /**
+	 * @uml.property  name="dEFAULT_T_G_VALUE"
+	 */
     private String DEFAULT_T_G_VALUE = "2.0";
 
+    /**
+	 * @uml.property  name="dEFAULT_T_C_VALUE"
+	 */
     private String DEFAULT_T_C_VALUE = "2.0";
 
+    /**
+	 * @uml.property  name="seed_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField seed_f;
 
+    /**
+	 * @uml.property  name="t_g_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField t_g_f;
 
+    /**
+	 * @uml.property  name="t_c_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField t_c_f;
 
+    /**
+	 * @uml.property  name="number_BCs_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField number_BCs_f;
 
+    /**
+	 * @uml.property  name="isaa"
+	 * @uml.associationEnd  
+	 */
     private ArgumentsISA isaa;
 
     // ===========================================================================

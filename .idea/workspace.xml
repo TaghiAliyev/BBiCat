@@ -1,194 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/MetaFramework/Bayesian.java" description="//    public int geneExclusive(ArrayList&lt;String&gt; g..." line="143" />
+    <bookmark url="file://$PROJECT_DIR$/src/MetaFramework/Bayesian.java" description="//    public int geneExclusive(ArrayList&lt;String&gt; g..." line="153" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cc0cbf7-2c82-4301-95e0-035655545ce8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGParserUpdated.java" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\BicAT_v2.22.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\README.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\bicat\algorithms\bimax\BiMax.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\bicat\algorithms\bimax\Biclustering.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\bicat\algorithms\clustering\GraphicUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\bicat\gui\ActionManager.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\bicat\run_machine\RunMachine_HCL$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\jfreechart-0.9.21.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\BimaxNoGui.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\Cluster.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\DBSCAN.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\Dataset.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\FileParsers.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\Instance.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\bin\main\computeMeanResidueScore.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\src\bicat.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\src\lib.rar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\tagi1_000\Desktop\CERN\BBiCat\src\src.rar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/About.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/About.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/AnalysisPane.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/AnalysisPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/AnalysisUtil.class" afterPath="$PROJECT_DIR$/bin/bicat/util/AnalysisUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/Arguments.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/Arguments.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsBiMax.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsBiMax.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsCC.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsCC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsHCL.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsHCL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsISA.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsISA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsKMeans.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsKMeans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsOPSM.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsOPSM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsXMotifs.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/ArgumentsXMotifs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/AuxDialog.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/AuxDialog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedAlgorithm.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedAlgorithm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModel.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelEvaluation.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelEvaluation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelExtension.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelExtension.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelInitialization.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelInitialization.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelRecord.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/BendorReloadedModelRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/BicatError.class" afterPath="$PROJECT_DIR$/bin/bicat/util/BicatError.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/BicatGui$1.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/BicatGui$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/BicatGui.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/BicatGui.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/BicatUtil.class" afterPath="$PROJECT_DIR$/bin/bicat/util/BicatUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/biclustering/Bicluster.class" afterPath="$PROJECT_DIR$/bin/bicat/biclustering/Bicluster.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/BiclusterInfo.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/BiclusterInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/Bicluster_bitset.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/Bicluster_bitset.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/Chip.class" afterPath="$PROJECT_DIR$/bin/bicat/util/Chip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/biclustering/Dataset.class" afterPath="$PROJECT_DIR$/bin/bicat/biclustering/Dataset.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/EmptyClusterException.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/EmptyClusterException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/preprocessor/FileOffsetException.class" afterPath="$PROJECT_DIR$/bin/bicat/preprocessor/FileOffsetException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/Filter.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/Filter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/Gene.class" afterPath="$PROJECT_DIR$/bin/bicat/util/Gene.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/GenePairAnalysis.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/GenePairAnalysis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/GenePairTableModel.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/GenePairTableModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/GraphicPane.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/GraphicPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/HCL.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/HCL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/HammingDistanceBC.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/HammingDistanceBC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/KMeans.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/KMeans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/KMeansClusters.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/KMeansClusters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/LinkListElement.class" afterPath="$PROJECT_DIR$/bin/bicat/util/LinkListElement.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/LoadData.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/LoadData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/Mask.class" afterPath="$PROJECT_DIR$/bin/bicat/util/Mask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/Model.class" afterPath="$PROJECT_DIR$/bin/bicat/util/Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/OPSMDataset.class" afterPath="$PROJECT_DIR$/bin/bicat/util/OPSMDataset.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/Option.class" afterPath="$PROJECT_DIR$/bin/bicat/util/Option.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/ParetoModelRecord.class" afterPath="$PROJECT_DIR$/bin/bicat/util/ParetoModelRecord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/PicturePane.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/PicturePane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/Pmr2listConverter.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/opsm/Pmr2listConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/PopupListener.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/PopupListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/PostUtil.class" afterPath="$PROJECT_DIR$/bin/bicat/util/PostUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/postprocessor/Postprocessor.class" afterPath="$PROJECT_DIR$/bin/bicat/postprocessor/Postprocessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/PreUtil.class" afterPath="$PROJECT_DIR$/bin/bicat/util/PreUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/PreprocessData.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/PreprocessData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/preprocessor/PreprocessOption.class" afterPath="$PROJECT_DIR$/bin/bicat/preprocessor/PreprocessOption.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/preprocessor/Preprocessor.class" afterPath="$PROJECT_DIR$/bin/bicat/preprocessor/Preprocessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_BiMax.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_BiMax.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_CC.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_CC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_HCL.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_HCL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_ISA.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_ISA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_KMeans.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_KMeans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_OPSM.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_OPSM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_XMotifs.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunDialog_XMotifs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/RunInfo.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/RunInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_BiMax$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_BiMax$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_BiMax.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_BiMax.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_CC$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_CC$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_CC.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_CC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_HCL.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_HCL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_ISA$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_ISA$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_ISA.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_ISA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_KMeans$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_KMeans$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_KMeans.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_KMeans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_OPSM$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_OPSM$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_OPSM.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_OPSM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_XMotifs$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_XMotifs$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_XMotifs.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/RunMachine_XMotifs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/RunOPSM.class" afterPath="$PROJECT_DIR$/bin/bicat/util/RunOPSM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/SaveBicluster.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/SaveBicluster.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/Search.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/Search.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$1.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$2.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$ThreadVar.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker$ThreadVar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker.class" afterPath="$PROJECT_DIR$/bin/bicat/run_machine/SwingWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/TabbedPaneController.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/TabbedPaneController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/window/TablePreviewHandler.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/window/TablePreviewHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$1.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$2.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Arrow.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Arrow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Directive.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Directive.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$MouseHandler.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$MouseHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Row.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$Row.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$SortableHeaderRenderer.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$SortableHeaderRenderer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$TableModelHandler.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter$TableModelHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/gui/TableSorter.class" afterPath="$PROJECT_DIR$/bin/bicat/gui/TableSorter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/Util.class" afterPath="$PROJECT_DIR$/bin/bicat/algorithms/clustering/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/XMath.class" afterPath="$PROJECT_DIR$/bin/bicat/util/XMath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/bicat/util/XPrintStream.class" afterPath="$PROJECT_DIR$/bin/bicat/util/XPrintStream.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/About.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/About.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/AbstractPathwayAnalysis.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/AbstractPathwayAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/AnalysisPane.java" afterPath="$PROJECT_DIR$/src/bicat/gui/AnalysisPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/Arguments.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/Arguments.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsBiMax.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsBiMax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsCC.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsCC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsHCL.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsHCL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsISA.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsISA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsKMeans.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsKMeans.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsOPSM.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsOPSM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsXMotifs.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsXMotifs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/AuxDialog.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/AuxDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bimax.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/bin.xml" afterPath="$PROJECT_DIR$/.idea/libraries/bin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BBiCat.iml" afterPath="$PROJECT_DIR$/BBiCat.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/AbstractPathwayAnalysis.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/AbstractPathwayAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Interaction.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Interaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Molecule.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Molecule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Pathway.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Pathway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/Bayesian.java" afterPath="$PROJECT_DIR$/src/MetaFramework/Bayesian.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/BicatMethods.java" afterPath="$PROJECT_DIR$/src/MetaFramework/BicatMethods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/ClusteringIndexValues.java" afterPath="$PROJECT_DIR$/src/MetaFramework/ClusteringIndexValues.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment1.java" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment2.java" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment3.java" afterPath="$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment3.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/FDRTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/FDRTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/IlluminaParsers.java" afterPath="$PROJECT_DIR$/src/MetaFramework/IlluminaParsers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGInteraction.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGInteraction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGMolecule.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGMolecule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGParserUpdated.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGParserUpdated.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGPathwayInstance.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGPathwayInstance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KeggPathway.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KeggPathway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/MatrixFunctions.java" afterPath="$PROJECT_DIR$/src/MetaFramework/MatrixFunctions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIInteraction.java" afterPath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIInteraction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIMolecule.java" afterPath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIMolecule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIPathway.java" afterPath="$PROJECT_DIR$/src/MetaFramework/NCI/NCIPathway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/NCI/PathwayAnalysisMixing.java" afterPath="$PROJECT_DIR$/src/MetaFramework/NCI/PathwayAnalysisMixing.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/PathwayAnalysis.java" afterPath="$PROJECT_DIR$/src/MetaFramework/PathwayAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/RConnection.java" afterPath="$PROJECT_DIR$/src/MetaFramework/RConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/ReadingBigData.java" afterPath="$PROJECT_DIR$/src/MetaFramework/ReadingBigData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/SpecialMatrix.java" afterPath="$PROJECT_DIR$/src/MetaFramework/SpecialMatrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/BayesianWindow.java" afterPath="$PROJECT_DIR$/src/bicat/gui/BayesianWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/BicatAndRTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/BicatAndRTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/ForMario.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/ForMario.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/IlluminaParserTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/IlluminaParserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/MyBiMaxTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/MyBiMaxTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/PValueTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/PValueTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/PathwayAnalysisTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/PathwayAnalysisTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/QuantileTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/QuantileTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/TestCases/TranslationEngineTest.java" afterPath="$PROJECT_DIR$/src/MetaFramework/TestCases/TranslationEngineTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/Constants/MethodConstants.java" afterPath="$PROJECT_DIR$/src/bicat/Constants/MethodConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/Constants/UtilConstants.java" afterPath="$PROJECT_DIR$/src/bicat/Constants/UtilConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/Main/UtilFunctionalities.java" afterPath="$PROJECT_DIR$/src/bicat/Main/UtilFunctionalities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/EmptyClusterException.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/EmptyClusterException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/HCL.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/HCL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeans.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeans.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeansClusters.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeansClusters.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/Util.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedAlgorithm.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedAlgorithm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModel.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelEvaluation.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelEvaluation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelExtension.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelExtension.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelInitialization.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelInitialization.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelRecord.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/BendorReloadedModelRecord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/BiCat_GNU.xml" afterPath="$PROJECT_DIR$/.idea/copyright/BiCat_GNU.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/BicatGui.java" afterPath="$PROJECT_DIR$/src/bicat/gui/BicatGui.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/BicatMethods.java" afterPath="$PROJECT_DIR$/src/MetaFramework/BicatMethods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/Pmr2listConverter.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/Pmr2listConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/biclustering/Bicluster.java" afterPath="$PROJECT_DIR$/src/bicat/biclustering/Bicluster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/BiclusterInfo.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/BiclusterInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/Bicluster_bitset.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/Bicluster_bitset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BBiCat/bicat/run_machine/C_RunMachine_BiMax" afterPath="$PROJECT_DIR$/out/production/BBiCat/bicat/run_machine/C_RunMachine_BiMax" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/biclustering/Dataset.java" afterPath="$PROJECT_DIR$/src/bicat/biclustering/Dataset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/Filter.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/GenePairAnalysis.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/GenePairAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/biclustering/IntegerTest.java" afterPath="$PROJECT_DIR$/src/bicat/biclustering/IntegerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/biclustering/MyBiMax.java" afterPath="$PROJECT_DIR$/src/bicat/biclustering/MyBiMax.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/AnalysisPane.java" afterPath="$PROJECT_DIR$/src/bicat/gui/AnalysisPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/BayesianWindow.java" afterPath="$PROJECT_DIR$/src/bicat/gui/BayesianWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/BicatGui.java" afterPath="$PROJECT_DIR$/src/bicat/gui/BicatGui.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/GenePairTableModel.java" afterPath="$PROJECT_DIR$/src/bicat/gui/GenePairTableModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/GraphicPane.java" afterPath="$PROJECT_DIR$/src/bicat/gui/GraphicPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/HCL.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/HCL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/HammingDistanceBC.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/HammingDistanceBC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/IlluminaParsers.java" afterPath="$PROJECT_DIR$/src/MetaFramework/IlluminaParsers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Interaction.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Interaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BBiCat/bicat/run_machine/Java_RunMachine_BiMax" afterPath="$PROJECT_DIR$/out/production/BBiCat/bicat/run_machine/Java_RunMachine_BiMax" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeans.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeans.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeansClusters.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/clustering/KMeansClusters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/KEGG/KeggPathway.java" afterPath="$PROJECT_DIR$/src/MetaFramework/KEGG/KeggPathway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/LinkListElement.java" afterPath="$PROJECT_DIR$/src/bicat/util/LinkListElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/LoadData.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/LoadData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/MatrixFunctions.java" afterPath="$PROJECT_DIR$/src/MetaFramework/MatrixFunctions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/Model.java" afterPath="$PROJECT_DIR$/src/bicat/util/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Molecule.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Molecule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/biclustering/MyBiMax.java" afterPath="$PROJECT_DIR$/src/bicat/biclustering/MyBiMax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/OPSMDataset.java" afterPath="$PROJECT_DIR$/src/bicat/util/OPSMDataset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/ParetoModelRecord.java" afterPath="$PROJECT_DIR$/src/bicat/util/ParetoModelRecord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Pathway.java" afterPath="$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Pathway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/PathwayAnalysis.java" afterPath="$PROJECT_DIR$/src/MetaFramework/PathwayAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/NCI/PathwayAnalysisMixing.java" afterPath="$PROJECT_DIR$/src/MetaFramework/NCI/PathwayAnalysisMixing.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/PathwayGUI.java" afterPath="$PROJECT_DIR$/src/bicat/gui/PathwayGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/PicturePane.java" afterPath="$PROJECT_DIR$/src/bicat/gui/PicturePane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/algorithms/opsm/Pmr2listConverter.java" afterPath="$PROJECT_DIR$/src/bicat/algorithms/opsm/Pmr2listConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/PopupListener.java" afterPath="$PROJECT_DIR$/src/bicat/gui/PopupListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/PostUtil.java" afterPath="$PROJECT_DIR$/src/bicat/util/PostUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/postprocessor/Postprocessor.java" afterPath="$PROJECT_DIR$/src/bicat/postprocessor/Postprocessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/TableSorter.java" afterPath="$PROJECT_DIR$/src/bicat/gui/TableSorter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/TranslationGUI.java" afterPath="$PROJECT_DIR$/src/bicat/gui/TranslationGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/About.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/About.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/AuxDialog.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/AuxDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/BiclusterInfo.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/BiclusterInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/Filter.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/Filter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/GenePairAnalysis.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/GenePairAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/HammingDistanceBC.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/HammingDistanceBC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/LoadData.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/LoadData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/PreprocessData.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/PreprocessData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/preprocessor/PreprocessOption.java" afterPath="$PROJECT_DIR$/src/bicat/preprocessor/PreprocessOption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java" afterPath="$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/RConnection.java" afterPath="$PROJECT_DIR$/src/MetaFramework/RConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/ReadingBigData.java" afterPath="$PROJECT_DIR$/src/MetaFramework/ReadingBigData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_BiMax.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_BiMax.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_CC.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_CC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_HCL.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_HCL.java" />
@@ -197,21 +91,48 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_OPSM.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_OPSM.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_XMotifs.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunDialog_XMotifs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/RunInfo.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/RunInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/RunOPSM.java" afterPath="$PROJECT_DIR$/src/bicat/util/RunOPSM.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/SaveBicluster.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/SaveBicluster.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/Search.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/Search.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MetaFramework/SpecialMatrix.java" afterPath="$PROJECT_DIR$/src/MetaFramework/SpecialMatrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/SwingWorker.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/SwingWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/TabbedPaneController.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/TabbedPaneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/window/TablePreviewHandler.java" afterPath="$PROJECT_DIR$/src/bicat/gui/window/TablePreviewHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/TableSorter.java" afterPath="$PROJECT_DIR$/src/bicat/gui/TableSorter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/gui/TranslationGUI.java" afterPath="$PROJECT_DIR$/src/bicat/gui/TranslationGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/Main/UtilFunctionalities.java" afterPath="$PROJECT_DIR$/src/bicat/Main/UtilFunctionalities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/postprocessor/Postprocessor.java" afterPath="$PROJECT_DIR$/src/bicat/postprocessor/Postprocessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/preprocessor/FileOffsetException.java" afterPath="$PROJECT_DIR$/src/bicat/preprocessor/FileOffsetException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/preprocessor/PreprocessOption.java" afterPath="$PROJECT_DIR$/src/bicat/preprocessor/PreprocessOption.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java" afterPath="$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/Arguments.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/Arguments.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsBiMax.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsBiMax.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsCC.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsCC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsHCL.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsHCL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsISA.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsISA.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsKMeans.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsKMeans.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsOPSM.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsOPSM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsXMotifs.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/ArgumentsXMotifs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/Bicluster_bitset.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/Bicluster_bitset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_CC.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_CC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_HCL.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_HCL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_ISA.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_ISA.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_KMeans.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_KMeans.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_OPSM.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_OPSM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_XMotifs.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_XMotifs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/run_machine/SwingWorker.java" afterPath="$PROJECT_DIR$/src/bicat/run_machine/SwingWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/testCases/BiCatExamples.java" afterPath="$PROJECT_DIR$/src/bicat/testCases/BiCatExamples.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/testCases/ISAExample.java" afterPath="$PROJECT_DIR$/src/bicat/testCases/ISAExample.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/testCases/KMeansExample.java" afterPath="$PROJECT_DIR$/src/bicat/testCases/KMeansExample.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/AnalysisUtil.java" afterPath="$PROJECT_DIR$/src/bicat/util/AnalysisUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/BicatError.java" afterPath="$PROJECT_DIR$/src/bicat/util/BicatError.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/BicatUtil.java" afterPath="$PROJECT_DIR$/src/bicat/util/BicatUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/LinkListElement.java" afterPath="$PROJECT_DIR$/src/bicat/util/LinkListElement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/Model.java" afterPath="$PROJECT_DIR$/src/bicat/util/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/OPSMDataset.java" afterPath="$PROJECT_DIR$/src/bicat/util/OPSMDataset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/Option.java" afterPath="$PROJECT_DIR$/src/bicat/util/Option.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/ParetoModelRecord.java" afterPath="$PROJECT_DIR$/src/bicat/util/ParetoModelRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/PostUtil.java" afterPath="$PROJECT_DIR$/src/bicat/util/PostUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/PreUtil.java" afterPath="$PROJECT_DIR$/src/bicat/util/PreUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/RunOPSM.java" afterPath="$PROJECT_DIR$/src/bicat/util/RunOPSM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/XMath.java" afterPath="$PROJECT_DIR$/src/bicat/util/XMath.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bicat/util/XPrintStream.java" afterPath="$PROJECT_DIR$/src/bicat/util/XPrintStream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bimax.out" afterPath="$PROJECT_DIR$/bimax.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/matrix.txt" afterPath="$PROJECT_DIR$/matrix.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CERNProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -223,7 +144,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CompilerWorkspaceConfiguration">
     <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
@@ -235,7 +155,57 @@
     <favorites_list name="CERNProject" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="BayesianTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-48">
+              <caret line="90" column="6" lean-forward="true" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6227#6240#0" expanded="true" />
+                <element signature="e#8634#8642#0" expanded="true" />
+                <element signature="e#9162#9170#0" expanded="true" />
+                <element signature="e#11565#11573#0" expanded="true" />
+                <element signature="e#12091#12099#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BayesianVerification.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1894">
+              <caret line="103" column="39" lean-forward="true" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunMachine_BiMax.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bayesian.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MetaFramework/Bayesian.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="77" column="19" lean-forward="false" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -255,7 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MetaFramework/PathwayAnalysisTest.java" />
         <option value="$PROJECT_DIR$/src/MetaFramework/IlluminaParserTest.java" />
         <option value="$PROJECT_DIR$/src/bicat/biclustering/IntegerTest.java" />
         <option value="$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java" />
@@ -306,27 +275,18 @@
         <option value="$PROJECT_DIR$/src/MetaFramework/Bayesian.java" />
         <option value="$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java" />
         <option value="$PROJECT_DIR$/src/MetaFramework/BicatMethods.java" />
+        <option value="$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java" />
       </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState />
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="1984" />
+    <option name="y" value="-11" />
+    <option name="width" value="2497" />
+    <option name="height" value="1452" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -344,16 +304,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -365,16 +316,13 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CERNProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="CERNProject" />
@@ -521,23 +469,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../commons-math3-3.5/commons-math3-3.5-javadoc.jar!/" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/commons-math3-3.6.1.jar!/" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/awt/Color.java" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
@@ -545,6 +489,18 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="MetaFramework.NCI" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.BayesianVerification">
     <configuration default="false" name="Experiment2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -666,26 +622,35 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -695,18 +660,24 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -771,6 +742,47 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BBiCat" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
       <method />
     </configuration>
@@ -844,9 +856,9 @@
       <option name="MAIN_CLASS_NAME" value="MetaFramework.TestCases.BayesianTest" />
       <option name="METHOD_NAME" value="simpleTest" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=&quot;$PROJECT_DIR$/src/&quot;" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -874,8 +886,30 @@
         <item index="4" class="java.lang.String" itemvalue="Application.KeggPathway" />
       </list>
     </recent_temporary>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
     <supportedVersion>125</supportedVersion>
@@ -885,9 +919,36 @@
       <changelist id="0cc0cbf7-2c82-4301-95e0-035655545ce8" name="Default" comment="" />
       <created>1441182335194</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1441182335194</updated>
     </task>
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 26m 47s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 29m 30s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 30m 29s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 31m 20s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 31m 36s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 32m 17s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 32m 23s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BayesianTest_simpleTest - 2018.03.27 at 17h 33m 06s.xml">
+      <configuration name="BayesianTest.simpleTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -899,36 +960,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="1984" y="-11" width="2497" height="1452" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3783525" sideWeight="0.50323623" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.48613375" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19818456" sideWeight="0.51386625" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5833333" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30718955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37091503" sideWeight="0.49676377" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328341" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32189542" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3064877" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3783525" sideWeight="0.50323623" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37061894" sideWeight="0.49676377" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22805612" sideWeight="0.48613375" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5831469" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19818456" sideWeight="0.51386625" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32189542" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -944,32 +1011,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java</url>
-          <line>208</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java</url>
-          <line>266</line>
-          <properties />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java</url>
-          <line>268</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java</url>
-          <line>273</line>
-          <properties />
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -984,361 +1025,334 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CallTestScript.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TranslationScript.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/gui/BicatGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2046" column="0" selection-start-line="2046" selection-start-column="0" selection-end-line="2046" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="2046" column="0" lean-forward="false" selection-start-line="2046" selection-start-column="0" selection-end-line="2046" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/RConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+        <state relative-caret-position="0">
+          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/preprocessor/PreprocessOption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="258" column="16" selection-start-line="258" selection-start-column="16" selection-end-line="258" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="258" column="16" lean-forward="false" selection-start-line="258" selection-start-column="16" selection-end-line="258" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/util/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322884">
-          <caret line="561" column="11" selection-start-line="561" selection-start-column="11" selection-end-line="561" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/io/FileInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33159268">
-          <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0216217">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21441442">
-          <caret line="187" column="30" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../commons-math3-3.5/commons-math3-3.5.jar!/org/apache/commons/math3/stat/inference/TTest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35037878">
-          <caret line="97" column="18" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/util/Scanner.java" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/io/FileInputStream.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Engine.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Main.java" />
+    <entry file="jar://$PROJECT_DIR$/../../commons-math3-3.5/commons-math3-3.5.jar!/org/apache/commons/math3/stat/inference/TTest.class" />
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/PathwayAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="93" selection-start-line="81" selection-start-column="93" selection-end-line="81" selection-end-column="93" />
+        <state relative-caret-position="0">
+          <caret line="81" column="93" lean-forward="false" selection-start-line="81" selection-start-column="93" selection-end-line="81" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/TranslationEngineTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="103" column="26" lean-forward="false" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/biclustering/MyBiMax.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="451" column="0" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Interaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59336823">
-          <caret line="83" column="52" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
+        <state relative-caret-position="0">
+          <caret line="83" column="52" lean-forward="false" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/PValueTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="96" selection-start-line="91" selection-start-column="96" selection-end-line="91" selection-end-column="96" />
+        <state relative-caret-position="0">
+          <caret line="91" column="96" lean-forward="false" selection-start-line="91" selection-start-column="96" selection-end-line="91" selection-end-column="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/gui/BayesianWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="181" column="21" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="181" column="21" lean-forward="false" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/PathwayAnalysisTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="55" selection-start-line="108" selection-start-column="55" selection-end-line="108" selection-end-column="55" />
+        <state relative-caret-position="0">
+          <caret line="108" column="55" lean-forward="false" selection-start-line="108" selection-start-column="55" selection-end-line="108" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/NCI/NCIInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5557692">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/NCI/NCIPathway.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45945945">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/NCI/PathwayAnalysisMixing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="210" column="53" selection-start-line="210" selection-start-column="53" selection-end-line="210" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="210" column="53" lean-forward="false" selection-start-line="210" selection-start-column="53" selection-end-line="210" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Pathway.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="22" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
+        <state relative-caret-position="0">
+          <caret line="127" column="22" lean-forward="false" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/AbstractPathwayAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="79" column="7" lean-forward="false" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/FDRTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
+        <state relative-caret-position="0">
+          <caret line="114" column="12" lean-forward="false" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14554794">
-          <caret line="68" column="72" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
+        <state relative-caret-position="0">
+          <caret line="68" column="72" lean-forward="false" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BicatAndRTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06849315">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/ReadingBigData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5017123">
-          <caret line="158" column="11" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="158" column="11" lean-forward="false" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/biclustering/Bicluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="468" column="16" selection-start-line="468" selection-start-column="16" selection-end-line="468" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="468" column="16" lean-forward="false" selection-start-line="468" selection-start-column="16" selection-end-line="468" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OwnPersonal/computeMeanResidueScore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="62" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+        <state relative-caret-position="0">
+          <caret line="122" column="62" lean-forward="false" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="171" column="36" selection-start-line="171" selection-start-column="36" selection-end-line="171" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="171" column="36" lean-forward="false" selection-start-line="171" selection-start-column="36" selection-end-line="171" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGPathwayInstance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+        <state relative-caret-position="0">
+          <caret line="76" column="46" lean-forward="false" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGMolecule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+        <state relative-caret-position="0">
+          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGParserUpdated.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="44" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
+        <state relative-caret-position="0">
+          <caret line="118" column="44" lean-forward="false" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/IlluminaParsers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="107" column="11" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/KEGG/KeggPathway.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3681507">
-          <caret line="95" column="7" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="95" column="7" lean-forward="false" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/biclustering/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2086" column="21" selection-start-line="2086" selection-start-column="21" selection-end-line="2086" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7243152">
-          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="2086" column="21" lean-forward="false" selection-start-line="2086" selection-start-column="21" selection-end-line="2086" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicat/preprocessor/Preprocessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918">
-          <caret line="475" column="19" selection-start-line="475" selection-start-column="19" selection-end-line="475" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="475" column="19" lean-forward="false" selection-start-line="475" selection-start-column="19" selection-end-line="475" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/NCI/NCIMolecule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="74" column="35" lean-forward="false" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/AbstractPathwayUtils/Molecule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="22" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
+        <state relative-caret-position="0">
+          <caret line="127" column="22" lean-forward="false" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/MyBiMaxTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/util/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6815069">
-          <caret line="319" column="12" selection-start-line="319" selection-start-column="12" selection-end-line="319" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_60/src.zip!/java/util/Set.java" />
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/Experiments/Experiment3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/BicatMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918">
-          <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="148" column="10" lean-forward="false" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/ClusteringIndexValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918">
-          <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/IlluminaParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32020548">
-          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/ForMario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02910959">
-          <caret line="110" column="51" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="229" column="9" selection-start-line="229" selection-start-column="9" selection-end-line="229" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="110" column="51" lean-forward="false" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/KEGG/KEGGInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26198632">
-          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.494863">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="72" column="13" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/MatrixFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59246576">
-          <caret line="276" column="27" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
+        <state relative-caret-position="0">
+          <caret line="276" column="27" lean-forward="false" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MetaFramework/Bayesian.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="393" column="20" selection-start-line="393" selection-start-column="20" selection-end-line="393" selection-end-column="20" />
+        <state relative-caret-position="224">
+          <caret line="77" column="19" lean-forward="false" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicat/run_machine/RunMachine_BiMax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="90" column="6" lean-forward="true" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6227#6240#0" expanded="true" />
+            <element signature="e#8634#8642#0" expanded="true" />
+            <element signature="e#9162#9170#0" expanded="true" />
+            <element signature="e#11565#11573#0" expanded="true" />
+            <element signature="e#12091#12099#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MetaFramework/TestCases/BayesianVerification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1894">
+          <caret line="103" column="39" lean-forward="true" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1434,9 +1448,9 @@
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
       <option name="birdViewUpdateDelay" value="2000" />
-      <option name="knownFile1" value="file://$PROJECT_DIR$/../BBiCatUML.suml" />
-      <option name="knownFile0" value="file://$PROJECT_DIR$/../BBiCatProjectUML.suml" />
-      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+      <option name="knownFile1" value="file://$USER_HOME$/BBiCatUML.suml" />
+      <option name="knownFile0" value="file://$USER_HOME$/BBiCatProjectUML.suml" />
+      <option name="defaultFileLocation" value="file://$USER_HOME$" />
     </General>
     <Classdiagram>
       <option name="diagramTitleFont" value="SansSerif,1,12" />

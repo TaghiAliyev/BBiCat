@@ -76,6 +76,102 @@ import java.util.*;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="error"
+ */
+/**
+ * @return
+ * @uml.property  name="gd"
+ */
+/**
+ * @return
+ * @uml.property  name="cd"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * @param type
+ * @uml.property  name="type"
+ */
+/**
+ * @param genes
+ * @uml.property  name="genes"
+ */
+/**
+ * @param chips
+ * @uml.property  name="chips"
+ */
+/**
+ * @param size
+ * @uml.property  name="size"
+ */
+/**
+ * @param msrs
+ * @uml.property  name="msrs"
+ */
+/**
+ * @param error
+ * @uml.property  name="error"
+ */
+/**
+ * @param gd
+ * @uml.property  name="gd"
+ */
+/**
+ * This class represents the general bi-clusters. Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="error"
+ */
+/**
+ * @return
+ * @uml.property  name="gd"
+ */
+/**
+ * @return
+ * @uml.property  name="cd"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * @param type
+ * @uml.property  name="type"
+ */
+/**
+ * @param genes
+ * @uml.property  name="genes"
+ */
+/**
+ * @param chips
+ * @uml.property  name="chips"
+ */
+/**
+ * @param size
+ * @uml.property  name="size"
+ */
+/**
+ * @param msrs
+ * @uml.property  name="msrs"
+ */
+/**
+ * @param error
+ * @uml.property  name="error"
+ */
+/**
+ * @param gd
+ * @uml.property  name="gd"
+ */
+/**
+ * @param cd
+ * @uml.property  name="cd"
+ */
 @Data
 public class Bicluster implements Comparable {
 
@@ -90,38 +186,53 @@ public class Bicluster implements Comparable {
     private static boolean ZEROES = false;
 
     /**
-     * Unique ID number.
-     */
+	 * Unique ID number.
+	 * @uml.property  name="id"
+	 */
     private int id;
 
     /**
-     * Either <code>ONES</code> or <code>ZEROES</code>
-     */
+	 * Either <code>ONES</code> or <code>ZEROES</code>
+	 * @uml.property  name="type"
+	 */
     private boolean type;
 
     /**
-     * Array containing the indices of all genes that are contained in the bicluster.
-     */
+	 * Array containing the indices of all genes that are contained in the bicluster.
+	 * @uml.property  name="genes"
+	 */
     private int[] genes;
 
     /**
-     * Array containing the indices of all chips that are contained in the bicluster.
-     */
+	 * Array containing the indices of all chips that are contained in the bicluster.
+	 * @uml.property  name="chips"
+	 */
     private int[] chips;
 
     /**
-     * Size of the bicluster (number of genes multiplied by number of chips).
-     */
+	 * Size of the bicluster (number of genes multiplied by number of chips).
+	 * @uml.property  name="size"
+	 */
     private int size;
 
     /**
-     * Mean square residual score of biclusters.
-     */
+	 * Mean square residual score of biclusters.
+	 * @uml.property  name="msrs"
+	 */
     private float msrs;
 
+    /**
+	 * @uml.property  name="error"
+	 */
     private int error = 0; // number of zero cells in a BC
 
+    /**
+	 * @uml.property  name="gd"
+	 */
     private int gd;
+    /**
+	 * @uml.property  name="cd"
+	 */
     private int cd;
 
 
@@ -283,10 +394,10 @@ public class Bicluster implements Comparable {
     // ===========================================================================
 
     /**
-     * Gets the unique identification number of this <code>BicaGUI</code>.
-     *
-     * @return the unique ID number of this <code>Bicluster</code>
-     */
+	 * Gets the unique identification number of this <code>BicaGUI</code>.
+	 * @return   the unique ID number of this <code>Bicluster</code>
+	 * @uml.property  name="id"
+	 */
     public int getId() {
         return id;
     }
@@ -294,12 +405,10 @@ public class Bicluster implements Comparable {
     // ===========================================================================
 
     /**
-     * Gets array containing indices of genes that are contained in this
-     * <code>Bicluster</code>.
-     *
-     * @return array containing indicies of genes containing in this
-     * <code>Bicluster</code>
-     */
+	 * Gets array containing indices of genes that are contained in this <code>Bicluster</code>.
+	 * @return   array containing indicies of genes containing in this  <code>Bicluster</code>
+	 * @uml.property  name="genes"
+	 */
     public int[] getGenes() {
         return genes;
     }
@@ -311,12 +420,10 @@ public class Bicluster implements Comparable {
     // ===========================================================================
 
     /**
-     * Gets array containing indices of chips that are contained in this
-     * <code>Bicluster</code>.
-     *
-     * @return array containing indicies of chips containing in this
-     * <code>Bicluster</code>
-     */
+	 * Gets array containing indices of chips that are contained in this <code>Bicluster</code>.
+	 * @return   array containing indicies of chips containing in this  <code>Bicluster</code>
+	 * @uml.property  name="chips"
+	 */
     public int[] getChips() {
         return chips;
     }
@@ -328,11 +435,10 @@ public class Bicluster implements Comparable {
     // ===========================================================================
 
     /**
-     * Gets the size (number of genes times number of chips) of this
-     * <code>Bicluster<code>.
-     *
-     * @return the size of this <code>Bicluster</code>
-     */
+	 * Gets the size (number of genes times number of chips) of this <code>Bicluster<code>.
+	 * @return   the size of this <code>Bicluster</code>
+	 * @uml.property  name="size"
+	 */
     public int getSize() {
         return size;
     }

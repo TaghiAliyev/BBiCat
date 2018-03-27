@@ -72,16 +72,22 @@ import bicat.biclustering.Dataset;
 
 /**
  * Superclass of algorithm main classes.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public abstract class RunOPSM
 {
 	// dataset filename
+	/**
+	 * @uml.property  name="datasetFilename"
+	 */
 	protected String datasetFilename;
 
 	// dataset
+	/**
+	 * @uml.property  name="dataset"
+	 * @uml.associationEnd  readOnly="true"
+	 */
 	protected OPSMDataset dataset;
 
 	// id string, used by run engine

@@ -78,10 +78,31 @@ import java.util.ArrayList;
 /**
  * Specific class that contains interaction-related information
  */
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * Specific class that contains interaction-related information
+ */
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Interaction<E extends Molecule> {
+    /**
+	 * @uml.property  name="molecules"
+	 */
     private ArrayList<E> molecules;
+    /**
+	 * @uml.property  name="id"
+	 */
     private String id;
 }

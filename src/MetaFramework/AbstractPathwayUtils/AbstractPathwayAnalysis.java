@@ -69,18 +69,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Abstract interface representing Pathway Analysis engines so that user can choose which one to choose
- * Some of the common functionalities are included here
- *
- * E -> Class representing the pathway and pathway information
- * T -> Class representing the molecules and molecule information
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * Abstract interface representing Pathway Analysis engines so that user can choose which one to choose Some of the common functionalities are included here E -> Class representing the pathway and pathway information T -> Class representing the molecules and molecule information
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public abstract class AbstractPathwayAnalysis<E extends Molecule, A extends Interaction<E>, T extends Pathway<E, A>> {
 
+    /**
+	 * @uml.property  name="pathToGene"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="MetaFramework.KEGG.KEGGMolecule" qualifier="path:MetaFramework.KEGG.KEGGPathwayInstance java.util.ArrayList"
+	 */
     protected HashMap<T, ArrayList<E>> pathToGene = new HashMap<T, ArrayList<E>>();
+    /**
+	 * @uml.property  name="geneToPath"
+	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" elementType="MetaFramework.KEGG.KEGGPathwayInstance" qualifier="mol:MetaFramework.KEGG.KEGGMolecule java.util.ArrayList"
+	 */
     protected HashMap<E, ArrayList<T>> geneToPath = new HashMap<E, ArrayList<T>>();
+    /**
+	 * @uml.property  name="file"
+	 */
     protected String file;
 
     public AbstractPathwayAnalysis(String file)
@@ -100,6 +106,10 @@ public abstract class AbstractPathwayAnalysis<E extends Molecule, A extends Inte
         return this.geneToPath;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="file"
+	 */
     public String getFile()
     {
         return this.file;

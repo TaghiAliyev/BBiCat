@@ -71,6 +71,53 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * @return
+ * @uml.property  name="name"
+ */
+/**
+ * @return
+ * @uml.property  name="type"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * @param name
+ * @uml.property  name="name"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="id"
+ */
+/**
+ * @return
+ * @uml.property  name="name"
+ */
+/**
+ * @return
+ * @uml.property  name="type"
+ */
+/**
+ * @param id
+ * @uml.property  name="id"
+ */
+/**
+ * @param name
+ * @uml.property  name="name"
+ */
+/**
+ * @param type
+ * @uml.property  name="type"
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -79,9 +126,21 @@ import java.util.ArrayList;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public abstract class Molecule implements Comparable {
+    /**
+	 * @uml.property  name="id"
+	 */
     private int id;
+    /**
+	 * @uml.property  name="name"
+	 */
     private String name; // maybe just String needed
+    /**
+	 * @uml.property  name="type"
+	 */
     private boolean type; // False -> protein, True -> Complex
+    /**
+	 * @uml.property  name="ids"
+	 */
     private ArrayList<Integer> ids; // if type is True -> list of ids making up the complex protein
 
     @Override
@@ -116,7 +175,7 @@ public abstract class Molecule implements Comparable {
     public boolean equals(Object o) {
         if (o instanceof Molecule) {
             Molecule o2 = (Molecule) o;
-            if (name.equalsIgnoreCase(o2.name))
+            if (this.id == o2.id || name.equalsIgnoreCase(o2.name))
                 return true;
 
             // TODO : MIGHT NEED TO USE LEVENSHTEIN DISTANCE TO GET BETTER

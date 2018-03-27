@@ -71,6 +71,117 @@ import lombok.Data;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @return
+ * @uml.property  name="tabbedPanel"
+ */
+/**
+ * @return
+ * @uml.property  name="tabbedPane"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyFilePanel"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyFileArea"
+ */
+/**
+ * @return
+ * @uml.property  name="tablePreviewHandler"
+ */
+/**
+ * @return
+ * @uml.property  name="noFiles"
+ */
+/**
+ * @return
+ * @uml.property  name="fileSeparator"
+ */
+/**
+ * @param tabbedPanel
+ * @uml.property  name="tabbedPanel"
+ */
+/**
+ * @param tabbedPane
+ * @uml.property  name="tabbedPane"
+ */
+/**
+ * @param emptyFilePanel
+ * @uml.property  name="emptyFilePanel"
+ */
+/**
+ * @param emptyFileArea
+ * @uml.property  name="emptyFileArea"
+ */
+/**
+ * @param tablePreviewHandler
+ * @uml.property  name="tablePreviewHandler"
+ */
+/**
+ * @param noFiles
+ * @uml.property  name="noFiles"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="tabbedPanel"
+ */
+/**
+ * @return
+ * @uml.property  name="tabbedPane"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyFilePanel"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyFileArea"
+ */
+/**
+ * @return
+ * @uml.property  name="tablePreviewHandler"
+ */
+/**
+ * @return
+ * @uml.property  name="noFiles"
+ */
+/**
+ * @return
+ * @uml.property  name="fileSeparator"
+ */
+/**
+ * @param tabbedPanel
+ * @uml.property  name="tabbedPanel"
+ */
+/**
+ * @param tabbedPane
+ * @uml.property  name="tabbedPane"
+ */
+/**
+ * @param emptyFilePanel
+ * @uml.property  name="emptyFilePanel"
+ */
+/**
+ * @param emptyFileArea
+ * @uml.property  name="emptyFileArea"
+ */
+/**
+ * @param tablePreviewHandler
+ * @uml.property  name="tablePreviewHandler"
+ */
+/**
+ * @param noFiles
+ * @uml.property  name="noFiles"
+ */
+/**
+ * @param fileSeparator
+ * @uml.property  name="fileSeparator"
+ */
 @Data
 /**
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
@@ -78,13 +189,39 @@ import java.awt.*;
  */
 public class TabbedPaneController {
 
+    /**
+	 * @uml.property  name="tabbedPanel"
+	 * @uml.associationEnd  
+	 */
     private JPanel tabbedPanel = null;
+    /**
+	 * @uml.property  name="tabbedPane"
+	 * @uml.associationEnd  
+	 */
     private JTabbedPane tabbedPane;
+    /**
+	 * @uml.property  name="emptyFilePanel"
+	 * @uml.associationEnd  
+	 */
     private JPanel emptyFilePanel = null;
+    /**
+	 * @uml.property  name="emptyFileArea"
+	 * @uml.associationEnd  
+	 */
     private JTextArea emptyFileArea = null;
     //FileAndTextTransferHandler transferHandler;
+    /**
+	 * @uml.property  name="tablePreviewHandler"
+	 * @uml.associationEnd  inverse="tpc:bicat.gui.window.TablePreviewHandler"
+	 */
     private TablePreviewHandler tablePreviewHandler;
+    /**
+	 * @uml.property  name="noFiles"
+	 */
     private boolean noFiles = true;
+    /**
+	 * @uml.property  name="fileSeparator"
+	 */
     private String fileSeparator;
 
     // ===========================================================================

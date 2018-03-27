@@ -79,18 +79,51 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 public class TablePreviewHandler extends TransferHandler {
 
-    private DataFlavor fileFlavor, stringFlavor;
+    /**
+	 * @uml.property  name="fileFlavor"
+	 */
+    private DataFlavor fileFlavor;
+	/**
+	 * @uml.property  name="stringFlavor"
+	 */
+	private DataFlavor stringFlavor;
+    /**
+	 * @uml.property  name="tpc"
+	 * @uml.associationEnd  inverse="tablePreviewHandler:bicat.gui.window.TabbedPaneController"
+	 */
     private TabbedPaneController tpc;
+    /**
+	 * @uml.property  name="source"
+	 * @uml.associationEnd  
+	 */
     private JTextArea source;
+    /**
+	 * @uml.property  name="shouldRemove"
+	 */
     private boolean shouldRemove;
+    /**
+	 * @uml.property  name="newline"
+	 */
     protected String newline = "\n";
 
     // Start and end position in the source text.
     // We need this information when performing a MOVE
     // in order to remove the dragged text from the source.
-    Position p0 = null, p1 = null;
+    /**
+	 * @uml.property  name="p0"
+	 * @uml.associationEnd  
+	 */
+    Position p0 = null;
+	/**
+	 * @uml.property  name="p1"
+	 * @uml.associationEnd  
+	 */
+	Position p1 = null;
 
     // ===========================================================================
     TablePreviewHandler(TabbedPaneController t) {

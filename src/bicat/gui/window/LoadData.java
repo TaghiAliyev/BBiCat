@@ -92,21 +92,167 @@ import bicat.gui.BicatGui;
 import bicat.util.BicatError;
 import lombok.Data;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="cfo_field"
+ */
+/**
+ * @return
+ * @uml.property  name="rfo_field"
+ */
+/**
+ * @return
+ * @uml.property  name="f_field"
+ */
+/**
+ * @return
+ * @uml.property  name="file"
+ */
+/**
+ * @return
+ * @uml.property  name="propFile"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param cfo_field
+ * @uml.property  name="cfo_field"
+ */
+/**
+ * @param rfo_field
+ * @uml.property  name="rfo_field"
+ */
+/**
+ * @param f_field
+ * @uml.property  name="f_field"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="cfo_field"
+ */
+/**
+ * @return
+ * @uml.property  name="rfo_field"
+ */
+/**
+ * @return
+ * @uml.property  name="f_field"
+ */
+/**
+ * @return
+ * @uml.property  name="file"
+ */
+/**
+ * @return
+ * @uml.property  name="propFile"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param cfo_field
+ * @uml.property  name="cfo_field"
+ */
+/**
+ * @param rfo_field
+ * @uml.property  name="rfo_field"
+ */
+/**
+ * @param f_field
+ * @uml.property  name="f_field"
+ */
+/**
+ * @param file
+ * @uml.property  name="file"
+ */
 @Data
 public class LoadData implements ActionListener {
 
+	/**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
 	private BicatGui owner;
 
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
 	private UtilFunctionalities engine;
 
+	/**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
 	private JDialog dialog;
 
+	/**
+	 * @uml.property  name="cfo_field"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField cfo_field;
 
+	/**
+	 * @uml.property  name="rfo_field"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField rfo_field;
 
+	/**
+	 * @uml.property  name="f_field"
+	 * @uml.associationEnd  
+	 */
 	private JTextField f_field;
 
+	/**
+	 * @uml.property  name="file"
+	 */
 	private File file;
 
 	private static int DEFAULT_FILE_OFFSET = 1;
@@ -126,9 +272,15 @@ public class LoadData implements ActionListener {
 		owner = o;
 	}
 
+	/**
+	 * @uml.property  name="propFile"
+	 */
 	final File propFile = new File(System.getProperty("user.home"),
 			".bicat.lastfile");
 
+	/**
+	 * @uml.property  name="lastFilePropertyName"
+	 */
 	final String lastFilePropertyName = "last-file";
 
 	// ===========================================================================

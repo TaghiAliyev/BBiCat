@@ -83,24 +83,200 @@ import java.text.NumberFormat;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_OPSM"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_OPSM_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_L_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="l_textfield"
+ */
+/**
+ * @return
+ * @uml.property  name="opsma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_OPSM
+ * @uml.property  name="rUN_OPSM"
+ */
+/**
+ * @param RUN_OPSM_DIALOG_CANCEL
+ * @uml.property  name="rUN_OPSM_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_L_VALUE
+ * @uml.property  name="dEFAULT_L_VALUE"
+ */
+/**
+ * @param l_textfield
+ * @uml.property  name="l_textfield"
+ */
+/**
+ * GUI element that reads in the values needed for the OPSM algorithm and sends them through <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_OPSM"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_OPSM_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_L_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="l_textfield"
+ */
+/**
+ * @return
+ * @uml.property  name="opsma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_OPSM
+ * @uml.property  name="rUN_OPSM"
+ */
+/**
+ * @param RUN_OPSM_DIALOG_CANCEL
+ * @uml.property  name="rUN_OPSM_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_L_VALUE
+ * @uml.property  name="dEFAULT_L_VALUE"
+ */
+/**
+ * @param l_textfield
+ * @uml.property  name="l_textfield"
+ */
+/**
+ * @param opsma
+ * @uml.property  name="opsma"
+ */
 @Data
 public class RunDialog_OPSM implements ActionListener {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="dEFAULT_PARAMETERS"
+	 */
     private String DEFAULT_PARAMETERS = "set_defaults";
 
+    /**
+	 * @uml.property  name="rUN_OPSM"
+	 */
     private String RUN_OPSM = "run_opsm";
 
+    /**
+	 * @uml.property  name="rUN_OPSM_DIALOG_CANCEL"
+	 */
     private String RUN_OPSM_DIALOG_CANCEL = "cancel";
 
+    /**
+	 * @uml.property  name="dEFAULT_L_VALUE"
+	 */
     private int DEFAULT_L_VALUE = 10;
 
+    /**
+	 * @uml.property  name="l_textfield"
+	 * @uml.associationEnd  
+	 */
     private JFormattedTextField l_textfield;
 
+    /**
+	 * @uml.property  name="opsma"
+	 * @uml.associationEnd  
+	 */
     private ArgumentsOPSM opsma;
 
     // ===========================================================================

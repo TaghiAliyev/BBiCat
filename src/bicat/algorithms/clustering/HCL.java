@@ -84,21 +84,204 @@ import java.util.Vector;
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 
+/**
+ * @return
+ * @uml.property  name="linkage_method"
+ */
+/**
+ * @return
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @return
+ * @uml.property  name="modus"
+ */
+/**
+ * @return
+ * @uml.property  name="n"
+ */
+/**
+ * @return
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="curr_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="hCL_output"
+ */
+/**
+ * @return
+ * @uml.property  name="quasi_bi_clusters"
+ */
+/**
+ * @param linkage_method
+ * @uml.property  name="linkage_method"
+ */
+/**
+ * @param distance_metric
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @param modus
+ * @uml.property  name="modus"
+ */
+/**
+ * @param N
+ * @uml.property  name="n"
+ */
+/**
+ * @param DEBUG
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param curr_distance
+ * @uml.property  name="curr_distance"
+ */
+/**
+ * @param HCL_output
+ * @uml.property  name="hCL_output"
+ */
+/**
+ * Class that implements the HCL clustering method. For the possible set of values for variables, please refer to the MethodConstants.java <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="linkage_method"
+ */
+/**
+ * @return
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @return
+ * @uml.property  name="modus"
+ */
+/**
+ * @return
+ * @uml.property  name="n"
+ */
+/**
+ * @return
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="curr_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="hCL_output"
+ */
+/**
+ * @return
+ * @uml.property  name="quasi_bi_clusters"
+ */
+/**
+ * @param linkage_method
+ * @uml.property  name="linkage_method"
+ */
+/**
+ * @param distance_metric
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @param modus
+ * @uml.property  name="modus"
+ */
+/**
+ * @param N
+ * @uml.property  name="n"
+ */
+/**
+ * @param DEBUG
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param curr_distance
+ * @uml.property  name="curr_distance"
+ */
+/**
+ * @param HCL_output
+ * @uml.property  name="hCL_output"
+ */
+/**
+ * @param quasi_bi_clusters
+ * @uml.property  name="quasi_bi_clusters"
+ */
 @Data
 public class HCL {
 
+    /**
+	 * @uml.property  name="linkage_method"
+	 */
     private int linkage_method;
 
+    /**
+	 * @uml.property  name="distance_metric"
+	 */
     private int distance_metric;
 
+    /**
+	 * @uml.property  name="modus"
+	 */
     private int modus;
 
+    /**
+	 * @uml.property  name="n"
+	 */
     private int N;
 
+    /**
+	 * @uml.property  name="dEBUG"
+	 */
     private boolean DEBUG = false;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
     // Some additional constructors that might be needed in future.
@@ -145,8 +328,14 @@ public class HCL {
             }
     }
 
+    /**
+	 * @uml.property  name="curr_distance"
+	 */
     private double curr_distance;
 
+    /**
+	 * @uml.property  name="hCL_output"
+	 */
     private String HCL_output;
 
     // ===========================================================================
@@ -375,6 +564,10 @@ public class HCL {
         }
     }
 
+    /**
+	 * @uml.property  name="quasi_bi_clusters"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.biclustering.Bicluster"
+	 */
     private LinkedList quasi_bi_clusters;
 
     // =-=-

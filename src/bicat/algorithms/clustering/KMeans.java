@@ -80,29 +80,239 @@ import java.util.Vector;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="k"
+ */
+/**
+ * @return
+ * @uml.property  name="origK"
+ */
+/**
+ * @return
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @return
+ * @uml.property  name="nrMaxIterations"
+ */
+/**
+ * @return
+ * @uml.property  name="nrReplicates"
+ */
+/**
+ * @return
+ * @uml.property  name="nrItems"
+ */
+/**
+ * @return
+ * @uml.property  name="nrAttributes"
+ */
+/**
+ * @return
+ * @uml.property  name="solution"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyAction"
+ */
+/**
+ * @return
+ * @uml.property  name="startMode"
+ */
+/**
+ * @return
+ * @uml.property  name="start_matrix"
+ */
+/**
+ * @param K
+ * @uml.property  name="k"
+ */
+/**
+ * @param origK
+ * @uml.property  name="origK"
+ */
+/**
+ * @param distance_metric
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @param nrMaxIterations
+ * @uml.property  name="nrMaxIterations"
+ */
+/**
+ * @param nrReplicates
+ * @uml.property  name="nrReplicates"
+ */
+/**
+ * @param nrItems
+ * @uml.property  name="nrItems"
+ */
+/**
+ * @param nrAttributes
+ * @uml.property  name="nrAttributes"
+ */
+/**
+ * @param solution
+ * @uml.property  name="solution"
+ */
+/**
+ * @param emptyAction
+ * @uml.property  name="emptyAction"
+ */
+/**
+ * @param startMode
+ * @uml.property  name="startMode"
+ */
+/**
+ * Class that implements the KMeans clustering. Similar structure to HCL. For possible values of the variables, please refer to the MethodConstants.java <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="k"
+ */
+/**
+ * @return
+ * @uml.property  name="origK"
+ */
+/**
+ * @return
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @return
+ * @uml.property  name="nrMaxIterations"
+ */
+/**
+ * @return
+ * @uml.property  name="nrReplicates"
+ */
+/**
+ * @return
+ * @uml.property  name="nrItems"
+ */
+/**
+ * @return
+ * @uml.property  name="nrAttributes"
+ */
+/**
+ * @return
+ * @uml.property  name="solution"
+ */
+/**
+ * @return
+ * @uml.property  name="emptyAction"
+ */
+/**
+ * @return
+ * @uml.property  name="startMode"
+ */
+/**
+ * @return
+ * @uml.property  name="start_matrix"
+ */
+/**
+ * @param K
+ * @uml.property  name="k"
+ */
+/**
+ * @param origK
+ * @uml.property  name="origK"
+ */
+/**
+ * @param distance_metric
+ * @uml.property  name="distance_metric"
+ */
+/**
+ * @param nrMaxIterations
+ * @uml.property  name="nrMaxIterations"
+ */
+/**
+ * @param nrReplicates
+ * @uml.property  name="nrReplicates"
+ */
+/**
+ * @param nrItems
+ * @uml.property  name="nrItems"
+ */
+/**
+ * @param nrAttributes
+ * @uml.property  name="nrAttributes"
+ */
+/**
+ * @param solution
+ * @uml.property  name="solution"
+ */
+/**
+ * @param emptyAction
+ * @uml.property  name="emptyAction"
+ */
+/**
+ * @param startMode
+ * @uml.property  name="startMode"
+ */
+/**
+ * @param start_matrix
+ * @uml.property  name="start_matrix"
+ */
 @Data
 public class KMeans {
 
+    /**
+	 * @uml.property  name="k"
+	 */
     private int K = 0; // nr of clusters
 
+    /**
+	 * @uml.property  name="origK"
+	 */
     private int origK;
 
+    /**
+	 * @uml.property  name="distance_metric"
+	 */
     private int distance_metric;
 
+    /**
+	 * @uml.property  name="nrMaxIterations"
+	 */
     private int nrMaxIterations;
 
+    /**
+	 * @uml.property  name="nrReplicates"
+	 */
     private int nrReplicates;
 
+    /**
+	 * @uml.property  name="nrItems"
+	 */
     private int nrItems;
 
+    /**
+	 * @uml.property  name="nrAttributes"
+	 */
     private int nrAttributes;
 
+    /**
+	 * @uml.property  name="solution"
+	 * @uml.associationEnd  
+	 */
     private KMeansClusters solution;
 
+    /**
+	 * @uml.property  name="emptyAction"
+	 */
     private int emptyAction;
 
+    /**
+	 * @uml.property  name="startMode"
+	 */
     private int startMode;
 
+    /**
+	 * @uml.property  name="start_matrix"
+	 */
     private float[][] start_matrix;
 
     // ===========================================================================

@@ -74,19 +74,152 @@ import lombok.EqualsAndHashCode;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="max_p_value"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha"
+ */
+/**
+ * @return
+ * @uml.property  name="n_s"
+ */
+/**
+ * @return
+ * @uml.property  name="n_d"
+ */
+/**
+ * @return
+ * @uml.property  name="s_d"
+ */
+/**
+ * @return
+ * @uml.property  name="max_length"
+ */
+/**
+ * @return
+ * @uml.property  name="max_size"
+ */
+/**
+ * @param max_p_value
+ * @uml.property  name="max_p_value"
+ */
+/**
+ * @param alpha
+ * @uml.property  name="alpha"
+ */
+/**
+ * @param n_s
+ * @uml.property  name="n_s"
+ */
+/**
+ * @param n_d
+ * @uml.property  name="n_d"
+ */
+/**
+ * @param s_d
+ * @uml.property  name="s_d"
+ */
+/**
+ * @param max_length
+ * @uml.property  name="max_length"
+ */
+/**
+ * Class that contains the variables/arguments needed/used for XMotifs clustering algorithm Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="max_p_value"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha"
+ */
+/**
+ * @return
+ * @uml.property  name="n_s"
+ */
+/**
+ * @return
+ * @uml.property  name="n_d"
+ */
+/**
+ * @return
+ * @uml.property  name="s_d"
+ */
+/**
+ * @return
+ * @uml.property  name="max_length"
+ */
+/**
+ * @return
+ * @uml.property  name="max_size"
+ */
+/**
+ * @param max_p_value
+ * @uml.property  name="max_p_value"
+ */
+/**
+ * @param alpha
+ * @uml.property  name="alpha"
+ */
+/**
+ * @param n_s
+ * @uml.property  name="n_s"
+ */
+/**
+ * @param n_d
+ * @uml.property  name="n_d"
+ */
+/**
+ * @param s_d
+ * @uml.property  name="s_d"
+ */
+/**
+ * @param max_length
+ * @uml.property  name="max_length"
+ */
+/**
+ * @param max_size
+ * @uml.property  name="max_size"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ArgumentsXMotifs extends Arguments {
 
-  private double max_p_value;
-  private double alpha;
+  /**
+ * @uml.property  name="max_p_value"
+ */
+private double max_p_value;
+  /**
+ * @uml.property  name="alpha"
+ */
+private double alpha;
 
-  private int n_s;
-  private int n_d;
-  private int s_d;
+  /**
+ * @uml.property  name="n_s"
+ */
+private int n_s;
+  /**
+ * @uml.property  name="n_d"
+ */
+private int n_d;
+  /**
+ * @uml.property  name="s_d"
+ */
+private int s_d;
 
-  private int max_length;
-  private int max_size;
+  /**
+ * @uml.property  name="max_length"
+ */
+private int max_length;
+  /**
+ * @uml.property  name="max_size"
+ */
+private int max_size;
 
   // ===========================================================================
   public ArgumentsXMotifs() { }

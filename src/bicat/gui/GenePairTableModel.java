@@ -69,6 +69,53 @@ import lombok.Data;
 
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * @return
+ * @uml.property  name="data"
+ */
+/**
+ * @return
+ * @uml.property  name="columnNames"
+ */
+/**
+ * @return
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @param data
+ * @uml.property  name="data"
+ */
+/**
+ * @param columnNames
+ * @uml.property  name="columnNames"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="data"
+ */
+/**
+ * @return
+ * @uml.property  name="columnNames"
+ */
+/**
+ * @return
+ * @uml.property  name="dEBUG"
+ */
+/**
+ * @param data
+ * @uml.property  name="data"
+ */
+/**
+ * @param columnNames
+ * @uml.property  name="columnNames"
+ */
+/**
+ * @param DEBUG
+ * @uml.property  name="dEBUG"
+ */
 @Data
 /**
  * Used by Analysis Pane. Table model that saved the gene pair analysis results in it.
@@ -78,8 +125,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class GenePairTableModel extends AbstractTableModel {
 
-  private Object[][] data;
-  private String[] columnNames = {"Gene 1", "Gene 2", "GenePair Score"}; //, "Graph Distance"};
+  /**
+ * @uml.property  name="data"
+ */
+private Object[][] data;
+  /**
+ * @uml.property  name="columnNames"
+ */
+private String[] columnNames = {"Gene 1", "Gene 2", "GenePair Score"}; //, "Graph Distance"};
 
   // ===========================================================================
   public GenePairTableModel() { }
@@ -128,7 +181,10 @@ public class GenePairTableModel extends AbstractTableModel {
       return !(col < 2);
   }
 
-  private boolean DEBUG = false;
+  /**
+ * @uml.property  name="dEBUG"
+ */
+private boolean DEBUG = false;
   // ===========================================================================
   /*
    * Don't need to implement this method unless your table's data can change.

@@ -71,9 +71,8 @@ import bicat.util.XMath;
 
 /**
  * Model of Bendor Reloaded Algorithm. Represents Partial Models and Complete Models.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public class BendorReloadedModel extends Model
 {
@@ -83,10 +82,16 @@ public class BendorReloadedModel extends Model
 	// start value in newton iteration
 	protected static final double p0 = 0.05;
 
-	/** number of columns with low rank */
+	/**
+	 * number of columns with low rank
+	 * @uml.property  name="a"
+	 */
 	public int a;
 
-	/** number of columns with high rank */
+	/**
+	 * number of columns with high rank
+	 * @uml.property  name="b"
+	 */
 	public int b;
 
 

@@ -74,20 +74,153 @@ import lombok.EqualsAndHashCode;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="start_list"
+ */
+/**
+ * @return
+ * @uml.property  name="empty_action"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_max_iterations"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_replicates"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param what_distance
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @param start_list
+ * @uml.property  name="start_list"
+ */
+/**
+ * @param empty_action
+ * @uml.property  name="empty_action"
+ */
+/**
+ * @param nr_max_iterations
+ * @uml.property  name="nr_max_iterations"
+ */
+/**
+ * @param nr_replicates
+ * @uml.property  name="nr_replicates"
+ */
+/**
+ * @param nr_clusters
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * Class that contains the arguments/variables needed/used for the K-Means clustering algorithm Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @return
+ * @uml.property  name="start_list"
+ */
+/**
+ * @return
+ * @uml.property  name="empty_action"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_max_iterations"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_replicates"
+ */
+/**
+ * @return
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param what_distance
+ * @uml.property  name="what_distance"
+ */
+/**
+ * @param start_list
+ * @uml.property  name="start_list"
+ */
+/**
+ * @param empty_action
+ * @uml.property  name="empty_action"
+ */
+/**
+ * @param nr_max_iterations
+ * @uml.property  name="nr_max_iterations"
+ */
+/**
+ * @param nr_replicates
+ * @uml.property  name="nr_replicates"
+ */
+/**
+ * @param nr_clusters
+ * @uml.property  name="nr_clusters"
+ */
+/**
+ * @param myData
+ * @uml.property  name="myData"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ArgumentsKMeans extends Arguments {
 
-  private int what_distance;
-  private int start_list;
-  private int empty_action;
+  /**
+ * @uml.property  name="what_distance"
+ */
+private int what_distance;
+  /**
+ * @uml.property  name="start_list"
+ */
+private int start_list;
+  /**
+ * @uml.property  name="empty_action"
+ */
+private int empty_action;
 
-  private int nr_max_iterations;
-  private int nr_replicates;
+  /**
+ * @uml.property  name="nr_max_iterations"
+ */
+private int nr_max_iterations;
+  /**
+ * @uml.property  name="nr_replicates"
+ */
+private int nr_replicates;
 
-  private int nr_clusters;
+  /**
+ * @uml.property  name="nr_clusters"
+ */
+private int nr_clusters;
 
-  private float[][] myData;
+  /**
+ * @uml.property  name="myData"
+ */
+private float[][] myData;
 
   // ===========================================================================
   public ArgumentsKMeans() { }

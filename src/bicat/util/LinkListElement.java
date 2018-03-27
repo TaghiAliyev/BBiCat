@@ -67,19 +67,30 @@ package bicat.util;
 
 /**
  * Element of a linked model list.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public class LinkListElement
 {
-	/** payload */
+	/**
+	 * payload
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public Model model;
 
-	/** previous element in linked list */
+	/**
+	 * previous element in linked list
+	 * @uml.property  name="previous"
+	 * @uml.associationEnd  inverse="next:bicat.util.LinkListElement"
+	 */
 	public LinkListElement previous;
 
-	/** next element in linked list */
+	/**
+	 * next element in linked list
+	 * @uml.property  name="next"
+	 * @uml.associationEnd  inverse="previous:bicat.util.LinkListElement"
+	 */
 	public LinkListElement next;
 
 	/**

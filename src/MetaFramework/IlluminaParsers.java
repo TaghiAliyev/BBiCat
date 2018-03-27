@@ -76,10 +76,33 @@ import java.util.Scanner;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="file"
+ */
+/**
+ * Parses a illumina database file
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="file"
+ */
+/**
+ * @param file
+ * @uml.property  name="file"
+ */
 @Data
 public class IlluminaParsers {
 
+    /**
+	 * @uml.property  name="file"
+	 */
     private String file;
+    /**
+	 * @uml.property  name="illuminaToHGNC"
+	 * @uml.associationEnd  qualifier="get:java.lang.String java.lang.String"
+	 */
     private HashMap<String, String> illuminaToHGNC;
 
     public IlluminaParsers(String file) throws Exception

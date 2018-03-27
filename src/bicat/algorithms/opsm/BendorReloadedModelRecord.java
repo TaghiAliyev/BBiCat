@@ -66,34 +66,29 @@
 package bicat.algorithms.opsm;
 
 /**
- * <p>Provides functionality to efficiently record a certain amount of model
- * evaluations, which can be model initializations or model extensions.</p>
- *
- * <p>The record is implemented as a heap with special functionality: While the
- * heap is not full, new elements are put as usual. If the heap is full,
- * the element with lowest score (e.g. the root) is replaced by the new element,
- * if the new element has a higher score than the root. (This corresponds to a
- * conditional pop with subsequent put.)</p>
- *
- * <p>No elements with score 0 are put to the record.</p>
- *
- * <p>There is no 'pop' function. The heap array can be read from outside.</p>
- *
- * <p>Do not change any fields from outside this class. No field hiding is done
- * for performance reasons.</p>
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * <p>Provides functionality to efficiently record a certain amount of model evaluations, which can be model initializations or model extensions.</p> <p>The record is implemented as a heap with special functionality: While the heap is not full, new elements are put as usual. If the heap is full, the element with lowest score (e.g. the root) is replaced by the new element, if the new element has a higher score than the root. (This corresponds to a conditional pop with subsequent put.)</p> <p>No elements with score 0 are put to the record.</p> <p>There is no 'pop' function. The heap array can be read from outside.</p> <p>Do not change any fields from outside this class. No field hiding is done for performance reasons.</p>
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public class BendorReloadedModelRecord
 {
 	// binary tree as array
+	/**
+	 * @uml.property  name="element"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
 	private BendorReloadedModelEvaluation[] element;
 
 	// size = index of last element
+	/**
+	 * @uml.property  name="size"
+	 */
 	private int size;
 
 	// heap capacity
+	/**
+	 * @uml.property  name="capacity"
+	 */
 	private final int capacity;
 
 

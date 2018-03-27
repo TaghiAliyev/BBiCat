@@ -83,13 +83,25 @@ import java.util.Vector;
 
 /**
  * GUI element that will do translation and alter the loaded dataset
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class TranslationGUI implements ActionListener{
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
     public TranslationGUI(BicatGui owner)
@@ -149,7 +161,7 @@ public class TranslationGUI implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 // Here the actual translation should occur
                 // If there are more than 1 possibilities: Take user input and let user choose the option
-                translate(dataField.getText());
+//                translate(dataField.getText());
                 System.out.println("Database chosen : " + dataField.getText());
             }
         });
@@ -168,6 +180,7 @@ public class TranslationGUI implements ActionListener{
         dialog.setVisible(true);
     }
 
+    /*
     private void translate(String dbName)
     {
         // TODO : A Problem! If a given database is wrong, R will throw an exception and results will be empty
@@ -232,7 +245,10 @@ public class TranslationGUI implements ActionListener{
         }
     }
 
-
+*/
+    /**
+	 * @uml.property  name="which_data"
+	 */
     private int which_data;
 
     @Override

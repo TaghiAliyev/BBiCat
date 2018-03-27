@@ -108,124 +108,740 @@ import java.util.Vector;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="bufferedImage"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="floatData"
+ */
+/**
+ * @return
+ * @uml.property  name="limitDisplay"
+ */
+/**
+ * @return
+ * @uml.property  name="displayLimit"
+ */
+/**
+ * @return
+ * @uml.property  name="geneTranslationTable"
+ */
+/**
+ * @return
+ * @uml.property  name="chipTranslationTable"
+ */
+/**
+ * @return
+ * @uml.property  name="bcGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="bcChips"
+ */
+/**
+ * @return
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @return
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @return
+ * @uml.property  name="markedGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="markedChips"
+ */
+/**
+ * @return
+ * @uml.property  name="geneValueToPosition"
+ */
+/**
+ * @return
+ * @uml.property  name="genePositionToValue"
+ */
+/**
+ * @return
+ * @uml.property  name="chipValueToPosition"
+ */
+/**
+ * @return
+ * @uml.property  name="chipPositionToValue"
+ */
+/**
+ * @return
+ * @uml.property  name="fit2pp"
+ */
+/**
+ * @return
+ * @uml.property  name="labeled"
+ */
+/**
+ * @return
+ * @uml.property  name="labelIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="negGreenBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackRedImage"
+ */
+/**
+ * @return
+ * @uml.property  name="negBlueBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackYellowImage"
+ */
+/**
+ * @return
+ * @uml.property  name="negCustomBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackCustomImage"
+ */
+/**
+ * @return
+ * @uml.property  name="grscale"
+ */
+/**
+ * @return
+ * @uml.property  name="colorScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_SIZE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_Y_SIZE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_OFFSET"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_Y_OFFSET"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_LIMIT_DISPLAY"
+ */
+/**
+ * @return
+ * @uml.property  name="pre"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData_for_GP"
+ */
+/**
+ * @param bufferedImage
+ * @uml.property  name="bufferedImage"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param floatData
+ * @uml.property  name="floatData"
+ */
+/**
+ * @param limitDisplay
+ * @uml.property  name="limitDisplay"
+ */
+/**
+ * @param displayLimit
+ * @uml.property  name="displayLimit"
+ */
+/**
+ * @param geneTranslationTable
+ * @uml.property  name="geneTranslationTable"
+ */
+/**
+ * @param chipTranslationTable
+ * @uml.property  name="chipTranslationTable"
+ */
+/**
+ * @param bcGenes
+ * @uml.property  name="bcGenes"
+ */
+/**
+ * @param bcChips
+ * @uml.property  name="bcChips"
+ */
+/**
+ * @param filledRect
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @param ColorWheel
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @param markedGenes
+ * @uml.property  name="markedGenes"
+ */
+/**
+ * @param markedChips
+ * @uml.property  name="markedChips"
+ */
+/**
+ * @param geneValueToPosition
+ * @uml.property  name="geneValueToPosition"
+ */
+/**
+ * @param genePositionToValue
+ * @uml.property  name="genePositionToValue"
+ */
+/**
+ * @param chipValueToPosition
+ * @uml.property  name="chipValueToPosition"
+ */
+/**
+ * @param chipPositionToValue
+ * @uml.property  name="chipPositionToValue"
+ */
+/**
+ * @param fit2pp
+ * @uml.property  name="fit2pp"
+ */
+/**
+ * @param labeled
+ * @uml.property  name="labeled"
+ */
+/**
+ * @param labelIdx
+ * @uml.property  name="labelIdx"
+ */
+/**
+ * @param negGreenBlackImage
+ * @uml.property  name="negGreenBlackImage"
+ */
+/**
+ * @param posBlackRedImage
+ * @uml.property  name="posBlackRedImage"
+ */
+/**
+ * @param negBlueBlackImage
+ * @uml.property  name="negBlueBlackImage"
+ */
+/**
+ * @param posBlackYellowImage
+ * @uml.property  name="posBlackYellowImage"
+ */
+/**
+ * @param negCustomBlackImage
+ * @uml.property  name="negCustomBlackImage"
+ */
+/**
+ * @param posBlackCustomImage
+ * @uml.property  name="posBlackCustomImage"
+ */
+/**
+ * @param grscale
+ * @uml.property  name="grscale"
+ */
+/**
+ * @param colorScheme
+ * @uml.property  name="colorScheme"
+ */
+/**
+ * @param DEFAULT_X_SIZE
+ * @uml.property  name="dEFAULT_X_SIZE"
+ */
+/**
+ * @param DEFAULT_Y_SIZE
+ * @uml.property  name="dEFAULT_Y_SIZE"
+ */
+/**
+ * @param DEFAULT_X_OFFSET
+ * @uml.property  name="dEFAULT_X_OFFSET"
+ */
+/**
+ * @param DEFAULT_Y_OFFSET
+ * @uml.property  name="dEFAULT_Y_OFFSET"
+ */
+/**
+ * @param DEFAULT_LIMIT_DISPLAY
+ * @uml.property  name="dEFAULT_LIMIT_DISPLAY"
+ */
+/**
+ * @param pre
+ * @uml.property  name="pre"
+ */
+/**
+ * Custom drawing pane for display of the data matrices, can also be arranged to display biclusters. <p> <p> There are several options that apply to the visualization of the data matrix. <ul> <li>The zoom level, which can be changed from the main menu (View... ), changes the basic cell size (and all related metrics) to a new scale. <li>The display can be limited to a certain number of genes to bring performance to an acceptable level. <li>User clicks can be categorized according to their location, and selections are visualized with bounding boxes. <li>Finally, the displayed matrix can be rearranged so that a particular bicluster is displayed in the top left corner. </ul>
+ * @author  A. Prelic, D. Frick
+ * @todo  WISH FEATURE (AP): Different coloring / Scaling Schemes, ...
+ */
+/**
+ * @return
+ * @uml.property  name="bufferedImage"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="floatData"
+ */
+/**
+ * @return
+ * @uml.property  name="limitDisplay"
+ */
+/**
+ * @return
+ * @uml.property  name="displayLimit"
+ */
+/**
+ * @return
+ * @uml.property  name="geneTranslationTable"
+ */
+/**
+ * @return
+ * @uml.property  name="chipTranslationTable"
+ */
+/**
+ * @return
+ * @uml.property  name="bcGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="bcChips"
+ */
+/**
+ * @return
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @return
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @return
+ * @uml.property  name="markedGenes"
+ */
+/**
+ * @return
+ * @uml.property  name="markedChips"
+ */
+/**
+ * @return
+ * @uml.property  name="geneValueToPosition"
+ */
+/**
+ * @return
+ * @uml.property  name="genePositionToValue"
+ */
+/**
+ * @return
+ * @uml.property  name="chipValueToPosition"
+ */
+/**
+ * @return
+ * @uml.property  name="chipPositionToValue"
+ */
+/**
+ * @return
+ * @uml.property  name="fit2pp"
+ */
+/**
+ * @return
+ * @uml.property  name="labeled"
+ */
+/**
+ * @return
+ * @uml.property  name="labelIdx"
+ */
+/**
+ * @return
+ * @uml.property  name="negGreenBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackRedImage"
+ */
+/**
+ * @return
+ * @uml.property  name="negBlueBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackYellowImage"
+ */
+/**
+ * @return
+ * @uml.property  name="negCustomBlackImage"
+ */
+/**
+ * @return
+ * @uml.property  name="posBlackCustomImage"
+ */
+/**
+ * @return
+ * @uml.property  name="grscale"
+ */
+/**
+ * @return
+ * @uml.property  name="colorScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_SIZE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_Y_SIZE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_X_OFFSET"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_Y_OFFSET"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_LIMIT_DISPLAY"
+ */
+/**
+ * @return
+ * @uml.property  name="pre"
+ */
+/**
+ * @return
+ * @uml.property  name="rawData_for_GP"
+ */
+/**
+ * @param bufferedImage
+ * @uml.property  name="bufferedImage"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param floatData
+ * @uml.property  name="floatData"
+ */
+/**
+ * @param limitDisplay
+ * @uml.property  name="limitDisplay"
+ */
+/**
+ * @param displayLimit
+ * @uml.property  name="displayLimit"
+ */
+/**
+ * @param geneTranslationTable
+ * @uml.property  name="geneTranslationTable"
+ */
+/**
+ * @param chipTranslationTable
+ * @uml.property  name="chipTranslationTable"
+ */
+/**
+ * @param bcGenes
+ * @uml.property  name="bcGenes"
+ */
+/**
+ * @param bcChips
+ * @uml.property  name="bcChips"
+ */
+/**
+ * @param filledRect
+ * @uml.property  name="filledRect"
+ */
+/**
+ * @param ColorWheel
+ * @uml.property  name="colorWheel"
+ */
+/**
+ * @param markedGenes
+ * @uml.property  name="markedGenes"
+ */
+/**
+ * @param markedChips
+ * @uml.property  name="markedChips"
+ */
+/**
+ * @param geneValueToPosition
+ * @uml.property  name="geneValueToPosition"
+ */
+/**
+ * @param genePositionToValue
+ * @uml.property  name="genePositionToValue"
+ */
+/**
+ * @param chipValueToPosition
+ * @uml.property  name="chipValueToPosition"
+ */
+/**
+ * @param chipPositionToValue
+ * @uml.property  name="chipPositionToValue"
+ */
+/**
+ * @param fit2pp
+ * @uml.property  name="fit2pp"
+ */
+/**
+ * @param labeled
+ * @uml.property  name="labeled"
+ */
+/**
+ * @param labelIdx
+ * @uml.property  name="labelIdx"
+ */
+/**
+ * @param negGreenBlackImage
+ * @uml.property  name="negGreenBlackImage"
+ */
+/**
+ * @param posBlackRedImage
+ * @uml.property  name="posBlackRedImage"
+ */
+/**
+ * @param negBlueBlackImage
+ * @uml.property  name="negBlueBlackImage"
+ */
+/**
+ * @param posBlackYellowImage
+ * @uml.property  name="posBlackYellowImage"
+ */
+/**
+ * @param negCustomBlackImage
+ * @uml.property  name="negCustomBlackImage"
+ */
+/**
+ * @param posBlackCustomImage
+ * @uml.property  name="posBlackCustomImage"
+ */
+/**
+ * @param grscale
+ * @uml.property  name="grscale"
+ */
+/**
+ * @param colorScheme
+ * @uml.property  name="colorScheme"
+ */
+/**
+ * @param DEFAULT_X_SIZE
+ * @uml.property  name="dEFAULT_X_SIZE"
+ */
+/**
+ * @param DEFAULT_Y_SIZE
+ * @uml.property  name="dEFAULT_Y_SIZE"
+ */
+/**
+ * @param DEFAULT_X_OFFSET
+ * @uml.property  name="dEFAULT_X_OFFSET"
+ */
+/**
+ * @param DEFAULT_Y_OFFSET
+ * @uml.property  name="dEFAULT_Y_OFFSET"
+ */
+/**
+ * @param DEFAULT_LIMIT_DISPLAY
+ * @uml.property  name="dEFAULT_LIMIT_DISPLAY"
+ */
+/**
+ * @param pre
+ * @uml.property  name="pre"
+ */
+/**
+ * @param rawData_for_GP
+ * @uml.property  name="rawData_for_GP"
+ */
 @Data
 public class PicturePane extends JPanel implements ActionListener {
 
+    /**
+	 * @uml.property  name="bufferedImage"
+	 */
     private BufferedImage bufferedImage = null;
 
     /**
-     * Hook to the governing <code>BicaGUI</code>.
-     */
+	 * Hook to the governing <code>BicaGUI</code>.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  inverse="pp:bicat.gui.BicatGui"
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
     /**
-     * Contains matrix data for display, normalized to [0,1] range.
-     */
+	 * Contains matrix data for display, normalized to [0,1] range.
+	 * @uml.property  name="floatData"
+	 */
     private float[][] floatData;
 
     /**
-     * If true, only a certain number of gene rows (up to
-     * <code>displayLimit</code>) will be displayed.
-     */
+	 * If true, only a certain number of gene rows (up to <code>displayLimit</code>) will be displayed.
+	 * @uml.property  name="limitDisplay"
+	 */
     private boolean limitDisplay;
 
     /**
-     * Determines the maximal number of genes rows to display if
-     * <code>limitDisplay</code> is true.
-     */
+	 * Determines the maximal number of genes rows to display if <code>limitDisplay</code> is true.
+	 * @uml.property  name="displayLimit"
+	 */
     private int displayLimit;
 
     /**
-     * An index translation table that rearranges the matrix rows so the genes
-     * of a bicluster come first.
-     */
+	 * An index translation table that rearranges the matrix rows so the genes of a bicluster come first.
+	 * @uml.property  name="geneTranslationTable"
+	 */
     private int[] geneTranslationTable;
 
     /**
-     * An index translation table that rearranges the matrix columns so the
-     * chips of a bicluster come first (only with the preprocessed matrix).
-     */
+	 * An index translation table that rearranges the matrix columns so the chips of a bicluster come first (only with the preprocessed matrix).
+	 * @uml.property  name="chipTranslationTable"
+	 */
     private int[] chipTranslationTable;
 
     /**
-     * The number of genes in the bicluster that is being displayed.
-     */
+	 * The number of genes in the bicluster that is being displayed.
+	 * @uml.property  name="bcGenes"
+	 */
     private int bcGenes;
 
     /**
-     * The number of chips in the bicluster that is being displayed.
-     */
+	 * The number of chips in the bicluster that is being displayed.
+	 * @uml.property  name="bcChips"
+	 */
     private int bcChips;
 
     /**
-     * The bounding area of the rectangle that has been drawn in.
-     */
+	 * The bounding area of the rectangle that has been drawn in.
+	 * @uml.property  name="filledRect"
+	 */
     private Rectangle filledRect;
 
     /**
-     * Horizontal size of cells in matrix.
-     */
+	 * Horizontal size of cells in matrix.
+	 * @uml.property  name="xSize"
+	 */
     private int xSize;
 
     /**
-     * Vertical size of cells in matrix.
-     */
+	 * Vertical size of cells in matrix.
+	 * @uml.property  name="ySize"
+	 */
     private int ySize;
 
     /**
-     * Horizontal offset of matrix, to make room for gene names to the left of
-     * the displayed matrix.
-     */
+	 * Horizontal offset of matrix, to make room for gene names to the left of the displayed matrix.
+	 * @uml.property  name="xOffset"
+	 */
     private int xOffset;
 
     /**
-     * Vertical offset of matrix, to make room for chip names to the top of the
-     * displayed matrix.
-     */
+	 * Vertical offset of matrix, to make room for chip names to the top of the displayed matrix.
+	 * @uml.property  name="yOffset"
+	 */
     private int yOffset;
 
     /**
-     * Array full of preset color to distinguish selections.
-     */
+	 * Array full of preset color to distinguish selections.
+	 * @uml.property  name="colorWheel"
+	 */
     private Color[] ColorWheel;
 
     /**
-     * Resizeable list of genes that the user has selected.
-     */
+	 * Resizeable list of genes that the user has selected.
+	 * @uml.property  name="markedGenes"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private Vector markedGenes;
 
     /**
-     * Resizeable list of chips that the user has selected.
-     */
+	 * Resizeable list of chips that the user has selected.
+	 * @uml.property  name="markedChips"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private Vector markedChips;
 
     /**
-     * Translation tables for genes (bicluster visualization).
-     */
+	 * Translation tables for genes (bicluster visualization).
+	 * @uml.property  name="geneValueToPosition"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap geneValueToPosition; // 'value' is the original index of the
     // gene/chip
 
+    /**
+	 * @uml.property  name="genePositionToValue"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap genePositionToValue; // 'position' is the current physical
     // positioning
 
     /**
-     * Translation tables for (working) chips (bicluster visualization).
-     */
+	 * Translation tables for (working) chips (bicluster visualization).
+	 * @uml.property  name="chipValueToPosition"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap chipValueToPosition; // 'value' is the original index of the
     // gene/chip
 
+    /**
+	 * @uml.property  name="chipPositionToValue"
+	 * @uml.associationEnd  qualifier="new:java.lang.Integer java.lang.Integer"
+	 */
     private HashMap chipPositionToValue; // 'position' is the current physical
     // positioning
 
+    /**
+	 * @uml.property  name="xSizeFit2pp"
+	 */
     private int xSizeFit2pp;
 
+    /**
+	 * @uml.property  name="ySizeFit2pp"
+	 */
     private int ySizeFit2pp;
 
+    /**
+	 * @uml.property  name="fit2pp"
+	 */
     private boolean fit2pp;
 
+    /**
+	 * @uml.property  name="labeled"
+	 */
     private boolean labeled;
 
+    /**
+	 * @uml.property  name="labelIdx"
+	 */
     private int labelIdx;
 
     // ===========================================================================
@@ -233,42 +849,94 @@ public class PicturePane extends JPanel implements ActionListener {
      * ..... different coloring schemes? (data dependent, red-yellow, green-red?
 	 * ...)
 	 */
+    /**
+	 * @uml.property  name="negGreenBlackImage"
+	 */
     private BufferedImage negGreenBlackImage = createGradientImage(Color.green,
             Color.black);
 
+    /**
+	 * @uml.property  name="posBlackRedImage"
+	 */
     private BufferedImage posBlackRedImage = createGradientImage(Color.black,
             Color.red);
 
+    /**
+	 * @uml.property  name="negBlueBlackImage"
+	 */
     private BufferedImage negBlueBlackImage = createGradientImage(Color.blue,
             Color.black);
 
+    /**
+	 * @uml.property  name="posBlackYellowImage"
+	 */
     private BufferedImage posBlackYellowImage = createGradientImage(
             Color.black, Color.yellow);
 
+    /**
+	 * @uml.property  name="negCustomBlackImage"
+	 */
     private BufferedImage negCustomBlackImage;
 
+    /**
+	 * @uml.property  name="posBlackCustomImage"
+	 */
     private BufferedImage posBlackCustomImage;
 
+    /**
+	 * @uml.property  name="grscale"
+	 */
     private boolean grscale = true;
 
+    /**
+	 * @uml.property  name="colorScheme"
+	 */
     private int colorScheme; // 0, 1, 2
 
+    /**
+	 * @uml.property  name="gREEN_RED_SCHEME"
+	 */
     private final int GREEN_RED_SCHEME = 1;
 
+    /**
+	 * @uml.property  name="bLUE_YELLOW_SCHEME"
+	 */
     private final int BLUE_YELLOW_SCHEME = 2;
 
+    /**
+	 * @uml.property  name="cUSTOM_SCHEME"
+	 */
     private final int CUSTOM_SCHEME = 3;
 
+    /**
+	 * @uml.property  name="dEFAULT_X_SIZE"
+	 */
     private int DEFAULT_X_SIZE = 20;
 
+    /**
+	 * @uml.property  name="dEFAULT_Y_SIZE"
+	 */
     private int DEFAULT_Y_SIZE = 10;
 
+    /**
+	 * @uml.property  name="dEFAULT_X_OFFSET"
+	 */
     private int DEFAULT_X_OFFSET = 80;
 
+    /**
+	 * @uml.property  name="dEFAULT_Y_OFFSET"
+	 */
     private int DEFAULT_Y_OFFSET = 120;
 
+    /**
+	 * @uml.property  name="dEFAULT_LIMIT_DISPLAY"
+	 */
     private int DEFAULT_LIMIT_DISPLAY = 500;
 
+    /**
+	 * @uml.property  name="pre"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Preprocessor pre;
 
     // ===========================================================================
@@ -326,9 +994,9 @@ public class PicturePane extends JPanel implements ActionListener {
     }
 
     /**
-     * Hands the governing <code>BicatGui</code> to this
-     * <code>PicturePane</code>.
-     */
+	 * Hands the governing <code>BicatGui</code> to this <code>PicturePane</code>.
+	 * @uml.property  name="owner"
+	 */
     public void setOwner(BicatGui frame) {
         this.engine = frame.getUtilEngine();
         owner = frame;
@@ -342,11 +1010,9 @@ public class PicturePane extends JPanel implements ActionListener {
     // ************************************************************************
     // //
     /**
-     * Hands a matrix of data to the code <code>PicturePane</code> for
-     * display.<br>
-     * <p>
-     * PRE-CONDITION: Data must be normalized to [0,1] range.<br>
-     */
+	 * Hands a matrix of data to the code <code>PicturePane</code> for display.<br> <p> PRE-CONDITION: Data must be normalized to [0,1] range.<br>
+	 * @uml.property  name="rawData_for_GP"
+	 */
 
     private float[][] rawData_for_GP;
 

@@ -78,6 +78,165 @@ import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.util.Vector;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_HCL"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_HCL_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_LINKAGE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="hcla"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param number_Cs_f
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @param DEFAULT_NUMBER_CLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @param RUN_HCL
+ * @uml.property  name="rUN_HCL"
+ */
+/**
+ * @param RUN_HCL_DIALOG_CANCEL
+ * @uml.property  name="rUN_HCL_DIALOG_CANCEL"
+ */
+/**
+ * @param SELECT_LINKAGE_LIST
+ * @uml.property  name="sELECT_LINKAGE_LIST"
+ */
+/**
+ * @param SELECT_DISTANCE_LIST
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_HCL"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_HCL_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_LINKAGE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="hcla"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param number_Cs_f
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @param DEFAULT_NUMBER_CLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @param RUN_HCL
+ * @uml.property  name="rUN_HCL"
+ */
+/**
+ * @param RUN_HCL_DIALOG_CANCEL
+ * @uml.property  name="rUN_HCL_DIALOG_CANCEL"
+ */
+/**
+ * @param SELECT_LINKAGE_LIST
+ * @uml.property  name="sELECT_LINKAGE_LIST"
+ */
+/**
+ * @param SELECT_DISTANCE_LIST
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @param hcla
+ * @uml.property  name="hcla"
+ */
 @Data
 /**
  * GUI element that reads in the values needed for the HCL algorithm and sends them through
@@ -87,29 +246,73 @@ import java.util.Vector;
  */
 public class RunDialog_HCL implements ActionListener {
 
+	/**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
 	private BicatGui owner;
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
 	private UtilFunctionalities engine;
 
+	/**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
 	private JDialog dialog;
 
+	/**
+	 * @uml.property  name="number_Cs_f"
+	 * @uml.associationEnd  
+	 */
 	private JFormattedTextField number_Cs_f;
 
+	/**
+	 * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+	 */
 	private int DEFAULT_NUMBER_CLUSTERS_VALUE = 5;
 
+	/**
+	 * @uml.property  name="rUN_HCL"
+	 */
 	private String RUN_HCL = "run_hcl";
 
+	/**
+	 * @uml.property  name="rUN_HCL_DIALOG_CANCEL"
+	 */
 	private String RUN_HCL_DIALOG_CANCEL = "cancel";
 
+	/**
+	 * @uml.property  name="sELECT_LINKAGE_LIST"
+	 */
 	private String SELECT_LINKAGE_LIST = "select_linkage";
 
+	/**
+	 * @uml.property  name="sELECT_DISTANCE_LIST"
+	 */
 	private String SELECT_DISTANCE_LIST = "select_distance";
 
+	/**
+	 * @uml.property  name="wL"
+	 */
 	private int wL = -1; // what linkage mode?
 
+	/**
+	 * @uml.property  name="wD"
+	 */
 	private int wD = -1; // what distance metric?
 
+	/**
+	 * @uml.property  name="nC"
+	 */
 	private int nC = DEFAULT_NUMBER_CLUSTERS_VALUE;
 
+	/**
+	 * @uml.property  name="hcla"
+	 * @uml.associationEnd  
+	 */
 	private ArgumentsHCL hcla;
 
 	// ===========================================================================

@@ -69,29 +69,10 @@ import java.io.*;
 import java.util.*;
 
 /**
- * <p>This is the superclass for all models. It provides fields which are
- * indispensable for the characterization of an order-preserving submatrix.</p>
- *
- * <p>This class shall be extended by algorithm implementations in order to
- * implement algorithm-specific functions on the fields.</p>
- *
- * <p>No field hiding is done for performance reasons. Nevertheless only
- * subclasses of this class shall modify the fields.</p>
- *
- * <p>Notation:</p>
- * <table border cellpadding=5>
- * <tr><th align=left>object</th><th align=left>field name</th></tr>
- * <tr><td># tissues in dataset</td><td>m</td></tr>
- * <tr><td># genes in dataset</td><td>n</td></tr>
- * <tr><td># tissues in submatrix</td><td>s</td></tr>
- * <tr><td>set of indices of tissues in submatrix</td><td>T</td></tr>
- * <tr><td># planted genes</td><td>k</td></tr>
- * <tr><td>set of indices of genes in submatrix</td><td>G</td></tr>
- * </table>
- *
- * @author Thomas Frech
- * @version 2004-07-22
-*/
+ * <p>This is the superclass for all models. It provides fields which are indispensable for the characterization of an order-preserving submatrix.</p> <p>This class shall be extended by algorithm implementations in order to implement algorithm-specific functions on the fields.</p> <p>No field hiding is done for performance reasons. Nevertheless only subclasses of this class shall modify the fields.</p> <p>Notation:</p> <table border cellpadding=5> <tr><th align=left>object</th><th align=left>field name</th></tr> <tr><td># tissues in dataset</td><td>m</td></tr> <tr><td># genes in dataset</td><td>n</td></tr> <tr><td># tissues in submatrix</td><td>s</td></tr> <tr><td>set of indices of tissues in submatrix</td><td>T</td></tr> <tr><td># planted genes</td><td>k</td></tr> <tr><td>set of indices of genes in submatrix</td><td>G</td></tr> </table>
+ * @author  Thomas Frech
+ * @version  2004-07-22
+ */
 public class Model
 {
 	// Remark: The following convention for counter variables is used:
@@ -101,30 +82,52 @@ public class Model
 	// j for indices in set G
 
 
-	/** Dataset this model belongs to. */
+	/**
+	 * Dataset this model belongs to.
+	 * @uml.property  name="dataset"
+	 * @uml.associationEnd  inverse="plantedModel:bicat.util.OPSMDataset"
+	 */
 	public OPSMDataset dataset;
 
-	/** Length of <tt>T</tt>. */
+	/**
+	 * Length of <tt>T</tt>.
+	 * @uml.property  name="lengthOfArrayOfTissueIndices"
+	 */
 	public int lengthOfArrayOfTissueIndices;
 
-	/** List of tissue indices in range <tt>0...m-1</tt>, ordered by increasing rank. */
+	/**
+	 * List of tissue indices in range <tt>0...m-1</tt>, ordered by increasing rank.
+	 * @uml.property  name="arrayOfTissueIndices"
+	 */
 	public int[] arrayOfTissueIndices;
 
-	/** List of length <tt>m</tt>, <tt>true</tt> for indices which are in <tt>T</tt>. */
+	/**
+	 * List of length <tt>m</tt>, <tt>true</tt> for indices which are in <tt>T</tt>.
+	 * @uml.property  name="isInT"
+	 */
 	public boolean[] isInT;
 
-	/** Length of <tt>G</tt>. */
+	/**
+	 * Length of <tt>G</tt>.
+	 * @uml.property  name="lengthArrayOfGeneIndices"
+	 */
 	public int lengthArrayOfGeneIndices;
 
-	/** List of gene indices in range <tt>0...n-1</tt>, ordered by increasing index. */
+	/**
+	 * List of gene indices in range <tt>0...n-1</tt>, ordered by increasing index.
+	 * @uml.property  name="arrayOfGeneIndices"
+	 */
 	public int[] arrayOfGeneIndices;
 
-	/** List of length <tt>n</tt>, <tt>true</tt> for indices which are in <tt>G</tt>. */
+	/**
+	 * List of length <tt>n</tt>, <tt>true</tt> for indices which are in <tt>G</tt>.
+	 * @uml.property  name="isInG"
+	 */
 	public boolean[] isInG;
 
 	/**
-	 * Model info string which contains information about the circumstances
-	 * under which this model was found.
+	 * Model info string which contains information about the circumstances under which this model was found.
+	 * @uml.property  name="infoString"
 	 */
 	public String infoString;
 

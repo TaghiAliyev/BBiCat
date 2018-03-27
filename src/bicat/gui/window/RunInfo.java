@@ -74,6 +74,85 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @return
+ * @uml.property  name="runLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="runLabelInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="bc"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param runLabel
+ * @uml.property  name="runLabel"
+ */
+/**
+ * @param runLabelInfo
+ * @uml.property  name="runLabelInfo"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param bc
+ * @uml.property  name="bc"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="runLabel"
+ */
+/**
+ * @return
+ * @uml.property  name="runLabelInfo"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="bc"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param runLabel
+ * @uml.property  name="runLabel"
+ */
+/**
+ * @param runLabelInfo
+ * @uml.property  name="runLabelInfo"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param bc
+ * @uml.property  name="bc"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
 @Data
 /**
  * GUI element that prints and shows the information about the run process.
@@ -83,22 +162,34 @@ import java.awt.event.ActionListener;
  */
 public class RunInfo implements ActionListener {
 
+    /**
+	 * @uml.property  name="runLabel"
+	 */
     private String runLabel = ""; //null;
+    /**
+	 * @uml.property  name="runLabelInfo"
+	 */
     private String runLabelInfo = "";
 
     /**
-     * Hook to governings <code>BiacGUI</code>.
-     */
+	 * Hook to governings <code>BiacGUI</code>.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
 
     /**
-     * Bicluster that this window shows information on.
-     */
+	 * Bicluster that this window shows information on.
+	 * @uml.property  name="bc"
+	 * @uml.associationEnd  
+	 */
     private Bicluster bc;
 
     /**
-     * Dialog window.
-     */
+	 * Dialog window.
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
     // ===========================================================================

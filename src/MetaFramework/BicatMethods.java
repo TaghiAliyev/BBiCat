@@ -85,13 +85,92 @@ import java.util.LinkedList;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="fileLocation"
+ */
+/**
+ * @return
+ * @uml.property  name="data"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="readingEngine"
+ */
+/**
+ * @param fileLocation
+ * @uml.property  name="fileLocation"
+ */
+/**
+ * @param data
+ * @uml.property  name="data"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * Given a dataset, will create needed instances and call the methods accordingly.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="fileLocation"
+ */
+/**
+ * @return
+ * @uml.property  name="data"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="readingEngine"
+ */
+/**
+ * @param fileLocation
+ * @uml.property  name="fileLocation"
+ */
+/**
+ * @param data
+ * @uml.property  name="data"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param readingEngine
+ * @uml.property  name="readingEngine"
+ */
 @Data
 public class BicatMethods {
 
     // Varible that keeps the location of the file to be loaded
+    /**
+	 * @uml.property  name="fileLocation"
+	 */
     private String fileLocation;
+    /**
+	 * @uml.property  name="data"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Dataset data;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities engine;
+    /**
+	 * @uml.property  name="readingEngine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Preprocessor readingEngine;
 
     public BicatMethods(String fileLocation) throws FileOffsetException {

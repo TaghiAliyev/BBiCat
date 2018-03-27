@@ -75,6 +75,245 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_CC"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_CC_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_DELTA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="delta_f"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="cca"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_CC
+ * @uml.property  name="rUN_CC"
+ */
+/**
+ * @param RUN_CC_DIALOG_CANCEL
+ * @uml.property  name="rUN_CC_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_BICLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_ALPHA_VALUE
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @param DEFAULT_DELTA_VALUE
+ * @uml.property  name="dEFAULT_DELTA_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param delta_f
+ * @uml.property  name="delta_f"
+ */
+/**
+ * @param alpha_f
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @param number_BCs_f
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_CC"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_CC_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_DELTA_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @return
+ * @uml.property  name="delta_f"
+ */
+/**
+ * @return
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="cca"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param DEFAULT_PARAMETERS
+ * @uml.property  name="dEFAULT_PARAMETERS"
+ */
+/**
+ * @param RUN_CC
+ * @uml.property  name="rUN_CC"
+ */
+/**
+ * @param RUN_CC_DIALOG_CANCEL
+ * @uml.property  name="rUN_CC_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_SEED_VALUE
+ * @uml.property  name="dEFAULT_SEED_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_BICLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_ALPHA_VALUE
+ * @uml.property  name="dEFAULT_ALPHA_VALUE"
+ */
+/**
+ * @param DEFAULT_DELTA_VALUE
+ * @uml.property  name="dEFAULT_DELTA_VALUE"
+ */
+/**
+ * @param seed_f
+ * @uml.property  name="seed_f"
+ */
+/**
+ * @param delta_f
+ * @uml.property  name="delta_f"
+ */
+/**
+ * @param alpha_f
+ * @uml.property  name="alpha_f"
+ */
+/**
+ * @param number_BCs_f
+ * @uml.property  name="number_BCs_f"
+ */
+/**
+ * @param cca
+ * @uml.property  name="cca"
+ */
 @Data
 /**
  * GUI element that reads in the values needed for the CC algorithm and sends them through
@@ -84,24 +323,77 @@ import java.awt.event.ActionListener;
  */
 public class RunDialog_CC implements ActionListener {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="dEFAULT_PARAMETERS"
+	 */
     private String DEFAULT_PARAMETERS = "set_defaults";
+    /**
+	 * @uml.property  name="rUN_CC"
+	 */
     private String RUN_CC = "run_cc";
+    /**
+	 * @uml.property  name="rUN_CC_DIALOG_CANCEL"
+	 */
     private String RUN_CC_DIALOG_CANCEL = "cancel";
 
+    /**
+	 * @uml.property  name="dEFAULT_SEED_VALUE"
+	 */
     private String DEFAULT_SEED_VALUE = "13";
+    /**
+	 * @uml.property  name="dEFAULT_NUMBER_BICLUSTERS_VALUE"
+	 */
     private String DEFAULT_NUMBER_BICLUSTERS_VALUE = "10";
+    /**
+	 * @uml.property  name="dEFAULT_ALPHA_VALUE"
+	 */
     private String DEFAULT_ALPHA_VALUE = "1.2";
+    /**
+	 * @uml.property  name="dEFAULT_DELTA_VALUE"
+	 */
     private String DEFAULT_DELTA_VALUE = "0.5";
 
+    /**
+	 * @uml.property  name="seed_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField seed_f;
+    /**
+	 * @uml.property  name="delta_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField delta_f;
+    /**
+	 * @uml.property  name="alpha_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField alpha_f;
+    /**
+	 * @uml.property  name="number_BCs_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField number_BCs_f;
 
+    /**
+	 * @uml.property  name="cca"
+	 * @uml.associationEnd  
+	 */
     ArgumentsCC cca;
 
     // ===========================================================================

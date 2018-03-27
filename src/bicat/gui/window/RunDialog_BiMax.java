@@ -78,6 +78,165 @@ import java.awt.*;
 import java.text.NumberFormat;
 
 //import javax.swing.ProgressMonitor;
+/**
+ * @return
+ * @uml.property  name="rUN_BIMAX"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_BIMAX_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_GENES_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_CHIPS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="genes_f"
+ */
+/**
+ * @return
+ * @uml.property  name="chips_f"
+ */
+/**
+ * @return
+ * @uml.property  name="bmxa"
+ */
+/**
+ * @param RUN_BIMAX
+ * @uml.property  name="rUN_BIMAX"
+ */
+/**
+ * @param RUN_BIMAX_DIALOG_CANCEL
+ * @uml.property  name="rUN_BIMAX_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_GENES_VALUE
+ * @uml.property  name="dEFAULT_GENES_VALUE"
+ */
+/**
+ * @param DEFAULT_CHIPS_VALUE
+ * @uml.property  name="dEFAULT_CHIPS_VALUE"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param genes_f
+ * @uml.property  name="genes_f"
+ */
+/**
+ * @param chips_f
+ * @uml.property  name="chips_f"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_BIMAX"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_BIMAX_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_GENES_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_CHIPS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="genes_f"
+ */
+/**
+ * @return
+ * @uml.property  name="chips_f"
+ */
+/**
+ * @return
+ * @uml.property  name="bmxa"
+ */
+/**
+ * @param RUN_BIMAX
+ * @uml.property  name="rUN_BIMAX"
+ */
+/**
+ * @param RUN_BIMAX_DIALOG_CANCEL
+ * @uml.property  name="rUN_BIMAX_DIALOG_CANCEL"
+ */
+/**
+ * @param DEFAULT_GENES_VALUE
+ * @uml.property  name="dEFAULT_GENES_VALUE"
+ */
+/**
+ * @param DEFAULT_CHIPS_VALUE
+ * @uml.property  name="dEFAULT_CHIPS_VALUE"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param genes_f
+ * @uml.property  name="genes_f"
+ */
+/**
+ * @param chips_f
+ * @uml.property  name="chips_f"
+ */
+/**
+ * @param bmxa
+ * @uml.property  name="bmxa"
+ */
 @Data
 /**
  * GUI element that reads in the values needed for the BiMax algorithm and sends them through
@@ -87,19 +246,55 @@ import java.text.NumberFormat;
  */
 public class RunDialog_BiMax implements ActionListener {
 
+    /**
+	 * @uml.property  name="rUN_BIMAX"
+	 */
     private String RUN_BIMAX = "run_bimax";
+    /**
+	 * @uml.property  name="rUN_BIMAX_DIALOG_CANCEL"
+	 */
     private String RUN_BIMAX_DIALOG_CANCEL = "cancel";
 
+    /**
+	 * @uml.property  name="dEFAULT_GENES_VALUE"
+	 */
     private int DEFAULT_GENES_VALUE = 2;
+    /**
+	 * @uml.property  name="dEFAULT_CHIPS_VALUE"
+	 */
     private int DEFAULT_CHIPS_VALUE = 2;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
+    /**
+	 * @uml.property  name="genes_f"
+	 * @uml.associationEnd  
+	 */
     JFormattedTextField genes_f;
+    /**
+	 * @uml.property  name="chips_f"
+	 * @uml.associationEnd  
+	 */
     JFormattedTextField chips_f;
 
+    /**
+	 * @uml.property  name="bmxa"
+	 * @uml.associationEnd  
+	 */
     ArgumentsBiMax bmxa;
 
     // ===========================================================================

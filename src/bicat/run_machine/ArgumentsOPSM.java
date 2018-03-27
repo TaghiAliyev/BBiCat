@@ -68,6 +68,37 @@ package bicat.run_machine;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * @return
+ * @uml.property  name="nr_l"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param nr_l
+ * @uml.property  name="nr_l"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="nr_l"
+ */
+/**
+ * @return
+ * @uml.property  name="myData"
+ */
+/**
+ * @param nr_l
+ * @uml.property  name="nr_l"
+ */
+/**
+ * @param myData
+ * @uml.property  name="myData"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 /**
@@ -78,8 +109,14 @@ import lombok.EqualsAndHashCode;
  */
 public class ArgumentsOPSM extends Arguments {
 
+    /**
+	 * @uml.property  name="nr_l"
+	 */
     private int nr_l; //OPSM parameter
 
+    /**
+	 * @uml.property  name="myData"
+	 */
     private float[][] myData;
 
     public ArgumentsOPSM() {

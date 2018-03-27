@@ -101,22 +101,96 @@ import java.util.LinkedList;
 
 // SHOULD CONTAIN THE MANAGEMENT OF THE BICLUSTERING LISTS, SEARCH, FILTER, AND
 // ANALYSIS RESULTS! (ONLY)
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param total_genes
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @param total_chips
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param total_genes
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @param total_chips
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
 @Data
 @EqualsAndHashCode(of = {"total_genes", "total_chips"})
 public class Postprocessor {
 
 	/**
-	 * Hook to the governing <code>BicaGUI</code>, needed to inform it of
-	 * process in biclustering.
+	 * Hook to the governing <code>BicaGUI</code>, needed to inform it of process in biclustering.
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
 	 */
 	private BicatGui owner;
 
+	/**
+	 * @uml.property  name="total_genes"
+	 */
 	private int total_genes = 0; // this information should be associated with
 								// the biclustersList (pre-processed, nrG, nrC,
 								// extended, cullDegenerate...)
 
+	/**
+	 * @uml.property  name="total_chips"
+	 */
 	private int total_chips = 0;
 
+	/**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="post:bicat.Main.UtilFunctionalities"
+	 */
 	private UtilFunctionalities engine;
 
 	// ===========================================================================

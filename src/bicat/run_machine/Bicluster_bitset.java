@@ -75,15 +75,59 @@ import java.util.*;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @param genes
+ * @uml.property  name="genes"
+ */
+/**
+ * @param chips
+ * @uml.property  name="chips"
+ */
+/**
+ * @param geneStarsOrigins
+ * @uml.property  name="geneStarsOrigins"
+ */
+/**
+ * Class that represents the bicluster as being the bitset. Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @param genes
+ * @uml.property  name="genes"
+ */
+/**
+ * @param chips
+ * @uml.property  name="chips"
+ */
+/**
+ * @param geneStarsOrigins
+ * @uml.property  name="geneStarsOrigins"
+ */
+/**
+ * @param chipStarsOrigins
+ * @uml.property  name="chipStarsOrigins"
+ */
 @Data
 public class Bicluster_bitset implements Comparable {
 
-  private BitSet genes;
-  private BitSet chips;
+  /**
+ * @uml.property  name="genes"
+ */
+private BitSet genes;
+  /**
+ * @uml.property  name="chips"
+ */
+private BitSet chips;
 
   // new - optimization related
-  private BitSet geneStarsOrigins;
-  private BitSet chipStarsOrigins;
+  /**
+ * @uml.property  name="geneStarsOrigins"
+ */
+private BitSet geneStarsOrigins;
+  /**
+ * @uml.property  name="chipStarsOrigins"
+ */
+private BitSet chipStarsOrigins;
 
   // ===========================================================================
   public Bicluster_bitset() {  }
@@ -143,10 +187,18 @@ public class Bicluster_bitset implements Comparable {
   public int get_chip_dim() { return chips.cardinality(); }
 
   // ===========================================================================
-  BitSet getGeneStarsOrigins() { return geneStarsOrigins; }
+  /**
+ * @return
+ * @uml.property  name="geneStarsOrigins"
+ */
+BitSet getGeneStarsOrigins() { return geneStarsOrigins; }
 
   // ===========================================================================
-  BitSet getChipStarsOrigins() { return chipStarsOrigins; }
+  /**
+ * @return
+ * @uml.property  name="chipStarsOrigins"
+ */
+BitSet getChipStarsOrigins() { return chipStarsOrigins; }
 
   // ===========================================================================
   public void printOut() {

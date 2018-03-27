@@ -84,34 +84,344 @@ import java.util.Vector;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_max_iter_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_replicates_f"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_MAX_ITERATIONS"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_REPLICATES"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_KMEANS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_KMEANS_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_START_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_EMPTY_ACTION_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="kma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param number_Cs_f
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @param number_max_iter_f
+ * @uml.property  name="number_max_iter_f"
+ */
+/**
+ * @param number_replicates_f
+ * @uml.property  name="number_replicates_f"
+ */
+/**
+ * @param DEFAULT_NUMBER_CLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_MAX_ITERATIONS
+ * @uml.property  name="dEFAULT_NUMBER_MAX_ITERATIONS"
+ */
+/**
+ * @param DEFAULT_NUMBER_REPLICATES
+ * @uml.property  name="dEFAULT_NUMBER_REPLICATES"
+ */
+/**
+ * @param RUN_KMEANS
+ * @uml.property  name="rUN_KMEANS"
+ */
+/**
+ * @param RUN_KMEANS_DIALOG_CANCEL
+ * @uml.property  name="rUN_KMEANS_DIALOG_CANCEL"
+ */
+/**
+ * @param SELECT_DISTANCE_LIST
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @param SELECT_START_LIST
+ * @uml.property  name="sELECT_START_LIST"
+ */
+/**
+ * @param SELECT_EMPTY_ACTION_LIST
+ * @uml.property  name="sELECT_EMPTY_ACTION_LIST"
+ */
+/**
+ * GUI element that reads in the values needed for the K-Means algorithm and sends them through <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="dialog"
+ */
+/**
+ * @return
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_max_iter_f"
+ */
+/**
+ * @return
+ * @uml.property  name="number_replicates_f"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_MAX_ITERATIONS"
+ */
+/**
+ * @return
+ * @uml.property  name="dEFAULT_NUMBER_REPLICATES"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_KMEANS"
+ */
+/**
+ * @return
+ * @uml.property  name="rUN_KMEANS_DIALOG_CANCEL"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_START_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="sELECT_EMPTY_ACTION_LIST"
+ */
+/**
+ * @return
+ * @uml.property  name="kma"
+ */
+/**
+ * @param owner
+ * @uml.property  name="owner"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param dialog
+ * @uml.property  name="dialog"
+ */
+/**
+ * @param number_Cs_f
+ * @uml.property  name="number_Cs_f"
+ */
+/**
+ * @param number_max_iter_f
+ * @uml.property  name="number_max_iter_f"
+ */
+/**
+ * @param number_replicates_f
+ * @uml.property  name="number_replicates_f"
+ */
+/**
+ * @param DEFAULT_NUMBER_CLUSTERS_VALUE
+ * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+ */
+/**
+ * @param DEFAULT_NUMBER_MAX_ITERATIONS
+ * @uml.property  name="dEFAULT_NUMBER_MAX_ITERATIONS"
+ */
+/**
+ * @param DEFAULT_NUMBER_REPLICATES
+ * @uml.property  name="dEFAULT_NUMBER_REPLICATES"
+ */
+/**
+ * @param RUN_KMEANS
+ * @uml.property  name="rUN_KMEANS"
+ */
+/**
+ * @param RUN_KMEANS_DIALOG_CANCEL
+ * @uml.property  name="rUN_KMEANS_DIALOG_CANCEL"
+ */
+/**
+ * @param SELECT_DISTANCE_LIST
+ * @uml.property  name="sELECT_DISTANCE_LIST"
+ */
+/**
+ * @param SELECT_START_LIST
+ * @uml.property  name="sELECT_START_LIST"
+ */
+/**
+ * @param SELECT_EMPTY_ACTION_LIST
+ * @uml.property  name="sELECT_EMPTY_ACTION_LIST"
+ */
+/**
+ * @param kma
+ * @uml.property  name="kma"
+ */
 @Data
 public class RunDialog_KMeans implements ActionListener {
 
     // ===========================================================================
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
+    /**
+	 * @uml.property  name="number_Cs_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField number_Cs_f;
+    /**
+	 * @uml.property  name="number_max_iter_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField number_max_iter_f;
+    /**
+	 * @uml.property  name="number_replicates_f"
+	 * @uml.associationEnd  
+	 */
     private JTextField number_replicates_f;
+    /**
+	 * @uml.property  name="dEFAULT_NUMBER_CLUSTERS_VALUE"
+	 */
     private String DEFAULT_NUMBER_CLUSTERS_VALUE = "10";
+    /**
+	 * @uml.property  name="dEFAULT_NUMBER_MAX_ITERATIONS"
+	 */
     private String DEFAULT_NUMBER_MAX_ITERATIONS = "100";
+    /**
+	 * @uml.property  name="dEFAULT_NUMBER_REPLICATES"
+	 */
     private String DEFAULT_NUMBER_REPLICATES = "1"; // OBAVEZNO vise raditi,... ali
     // onda duze traje
 
+    /**
+	 * @uml.property  name="rUN_KMEANS"
+	 */
     private String RUN_KMEANS = "run_hcl";
+    /**
+	 * @uml.property  name="rUN_KMEANS_DIALOG_CANCEL"
+	 */
     private String RUN_KMEANS_DIALOG_CANCEL = "cancel";
+    /**
+	 * @uml.property  name="sELECT_DISTANCE_LIST"
+	 */
     private String SELECT_DISTANCE_LIST = "select_distance";
+    /**
+	 * @uml.property  name="sELECT_START_LIST"
+	 */
     private String SELECT_START_LIST = "select_start";
+    /**
+	 * @uml.property  name="sELECT_EMPTY_ACTION_LIST"
+	 */
     private String SELECT_EMPTY_ACTION_LIST = "select_empty_action";
+    /**
+	 * @uml.property  name="wD"
+	 */
     private int wD = -1; // what distance metric?
+    /**
+	 * @uml.property  name="wS"
+	 */
     private int wS = -1; // what start mode?
+    /**
+	 * @uml.property  name="wE"
+	 */
     private int wE = -1; // what empty action?
+    /**
+	 * @uml.property  name="nC"
+	 */
     private int nC = 10;
+    /**
+	 * @uml.property  name="nMI"
+	 */
     private int nMI = 100;
+    /**
+	 * @uml.property  name="nR"
+	 */
     private int nR = 1;
 
+    /**
+	 * @uml.property  name="kma"
+	 * @uml.associationEnd  
+	 */
     private ArgumentsKMeans kma;
 
     // ===========================================================================

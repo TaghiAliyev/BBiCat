@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="bin">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/bin/jfreechart-0.9.21.jar!/" />
-      <root url="jar://$PROJECT_DIR$/bin/BicAT_v2.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/classes/BicAT_v2.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/classes/jfreechart-0.9.21.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

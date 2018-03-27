@@ -82,16 +82,108 @@ import java.util.Set;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="splitPane"
+ */
+/**
+ * @return
+ * @uml.property  name="tableScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param splitPane
+ * @uml.property  name="splitPane"
+ */
+/**
+ * @param tableScrollPane
+ * @uml.property  name="tableScrollPane"
+ */
+/**
+ * Class that has the functionality for showing the gene pair analysis results on the GUI. <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="owner"
+ */
+/**
+ * @return
+ * @uml.property  name="engine"
+ */
+/**
+ * @return
+ * @uml.property  name="splitPane"
+ */
+/**
+ * @return
+ * @uml.property  name="tableScrollPane"
+ */
+/**
+ * @return
+ * @uml.property  name="graphScrollPane"
+ */
+/**
+ * @param engine
+ * @uml.property  name="engine"
+ */
+/**
+ * @param splitPane
+ * @uml.property  name="splitPane"
+ */
+/**
+ * @param tableScrollPane
+ * @uml.property  name="tableScrollPane"
+ */
+/**
+ * @param graphScrollPane
+ * @uml.property  name="graphScrollPane"
+ */
 @Data
 public class AnalysisPane extends JPanel implements ActionListener {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  inverse="op:bicat.gui.BicatGui"
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  
+	 */
     private UtilFunctionalities engine;
 
+    /**
+	 * @uml.property  name="splitPane"
+	 * @uml.associationEnd  
+	 */
     private JSplitPane splitPane;
+    /**
+	 * @uml.property  name="tableScrollPane"
+	 * @uml.associationEnd  
+	 */
     private JScrollPane tableScrollPane;
+    /**
+	 * @uml.property  name="graphScrollPane"
+	 * @uml.associationEnd  
+	 */
     private JScrollPane graphScrollPane;
 
     // ===========================================================================
@@ -120,8 +212,9 @@ public class AnalysisPane extends JPanel implements ActionListener {
     // ===========================================================================
 
     /**
-     * Hands the governing <code>BicaGUI</code> to this <code>GraphPane</code.>
-     */
+	 * Hands the governing <code>BicaGUI</code> to this <code>GraphPane</code.>
+	 * @uml.property  name="owner"
+	 */
     public void setOwner(BicatGui frame) {
         this.engine = frame.getUtilEngine();
         owner = frame;

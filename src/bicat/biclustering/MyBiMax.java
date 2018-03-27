@@ -120,27 +120,373 @@ import java.util.Vector;
  *
  * (c)2005/6 Eckart Zitzler, ETH Zurich, Switzerland
  *-------------------------------------------------------------------------------------*/
+/**
+ * @return
+ * @uml.property  name="bitMaskLastBv"
+ */
+/**
+ * @return
+ * @uml.property  name="bitsPerBV"
+ */
+/**
+ * @return
+ * @uml.property  name="noBVs"
+ */
+/**
+ * @return
+ * @uml.property  name="noRows"
+ */
+/**
+ * @return
+ * @uml.property  name="noColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="minNoRows"
+ */
+/**
+ * @return
+ * @uml.property  name="minNoColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="maxLevels"
+ */
+/**
+ * @return
+ * @uml.property  name="rows"
+ */
+/**
+ * @return
+ * @uml.property  name="consideredColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="mandatoryColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="columnIntersection"
+ */
+/**
+ * @return
+ * @uml.property  name="outFile"
+ */
+/**
+ * @return
+ * @uml.property  name="colNames"
+ */
+/**
+ * @return
+ * @uml.property  name="rowNames"
+ */
+/**
+ * @return
+ * @uml.property  name="dataset"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterCounter"
+ */
+/**
+ * @param bitMaskLastBv
+ * @uml.property  name="bitMaskLastBv"
+ */
+/**
+ * @param bitsPerBV
+ * @uml.property  name="bitsPerBV"
+ */
+/**
+ * @param noBVs
+ * @uml.property  name="noBVs"
+ */
+/**
+ * @param noRows
+ * @uml.property  name="noRows"
+ */
+/**
+ * @param noColumns
+ * @uml.property  name="noColumns"
+ */
+/**
+ * @param minNoRows
+ * @uml.property  name="minNoRows"
+ */
+/**
+ * @param minNoColumns
+ * @uml.property  name="minNoColumns"
+ */
+/**
+ * @param maxLevels
+ * @uml.property  name="maxLevels"
+ */
+/**
+ * @param rows
+ * @uml.property  name="rows"
+ */
+/**
+ * @param consideredColumns
+ * @uml.property  name="consideredColumns"
+ */
+/**
+ * @param mandatoryColumns
+ * @uml.property  name="mandatoryColumns"
+ */
+/**
+ * @param columnIntersection
+ * @uml.property  name="columnIntersection"
+ */
+/**
+ * @param outFile
+ * @uml.property  name="outFile"
+ */
+/**
+ * @param colNames
+ * @uml.property  name="colNames"
+ */
+/**
+ * @param rowNames
+ * @uml.property  name="rowNames"
+ */
+/**
+ * @param dataset
+ * @uml.property  name="dataset"
+ */
+/**
+ * Bimax library is compiled under 32-bit architecture, thus limiting the power of the application (Especially from heap space) Following is the re-implementation of the C-code in Java. This code should be tested with some sample datasets Also, its results should be compared to of an original
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="bitMaskLastBv"
+ */
+/**
+ * @return
+ * @uml.property  name="bitsPerBV"
+ */
+/**
+ * @return
+ * @uml.property  name="noBVs"
+ */
+/**
+ * @return
+ * @uml.property  name="noRows"
+ */
+/**
+ * @return
+ * @uml.property  name="noColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="minNoRows"
+ */
+/**
+ * @return
+ * @uml.property  name="minNoColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="maxLevels"
+ */
+/**
+ * @return
+ * @uml.property  name="rows"
+ */
+/**
+ * @return
+ * @uml.property  name="consideredColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="mandatoryColumns"
+ */
+/**
+ * @return
+ * @uml.property  name="columnIntersection"
+ */
+/**
+ * @return
+ * @uml.property  name="outFile"
+ */
+/**
+ * @return
+ * @uml.property  name="colNames"
+ */
+/**
+ * @return
+ * @uml.property  name="rowNames"
+ */
+/**
+ * @return
+ * @uml.property  name="dataset"
+ */
+/**
+ * @return
+ * @uml.property  name="biclusterCounter"
+ */
+/**
+ * @param bitMaskLastBv
+ * @uml.property  name="bitMaskLastBv"
+ */
+/**
+ * @param bitsPerBV
+ * @uml.property  name="bitsPerBV"
+ */
+/**
+ * @param noBVs
+ * @uml.property  name="noBVs"
+ */
+/**
+ * @param noRows
+ * @uml.property  name="noRows"
+ */
+/**
+ * @param noColumns
+ * @uml.property  name="noColumns"
+ */
+/**
+ * @param minNoRows
+ * @uml.property  name="minNoRows"
+ */
+/**
+ * @param minNoColumns
+ * @uml.property  name="minNoColumns"
+ */
+/**
+ * @param maxLevels
+ * @uml.property  name="maxLevels"
+ */
+/**
+ * @param rows
+ * @uml.property  name="rows"
+ */
+/**
+ * @param consideredColumns
+ * @uml.property  name="consideredColumns"
+ */
+/**
+ * @param mandatoryColumns
+ * @uml.property  name="mandatoryColumns"
+ */
+/**
+ * @param columnIntersection
+ * @uml.property  name="columnIntersection"
+ */
+/**
+ * @param outFile
+ * @uml.property  name="outFile"
+ */
+/**
+ * @param colNames
+ * @uml.property  name="colNames"
+ */
+/**
+ * @param rowNames
+ * @uml.property  name="rowNames"
+ */
+/**
+ * @param dataset
+ * @uml.property  name="dataset"
+ */
+/**
+ * @param biclusterCounter
+ * @uml.property  name="biclusterCounter"
+ */
 @Data
 public class MyBiMax {
 
+    /**
+	 * @uml.property  name="bitMaskLastBv"
+	 * @uml.associationEnd  inverse="this$0:bicat.biclustering.MyBiMax$BitVector"
+	 */
     private BitVector bitMaskLastBv;
+    /**
+	 * @uml.property  name="bitsPerBV"
+	 */
     private int bitsPerBV;
+    /**
+	 * @uml.property  name="noBVs"
+	 */
     private long noBVs;
 
-    private long noRows, noColumns, minNoRows, minNoColumns, maxLevels;
+    /**
+	 * @uml.property  name="noRows"
+	 */
+    private long noRows;
+	/**
+	 * @uml.property  name="noColumns"
+	 */
+	private long noColumns;
+	/**
+	 * @uml.property  name="minNoRows"
+	 */
+	private long minNoRows;
+	/**
+	 * @uml.property  name="minNoColumns"
+	 */
+	private long minNoColumns;
+	/**
+	 * @uml.property  name="maxLevels"
+	 */
+	private long maxLevels;
+    /**
+	 * @uml.property  name="rows"
+	 * @uml.associationEnd  multiplicity="(0 -1)" inverse="this$0:bicat.biclustering.MyBiMax$Row"
+	 */
     private Row[] rows;
-    private Cs_T[] consideredColumns, mandatoryColumns;
+    /**
+	 * @uml.property  name="consideredColumns"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
+    private Cs_T[] consideredColumns;
+	/**
+	 * @uml.property  name="mandatoryColumns"
+	 * @uml.associationEnd  multiplicity="(0 -1)" inverse="this$0:bicat.biclustering.MyBiMax$Cs_T"
+	 */
+	private Cs_T[] mandatoryColumns;
+    /**
+	 * @uml.property  name="columnIntersection"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private BitVector[] columnIntersection;
+    /**
+	 * @uml.property  name="outFile"
+	 */
     private PrintWriter outFile;
 
+    /**
+	 * @uml.property  name="colNames"
+	 */
     private String[] colNames;
+    /**
+	 * @uml.property  name="rowNames"
+	 */
     private String[] rowNames;
+    /**
+	 * @uml.property  name="dataset"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Dataset dataset;
 
+    /**
+	 * @uml.property  name="biclusters"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.biclustering.Bicluster"
+	 */
     private ArrayList<Bicluster> biclusters; // Results will be stored inside of this array list
 
+    /**
+	 * @author   Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
     public enum cMode_t {
+        /**
+		 * @uml.property  name="iDENTITY"
+		 * @uml.associationEnd  
+		 */
         IDENTITY,
+        /**
+		 * @uml.property  name="cOMPLEMENT"
+		 * @uml.associationEnd  
+		 */
         COMPLEMENT
     }
 
@@ -415,6 +761,9 @@ public class MyBiMax {
         return selected;
     }
 
+    /**
+	 * @uml.property  name="biclusterCounter"
+	 */
     private long biclusterCounter = 0;
 
     public void writeBicluster(long firstRow, long lastRow, BitVector[] columnSet) {
@@ -523,6 +872,24 @@ public class MyBiMax {
 
 
     // Private classes holding some data together needed for the algorithm
+    /**
+	 * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="value"
+	 */
+    /**
+	 * @author   Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="value"
+	 */
+    /**
+	 * @param value
+	 * @uml.property  name="value"
+	 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -531,21 +898,99 @@ public class MyBiMax {
 
     }
 
+    /**
+	 * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="bitVectors"
+	 */
+    /**
+	 * @author   Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="bitVectors"
+	 */
+    /**
+	 * @param bitVectors
+	 * @uml.property  name="bitVectors"
+	 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     private class Cs_T {
+        /**
+		 * @uml.property  name="bitVectors"
+		 * @uml.associationEnd  multiplicity="(0 -1)"
+		 */
         private BitVector[] bitVectors;
     }
 
+    /**
+	 * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="originalRowNumber"
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="columnSet"
+	 */
+    /**
+	 * @param originalRowNumber
+	 * @uml.property  name="originalRowNumber"
+	 */
+    /**
+	 * @author   Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="originalRowNumber"
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="columnSet"
+	 */
+    /**
+	 * @param originalRowNumber
+	 * @uml.property  name="originalRowNumber"
+	 */
+    /**
+	 * @param columnSet
+	 * @uml.property  name="columnSet"
+	 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     private class Row {
         private long originalRowNumber;
+        /**
+		 * @uml.property  name="columnSet"
+		 * @uml.associationEnd  multiplicity="(0 -1)"
+		 */
         private BitVector[] columnSet;
     }
 
+    /**
+	 * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="value"
+	 */
+    /**
+	 * @author   Taghi Aliyev, email : taghialiyev@gmail.com
+	 */
+    /**
+	 * @return
+	 * @uml.property  name="value"
+	 */
+    /**
+	 * @param value
+	 * @uml.property  name="value"
+	 */
     @Data
     @AllArgsConstructor
     @NoArgsConstructor

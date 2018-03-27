@@ -77,25 +77,268 @@ import java.util.Arrays;
  *
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="do_compute_ratio"
+ */
+/**
+ * @return
+ * @uml.property  name="do_compute_logarithm"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="do_discretize"
+ */
+/**
+ * @return
+ * @uml.property  name="logarithmBase"
+ */
+/**
+ * @return
+ * @uml.property  name="normalizationScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationMode"
+ */
+/**
+ * @return
+ * @uml.property  name="onesPercentage"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultOnesPercentage"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultLogBase"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultDiscrThr"
+ */
+/**
+ * @param do_compute_ratio
+ * @uml.property  name="do_compute_ratio"
+ */
+/**
+ * @param do_compute_logarithm
+ * @uml.property  name="do_compute_logarithm"
+ */
+/**
+ * @param do_normalize
+ * @uml.property  name="do_normalize"
+ */
+/**
+ * @param do_normalize_genes
+ * @uml.property  name="do_normalize_genes"
+ */
+/**
+ * @param do_normalize_chips
+ * @uml.property  name="do_normalize_chips"
+ */
+/**
+ * @param do_discretize
+ * @uml.property  name="do_discretize"
+ */
+/**
+ * @param defaultOnesPercentage
+ * @uml.property  name="defaultOnesPercentage"
+ */
+/**
+ * @param defaultLogBase
+ * @uml.property  name="defaultLogBase"
+ */
+/**
+ * Class that holds  the variable values for the preprocessing options. <p> Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="do_compute_ratio"
+ */
+/**
+ * @return
+ * @uml.property  name="do_compute_logarithm"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="do_normalize_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="do_discretize"
+ */
+/**
+ * @return
+ * @uml.property  name="logarithmBase"
+ */
+/**
+ * @return
+ * @uml.property  name="normalizationScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationScheme"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationMode"
+ */
+/**
+ * @return
+ * @uml.property  name="onesPercentage"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultOnesPercentage"
+ */
+/**
+ * @return
+ * @uml.property  name="discretizationThreshold"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultLogBase"
+ */
+/**
+ * @return
+ * @uml.property  name="defaultDiscrThr"
+ */
+/**
+ * @param do_compute_ratio
+ * @uml.property  name="do_compute_ratio"
+ */
+/**
+ * @param do_compute_logarithm
+ * @uml.property  name="do_compute_logarithm"
+ */
+/**
+ * @param do_normalize
+ * @uml.property  name="do_normalize"
+ */
+/**
+ * @param do_normalize_genes
+ * @uml.property  name="do_normalize_genes"
+ */
+/**
+ * @param do_normalize_chips
+ * @uml.property  name="do_normalize_chips"
+ */
+/**
+ * @param do_discretize
+ * @uml.property  name="do_discretize"
+ */
+/**
+ * @param defaultOnesPercentage
+ * @uml.property  name="defaultOnesPercentage"
+ */
+/**
+ * @param defaultLogBase
+ * @uml.property  name="defaultLogBase"
+ */
+/**
+ * @param defaultDiscrThr
+ * @uml.property  name="defaultDiscrThr"
+ */
 @Data
 public class PreprocessOption {
 
+    /**
+	 * @uml.property  name="do_compute_ratio"
+	 */
     private boolean do_compute_ratio;
+    /**
+	 * @uml.property  name="do_compute_logarithm"
+	 */
     private boolean do_compute_logarithm;
+    /**
+	 * @uml.property  name="do_normalize"
+	 */
     private boolean do_normalize;
+    /**
+	 * @uml.property  name="do_normalize_genes"
+	 */
     private boolean do_normalize_genes;
+    /**
+	 * @uml.property  name="do_normalize_chips"
+	 */
     private boolean do_normalize_chips;
+    /**
+	 * @uml.property  name="do_discretize"
+	 */
     private boolean do_discretize;
+    /**
+	 * @uml.property  name="logarithmBase"
+	 */
     private int logarithmBase;
+    /**
+	 * @uml.property  name="normalizationScheme"
+	 */
     private int normalizationScheme;
+    /**
+	 * @uml.property  name="discretizationScheme"
+	 */
     private int discretizationScheme;
+    /**
+	 * @uml.property  name="discretizationMode"
+	 */
     private String discretizationMode;
+    /**
+	 * @uml.property  name="onesPercentage"
+	 */
     private int onesPercentage;
+    /**
+	 * @uml.property  name="defaultOnesPercentage"
+	 */
     private int defaultOnesPercentage = 10;
+    /**
+	 * @uml.property  name="discretizationThreshold"
+	 */
     private double[] discretizationThreshold;
+    /**
+	 * @uml.property  name="defaultLogBase"
+	 */
     private int defaultLogBase = 2;
+    /**
+	 * @uml.property  name="defaultDiscrThr"
+	 */
     private double defaultDiscrThr = 2.0;
+    /**
+	 * @uml.property  name="discreteMatrix"
+	 */
     private int[][] discreteMatrix;
+    /**
+	 * @uml.property  name="preprocessedMatrix"
+	 */
     private float[][] preprocessedMatrix;
     // ===========================================================================
 
@@ -161,14 +404,26 @@ public class PreprocessOption {
     }
 
     // ===========================================================================
+    /**
+	 * @return
+	 * @uml.property  name="discreteMatrix"
+	 */
     public int[][] getDiscreteMatrix() {
         return discreteMatrix;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="preprocessedMatrix"
+	 */
     public float[][] getPreprocessedMatrix() {
         return preprocessedMatrix;
     }
 
+    /**
+	 * @param  data
+	 * @uml.property  name="discreteMatrix"
+	 */
     public void setDiscreteMatrix(int[][] data) {
         discreteMatrix = new int[data.length][data[0].length];
         for (int i = 0; i < data.length; i++)
@@ -177,6 +432,10 @@ public class PreprocessOption {
     }
 
 
+    /**
+	 * @param  data
+	 * @uml.property  name="preprocessedMatrix"
+	 */
     public void setPreprocessedMatrix(float[][] data) {
         preprocessedMatrix = new float[data.length][data[0].length];
         for (int i = 0; i < data.length; i++)
@@ -193,6 +452,10 @@ public class PreprocessOption {
         do_compute_logarithm = false;
     }
 
+    /**
+	 * @param  i
+	 * @uml.property  name="logarithmBase"
+	 */
     public void setLogarithmBase(int i) {
         logarithmBase = i;
     }
@@ -226,6 +489,10 @@ public class PreprocessOption {
         do_normalize_chips = false;
     }
 
+    /**
+	 * @param  i
+	 * @uml.property  name="normalizationScheme"
+	 */
     public void setNormalizationScheme(int i) {
         normalizationScheme = i;
     }
@@ -243,6 +510,10 @@ public class PreprocessOption {
         do_discretize = false;
     }
 
+    /**
+	 * @param  i
+	 * @uml.property  name="discretizationScheme"
+	 */
     public void setDiscretizationScheme(int i) {
         discretizationScheme = i;
     }
@@ -251,11 +522,19 @@ public class PreprocessOption {
         discretizationScheme = MethodConstants.PREPROCESS_OPTIONS_DISCRETIZATION_COEXPRESSED;
     }
 
+    /**
+	 * @param  thr
+	 * @uml.property  name="discretizationThreshold"
+	 */
     public void setDiscretizationThreshold(double[] thr) {
         discretizationThreshold = thr;
     }
     
 
+    /**
+	 * @param  onesPercentage
+	 * @uml.property  name="onesPercentage"
+	 */
     public void setOnesPercentage(int onesPercentage) {
         this.onesPercentage = onesPercentage;
     }
@@ -329,6 +608,10 @@ public class PreprocessOption {
         }
     }
 
+    /**
+	 * @param  discretizationMode
+	 * @uml.property  name="discretizationMode"
+	 */
     public void setDiscretizationMode(String discretizationMode) {
         this.discretizationMode = discretizationMode;
 

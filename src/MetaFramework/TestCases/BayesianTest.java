@@ -72,6 +72,7 @@ import MetaFramework.NCI.NCIMolecule;
 import MetaFramework.NCI.NCIPathway;
 import MetaFramework.NCI.PathwayAnalysisMixing;
 import bicat.biclustering.Bicluster;
+import bicat.biclustering.Dataset;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -102,6 +103,17 @@ public class BayesianTest {
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
         Set<NCIMolecule> allGenes = engine.getGeneToPath().keySet();
+        Set<NCIPathway> allPaths = engine.getPathToGene().keySet();
+        Set<NCIMolecule> mappedGenes = new HashSet<NCIMolecule>();
+
+        for (NCIPathway tmp : allPaths)
+        {
+            mappedGenes.addAll(engine.getPathToGene().get(tmp));
+        }
+
+        System.out.println("Size of mapped genes : " + mappedGenes.size());
+
+        System.out.println("Total number of genes: " + allGenes.size());
         Assert.assertEquals(allGenes == null, false);
         Assert.assertEquals(allGenes.size() > 0, true);
         // Performing biclustering
@@ -147,13 +159,14 @@ public class BayesianTest {
      */
     @Test
     public void testDiff() throws Exception {
-        String dataFile = "src/sampleData/dataSample_2.txt";
+        String dataFile = "src/sampleData/dataSample_1.txt";
 
         // Reading the pathway information from NCI Curated Database
         String file = "NCI.xml";
         PathwayAnalysisMixing engine = new PathwayAnalysisMixing(file);
 //        engine.parse();
         Set<NCIMolecule> allGenes = engine.getGeneToPath().keySet();
+        System.out.println("Total number of genes : " + allGenes.size());
         Set<String> names = new HashSet<String>();
         for (NCIMolecule mol : allGenes)
             names.add(mol.getName());
@@ -164,7 +177,7 @@ public class BayesianTest {
         BicatMethods bicatEngine = new BicatMethods(dataFile);
 
         // Let's run the algorithm now
-        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 10, 4, 6);
+        LinkedList<Bicluster> biclusters = bicatEngine.callBiMax(true, 25, 10, 12);
 
         System.out.println("Biclustering results: " + biclusters.size());
         Vector<String> newGeneNames = new Vector<String>();
@@ -195,10 +208,24 @@ public class BayesianTest {
         System.out.println("\n\n\n\n");
         System.out.println("Bayesian analysis results!!!");
 
+        Dataset riggedDataset = bicatEngine.getData();
+        float[][] binary = new float[riggedDataset.getData().length][riggedDataset.getData()[0].length];
+        int[][] discrete = bicatEngine.getReadingEngine().getDiscreteData();
+        for (int i = 0 ; i < binary.length; i ++)
+        {
+            for (int j = 0; j < binary[0].length; j++)
+            {
+                binary[i][j] = (float) discrete[i][j];
+            }
+        }
+
+        riggedDataset.setOrigDataMatrix(binary);
+        riggedDataset.setDiscrData(discrete);
+
         for (Bicluster tmp : biclusters) {
             System.out.println("New bicluster!!!\n");
             // -1 means differential expression
-            bayesian.compute(tmp, engine, bicatEngine.getData(), -1);
+            bayesian.compute(tmp, engine, riggedDataset, 1);
             System.out.println("--------------\n\n");
         }
 

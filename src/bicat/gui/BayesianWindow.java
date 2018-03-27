@@ -80,15 +80,25 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- * GUI element that will create and show the Bayesian analysis window
- * Idea is to have bunch of radio buttons and let user define how genes are grouped
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * GUI element that will create and show the Bayesian analysis window Idea is to have bunch of radio buttons and let user define how genes are grouped
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class BayesianWindow {
 
+    /**
+	 * @uml.property  name="owner"
+	 * @uml.associationEnd  
+	 */
     private BicatGui owner;
+    /**
+	 * @uml.property  name="engine"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private UtilFunctionalities engine;
+    /**
+	 * @uml.property  name="dialog"
+	 * @uml.associationEnd  
+	 */
     private JDialog dialog;
 
     public BayesianWindow(BicatGui owner) {

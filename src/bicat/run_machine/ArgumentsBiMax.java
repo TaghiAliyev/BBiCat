@@ -69,6 +69,69 @@ import bicat.Constants.MethodConstants;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * @return
+ * @uml.property  name="binaryData"
+ */
+/**
+ * @return
+ * @uml.property  name="lower_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="lower_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @param binaryData
+ * @uml.property  name="binaryData"
+ */
+/**
+ * @param lower_genes
+ * @uml.property  name="lower_genes"
+ */
+/**
+ * @param lower_chips
+ * @uml.property  name="lower_chips"
+ */
+/**
+ * @return
+ */
+/**
+ * @return
+ * @uml.property  name="binaryData"
+ */
+/**
+ * @return
+ * @uml.property  name="lower_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="lower_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="extended"
+ */
+/**
+ * @param binaryData
+ * @uml.property  name="binaryData"
+ */
+/**
+ * @param lower_genes
+ * @uml.property  name="lower_genes"
+ */
+/**
+ * @param lower_chips
+ * @uml.property  name="lower_chips"
+ */
+/**
+ * @param extended
+ * @uml.property  name="extended"
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 /**
@@ -79,12 +142,24 @@ import lombok.EqualsAndHashCode;
  */
 public class ArgumentsBiMax extends Arguments {
 
+	/**
+	 * @uml.property  name="binaryData"
+	 */
 	private int[][] binaryData;
 
+	/**
+	 * @uml.property  name="lower_genes"
+	 */
 	private int lower_genes;
 
+	/**
+	 * @uml.property  name="lower_chips"
+	 */
 	private int lower_chips;
 
+	/**
+	 * @uml.property  name="extended"
+	 */
 	private boolean extended;
 
 	// ===========================================================================

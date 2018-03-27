@@ -72,8 +72,15 @@ import bicat.util.LinkListElement;
 import bicat.util.ParetoModelRecord;
 
 
+/**
+ * @author  Taghi Aliyev, email : taghialiyev@gmail.com
+ */
 public class Pmr2listConverter {
 	
+	/**
+	 * @uml.property  name="list"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="bicat.biclustering.Bicluster"
+	 */
 	public LinkedList list = new LinkedList();
 	
 	

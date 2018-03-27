@@ -69,24 +69,35 @@ import bicat.util.OPSMDataset;
 import bicat.util.XMath;
 
 /**
- * Provides functionality to store a model initialization with its score and to
- * create the model, if it belongs to the best ones.
- *
- * @author Thomas Frech
- * @version 2004-07-22
+ * Provides functionality to store a model initialization with its score and to create the model, if it belongs to the best ones.
+ * @author  Thomas Frech
+ * @version  2004-07-22
  */
 public final class BendorReloadedModelInitialization extends BendorReloadedModelEvaluation
 {
 	// dataset
+	/**
+	 * @uml.property  name="dataset"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public OPSMDataset dataset;
 
 	// model size
+	/**
+	 * @uml.property  name="s"
+	 */
 	public int s;
 
 	// column with lowest rank
+	/**
+	 * @uml.property  name="ta"
+	 */
 	public int ta;
 
 	// column with highest rank
+	/**
+	 * @uml.property  name="tb"
+	 */
 	public int tb;
 
 

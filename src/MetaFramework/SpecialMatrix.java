@@ -68,13 +68,14 @@ package MetaFramework;
 import java.util.Comparator;
 
 /**
- * Implements a matrix which, when sorted, also sorts the indices of the elements
- * Needed as an utility for Bayesian analysis.
- *
- * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
+ * Implements a matrix which, when sorted, also sorts the indices of the elements Needed as an utility for Bayesian analysis.
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
 public class SpecialMatrix implements Comparator<Integer> {
 
+    /**
+	 * @uml.property  name="data"
+	 */
     public Double[] data;
 
     public SpecialMatrix(Double[] data)

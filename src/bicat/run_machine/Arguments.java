@@ -75,6 +75,70 @@ import lombok.Data;
  * Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
  * @author Taghi Aliyev, email : taghi.aliyev@cern.ch
  */
+/**
+ * @return
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="outputFileName"
+ */
+/**
+ * @return
+ * @uml.property  name="preOpts"
+ */
+/**
+ * @param total_genes
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @param total_chips
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @param outputFileName
+ * @uml.property  name="outputFileName"
+ */
+/**
+ * Generic arguments class. Contains the variables and methods every argument class should have. Specific arguments can be found in respective classes. Original Developers : Simon Barkow, Stefan Bleuler, Eckart Zitzler, Contributors: Amela Prelic, Don Frick
+ * @author  Taghi Aliyev, email : taghi.aliyev@cern.ch
+ */
+/**
+ * @return
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @return
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @return
+ * @uml.property  name="outputFileName"
+ */
+/**
+ * @return
+ * @uml.property  name="preOpts"
+ */
+/**
+ * @param total_genes
+ * @uml.property  name="total_genes"
+ */
+/**
+ * @param total_chips
+ * @uml.property  name="total_chips"
+ */
+/**
+ * @param outputFileName
+ * @uml.property  name="outputFileName"
+ */
+/**
+ * @param preOpts
+ * @uml.property  name="preOpts"
+ */
 @Data
 public class Arguments {
 
@@ -82,21 +146,50 @@ public class Arguments {
   public Arguments() {  }
 
   // ===========================================================================
-  private double[] data;
+  /**
+ * @uml.property  name="data"
+ */
+private double[] data;
 
-  private int total_genes;
-  private int total_chips;
+  /**
+ * @uml.property  name="total_genes"
+ */
+private int total_genes;
+  /**
+ * @uml.property  name="total_chips"
+ */
+private int total_chips;
 
-  private int seed;
-  private int logarithm;
+  /**
+ * @uml.property  name="seed"
+ */
+private int seed;
+  /**
+ * @uml.property  name="logarithm"
+ */
+private int logarithm;
 
-  private String outputFileName;
+  /**
+ * @uml.property  name="outputFileName"
+ */
+private String outputFileName;
 
-  private int datasetIdx;
-  private PreprocessOption preOpts;
+  /**
+ * @uml.property  name="datasetIdx"
+ */
+private int datasetIdx;
+  /**
+ * @uml.property  name="preOpts"
+ * @uml.associationEnd  
+ */
+private PreprocessOption preOpts;
 
   // ===========================================================================
-  public void setData(double[] d) {
+  /**
+ * @param  d
+ * @uml.property  name="data"
+ */
+public void setData(double[] d) {
     data = new double[d.length];
     for(int i = 0; i< d.length; i++) data[i] = d[i];
   }
@@ -104,26 +197,54 @@ public class Arguments {
   public void setGeneNumber(int tg) { total_genes = tg; }
   public void setChipNumber(int tc) { total_chips = tc; }
 
-  public void setSeed(int s) { seed = s; }
-  public void setLogarithm(int l) { logarithm = l; }
+  /**
+ * @param  s
+ * @uml.property  name="seed"
+ */
+public void setSeed(int s) { seed = s; }
+  /**
+ * @param  l
+ * @uml.property  name="logarithm"
+ */
+public void setLogarithm(int l) { logarithm = l; }
 
   public void setOutputFile(String of) { outputFileName = of; }
 
-  public void setDatasetIdx(int idx) { datasetIdx = idx; }
+  /**
+ * @param  idx
+ * @uml.property  name="datasetIdx"
+ */
+public void setDatasetIdx(int idx) { datasetIdx = idx; }
   public void setPreprocessOptions(PreprocessOption po) { preOpts = po; }
 
   // ===========================================================================
-  public double[] getData() { return data; }
+  /**
+ * @return
+ * @uml.property  name="data"
+ */
+public double[] getData() { return data; }
 
   public int getGeneNumber() { return total_genes; }
   public int getChipNumber() { return total_chips; }
 
-  public int getSeed() { return seed; }
-  public int getLogarithm() { return logarithm; }
+  /**
+ * @return
+ * @uml.property  name="seed"
+ */
+public int getSeed() { return seed; }
+  /**
+ * @return
+ * @uml.property  name="logarithm"
+ */
+public int getLogarithm() { return logarithm; }
 
   public String getOutputFile() { return outputFileName; }
 
-  public int getDatasetIdx() { return datasetIdx; }
+  /**
+ * @return
+ * @uml.property  name="datasetIdx"
+ */
+public int getDatasetIdx() { return datasetIdx; }
   public PreprocessOption getPreprocessOptions() { return preOpts; }
 
 }
